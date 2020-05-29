@@ -9,5 +9,6 @@
 <body>
   <div> ddd</div>
   <div> ±èÁø¿µ</div>
+  <div>½ÅÈÆÁö test</div>
 </body>
 </html>
