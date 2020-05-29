@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>dfdfdf</div>
-	<div>이게 보이시나엽?</div>
+<h3>안성원</h3>
 </body>
 </html>
