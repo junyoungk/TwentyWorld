@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>김진ㅇㄴㅇㅁㄴㅇㅁㄴㅇ영</h3>
+<h3>김진영</h3>
 </body>
 </html>
