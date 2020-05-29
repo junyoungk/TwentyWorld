@@ -9,5 +9,6 @@
 </head>
 <body>
 <h3>신훈지</h3>
+<div>COMMIT</div>
 </body>
 </html>
