@@ -1,3 +1,4 @@
+<%@page import="sun.font.Script"%>
 <%@page import="CKJY.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -20,20 +21,41 @@
 </head>
 <body>
 
+	
 	<%
+	
+		String userID = null;
+		if(session.getAttribute("userID") != null){
+			userID = (String) session.getAttribute("userID");
+		}
+		if(userID != null){
+			out.println("<script>");
+			out.println("alert('로그인 상태')");
+			out.println("location.href= 'testmain.jsp'");
+			out.println("</script>");
+		}
+
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(dto.getUser_id(),dto.getUser_pw());
 		
 		if(result == 1 ) {
+			session.setAttribute("userID", dto.getUser_id());
 			out.println("<script>");
-			out.println("location.href =  'main.jsp'");
+			out.println("alert('로그인성공') ");
+			out.println("location.href =  'testmain.jsp'");
+			
 			out.println("</script>");
-		} else {
+		} else if (result == 0) {
 			out.println("<script>");
-			out.println("alert('야스')");
+			out.println("alert('비밀번호를 확인해주세요.')");
+			out.println("history.back()");
+			out.println("</script>");
+		} else if (result == -1) {
+			out.println("<script>");
+			out.println("alert('존재하지 않는아이디')");
+			out.println("history.back()");
 			out.println("</script>");
 		}
-	
 	%>
 
 </body>

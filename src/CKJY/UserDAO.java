@@ -18,7 +18,7 @@ public class UserDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "TEAM20", "tiger20");
-			System.out.println("WriteDAO 생성, 데이터 베이스 연결!");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println();
@@ -57,5 +57,24 @@ public class UserDAO {
 		}
 		return -2;
 	}
+	 
+	public int join(UserDTO user) {
+		String SQL = "INSERT INTO USERS VALUES (user_SEQ.nextval, ?, ?, ?, ?, ?, ?, 1, ?,'-')";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user.getUser_id());
+			pstmt.setString(2, user.getUser_pw());
+			pstmt.setString(3, user.getUser_name());
+			pstmt.setString(4, user.getUser_gender());
+			pstmt.setString(5, user.getUser_jumin());
+			pstmt.setInt(6, user.getUser_age());
+			pstmt.setString(7, user.getUser_email());
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		   }	
+		return -1;
+
+}
 
 }
