@@ -1,8 +1,8 @@
 /* test */
 
-/* °ü¸®ÀÚ ³Ö±â */
+/* ê´€ë¦¬ì°¨ ì¶”ê°€ */
 INSERT INTO USERS VALUES
-(user_SEQ.nextval, '°ü¸®ÀÚ','1234','°ü¸®ÀÚ','','1111111111111',100,3000,'°ü¸®ÀÚ@°ü¸®ÀÚ.com','-');
+(user_SEQ.nextval, 'ê´€ë¦¬ìž','1234','ê´€ë¦¬ìž','','1111111111111',100,3000,'ê´€ë¦¬ìž@ê´€ë¦¬ìž.com','-');
 
+/* í…Œì´ë¸” í™•ì¸ */
 SELECT * FROM USERS;
-SELECT user_pw FROM users WHERE USER_ID = '°ü¸®ÀÚ';
