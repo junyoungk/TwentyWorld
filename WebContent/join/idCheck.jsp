@@ -14,8 +14,8 @@ String id = (String)request.getParameter("id");
 			out.println("사용불가능.");
 		
 			
-	  } else {
-		  out.println("사용가능");
+	  } else { 
+		  out.println("사용가능 ");
 	  }
 
 %>
