@@ -1,4 +1,4 @@
-<%@page import="sun.font.Script"%>
+
 <%@page import="CKJY.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

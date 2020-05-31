@@ -76,5 +76,23 @@ public class UserDAO {
 		return -1;
 
 }
+	public int idCheckFunction(String user_id) {
+		String SQL = "SELECT * FROM USERS WHERE user_id = ?";
+				
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return 0;
+			} else {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	
+	}
 
 }
