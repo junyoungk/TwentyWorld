@@ -24,7 +24,6 @@ public class UserDAO {
 			System.out.println();
 			// throw e;
 		}
-
 	}
 
 	public void close() throws SQLException {
