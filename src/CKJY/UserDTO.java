@@ -8,9 +8,33 @@ public class UserDTO {
 	String user_gender;
 	String user_jumin;
 	int user_age;
-	int uer_authorize;
+	int user_authorize;
 	String user_email;
 	String user_cardnum;
+	
+	public UserDTO() {
+		
+	}
+	
+	
+	
+	public UserDTO(int user_uid, String user_id, String user_pw, String user_name, String user_gender,
+			String user_jumin, int user_age, int user_authorize, String user_email, String user_cardnum) {
+		super();
+		this.user_uid = user_uid;
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_gender = user_gender;
+		this.user_jumin = user_jumin;
+		this.user_age = user_age;
+		this.user_authorize = user_authorize;
+		this.user_email = user_email;
+		this.user_cardnum = user_cardnum;
+	}
+
+
+
 	public int getUser_uid() {
 		return user_uid;
 	}
@@ -53,11 +77,11 @@ public class UserDTO {
 	public void setUser_age(int user_age) {
 		this.user_age = user_age;
 	}
-	public int getUer_authorize() {
-		return uer_authorize;
+	public int getUser_authorize() {
+		return user_authorize;
 	}
-	public void setUer_authorize(int uer_authorize) {
-		this.uer_authorize = uer_authorize;
+	public void setUser_authorize(int user_authorize) {
+		this.user_authorize = user_authorize;
 	}
 	public String getUser_email() {
 		return user_email;

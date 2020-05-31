@@ -22,7 +22,7 @@
       <div><a href="login.jsp">로그인</a></div>
         <div><a href="../join/join.jsp">회원가입</a></div>
 	 <% } else { %>
-	  <div><a href="">마이페이지</a></div>
+	  <div><a href="mypage.jsp">마이페이지</a></div>
 	  <div><a href="logoutCheck.jsp">로그아웃</a></div>
 	  <% } %>
 </body>
