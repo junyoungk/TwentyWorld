@@ -21,6 +21,7 @@
 
 <% UserDTO [] arr = dao.readMypage(userID); %>
 
+
 <%
 	if(arr == null || arr.length == 0){ 
 %>
@@ -44,6 +45,7 @@
 	int user_authorize = arr[0].getUser_authorize();
 	String user_email = arr[0].getUser_email();
 	String user_cardnum = arr[0].getUser_cardnum();
+	String a = dao.findID("관리자", "1111111111111");
 %>
 
 <body>
@@ -52,16 +54,18 @@
  <h3>세션값 : <%= userID %> (나중에 빼야함 확인용)</h3>
 	<hr> 
  
-  회원번호 : <%= user_uid %> <br>
-  회원아이디 : <%= user_id %> <br>
-  회원비밀번호 : <%= user_pw %> <br>
-  회원이름 : <%= user_name %> <br>
-  회원성별 : <%= user_gender %> <br>
-  회원주민번호 : <%= user_jumin %> <br>
-  회원나이 : <%= user_age %> <br>
-  회원권한 : <%= user_authorize %> <br>
-  회원이메일 : <%= user_email %> <br>
-  회원카드번호 : <%= user_cardnum %> <br>
-  
+<form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
+ <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
+ 고객 명 : <%= user_name %><br>
+ 비밀번호 : 
+<input type="password" name="user_pw" value="<%= user_pw %>"/><br>
+이메일: <br>
+<input type="email" name="user_email" value="<%= user_email %>" /><br>
+카드 번호<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
+<br>
+<input type="submit" value="수정"/>
+ </form>
+  <hr>
+   <div><a href="userdeleteCheck.jsp">회원탈퇴</a></div>
 </body>
 </html>

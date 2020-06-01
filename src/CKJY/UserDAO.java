@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 
 
+
+
 public class UserDAO {
 	Connection conn = null;
 	Statement stmt = null;
@@ -86,6 +88,7 @@ public class UserDAO {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user_id);
 			rs = pstmt.executeQuery();
+			
 			if(rs.next()) {
 				return 0;
 			} else {
@@ -143,5 +146,79 @@ public class UserDAO {
 		}
 		return arr;
 	}
+	
+	public int UserDelete(String session) {
+		String SQL = "DELETE FROM USERS WHERE user_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, session);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {				
+				return 1; // 로그인 성공					
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public String findID (String user_name, String user_jumin) {
+		String SQL = "SELECT user_id FROM USERS WHERE user_name = ? AND user_jumin = ?";
+		String user_id = "";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user_name);
+			pstmt.setString(2, user_jumin);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {				
+				user_id = rs.getString("user_id");				
+				
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user_id;
+	}
+	
+	public UserDTO[] selectByUid(int user_uid) throws SQLException{
+		String SQL = "SELECT * FROM USERS WHERE user_uid = ?";
+		UserDTO [] arr = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	
+	public int update(int user_uid, String user_pw, String user_email, String user_cardnum) throws SQLException {
+		int cnt = 0;
+		String SQL = "UPDATE USERS SET user_pw = ? , user_email = ? ,user_cardnum = ? WHERE user_uid = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,user_pw);
+			pstmt.setString(2,user_email);
+			pstmt.setString(3,user_cardnum);
+			pstmt.setInt(4,user_uid);
+
+			
+			cnt = pstmt.executeUpdate();
+		}finally {
+			close();
+		}	
+		return cnt;
+		
+	} 
+
+	
+
+	
+	
+	
 
 }
