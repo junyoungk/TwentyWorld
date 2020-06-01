@@ -52,7 +52,7 @@
  <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
  고객 명 : <%= user_name %><br>
  비밀번호 : 
-<input type="text" name="user_pw" value="<%= user_pw %>"/><br>
+<input type="password" name="user_pw" value="<%= user_pw %>"/><br>
 이메일: <br>
 <input type="email" name="user_email" value="<%= user_email %>" /><br>
 카드 번호<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
