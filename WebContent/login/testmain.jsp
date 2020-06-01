@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3> 김진영 세팅 </h3>
+
 <%
 	String userID = null;
 	if(session.getAttribute("userID") != null) {
