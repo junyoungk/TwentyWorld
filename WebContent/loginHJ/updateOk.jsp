@@ -10,7 +10,7 @@
 	String user_email = request.getParameter("user_email");
 	String user_cardnum = request.getParameter("user_cardnum");
 %>
-
+   
 <%
 	int cnt = dao.update(user_uid, user_pw, user_email, user_cardnum);
 %>

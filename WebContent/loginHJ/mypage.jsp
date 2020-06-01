@@ -17,7 +17,7 @@
 	if(session.getAttribute("userID") != null) {
 	userID = (String) session.getAttribute("userID");
 } 
-%>
+%>    
 
 <% UserDTO [] arr = dao.readMypage(userID); %>
 
