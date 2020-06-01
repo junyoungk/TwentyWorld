@@ -17,6 +17,7 @@
 		아이디<input type="text" name="user_id"><br>
 		비밀번호<input type="text" name="user_pw"><br>
 		<input type="submit" value="로그인"> 
+		아이디찾기 비밀번호찾기
 	</form>
 </body>
 </html>	
