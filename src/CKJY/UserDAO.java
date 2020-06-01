@@ -171,9 +171,11 @@ public class UserDAO {
 			pstmt.setString(2, user_jumin);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {				
+			if(rs.next()) {				
 				user_id = rs.getString("user_id");				
 				
+			} else {
+				return "없음";
 			}
 		
 		} catch (Exception e) {
@@ -215,6 +217,28 @@ public class UserDAO {
 		
 	} 
 
+	public String findPW (String user_name,String user_id, String user_jumin) {
+		String SQL = "SELECT user_pw FROM USERS WHERE user_name = ? AND user_id = ? AND user_jumin = ?";
+		String user_pw = "";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user_name);
+			pstmt.setString(2, user_id);
+			pstmt.setString(3, user_jumin);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {				
+				user_pw = rs.getString("user_pw");				
+				
+			} else {
+				return "없음";
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user_pw;
+	}
 	
 
 	

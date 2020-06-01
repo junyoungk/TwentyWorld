@@ -67,5 +67,7 @@
  </form>
   <hr>
    <div><a href="userdeleteCheck.jsp">회원탈퇴</a></div>
+   
+   관리자아이디: <%= a %>
 </body>
 </html>

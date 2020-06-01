@@ -23,19 +23,19 @@
 	
 	<hr>
 	
-	<form method="post" action="idfindCheck.jsp"></form>
+	<form method="post" action="idfind.jsp">
 	이름<input type="text" name="user_name"><br>
 	주민번호<input type="text" name="user_jumin"><br>
 		<input type="submit" value="찾기"> <br>
-		
+	</form>	
 	<hr>
 	
-	<form method="post" action="idfindCheck.jsp"></form>
+	<form method="post" action="pwfind.jsp">
 	이름<input type="text" name="user_name"><br>
 	아이디<input type="text" name="user_id"><br>
 	주민번호<input type="text" name="user_jumin"><br>
 		<input type="submit" value="찾기"> <br>	
-	
+	</form>
 	
 </body>
 </html>	

@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3> 김진ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ </h3>
+
 
 <%
 	String userID = null;
