@@ -53,7 +53,7 @@ function idcheck(){
 		이름<input type="text" name="user_name"><br>
 		주민번호<input type="number" name="user_jumin"><br>		
 		나이<input type="number" name="user_age"><br>
-		성별
+		성별은?
 			<label>
 				<input type="radio" name="user_gender" value="남자"  checked="checked">남자
 			</label>
