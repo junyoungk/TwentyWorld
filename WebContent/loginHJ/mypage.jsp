@@ -48,16 +48,17 @@
 
 <body>
  <h3>회원정보</h3>
-  아이디 : <%= user_id %> <br>
-  회원비밀번호 : <%= user_pw %> <br>
-  고객명 : <%= user_name %> <br>
-  성별 : <%= user_gender %> <br>
-  주민번호 : <%= user_jumin %> <br>
-  나이 : <%= user_age %> <br>
-  권한 : <%= user_authorize %> <br>
-  이메일 : <%= user_email %> <br>
-  카드번호 : <%= user_cardnum %> <br>
-  <hr>
-  <button onclick="">회원정보 수정</button>
+ <form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
+ <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
+ 고객 명 : <%= user_name %><br>
+ 비밀번호 : 
+<input type="text" name="user_pw" value="<%= user_pw %>"/><br>
+이메일: <br>
+<input type="email" name="user_email" value="<%= user_email %>" /><br>
+카드 번호<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
+<br>
+<input type="submit" value="수정"/>
+ </form>
+
 </body>
 </html>

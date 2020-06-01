@@ -144,11 +144,38 @@ public class UserDAO {
 		return arr;
 	}
 	
-	public UserDTO[] selectByUid(int user_uid) {
-		String SQL = "SELECT * FROM USER WHERE user_uid = ?";
+	public UserDTO[] selectByUid(int user_uid) throws SQLException{
+		String SQL = "SELECT * FROM USERS WHERE user_uid = ?";
 		UserDTO [] arr = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
 		return arr;
+	}
+	
+	public int update(int user_uid, String user_pw, String user_email, String user_cardnum) throws SQLException {
+		int cnt = 0;
+		String SQL = "UPDATE USERS SET user_pw = ? , user_email = ? ,user_cardnum = ? WHERE user_uid = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1,user_pw);
+			pstmt.setString(2,user_email);
+			pstmt.setString(3,user_cardnum);
+			pstmt.setInt(4,user_uid);
+
+			
+			cnt = pstmt.executeUpdate();
+		}finally {
+			close();
+		}	
+		return cnt;
 		
 	}
 
+	
 }
