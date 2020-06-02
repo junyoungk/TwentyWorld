@@ -22,8 +22,8 @@
 	// Connection 에 필요한 값 세팅
 	final String DRIVER = "oracle.jdbc.driver.OracleDriver";  // JDBC 드라이버 클래스
 	final String URL = "jdbc:oracle:thin:@localhost:1521:XE";  // DB 접속 URL
-	final String USERID = "scott0316";  // DB 접속 계정 정보
-	final String USERPW = "tiger0316";
+	final String USERID = "TEAM20";  // DB 접속 계정 정보
+	final String USERPW = "TIGER20";
 %>
 <%--
 <%!
