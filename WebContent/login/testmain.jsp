@@ -12,15 +12,14 @@
 
 
 <%
-	String userID = null;
+	int userID = 0;
 	if(session.getAttribute("userID") != null) {
-		userID = (String) session.getAttribute("userID");
+		userID = Integer.parseInt(session.getAttribute("userID").toString());
 	} 
-
 %>
 	  <h3>세션값 : <%= userID %></h3>
 	  
-	  <% if (userID == null) { %>
+	  <% if (userID == 0) { %>
       <div><a href="login.jsp">로그인</a></div>
         <div><a href="../join/join.jsp">회원가입</a></div>
 	 <% } else { %>

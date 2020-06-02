@@ -1,4 +1,3 @@
-
 <%@page import="CKJY.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,6 +8,7 @@
 <jsp:useBean id="dto" class="CKJY.UserDTO" scope="page"/>
 <jsp:setProperty property="user_id" name="dto"/>
 <jsp:setProperty property="user_pw" name="dto"/>
+<jsp:setProperty property="user_uid" name="dto"/>
 
 
 
@@ -24,22 +24,21 @@
 	
 	<%
 	
-		String userID = null;
+		int userID = 0;
 		if(session.getAttribute("userID") != null){
-			userID = (String) session.getAttribute("userID");
+			userID = Integer.parseInt(session.getAttribute("userID").toString());
 		}
-		if(userID != null){
+		if(userID != 0){
 			out.println("<script>");
 			out.println("alert('로그인 상태')");
 			out.println("location.href= 'testmain.jsp'");
 			out.println("</script>");
 		}
-
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(dto.getUser_id(),dto.getUser_pw());
 		
 		if(result == 1 ) {
-			session.setAttribute("userID", dto.getUser_id());
+			session.setAttribute("userID", dto.getUser_uid());
 			out.println("<script>");
 			out.println("alert('로그인성공') ");
 			out.println("location.href =  '../board/list.do'");
