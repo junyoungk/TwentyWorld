@@ -63,10 +63,10 @@ function idcheck(){
 					<button type="button" onclick="idcheck()">중복체크</button><br>
 					
 					<label>비밀번호</label>
-					<input type="text" name="user_pw" id="user_pw"><br>
+					<input type="password" name="user_pw" id="user_pw"><br>
 					
 					<label style="display: inline !important;">비밀번호확인</label>
-					<input type="text" style="border-width: 0px;" size="20" name="chk" 
+					<input type="password" style="border-width: 0px;" size="20" name="chk" 
 						value="비밀번호를 입력하세요" readonly="readonly" class="danger1 text-right">
 					<input type="text" name="user_pw2" id="user_pw2" onblur="passchk()">
 					<br>
