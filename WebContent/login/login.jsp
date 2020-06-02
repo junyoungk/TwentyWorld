@@ -16,7 +16,7 @@
 	<form method="post" action="loginCheck.jsp">
 		아이디<input type="text" name="user_id" ><br>
 		비밀번호<input type="text" name="user_pw"><br>
-		<input type="hidden" name="user_uid" value="1">
+		
 		<input type="submit" value="로그인"> <br>
 		
 		

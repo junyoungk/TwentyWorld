@@ -8,7 +8,7 @@
 <jsp:useBean id="dto" class="CKJY.UserDTO" scope="page"/>
 <jsp:setProperty property="user_id" name="dto"/>
 <jsp:setProperty property="user_pw" name="dto"/>
-<jsp:setProperty property="user_uid" name="dto"/>
+
 
 
 
@@ -38,7 +38,8 @@
 		int result = userDAO.login(dto.getUser_id(),dto.getUser_pw());
 		
 		if(result == 1 ) {
-			session.setAttribute("userID", dto.getUser_uid());
+			int uid = userDAO.checkuid(dto.getUser_id());
+			session.setAttribute("userID", uid);
 			out.println("<script>");
 			out.println("alert('로그인성공') ");
 			out.println("location.href =  '../board/list.do'");

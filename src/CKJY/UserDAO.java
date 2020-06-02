@@ -62,6 +62,23 @@ public class UserDAO {
 		}
 		return -2;
 	}
+	
+	public int checkuid(String user_id) {
+		String SQL = "SELECT user_uid FROM users WHERE USER_ID = ?";
+		int uid = 0;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				uid = rs.getInt("user_uid");	
+				}
+			}
+		catch (Exception e) {
+			e.printStackTrace();
+		   }	
+		return uid;
+	}
 	 
 	public int join(UserDTO user) { // 회원등록
 		String SQL = "INSERT INTO USERS VALUES (user_SEQ.nextval, ?, ?, ?, ?, ?, ?, 1, ?,'-')";
@@ -129,13 +146,13 @@ public class UserDAO {
 		return arr;
 	}
 	
-	public UserDTO[] readMypage(String session) {
-		String SQL = "SELECT * FROM USERS WHERE user_id = ?";
+	public UserDTO[] readMypage(int session) {
+		String SQL = "SELECT * FROM USERS WHERE user_uid = ?";
 		UserDTO [] arr = null;
 		try {
 			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, session);
+			pstmt.setInt(1, session);
 			rs = pstmt.executeQuery();
 			
 			arr = createArray(rs);
@@ -147,11 +164,11 @@ public class UserDAO {
 		return arr;
 	}
 	
-	public int UserDelete(String session) {
-		String SQL = "DELETE FROM USERS WHERE user_id = ?";
+	public int UserDelete(int session) {
+		String SQL = "DELETE FROM USERS WHERE user_uid = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, session);
+			pstmt.setInt(1, session);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {				
 				return 1; // 로그인 성공					

@@ -13,13 +13,13 @@
 
 
 <%
-	String userID = null;
+	int userID = 0;
 	if(session.getAttribute("userID") != null) {
-	userID = (String) session.getAttribute("userID");
-} 
+		userID = Integer.parseInt(session.getAttribute("userID").toString());
+	} 
 %>
 
-<% UserDTO [] arr = dao.readMypage(userID); %>
+<% UserDTO [] arr = dao.readMypage(userID); %> 
 
 
 <%

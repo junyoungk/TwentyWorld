@@ -3,9 +3,9 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-	String userID = null;
-	if(session.getAttribute("userID") != null) {
-	userID = (String) session.getAttribute("userID");
+int userID = 0;
+if(session.getAttribute("userID") != null) {
+	userID = Integer.parseInt(session.getAttribute("userID").toString());
 } 
 	
 	UserDAO dao = new UserDAO();
@@ -13,6 +13,7 @@
 	
 	session.invalidate();
 	
+	 
 	out.println("<script>");
 	out.println("alert('그동안감사했습니다 수고링~!')");
 	out.println("location.href('testmain.jsp')");
