@@ -68,15 +68,48 @@ INSERT ALL
 	 'http://adventure.lotteworld.com/image/2018/6/20180620073640138_275.jpg', 'http://adventure.lotteworld.com/image/2018/6/20180620073652436_1350.jpg')
 SELECT * FROM DUAL;
 
+-- 입력을 받지 않았을 때 기본 설정은?
+-- attr_location, attr_min_age, attr_max_age, attr_min_height, attr_max_height
+-- 위치a : 실내 : 0/ 실외 : 1// 전체는 어떻게 설정하나? 따로 해야 하나
+-- 키b : 최소키 < 입력받은값 && 입력받은 값 < 최대값
+-- 나이c : 최소나이 < 입력받은값 && 입력받은 값 < 최대나이
+
+SELECT  * FROM ATTRACTION 
+WHERE attr_min_age < 5 AND 5 <= attr_max_age 
+AND attr_min_height < 140 AND 140 <= attr_max_height
+ORDER BY attr_id DESC;
+
+SELECT  * FROM ATTRACTION 
+WHERE attr_min_age < 5 AND 5 <= attr_max_age 
+AND attr_min_height < attr_height AND attr_height <= attr_max_height
+ORDER BY attr_id DESC;
 
 
 
 
+attr_location == attrlo
+
+AND attr_min_age < 5 AND 5 <= attr_max_age 
+
+AND attr_min_height < attr_height AND attr_height <= attr_max_height
 
 
+IF 1번 상관없음 
+--> 
+
+int age_min = rs.getInt("attr_min_age");
+int age_max = rs.getInt("attr_max_age");
+int height_min= rs.getInt("attr_min_height");
+int height_max = rs.getInt("attr_max_height");
 
 
+SELECT * FROM ATTRACTION 
+WHERE ATTR_LOCATION == attr_lo
+AND age_min < attr_age AND attr_age <= age_max 
+AND height_min < attr_height AND attr_height <= height_max
+ORDER BY attr_id DESC;
 
+--> 2번 상관없음 
 
 
 

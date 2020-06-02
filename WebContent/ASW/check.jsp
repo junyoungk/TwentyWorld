@@ -25,13 +25,53 @@
 	final String USERID = "scott0316";  // DB 접속 계정 정보
 	final String USERPW = "tiger0316";
 %>
-
+<%--
 <%!
 	// 쿼리문 준비
 	final String SQL_WRITE_SELECT = 
 		"SELECT * FROM attraction ORDER BY attr_id DESC"; 
 %>
+ --%>
 <%
+
+String text = "SELECT * FROM ATTRACTION";
+if(attr_location != 2222){//위치
+	if(attr_age != 2222){//나이
+		if(attr_height != 2222){//키
+			text+= " WHERE attr_location = " +attr_location  +
+					" AND attr_min_age< " +attr_age+" AND "+attr_age +"<= attr_max_age " +
+					" AND attr_min_height < "+attr_height+" AND "+attr_height+" <= attr_max_height ";
+		}else{
+			text+= " WHERE attr_location = " +attr_location  +
+					" AND attr_min_age< " +attr_age+" AND "+attr_age +"<= attr_max_age ";
+		}
+	}else{
+		if(attr_height != 2222){//키
+			text+= " WHERE attr_location = " +attr_location  +
+					" AND attr_min_height < "+attr_height+" AND "+attr_height+" <= attr_max_height ";
+		}else{
+			text+=" WHERE attr_location = " +attr_location ;
+		}
+	}
+}else{
+	if(attr_age != 2222){//나이
+		if(attr_height != 2222){//키
+			text+=" WHERE attr_min_age< " +attr_age+" AND "+attr_age +"<= attr_max_age " +
+					" AND attr_min_height < "+attr_height+" AND "+attr_height+" <= attr_max_height ";
+		}else{
+			text+=" WHERE attr_min_age< " +attr_age+" AND "+attr_age +"<= attr_max_age ";
+		}
+	}else{
+		if(attr_height != 2222){//키
+			text+=" WHERE attr_min_height < "+attr_height+" AND "+attr_height+" <= attr_max_height ";
+		}else{
+			
+		}
+	}
+}
+//text+=" ORDER BY attr_id DESC;";
+out.println(text);
+
 	try{
 		Class.forName(DRIVER);
 		out.println("드라이버 로딩 성공" + "<br>");
@@ -39,7 +79,7 @@
 		out.println("conn 성공" + "<br>");
 		
 		// 트랜잭션 실행
-		pstmt = conn.prepareStatement(SQL_WRITE_SELECT);
+		pstmt = conn.prepareStatement(text);
 		
 		rs = pstmt.executeQuery();
 		out.println("쿼리 성공<br>");
@@ -52,19 +92,12 @@
 			String attr_name = rs.getString("attr_name");
 			String attr_cardimg = rs.getString("attr_cardimg");
 			
-		if(attr_location == attrlo){ 
-			
 			//전체 출력
+			//TODO
 			out.println("<div id = 'attr_menu'style='width: 250px;width:200px;border:2px solids lategrey;display:inline-block;'>"
 			+"<a href=''><div id='item_img'style='height:200px;width:200px;background-position:center;background-image:url(" + attr_cardimg
 		    + ");background-size: cover;'></div>" + "<div id='item_name'style='width: 50px;width:200px;'><b>" + attr_name 
 		    + "</b></div><div id='attr_uid'>" + uid +"</div></a></div>");
-		}else if (attr_location == 2){
-			out.println("<div id = 'attr_menu'style='width: 250px;width:200px;border:2px solids lategrey;display:inline-block;'>"
-					+"<a href=''><div id='item_img'style='height:200px;width:200px;background-position:center;background-image:url(" + attr_cardimg
-				    + ");background-size: cover;'></div>" + "<div id='item_name'style='width: 50px;width:200px;'><b>" + attr_name 
-				    + "</b></div><div id='attr_uid'>" + uid +"</div></a></div>");
-		}
 			
 		} // end while
 %>			
