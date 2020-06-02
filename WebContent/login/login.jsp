@@ -23,7 +23,7 @@
 	</form>
 	
 	<hr>
-	
+	 
 	<form method="post" action="idfind.jsp">
 	이름<input type="text" name="user_name"><br>
 	주민번호<input type="text" name="user_jumin"><br>
