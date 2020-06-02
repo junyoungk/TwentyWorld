@@ -10,7 +10,7 @@ DROP SEQUENCE ATTRACTION_WRITE_SEQ;
 CREATE TABLE attraction
 (
 attr_id number NOT NULL,
-att_max number NOT NULL,
+attr_max number NOT NULL, --탑승최대인원
 attr_time number NOT NULL,
 attr_price number NOT NULL,
 attr_content clob,
