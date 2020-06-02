@@ -113,7 +113,8 @@
       .login-section{
       	margin-top:70px;
       }
-      #login_id , #login_pw, .login_submit {
+      #login_id , #login_pw, .login_submit, #user_pw,#user_pw2, #user_id, #user_name,
+      #user_jumin, #user_age, #user_email {
       	width: 370px;
 	    padding: 0 15px;
 	    margin-bottom: 20px;

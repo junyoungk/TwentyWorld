@@ -13,57 +13,7 @@
 </head>
 <body>
 <div class="wrapper">
-      <div class="header">
-        <div class="container">
-          <div class="row">
-            <div id="myNav" class="overlay">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <div class="overlay-content">
-                <a href="#">소개 / 오시는 길</a>
-                <a href="#">어트랙션</a>
-                <a href="#">자유게시판</a>
-                <a href="#">로그인</a>
-                <a href="#">회원가입</a>
-              </div>
-            </div>
-
-            <div class="d-block col-lg-2 logo text-center">
-              <div class="mobile_ver d-block d-lg-none">
-                <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
-              </div>
-              <a href="#">
-                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
-              </a>
-            </div>
-            <div class="d-none d-lg-block col-lg-8 main_menu align-self-center">
-              <ul class="nav  justify-content-center list-group list-group-horizontal">
-                <li class="nav-item list-group-item dropdown">
-                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">소개 글 및 오시는 길</a>
-                  </div>
-                </li>
-                <li class="nav-item list-group-item">
-                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">어트랙션</a>
-                  </div>
-                </li>
-                <li class="nav-item list-group-item">
-                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">소통 게시판</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
-              <a href="#">로그인</a> |
-              <a href="#">회원가입</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%@ include file="../HF/header.jsp" %>
       <div class="login container" style="min-height:700px; max-width:400px;">
 	<div class="login-section">
 		<h3 class="text-center">LOGIN</h3>
@@ -90,24 +40,7 @@
 		<input type="submit" value="찾기"> <br>	
 	</form>
 	 -->
-	 <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-2">
-              <a href="#">
-                <img src="http://adventure.lotteworld.com/common/images/icon/footer_logo.png" alt="logo">
-              </a>
-            </div>
-            <div class="bottom col-10">
-              <p>
-                <span>서울특별시 송파구 올림픽로 240 호텔롯데 롯데월드 | </span>
-                <span> 대표자 : 김진영</span><br>
-                <span>사업자등록번호 : 219-85-00014 | 통신판매업신고번호 : 송파 제5513호 | 전화 : 1661-2000 </span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+	<%@ include file="../HF/footer.jsp" %>
     </div>
     <script>
       function openNav() {

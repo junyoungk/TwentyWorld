@@ -1,18 +1,24 @@
 <%@page import="CKJY.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <%
 	request.setCharacterEncoding("utf-8");  // 한글 인코딩 꼭!
-%>  
-
-
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+<link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
+<title>Hello, world!</title>
 <script>
 function passchk(){
 	 var pass = document.form.user_pw.value;
@@ -43,29 +49,54 @@ function idcheck(){
 </script>
 </head>
 <body>
-<form method="post" action="joinCheck.jsp" name="form">
-	
-		<h2>회원가입</h2>
-		아이디<input type="text" name="user_id"> 
-	<button type="button"  onclick="idcheck()">중복체크</button><br><br>
-		비밀번호<input type="text" name="user_pw"><br>
-		비밀번호확인<input type="text" name="user_pw2" onblur="passchk()">
-		<input type="text" style="border-width: 0px" size="20" name="chk" value="비밀번호를 입력하세요" readonly="readonly" class="danger1"> <br>
-		이름<input type="text" name="user_name"><br>
-		주민번호<input type="number" name="user_jumin"><br>		
-		나이<input type="number" name="user_age"><br>
-		성별은?
-			<label>
-				<input type="radio" name="user_gender" value="남자"  checked="checked">남자
-			</label>
-			<label>
-				<input type="radio" name="user_gender" value="여자"  checked="checked">여자
-			</label>
-			<br>
-			<h3>아2</h3>
-			
-		이메일<input type="email" name="user_email"><br>
-		<input type="submit" value="회원가입">	 
-	</form>
+	<div class="wrapper">
+		<%@ include file="../HF/header.jsp"%>
+		<div class="join container" style="min-height:700px; max-width:400px; margin-top:70px;">
+			<div class="join-section">
+				<form method="post" action="joinCheck.jsp" name="form">
+					<h2 class="text-center">회원가입</h2>
+					아이디<input type="text" name="user_id" id="user_id">
+					<button type="button" onclick="idcheck()">중복체크</button>
+					<br> <br> 비밀번호<input type="text" name="user_pw" id="user_pw"><br>
+					비밀번호확인<input type="text" name="user_pw2" id="user_pw2" onblur="passchk()">
+					<input type="text" style="border-width: 0px" size="20" name="chk"
+						value="비밀번호를 입력하세요" readonly="readonly" class="danger1"> <br>
+					이름<input type="text" name="user_name" id="user_name"><br>
+					 주민번호<input type="number" name="user_jumin" id="user_jumin"><br>
+						 나이<input type="number" name="user_age" id="user_age"><br> 
+						성별은? <label>
+						<input type="radio" name="user_gender" value="남자" checked="checked">남자
+					</label> <label> <input type="radio" name="user_gender" value="여자"
+						checked="checked">여자
+					</label> <br>
+					이메일<input type="email" name="user_email" id="user_email"><br> <input
+						type="submit" value="회원가입">
+				</form>
+			</div>
+		</div>
+		<%@ include file="../HF/footer.jsp"%>
+		<script>
+			function openNav() {
+				document.getElementById("myNav").style.width = "60%";
+			}
+
+			function closeNav() {
+				document.getElementById("myNav").style.width = "0%";
+			}
+		</script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+			crossorigin="anonymous"></script>
+	</div>
 </body>
 </html>
