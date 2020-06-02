@@ -24,8 +24,8 @@ table, th, td {
 		<form action="list.do">
 			<input type="button" value="전체">
 			<input type="button" value="자유">
-			<input type="button" value="공지">			
-			<input type="button" value="기타">			
+			<input type="button" value="공지">	
+			<input type="button" value="기타">
 		</form>
 		
 		<table>

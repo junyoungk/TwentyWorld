@@ -66,9 +66,13 @@ public class BoardController extends HttpServlet {
 			break;
 			
 		case "/board/write.do":
+			viewPage = "write.jsp";
+			break;
+			
+		case "/board/writeOk.do":
 			command = new WriteCommand();
 			command.execute(request, response);
-			viewPage = "write.jsp";
+			viewPage = "writeOk.jsp";
 			break;
 			
 		case "/board/fileUpload.do":

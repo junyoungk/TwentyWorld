@@ -17,7 +17,7 @@ public class FileUploadCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		//1.
 		// 업로드된 파일 저장 
-		final String SAVE_URL= "img";
+		final String SAVE_URL= "upload";
 		
 		//실제 저장되는 물리적인 경로
 		ServletContext context = request.getServletContext();
@@ -53,8 +53,8 @@ public class FileUploadCommand implements Command {
 			originalFileName = multi.getOriginalFileName(name);
 			fileSystemName = multi.getFilesystemName(name);
 			fileType = multi.getContentType(name);
-			
-			fileUrl = request.getContextPath() + "/"+SAVE_URL+"/"+fileSystemName;
+			fileUrl
+			 = request.getContextPath() + "/" + SAVE_URL + "/" + fileSystemName;
 			System.out.println(fileUrl);
 		}
 		
@@ -68,6 +68,7 @@ public class FileUploadCommand implements Command {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 }

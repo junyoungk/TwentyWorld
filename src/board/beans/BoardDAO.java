@@ -156,18 +156,22 @@ public class BoardDAO {
 			
 		}
 		
-		public int insert(String subject, String content, String img, String category) throws SQLException{
+		public int insert(String subject, String content, String img, String category, int uid) throws SQLException{
 			int cnt = 0;
 			
+			int authorize = 0;
+			
+			if(uid == 1) authorize = 3000;
+			else authorize = 1;
 			
 			try {			
-				pstmt = conn.prepareStatement("INSERT INTO board VALUES (board_SEQ.nextval, sysdate, ?, ?, ?, ?, 0, ?, ?);");
-				pstmt.setString(1,subject);
-				pstmt.setString(2,content);
-				pstmt.setString(3,img);
-				pstmt.setInt(4, 1);
-				pstmt.setInt(5, 3000);
-				pstmt.setString(6, category);
+				pstmt = conn.prepareStatement("INSERT INTO board VALUES (board_SEQ.nextval, sysdate, ?, ?, '', ?, 0, ?, ?)");
+				pstmt.setString(1, subject);
+				pstmt.setString(2, content);
+//				pstmt.setString(3, img);
+				pstmt.setInt(3, uid);
+				pstmt.setInt(4, authorize);
+				pstmt.setString(5, category);
 				
 				cnt = pstmt.executeUpdate();
 				
