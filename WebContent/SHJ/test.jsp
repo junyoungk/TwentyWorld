@@ -9,108 +9,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <link href="CSS/style.css" rel="stylesheet" type="text/css">
     <title>Hello, world!</title>
-    <style>
-      a{
-        color: black;
-      }
-      .header{
-        height: 99px;
-      }
-      .logo{
-        padding: 10px 0 10px 0;
-        float: left;
-      }
-      .nav{
-        font-weight: 600;
-        font-size: 18px;
-      }
-      .list-group-item{
-        border: none;
-      }
-      .main_menu{
-        float: left;
-      }
-      #menu_bar{
-        float: left;
-        list-style-type: none;
-      }
-      
-      .fa-bars{
-        font-size:30px;
-        padding: 20px;
-      }
-      
-      li{
-        float: left;
-      }
-      footer .container {
-        padding: 50px 0 160px;
-      }
-
-     
-      .overlay {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: rgb(0,0,0);
-        background-color: white;
-        overflow-x: hidden;
-        transition: 0.5s;
-      }
-
-      .overlay-content {
-        position: relative;
-        top: 25%;
-        width: 100%;
-        text-align: center;
-        margin-top: 30px;
-      }
-
-      .overlay a {
-        padding: 8px;
-        text-decoration: none;
-        font-size: 36px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
-
-      .overlay a:hover, .overlay a:focus {
-        color: #f1f1f1;
-      }
-
-      .overlay .closebtn {
-        position: absolute;
-        top: 20px;
-        right: 45px;
-        font-size: 60px;
-      }
-
-      @media screen and (max-height: 450px) {
-        .overlay a {font-size: 20px}
-        .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-        }
-      }
-
-      @media screen and (max-width:892px){
-        img{
-          margin-right: 50px;
-        }
-      }
-
-      .mobile_ver{
-        float: left;
-      }
-    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -145,10 +46,16 @@
                   </div>
                 </li>
                 <li class="nav-item list-group-item">
-                  <a class="nav-link dropdown-toggle" href="#">즐길거리</a>
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">어트랙션</a>
+                  </div>
                 </li>
                 <li class="nav-item list-group-item">
-                  <a class="nav-link dropdown-toggle" href="#">소통 서비스</a>
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">소통 게시판</a>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -159,7 +66,7 @@
           </div>
         </div>
       </div>
-      <footer>
+     <footer>
         <div class="container">
           <div class="row">
             <div class="col-2">
@@ -170,8 +77,8 @@
             <div class="bottom col-10">
               <p>
                 <span>서울특별시 송파구 올림픽로 240 호텔롯데 롯데월드 | </span>
-                <span> 대표자 : 김진영</span>
-                <p>footer</p>
+                <span> 대표자 : 김진영</span><br>
+                <span>사업자등록번호 : 219-85-00014 | 통신판매업신고번호 : 송파 제5513호 | 전화 : 1661-2000 </span>
               </p>
             </div>
           </div>

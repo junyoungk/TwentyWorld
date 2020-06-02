@@ -32,6 +32,11 @@
       li{
         float: left;
       }
+      
+      .login{
+      	min-height: 750px;
+      }
+      
       footer .container {
         padding: 50px 0 160px;
       }
@@ -87,12 +92,32 @@
         }
       }
 
-      @media screen and (max-width:892px){
+      @media (min-width:693px) and (max-width:892px){
         img{
           margin-right: 50px;
         }
+        .bottom p span{
+          font-size: 12px;
+        }
       }
 
+      @media screen and (max-width:692px) {
+        .bottom p span{
+          font-size: 10px;
+        }
+      }
       .mobile_ver{
         float: left;
       }
+      
+      .login-section{
+      	margin-top:70px;
+      }
+      #login_id , #login_pw, .login_submit {
+      	width: 370px;
+	    padding: 0 15px;
+	    margin-bottom: 20px;
+	    text-align: center;
+	    height: 35px;
+	    }
+	    
