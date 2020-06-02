@@ -42,7 +42,7 @@
 			session.setAttribute("userID", dto.getUser_id());
 			out.println("<script>");
 			out.println("alert('로그인성공') ");
-			out.println("location.href =  '../board/list.jsp'");
+			out.println("location.href =  '../board/list.do'");
 			
 			out.println("</script>");
 		} else if (result == 0) {

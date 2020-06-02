@@ -38,6 +38,7 @@ function idcheck(){
 	 }
 	 var url = "idCheck.jsp?id=" + id;
 	 window.open(url, "get", "height = 180, width = 300");
+	
 	}
 </script>
 </head>
