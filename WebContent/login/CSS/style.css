@@ -113,12 +113,18 @@
       .login-section{
       	margin-top:70px;
       }
-      #login_id , #login_pw, .login_submit, #user_pw,#user_pw2, #user_id, #user_name,
+      #login_id , #login_pw, .login_submit, #user_pw,#user_pw2, #user_name,
       #user_jumin, #user_age, #user_email {
       	width: 370px;
 	    padding: 0 15px;
 	    margin-bottom: 20px;
 	    text-align: center;
 	    height: 35px;
+	    }
+	    #user_id{
+	    width: 280px;
+	    }
+	    label{
+	    display: block !important;
 	    }
 	    

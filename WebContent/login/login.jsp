@@ -18,8 +18,10 @@
 	<div class="login-section">
 		<h3 class="text-center">LOGIN</h3>
 		<form method="post" action="loginCheck.jsp">
-			Your ID *<input type="text" name="user_id" id="login_id" placeholder="아이디를 입력해주세요"><br>
-			Your PW *<input type="text" name="user_pw" id="login_pw" placeholder="비밀번호를 입력해주세요"><br>
+			<label>Your ID *</label>
+			<input type="text" name="user_id" id="login_id" placeholder="아이디를 입력해주세요"><br>
+			<label>Your PW *</label>
+			<input type="text" name="user_pw" id="login_pw" placeholder="비밀번호를 입력해주세요"><br>
 			<input class="login_submit" type="submit" value="로그인"> <br>
 		</form>
 	</div>

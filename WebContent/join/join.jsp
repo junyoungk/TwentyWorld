@@ -25,9 +25,11 @@ function passchk(){
 	 var pass2 = document.form.user_pw2.value;
 	 if (pass2.length == 0 || pass2 == null) {
 	  document.form.chk.value = "비밀번호를 입력하세요";
+	  document.form.chk.value.style.color="red";
 	  right = 0;
 	 } else if (pass != pass2) {
 	  document.form.chk.value = "비밀번호가 다릅니다.";
+	  document.form.chk.value.style.color="red";
 	  right = 0;
 	 } else {   
 	  document.form.chk.value = "비밀번호가 동일합니다.";
@@ -55,22 +57,40 @@ function idcheck(){
 			<div class="join-section">
 				<form method="post" action="joinCheck.jsp" name="form">
 					<h2 class="text-center">회원가입</h2>
-					아이디<input type="text" name="user_id" id="user_id">
-					<button type="button" onclick="idcheck()">중복체크</button>
-					<br> <br> 비밀번호<input type="text" name="user_pw" id="user_pw"><br>
-					비밀번호확인<input type="text" name="user_pw2" id="user_pw2" onblur="passchk()">
-					<input type="text" style="border-width: 0px" size="20" name="chk"
-						value="비밀번호를 입력하세요" readonly="readonly" class="danger1"> <br>
-					이름<input type="text" name="user_name" id="user_name"><br>
-					 주민번호<input type="number" name="user_jumin" id="user_jumin"><br>
-						 나이<input type="number" name="user_age" id="user_age"><br> 
-						성별은? <label>
+					
+					<label>아이디</label>
+					<input type="text" name="user_id" id="user_id">
+					<button type="button" onclick="idcheck()">중복체크</button><br>
+					
+					<label>비밀번호</label>
+					<input type="text" name="user_pw" id="user_pw"><br>
+					
+					<label style="display: inline !important;">비밀번호확인</label>
+					<input type="text" style="border-width: 0px;" size="20" name="chk" 
+						value="비밀번호를 입력하세요" readonly="readonly" class="danger1 text-right">
+					<input type="text" name="user_pw2" id="user_pw2" onblur="passchk()">
+					<br>
+						
+					<label>이름</label>
+					<input type="text" name="user_name" id="user_name"><br>
+					
+					<laberl>이메일</laberl>
+					<input type="email" name="user_email" id="user_email"><br> 
+						
+					<label>주민번호</label>
+					<input type="number" name="user_jumin" id="user_jumin"><br>
+					
+					<label>나이</label>
+					<input type="number" name="user_age" id="user_age"><br> 
+					
+					<label>성별은?</label>
+						 <label>
 						<input type="radio" name="user_gender" value="남자" checked="checked">남자
 					</label> <label> <input type="radio" name="user_gender" value="여자"
 						checked="checked">여자
 					</label> <br>
-					이메일<input type="email" name="user_email" id="user_email"><br> <input
-						type="submit" value="회원가입">
+					<input
+						type="submit" value="회원가입"><br>
 				</form>
 			</div>
 		</div>
