@@ -43,7 +43,7 @@
 			out.println("<script>");
 			out.println("alert('로그인성공') ");
 			out.println("location.href =  '../board/list.do'");
-			
+			 
 			out.println("</script>");
 		} else if (result == 0) {
 			out.println("<script>");
