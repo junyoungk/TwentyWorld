@@ -20,11 +20,11 @@ public class WriteCommand implements Command{
 		String content = request.getParameter("content");
 		String img = request.getParameter("img");
 		String category = request.getParameter("category");
-		int uid = Integer.parseInt(request.getParameter("uuid"));
+		int uid = Integer.parseInt(request.getParameter("uid"));
 		
 		if( subject != null && subject.trim().length() > 0) {
 			try {
-				cnt = dao.insert(subject, content, img, category, uid);
+				cnt = dao.insert(subject, content, category, uid);
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}

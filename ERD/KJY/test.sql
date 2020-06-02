@@ -20,3 +20,6 @@ UPDATE board SET board_viewcnt = board_viewcnt + 1 WHERE board_id = 2;
 
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, ?, ?, ?, ?, 0, ?, ?);
 
+DELETE FROM board WHERE board_id BETWEEN 21 AND 22;
+
+UPDATE board SET board_img = 132 WHERE board_id = 25;

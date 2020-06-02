@@ -151,12 +151,10 @@ public class BoardDAO {
 			} finally {
 				close();
 			}
-			
 			return arr;
-			
 		}
 		
-		public int insert(String subject, String content, String img, String category, int uid) throws SQLException{
+		public int insert(String subject, String content, String category, int uid) throws SQLException{
 			int cnt = 0;
 			
 			int authorize = 0;
@@ -180,6 +178,33 @@ public class BoardDAO {
 			}
 
 			return cnt;
-
 		}
+		
+		public int insertImg(int uid, String img) throws SQLException{
+			int cnt= 0;
+			
+			try {
+				pstmt = conn.prepareStatement("UPDATE board SET board_img = ? WHERE board_id = ?");
+				pstmt.setString(1, img);
+				pstmt.setInt(2, uid);
+				
+				cnt = pstmt.executeUpdate();
+				
+			} finally {
+				close();
+			}
+			
+			return cnt;
+		};
 } //BoardDAO
+
+
+
+
+
+
+
+
+
+
+

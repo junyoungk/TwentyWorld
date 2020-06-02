@@ -23,8 +23,9 @@ table, th, td {
 		<h2>공지/자유 게시판</h2>
 		<form action="list.do">
 			<input type="button" value="전체">
-			<input type="button" value="자유">
 			<input type="button" value="공지">	
+			<input type="button" value="행사">	
+			<input type="button" value="자유">
 			<input type="button" value="기타">
 		</form>
 		

@@ -1,21 +1,35 @@
 package board.command;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 
+import board.beans.BoardDAO;
+
 public class FileUploadCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		//1.
+		int cntImg = 0;
+		BoardDAO dao = new BoardDAO();
+		
+		HttpSession session=request.getSession();
+
+		int info=(int)session.getAttribute("userID");
+
+//		int info = request.getParameter("");
+		
+		//1
 		// 업로드된 파일 저장 
 		final String SAVE_URL= "upload";
 		
@@ -69,8 +83,12 @@ public class FileUploadCommand implements Command {
 			e.printStackTrace();
 		}
 		
+		try {
+			cntImg = dao.insertImg(info, fileUrl);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-
 }
 
 
