@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*"%>   
 <%@ page import = "java.text.SimpleDateFormat" %>
+<!-- 여기가 attr 메인!  -->
 <%!
 	// JDBC 관련 기본 객체변수
 	Connection conn = null;
