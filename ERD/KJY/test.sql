@@ -7,7 +7,7 @@ SELECT * FROM users;
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '占쌉쏙옙占쏙옙 占쏙옙占쏙옙', '占쌉쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占실억옙占쏙옙占싹댐옙! 占쏙옙占쏙옙占쌈곤옙 占싱울옙占싹쇽옙占쏙옙~', '', 1, 0, 3000, '占쏙옙占쏙옙');
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '占쏙옙占쏙옙占쌉쏙옙占쏙옙 占쏙옙占쏙옙', '占쏙옙占쏙옙占쌉쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占실억옙占쏙옙占싹댐옙! 占쏙옙占쏙옙占쌈곤옙 占싱울옙占싹쇽옙占쏙옙~', '', 1, 0, 3000, '占쏙옙占쏙옙');
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '占쏙옙占쌉쏙옙占쏙옙 占쏙옙占쏙옙', '占쏙옙占쌉쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占실억옙占쏙옙占싹댐옙! 占쏙옙占쏙옙占쌈곤옙 占싱울옙占싹쇽옙占쏙옙~', '', 1, 0, 3000, '占쏙옙占쏙옙');
-INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 인서트' , '이곳은 기타 게시판입니다 헛소리하는 곳이에요 ', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '행사 게시판 인서트' , '이곳은 행사 게시판입니다 진행되는 행사에 대해 알려드려요', 1, 0, 3000, '행사');
 
 UPDATE board SET BOARD_CATEGORY = '자유' WHERE board_id = 2;
 UPDATE board SET BOARD_CATEGORY = '행사' WHERE board_id = 3;
@@ -67,7 +67,21 @@ alter table ticket modify(ticket_name varchar2(50));
 SELECT * FROM boardImg;
 SELECT * FROM board ORDER BY board_id desc;
 
-DELETE FROM board WHERE board_id = 42;
+SELECT bi_uid, bi_source, bi_file FROM boardImg WHERE BOARD_ID = 43 ORDER BY bi_uid DESC;
+DELETE FROM board WHERE board_id = 8;
+
+SELECT board_subject FROM board WHERE board_id = 42;
+SELECT * FROM ATTRACTION;
+SELECT * FROM TICKET;
+SELECT * FROM users;
+
+SELECT board_id, board_subject 
+FROM board 
+WHERE board_id = (SELECT max(board_id) FROM board WHERE board_id < 9) ;
+
+SELECT board_id, board_subject 
+FROM board 
+WHERE board_id = (SELECT min(board_id) FROM board WHERE board_id > 10) ;
 
 
 

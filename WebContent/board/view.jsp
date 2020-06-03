@@ -86,10 +86,10 @@ user_uid: <%=session.getAttribute("userID")%>
 <button onclick="chkDelete(${read[0].board_id })">삭제</button>
 
 <hr>
-<span>이전글</span><a href="view.do?uid=${read[0].board_id-1 }">${prev }</a>
+<span>이전글</span><a href="view.do?uid=${prev[0].board_id }">${prev[0].board_subject }</a>
 <hr>
-<span>다음글</span><a href="view.do?uid=${read[0].board_id+1 }">${next }</a>
-
+<span>다음글</span><a href="view.do?uid=${next[0].board_id }">${next[0].board_subject }</a>
+<!-- cif로 다음글 이전글에 없을때 뽑아주기 -->
 
 <button onclick="location.href = 'list.do'">목록보기</button>
 

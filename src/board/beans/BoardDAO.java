@@ -24,7 +24,6 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "TEAM20", "TIGER20");
-			System.out.println("boardDAO 생성, 데이터 베이스 연결!");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}		
@@ -155,38 +154,76 @@ public class BoardDAO {
 			return arr;
 		}
 		
-		public String selectBySubjectPre(int board_id) throws SQLException{
+		public Board[] selectBySubjectPre(int board_id) throws SQLException{
+			Board[] arr = null;
 			String subject = "";
+			ArrayList<Board> list = new ArrayList<Board>();
 			try {
-				pstmt = conn.prepareStatement("SELECT board_subject FROM board WHERE board_id = ?");
-				pstmt.setInt(1, (board_id-1));
+				pstmt = conn.prepareStatement("SELECT board_id, board_subject " + 
+						"FROM board " + 
+						"WHERE board_id = (SELECT max(board_id) FROM board WHERE board_id < ?)");
+				pstmt.setInt(1, board_id);
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
 					subject = rs.getString("board_subject");
+					int bid = rs.getInt("board_id");
+					
+					Board dto = new Board();
+					dto.setBoard_subject(subject);
+					dto.setBoard_id(bid);
+					
+					list.add(dto);
 				}
+				int size = list.size();
+				
+				if(size == 0) return null;
+				
+				arr = new Board[size];
+				
+				list.toArray(arr);
 			} finally {
 				close();
 			}
 			
-			return subject;
+			return arr;
 		}
 		
-		public String selectBySubjectNext(int board_id) throws SQLException{
+		public Board[] selectBySubjectNext(int board_id) throws SQLException{
+			Board[] arr = null;
 			String subject = "";
+			int bid = 0;
+			ArrayList<Board> list = new ArrayList<Board>();
 			try {
-				pstmt = conn.prepareStatement("SELECT board_subject FROM board WHERE board_id = ?");
-				pstmt.setInt(1, (board_id+1));
+				pstmt = conn.prepareStatement("SELECT board_id, board_subject " + 
+						"FROM board " + 
+						"WHERE board_id = (SELECT min(board_id) FROM board WHERE board_id > ?)");
+				pstmt.setInt(1, board_id);
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
 					subject = rs.getString("board_subject");
+			
+					bid = rs.getInt("board_id");
+
+					Board dto = new Board();
+					dto.setBoard_subject(subject);
+					dto.setBoard_id(bid);
+					
+					list.add(dto);
 				}
+				int size = list.size();
+				
+				if(size == 0) return null;
+				
+				arr = new Board[size];
+				
+				list.toArray(arr);
 			} finally {
 				close();
 			}
 			
-			return subject;
+			return arr;
 		}
 		
 		public int insert(String subject, String content, String category, int uid,

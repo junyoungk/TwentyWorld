@@ -33,9 +33,7 @@ public class ViewCommand implements Command{
 		/*
 		 * ReplyDAO Replydao = new ReplyDAO(); ReplyDTO[] Replyarr = null;
 		 */
-		
-		String prev = "";
-		String next = "";
+
 		
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		
@@ -45,12 +43,15 @@ public class ViewCommand implements Command{
 			request.setAttribute("read", arr);
 		
 			dao = new BoardDAO();
-			prev = dao.selectBySubjectPre(uid);
-			request.setAttribute("prev", prev);
+			arr = dao.selectBySubjectPre(uid);
+			request.setAttribute("prev", arr);
 			
 			dao = new BoardDAO();
-			next = dao.selectBySubjectNext(uid);
-			request.setAttribute("next", next);
+			arr = dao.selectBySubjectNext(uid);
+			if(arr == null) {
+				System.out.println("다음글이 없다!");
+			}
+			request.setAttribute("next", arr);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
