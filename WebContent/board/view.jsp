@@ -43,7 +43,26 @@ function chkDelete(uid){
 ${read[0].board_content }
 </div>
 <hr>
+<!-- shinhoonji -->
+댓글 내용<br>
+<c:choose>
+	<c:when test="${empty replylist || fn:length(replylist) == 0 }"></c:when>
+	<c:otherwise>
+	<c:forEach var="dto" items="${replylist }">
+	
+	</c:forEach>
+	</c:otherwise>
+	
+</c:choose>
+<%-- <form name="frm" action="ReplywriteOk.do" method="post">
+<input type="text" name="reply_boarderid" value="${read[0].board_id }"/>
+user_uid: <%=session.getAttribute("userID")%>
 
+<textarea name="reply_comment"></textarea>
+
+<input type="submit" value="댓글게시"/>
+</form> --%>
+<!-- shinhoonji -->
 <button onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
 <button onclick="chkDelete(${read[0].board_id })">삭제</button>
 
@@ -55,16 +74,3 @@ ${read[0].board_content }
 
 	</c:otherwise>
 </c:choose>
-
-
-
-
-
-
-
-
-
-
-
-
-

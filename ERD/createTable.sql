@@ -163,5 +163,8 @@ SELECT * FROM board;
 
 select * from reply;
 
+INSERT INTO reply VALUES(reply_SEQ.nextval,)
 
 SELECT * FROM BOARDIMG;
+
+SELECT * FROM USERS;

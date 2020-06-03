@@ -1,38 +1,20 @@
 package board.command;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board.beans.*;
+import board.beans.ReplyDAO;
+import board.beans.ReplyDTO;
 
-public class ViewCommand implements Command{
+public class ReplyListCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-
-		BoardDAO dao = new BoardDAO();
-		Board[] arr = null;
-		
 		ReplyDAO Replydao = new ReplyDAO();
 		ReplyDTO[] replyarr = null;
-		/*
-		 * ReplyDAO Replydao = new ReplyDAO(); ReplyDTO[] Replyarr = null;
-		 */
 		
-		int uid = Integer.parseInt(request.getParameter("uid"));
-		
-		
-		try {
-		arr = dao.selectByUid(uid);
-		request.setAttribute("read", arr);
-		} catch(SQLException e) {
-			e.printStackTrace();
-		}
-		
-		/* shinhoonji */
 		try {
 			//트랜잭션 수행
 			replyarr = Replydao.Replyselect();
@@ -46,7 +28,6 @@ public class ViewCommand implements Command{
 			// NamingException 도 처리 해야 함
 			e.printStackTrace();
 		}
-		/* shinhoonji */
 	}
 
 }

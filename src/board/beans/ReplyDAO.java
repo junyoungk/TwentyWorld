@@ -68,28 +68,73 @@ public class ReplyDAO {
 					
 				} // end while
 				
-				
-				int size = list.size();
-				
-				if(size == 0) return null;
-				
-				arr = new ReplyDTO[size];
-				
+				arr = new ReplyDTO[list.size()];
 				list.toArray(arr);
-			
 				return arr;
 			}
 		
-		public ReplyDTO[] selectReply() throws SQLException{
-			ReplyDTO[] arr = null;
-			String SQL = "SELECT r.reply_id,r.reply_boarderid,r.reply_useruid,r.reply_comment, u.user_id FROM reply r,board b, users u WHERE r.reply_boarderid = b.board_id";
-			try {
-				pstmt = conn.prepareStatement(SQL);
-				rs = pstmt.executeQuery();
-				arr = createArray(rs);
-			} finally {
-				close();
-			}
-			return arr;
+	public int insert(int reply_boarderid, int reply_useruid, String reply_comment) throws SQLException{
+		int cnt = 0;
+		String SQL = "INSERT INTO reply (reply_id,reply_boarderid,reply_useruid,reply_comment,reply_regdate)"
+				+ "VALUES(reply_SEQ.nextval,?,?,?,sysdate)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, reply_boarderid);
+			pstmt.setInt(2, reply_useruid);
+			pstmt.setString(3, reply_comment);
+			
+			cnt = pstmt.executeUpdate();
+			
+		} finally {
+			close();			
 		}
+
+		
+		return cnt;
+	}
+			
+	public ReplyDTO[] Replyselect() throws SQLException{
+		ReplyDTO[] arr = null;
+		String SQL = "SELECT b.board_id, u.user_name, r.reply_comment FROM reply r,board b, users u";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			
+			arr = createArray(rs);
+			
+		}finally {
+			close();
+		}
+		
+		return arr;
+		}
+	/*
+	 * public ReplyDTO[] selectReplyByBoardid(int board_id) throws SQLException{
+	 * ReplyDTO[] arr = null; String SQL =
+	 * "SELECT reply_id,reply_comment,reply_regdate FROM reply where reply_boarderid = ?"
+	 * ; try { pstmt = conn.prepareStatement(SQL); pstmt.setInt(1, board_id); rs =
+	 * pstmt.executeQuery(); arr = createArray(rs); } finally { close(); } return
+	 * arr; }
+	 */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
