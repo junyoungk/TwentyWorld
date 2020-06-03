@@ -9,8 +9,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lec.beans.FileDAO;
-import com.lec.beans.FileDTO;
+import board.beans.FileDAO;
+import board.beans.FileDTO;
 
 public class DownloadCommand implements Command {
 

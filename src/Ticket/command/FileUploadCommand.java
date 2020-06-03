@@ -1,92 +1,84 @@
 package Ticket.command;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Enumeration;
+import java.net.URLEncoder;
 
-import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.oreilly.servlet.multipart.FileRenamePolicy;
-
-import Ticket.beans.TicketDAO;
+import board.beans.FileDAO;
+import board.beans.FileDTO;
 
 public class FileUploadCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		int cntImg = 0;
-		TicketDAO dao = new TicketDAO();
+		FileDAO fileDao = new FileDAO();
+		FileDTO [] fileArr = null;
 		
-		HttpSession session=request.getSession();
-
-		int info=(int)session.getAttribute("userID");
-
-//		int info = request.getParameter("");
+		int uid = Integer.parseInt(request.getParameter("uid"));
 		
-		//1
-		// 업로드된 파일 저장 
-		final String SAVE_URL= "upload";
-		
-		//실제 저장되는 물리적인 경로
-		ServletContext context = request.getServletContext();
-		String saveDirectory = context.getRealPath(SAVE_URL);
-		System.out.println("업로드 경로: " + saveDirectory);
-		
-		Enumeration names = null;
-		String name = null;
-		String originalFileName = null; // 원본 파일 이름
-		String fileSystemName = null; // 실제 저장되는 파일 이름
-		String fileType = null; // 파일 MIME 타입
-		String fileUrl = null; // 업로드된 파일 url
- 		
-		int maxPostSize =  5 * 1024 * 1024; //POST 받기 , 최대 5M byte	
-		String encoding = "utf-8";
-		FileRenamePolicy policy = new DefaultFileRenamePolicy(); // 업로딩 파일 이름 중복에 대한 정책
-		
-		MultipartRequest multi = null;
+		FileInputStream in = null;
+		ServletOutputStream sout = null;
 		
 		try {
-			multi = new MultipartRequest(request, saveDirectory, maxPostSize, encoding, policy);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		
-		//1-2
-		names = multi.getFileNames(); // type = "file" 요소의 name 추출
-		while(names.hasMoreElements()) {
-			name = (String)names.nextElement();
-			System.out.println("input name : " + name); // ckeditor 에선 name 이 upload 이다
+			fileArr = fileDao.selectByUid(uid); // 특정 파일 정보 읽어 오기
 			
-			originalFileName = multi.getOriginalFileName(name);
-			fileSystemName = multi.getFilesystemName(name);
-			fileType = multi.getContentType(name);
-			fileUrl
-			 = request.getContextPath() + "/" + SAVE_URL + "/" + fileSystemName;
-			System.out.println(fileUrl);
-		}
-		
-		// 2.
-		// response (ckeditor에서 정한 포맷, json)
-		String jsonString = "{\"filename\" : \"" + fileSystemName + "\", \"uploaded\" : 1, \"url\":\"" + fileUrl + "\"}";
-
-		try {
-			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().write(jsonString);
-		} catch (IOException e) {
+			String fileSystemName = fileArr[0].getFile();
+			String originalFileName = fileArr[0].getSource();
+			
+			String realPath = request.getServletContext().getRealPath("upload");
+			String downloadFilePath = realPath + File.separator + fileSystemName;
+			System.out.println(downloadFilePath);
+			
+			String fileType = request.getServletContext().getMimeType(downloadFilePath);
+			
+			// 파일 유형이 지정되지 않은 경우
+			if(fileType == null) {
+				fileType = "application/octet-stream";
+			}
+			
+			response.setContentType(fileType);
+			
+			// 원본 파일명으로 다운 받을 수 있게 처리
+			String enc = "utf-8";
+			String encFileName = URLEncoder.encode(originalFileName, enc);
+			
+			response.setHeader("Content-Disposition", "attachment; filename=" + encFileName);
+			
+			File scrFile = new File(downloadFilePath);
+			in = new FileInputStream(scrFile);
+			sout = response.getOutputStream();
+			
+			byte [] buff = new byte[(int)scrFile.length()];
+			int numRead = 0;
+			int totalRead = 0;
+			
+			// 파일로부터 읽기
+			while((numRead = in.read(buff, 0, buff.length)) != -1) {
+				totalRead += numRead;
+				sout.write(buff, 0, numRead);
+			}
+			
+			System.out.println("전송 byte : " + totalRead + " bytes");
+			
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		try {
-			cntImg = dao.insertImg(info, fileUrl);
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} finally {
+			try {
+				if(sout != null) {
+					sout.flush();
+					sout.close();
+				}
+				if(in != null) {
+					in.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

@@ -35,7 +35,8 @@ function chkSubmit(){ // 폼 검증
 <body>
 <h2>글 작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
-<form name="frm" action="writeOk.do" method="post" onsubmit="return chkSubmit()">
+<form name="frm" action="writeOk.do" method="post" onsubmit="return chkSubmit()"
+	enctype="Multipart/form-data">
 <input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
 <input type="hidden" name="img" value=""/>
 제목:
@@ -48,23 +49,26 @@ function chkSubmit(){ // 폼 검증
 </select>
 <c:if test="${sessionScope.userID != 1}">
 	<script>
-		$("select option[value*='공지']").prop('disabled',true);
-		$("select option[value*='행사']").prop('disabled',true);
+		$("select option[value*='공지']").remove();
+		$("select option[value*='행사']").remove();
 	</script>
 </c:if>
 내용:<br>
-<textarea name="content" id="editor1"></textarea>
-<script>
-	CKEDITOR.replace('editor1',{
-		allowedContent: true, //HTML 태그 자동삭제 방지 설정
-		width: '640px',
-		height: '400px',
-		filebrowserUploadUrl: '${pageContext.request.contextPath}/board/fileUpload.doi'
-	});
-	
-</script>
-
+<textarea name="content"></textarea>
 <br><br>
+<div style="background-color: #dddddd; padding: 2px 10px; margin-bottom:5px; border: 1px solid black;">
+	<h4>첨부파일</h4>
+	<button type="button" id="btnAdd">추가</button>
+	<div id='files'></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+var i = 0;
+$('#btnAdd').click(function(){
+	$("#files").append("<div><input type='file' name='upfile" + i + "'/><button type='button' onclick='$(this).parent().remove()'>삭제</button></div>");
+	i++;
+});
+</script>
 <input type="submit" value="게시"/>
 </form>
 <br>

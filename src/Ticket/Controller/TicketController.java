@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import Ticket.command.Command;
 import Ticket.command.DeleteCommand;
-import Ticket.command.DownloadCommand;
 import Ticket.command.FileUploadCommand;
 import Ticket.command.ListCommand;
 import Ticket.command.SelectCommand;
@@ -100,11 +99,11 @@ public class TicketController extends HttpServlet{
 			break;
 			
 		// 파일 다운로드!
-		case "/Ticket/download.doi":
-			command = new DownloadCommand();
-			command.execute(request, response);
-			// 굳이 view 필요하지 않다.
-			break;
+//		case "/Ticket/download.doi":
+//			command = new DownloadCommand();
+//			command.execute(request, response);
+//			// 굳이 view 필요하지 않다.
+//			break;
 			
 		} // end switch
 		

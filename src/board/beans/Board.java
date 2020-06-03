@@ -7,7 +7,6 @@ public class Board {
 	private String board_regdate;
 	private String board_subject;
 	private String board_content;
-	private String board_img;
 	private int board_writeuid;
 	private int board_viewcnt;
 	private int board_authorize;
@@ -20,15 +19,12 @@ public class Board {
 		super();
 	}
 	
-	
-
-	public Board(int board_id, String board_subject, String board_content, String board_img, int board_writeuid,
+	public Board(int board_id, String board_subject, String board_content, int board_writeuid,
 			int board_viewcnt, int board_authorize, String board_category) {
 		super();
 		this.board_id = board_id;
 		this.board_subject = board_subject;
 		this.board_content = board_content;
-		this.board_img = board_img;
 		this.board_writeuid = board_writeuid;
 		this.board_viewcnt = board_viewcnt;
 		this.board_authorize = board_authorize;
@@ -66,12 +62,6 @@ public class Board {
 	}
 	public void setBoard_content(String board_content) {
 		this.board_content = board_content;
-	}
-	public String getBoard_img() {
-		return board_img;
-	}
-	public void setBoard_img(String board_img) {
-		this.board_img = board_img;
 	}
 	public int getBoard_writeuid() {
 		return board_writeuid;

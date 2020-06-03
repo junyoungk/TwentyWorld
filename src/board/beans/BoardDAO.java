@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class BoardDAO {
 	
@@ -109,13 +110,14 @@ public class BoardDAO {
 				
 				pstmt.close();
 				
-				pstmt = conn.prepareStatement("SELECT b.board_subject, u.user_name, b.board_regdate, b.board_content, b.board_category, b.board_img, b.board_viewcnt " + 
+				pstmt = conn.prepareStatement("SELECT b.board_id, b.board_subject, u.user_name, b.board_regdate, b.board_content, b.board_category, b.board_viewcnt " + 
 						"FROM board b , users u " + 
 						"WHERE b.board_writeuid = u.user_uid AND b.board_id = ?");
 				pstmt.setInt(1, board_id);
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
+					int bid = rs.getInt("board_id");
 					String subject = rs.getString("board_subject");
 					String name = rs.getString("user_name");
 					Date d = rs.getDate("board_regdate"); 
@@ -126,16 +128,15 @@ public class BoardDAO {
 						}
 					String content = rs.getString("board_content");
 					String category = rs.getString("board_category");
-					String img = rs.getString("board_img");
 					int viewcnt = rs.getInt("board_viewcnt");
 					
 					Board dto = new Board();
+					dto.setBoard_id(bid);
 					dto.setBoard_subject(subject);
 					dto.setWriteName(name);
 					dto.setBoard_regdate(regDate);
 					dto.setBoard_content(content);
 					dto.setBoard_category(category);
-					dto.setBoard_img(img);
 					dto.setBoard_viewcnt(viewcnt);
 					
 					list.add(dto);
@@ -154,48 +155,84 @@ public class BoardDAO {
 			return arr;
 		}
 		
-		public int insert(String subject, String content, String category, int uid) throws SQLException{
+		public String selectBySubjectPre(int board_id) throws SQLException{
+			String subject = "";
+			try {
+				pstmt = conn.prepareStatement("SELECT board_subject FROM board WHERE board_id = ?");
+				pstmt.setInt(1, (board_id-1));
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					subject = rs.getString("board_subject");
+				}
+			} finally {
+				close();
+			}
+			
+			return subject;
+		}
+		
+		public String selectBySubjectNext(int board_id) throws SQLException{
+			String subject = "";
+			try {
+				pstmt = conn.prepareStatement("SELECT board_subject FROM board WHERE board_id = ?");
+				pstmt.setInt(1, (board_id+1));
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					subject = rs.getString("board_subject");
+				}
+			} finally {
+				close();
+			}
+			
+			return subject;
+		}
+		
+		public int insert(String subject, String content, String category, int uid,
+				List<String> originalFileNames,
+				List<String> fileSystemNames
+				) throws SQLException{
 			int cnt = 0;
 			
 			int authorize = 0;
-			
+			int board_uid = 0;
 			if(uid == 1) authorize = 3000;
 			else authorize = 1;
 			
-			try {			
-				pstmt = conn.prepareStatement("INSERT INTO board VALUES (board_SEQ.nextval, sysdate, ?, ?, '', ?, 0, ?, ?)");
+			try {		
+				conn.setAutoCommit(false);
+				String [] generatedCols = {"board_id"};
+				
+				pstmt = conn.prepareStatement("INSERT INTO board VALUES (board_SEQ.nextval, sysdate, ?, ?, ?, 0, ?, ?)", generatedCols);
 				pstmt.setString(1, subject);
 				pstmt.setString(2, content);
-//				pstmt.setString(3, img);
 				pstmt.setInt(3, uid);
 				pstmt.setInt(4, authorize);
 				pstmt.setString(5, category);
 				
 				cnt = pstmt.executeUpdate();
 				
+				rs = pstmt.getGeneratedKeys();
+				if(rs.next()) {
+					board_uid = rs.getInt(1); 
+				}
+				
+				pstmt.close();
+				// 첨부파일(들) 정보 테이블에 INSERT 하기
+				pstmt = conn.prepareStatement("INSERT INTO boardImg (bi_uid, bi_source, bi_file, board_id) VALUES(boardImg_seq.nextval, ?, ?, ?)");
+				for(int i = 0; i<originalFileNames.size(); i++) {
+					pstmt.setString(1, originalFileNames.get(i));
+					pstmt.setString(2, fileSystemNames.get(i));
+					pstmt.setInt(3, board_uid);
+					pstmt.executeUpdate();
+				}
+				conn.commit();
 			} finally {
 				close();			
 			}
-
 			return cnt;
 		}
-		
-		public int insertImg(int uid, String img) throws SQLException{
-			int cnt= 0;
-			
-			try {
-				pstmt = conn.prepareStatement("UPDATE board SET board_img = ? WHERE board_id = ?");
-				pstmt.setString(1, img);
-				pstmt.setInt(2, uid);
-				
-				cnt = pstmt.executeUpdate();
-				
-			} finally {
-				close();
-			}
-			
-			return cnt;
-		};
 } //BoardDAO
 
 

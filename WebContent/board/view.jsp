@@ -43,6 +43,24 @@ function chkDelete(uid){
 ${read[0].board_content }
 </div>
 <hr>
+<c:if test="${fn:length(file) > 0 }">
+	<h4>첨부파일</h4>
+	<ul>
+		<c:forEach var="element" items="${file }">
+			<li><a href="fileUpload.do?uid=${element.uid }">${element.source }</a></li>
+		</c:forEach>
+		
+		<!-- 이미지인 경우 보여주기 -->
+		<c:forEach var="element" items="${file }">
+			<c:if test="${element.image == true}">
+				<div style="width:300px">
+					<img style="width:100%; height:auto" src="../upload/${element.file }"/>
+				</div>
+			</c:if>
+		</c:forEach>
+		
+	</ul>
+</c:if>
 <!-- shinhoonji -->
 댓글 내용<br>
 <c:choose>
@@ -52,8 +70,8 @@ ${read[0].board_content }
 	
 	</c:forEach>
 	</c:otherwise>
-	
 </c:choose>
+
 <%-- <form name="frm" action="ReplywriteOk.do" method="post">
 <input type="text" name="reply_boarderid" value="${read[0].board_id }"/>
 user_uid: <%=session.getAttribute("userID")%>
@@ -63,8 +81,15 @@ user_uid: <%=session.getAttribute("userID")%>
 <input type="submit" value="댓글게시"/>
 </form> --%>
 <!-- shinhoonji -->
+
 <button onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
 <button onclick="chkDelete(${read[0].board_id })">삭제</button>
+
+<hr>
+<span>이전글</span><a href="view.do?uid=${read[0].board_id-1 }">${prev }</a>
+<hr>
+<span>다음글</span><a href="view.do?uid=${read[0].board_id+1 }">${next }</a>
+
 
 <button onclick="location.href = 'list.do'">목록보기</button>
 
