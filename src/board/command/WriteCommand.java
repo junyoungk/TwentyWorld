@@ -18,7 +18,7 @@ public class WriteCommand implements Command{
 		// 매개변수 받아오기
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
-		String img = request.getParameter("img");
+//		String img = request.getParameter("img");
 		String category = request.getParameter("category");
 		int uid = Integer.parseInt(request.getParameter("uid"));
 		

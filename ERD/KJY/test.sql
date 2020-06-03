@@ -1,11 +1,12 @@
 SELECT * FROM board;
 
 
+
 SELECT * FROM users;
 
-INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '°Ô½ÃÆÇ °³¼³', '°Ô½ÃÆÇÀÌ °³¼³ µÇ¾ú½À´Ï´Ù! ÀÚÀ¯·Ó°Ô ÀÌ¿ëÇÏ¼¼¿ä~', '', 1, 0, 3000, '°øÁö');
-INSERT INTO board VALUES (board_SEQ.nextval, sysdate, 'ÀÚÀ¯°Ô½ÃÆÇ °³¼³', 'ÀÚÀ¯°Ô½ÃÆÇÀÌ °³¼³ µÇ¾ú½À´Ï´Ù! ÀÚÀ¯·Ó°Ô ÀÌ¿ëÇÏ¼¼¿ä~', '', 1, 0, 3000, '°øÁö');
-INSERT INTO board VALUES (board_SEQ.nextval, sysdate, 'Çà»ç°Ô½ÃÆÇ °³¼³', 'Çà»ç°Ô½ÃÆÇÀÌ °³¼³ µÇ¾ú½À´Ï´Ù! ÀÚÀ¯·Ó°Ô ÀÌ¿ëÇÏ¼¼¿ä~', '', 1, 0, 3000, '°øÁö');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, 'ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', 'ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½! ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½~', '', 1, 0, 3000, 'ï¿½ï¿½ï¿½ï¿½');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, 'ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½! ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½~', '', 1, 0, 3000, 'ï¿½ï¿½ï¿½ï¿½');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, 'ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½! ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½~', '', 1, 0, 3000, 'ï¿½ï¿½ï¿½ï¿½');
 
 SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate 
 FROM board b, users u

@@ -59,7 +59,7 @@ function chkSubmit(){ // 폼 검증
 		allowedContent: true, //HTML 태그 자동삭제 방지 설정
 		width: '640px',
 		height: '400px',
-		filebrowserUploadUrl: '${pageContext.request.contextPath}/board/fileUpload.do'
+		filebrowserUploadUrl: '${pageContext.request.contextPath}/board/fileUpload.doi'
 	});
 	
 </script>

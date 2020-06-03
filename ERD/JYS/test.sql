@@ -1,1 +1,50 @@
 /* test */
+INSERT INTO USERS VALUES
+(user_SEQ.nextval, '관리자','1234','관리자','','1111111111111',100,3000,'관리자@관리자.com','-');
+
+/* 테이블 확인 */
+SELECT * FROM USERS;
+DELETE FROM USERS WHERE USER_ID = 'kimjinyoung';
+SELECT * FROM BOARD;
+
+
+
+SELECT user_id FROM USERS WHERE user_name = '관리자' AND user_jumin = '1111111111111'
+
+
+
+INSERT INTO TICKET  VALUES (1, '자유이용권', 20000, '이미지');
+INSERT INTO TICKET  VALUES (2, '입장권', 5000, '이미지');
+INSERT INTO TICKET  VALUES (3, '빅3', 10000, '이미지');
+
+SELECT ticket_id, ticket_name, ticket_price ,ticket_img FROM TICKET WHERE ticket_id = ?;
+SELECT * FROM TICKET WHERE ticket_id = 4;
+
+DELETE FROM TICKET WHERE TICKET_ID > 3;
+
+회원   티켓   고유번호
+1      1     12344521548
+1      2      21324545
+1      1     1231241
+
+
+
+INSERT INTO TICKETBUY VALUES (26,61,3);
+
+
+SELECT * FROM TICKET;
+SELECT * FROM TICKETBUY;
+
+
+
+SELECT *
+FROM TICKET t , USERS u ,TICKETBUY tb
+WHERE tb.USER_UID = u.USER_UID AND tb.TICKET_ID  = t.TICKET_ID 
+
+
+
+SELECT *
+FROM TICKET t , USERS u ,TICKETBUY tb
+WHERE tb.USER_UID = u.USER_UID AND tb.TICKET_ID  = t.TICKET_ID 
+AND u.USER_UID = 61;
+
