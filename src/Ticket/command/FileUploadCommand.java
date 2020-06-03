@@ -1,21 +1,35 @@
 package Ticket.command;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 
+import Ticket.beans.TicketDAO;
+
 public class FileUploadCommand implements Command {
 
-	@Override 
+	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		//1.
+		int cntImg = 0;
+		TicketDAO dao = new TicketDAO();
+		
+		HttpSession session=request.getSession();
+
+		int info=(int)session.getAttribute("userID");
+
+//		int info = request.getParameter("");
+		
+		//1
 		// 업로드된 파일 저장 
 		final String SAVE_URL= "upload";
 		
@@ -33,7 +47,7 @@ public class FileUploadCommand implements Command {
  		
 		int maxPostSize =  5 * 1024 * 1024; //POST 받기 , 최대 5M byte	
 		String encoding = "utf-8";
-		FileRenamePolicy  policy = new DefaultFileRenamePolicy(); // 업로딩 파일 이름 중복에 대한 정책
+		FileRenamePolicy policy = new DefaultFileRenamePolicy(); // 업로딩 파일 이름 중복에 대한 정책
 		
 		MultipartRequest multi = null;
 		
@@ -69,8 +83,12 @@ public class FileUploadCommand implements Command {
 			e.printStackTrace();
 		}
 		
+		try {
+			cntImg = dao.insertImg(info, fileUrl);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-
 }
 
 
