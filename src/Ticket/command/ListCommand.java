@@ -14,7 +14,7 @@ public class ListCommand implements Command{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
 		TicketDAO dao = new TicketDAO();
-		Ticket[] arr = null;
+		Ticket[] arr = null; 
 		
 		try {
 			//트랜잭션 수행

@@ -21,7 +21,7 @@ SELECT ticket_id, ticket_name, ticket_price ,ticket_img FROM TICKET WHERE ticket
 SELECT * FROM TICKET WHERE ticket_id = 4;
 
 DELETE FROM TICKET WHERE TICKET_ID > 3;
-
+ 
 회원   티켓   고유번호
 1      1     12344521548
 1      2      21324545

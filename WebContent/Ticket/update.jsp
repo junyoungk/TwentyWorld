@@ -21,7 +21,7 @@ function chkSubmit(){
 		frm['id'].focus();
 		return false;
 	}
-		return true;
+		return true; 
 }
 </script>
 <body>

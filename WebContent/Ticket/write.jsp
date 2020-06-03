@@ -12,7 +12,7 @@
 <title>글작성</title>
 
 <script src="../ckeditor/ckeditor.js"></script>
-
+ 
 </head>
 <script>
 function chkSubmit(){

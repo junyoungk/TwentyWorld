@@ -19,7 +19,7 @@ import Ticket.command.WriteCommand;
 @WebServlet("*.doi")
 public class TicketController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-    
+     
     public TicketController() {
         super();
     }

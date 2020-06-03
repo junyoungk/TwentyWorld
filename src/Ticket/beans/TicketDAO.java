@@ -18,7 +18,7 @@ public class TicketDAO {
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null; // SELECT 결과, executeQuery()
-
+ 
 	public TicketDAO() {
 
 		try {

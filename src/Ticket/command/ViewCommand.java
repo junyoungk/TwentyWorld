@@ -13,7 +13,7 @@ public class ViewCommand implements Command{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
+		 
 		int tid = Integer.parseInt(request.getParameter("id"));
 
 		TicketDAO dao = new TicketDAO();

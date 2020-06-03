@@ -12,7 +12,7 @@ public class WriteCommand implements Command{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		int cnt = 0;
+		int cnt = 0; 
 		TicketDAO dao = new TicketDAO();
 		
 		// 매개변수 받아오기

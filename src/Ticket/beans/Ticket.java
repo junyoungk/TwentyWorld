@@ -5,7 +5,7 @@ public class Ticket {
 	private String ticket_name;
 	private int ticket_price;
 	private String ticket_img;
-	
+	 
 	
 	public Ticket() {
 		super();

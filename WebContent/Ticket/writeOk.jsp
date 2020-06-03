@@ -16,4 +16,4 @@
 			location.href = "list.doi";
 		</script>
 	</c:otherwise>
-</c:choose>
+</c:choose> 
