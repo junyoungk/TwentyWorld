@@ -25,7 +25,7 @@ public class ReplyDAO {
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "TEAM20", "TIGER20");
-				System.out.println("boardDAO 생성, 데이터 베이스 연결!");
+				System.out.println("ReplyDAO 생성, 데이터 베이스 연결!");
 			} catch(Exception e) {
 				e.printStackTrace();
 			}		
@@ -80,9 +80,16 @@ public class ReplyDAO {
 				return arr;
 			}
 		
-		public ReplyDTO[] select() throws SQLException{
+		public ReplyDTO[] selectReply() throws SQLException{
 			ReplyDTO[] arr = null;
-			String SQL = "SELECT * FROM reply r,board b, users u";
+			String SQL = "SELECT r.reply_id,r.reply_boarderid,r.reply_useruid,r.reply_comment, u.user_id FROM reply r,board b, users u WHERE r.reply_boarderid = b.board_id";
+			try {
+				pstmt = conn.prepareStatement(SQL);
+				rs = pstmt.executeQuery();
+				arr = createArray(rs);
+			} finally {
+				close();
+			}
 			return arr;
 		}
 }

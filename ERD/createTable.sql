@@ -161,4 +161,7 @@ SELECT * FROM USERS;
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '게시물', '내용', '', 1, 0, 3000, '자유');
 SELECT * FROM board;
 
+select * from reply;
+
+
 SELECT * FROM BOARDIMG;

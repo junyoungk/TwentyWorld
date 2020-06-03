@@ -43,22 +43,9 @@ function chkDelete(uid){
 ${read[0].board_content }
 </div>
 <hr>
-<br>
+
 <button onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
 <button onclick="chkDelete(${read[0].board_id })">삭제</button>
-<div style="background-color: beige; padding: 2px 10px; margin-bottom: 5px; border: 1px solid black;">
-	<h4>댓글</h4>
-	<button type="button" id="btnAdd">추가</button>
-	<div id='reply'></div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-var i = 0;
-$("#btnAdd").click(function(){
-	$("#reply").append("<div><input type='text' name='reply" + i + "'/><button type='button' onclick='$(this).parent().remove()'>삭제</button></div>");
-	i++;
-});
-</script>
 
 <button onclick="location.href = 'list.do'">목록보기</button>
 
