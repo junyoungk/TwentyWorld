@@ -98,17 +98,20 @@ table, th, td {
 			int uid = rs.getInt("attr_id");
 			String attr_name = rs.getString("attr_name");
 			String attr_cardimg = rs.getString("attr_cardimg");
-
-			//전체 출력
-			out.println("<div id = 'attr_menu'style='width: 250px;width:200px;border:2px solids lategrey;display:inline-block;'>"
-			+"<a href=''><div id='item_img'style='height:200px;width:200px;background-position:center;background-image:url(" + attr_cardimg
-		    + ");background-size: cover;'></div>" + "<div id='item_name'style='width: 50px;width:200px;'><b>" + attr_name 
-		    + "</b></div><div id='attr_uid'>" + uid +"</div></a></div>");
-
-			
-		} // end while
-%>			
-		<br>
+%>
+<!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
+	<div id = "attr_menu" style="width: 250px;width:200px; border:2px solids lategrey; display:inline-block;">
+	    <a href="">
+		    <div id="item_img" style="height:200px;width:200px; background-position:center;
+		    		background-image:url(<%=attr_cardimg%>); background-size: cover;">
+		    </div>
+			<div id="item_name"style="width: 50px;width:200px;"><b><%=attr_name%></b></div>
+			<div id="attr_uid"><%=uid%></div>
+		</a>
+	</div>
+		<%		
+			} // end while
+%>	<br>
 <%
 	} catch(Exception e){
 		e.printStackTrace();

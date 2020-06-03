@@ -13,17 +13,17 @@ attr_id number NOT NULL,
 attr_max number NOT NULL, --탑승최대인원
 attr_time number NOT NULL,
 attr_price number NOT NULL,
-attr_content clob,
+attr_content clob NOT NULL, --NN추가
 attr_name varchar2(50) NOT NULL, --50으로 바꿈
 attr_location number NOT NULL, --넘버로 바꿈
-attr_min_age number,
-attr_max_age number,
-attr_min_height number,
-attr_max_height number,
+attr_min_age NUMBER  NOT NULL, --NN추가
+attr_max_age NUMBER  NOT NULL, --NN추가
+attr_min_height number NOT NULL, --NN추가
+attr_max_height number NOT NULL, --NN추가
 attr_authorize number NOT NULL,
 attr_regDate date NOT NULL,
-attr_img varchar2(300),
-attr_cardimg varchar2(300),
+attr_img varchar2(300) NOT NULL, --NN추가
+attr_cardimg varchar2(300) NOT NULL, --NN추가
 PRIMARY KEY (attr_id)
 );
 
@@ -97,6 +97,7 @@ INSERT
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 32, 15, 5000, '나뭇잎 의자에 앉아 빠른 속도로 빙글빙글 도는 느낌이 금방이라도 하늘로 튕겨져 오르는 기분을 느낄 수 있습니다. 호흡을 가다듬고 하늘로 출발!', '회전그네', 1, 0, 100, 0, 250, 1,sysdate,
 	 'http://adventure.lotteworld.com/image/2018/6/20180620073640138_275.jpg', 'http://adventure.lotteworld.com/image/2018/6/20180620073652436_1350.jpg');
  
+	
 
 
 -- 입력을 받지 않았을 때 기본 설정은?
