@@ -1,4 +1,4 @@
-package reply.beans;
+package board.beans;
 import java.util.Date;
 
 public class ReplyDTO {

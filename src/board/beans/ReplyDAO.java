@@ -1,4 +1,4 @@
-package reply.beans;
+package board.beans;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
