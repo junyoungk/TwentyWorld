@@ -257,6 +257,58 @@ public class UserDAO {
 		return user_pw;
 	}
 	
+	public String[] writeList (int user_uid) {
+		String SQL = "SELECT BOARD_SUBJECT FROM BOARD WHERE BOARD_WRITEUID = ? ORDER BY BOARD_ID DESC ";
+		String  [] a = new String[5]; // 최근 10개만 받아오게.
+		int i = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				a[i] = rs.getString("board_subject");
+				i++;
+			}
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
+	}
+	
+	public int[] writeListUID (int user_uid) {
+		String SQL = "SELECT BOARD_ID FROM BOARD WHERE BOARD_WRITEUID = ? ORDER BY BOARD_ID DESC ";
+		int  [] a = new int[5]; // 최근 10개만 받아오게.
+		int i = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				a[i] = rs.getInt("BOARD_ID");
+				i++;
+			}
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
+	}
+	
+	
+	
 
 	
 	

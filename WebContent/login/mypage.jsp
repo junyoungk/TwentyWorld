@@ -24,7 +24,10 @@
 %>
 
 <% UserDTO [] arr = dao.readMypage(userID); %> 
-
+<% String []  a   = dao.writeList(userID);
+   int [] b = dao.writeListUID(userID);
+   
+%>
 
 <%
 	if(arr == null || arr.length == 0){ 
@@ -53,6 +56,7 @@
 %>
 
 	<body>
+	   
 		<div class="wrapper">
 		<%@ include file="../HF/header.jsp" %>
 		<div class="mypage container"style="min-height:700px;">
@@ -71,6 +75,22 @@
 					<input type="submit" value="수정"/>
 					<button><a href="userdeleteCheck.jsp">회원탈퇴</a></button>
 				 </form>
+			 </div>
+			 <div>내가 쓴글 (★ 최신순 5개까지만 표시됩니다. ★) <br>
+			 <% for(int i=0; i<a.length; i++){
+				 
+				 if(a[i] == null) break;
+				 out.println("<a href='../board/view.do?uid=" + b[i] +"'>");
+				 out.println(a[i]);
+				 
+				 out.println("</a>");
+				 out.println("<br>");
+			 
+			 }
+			 %> 
+			 			 
+			 
+			 
 			 </div>
 		</div>
 		<%@ include file="../HF/footer.jsp" %>
