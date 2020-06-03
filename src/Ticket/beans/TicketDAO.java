@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import Ticket.beans.Ticket;
-import Ticket.beans.Ticket;
 
 public class TicketDAO {
 	Connection conn = null;
@@ -89,7 +88,7 @@ public class TicketDAO {
 		return arr;
 		
 	}
-	public Ticket[] selectByid(int ticket_id) throws SQLException{
+	public Ticket[] readByid(int ticket_id) throws SQLException{
 		int cnt = 0;
 		Ticket[] arr = null;
 		
@@ -151,7 +150,64 @@ public class TicketDAO {
 		return cnt;
 
 	}
+	public Ticket [] selectByid(int id) throws SQLException {
+		Ticket [] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement("SELECT * FROM ticket WHERE ticket_id = ?");
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
+	}
+	public int insertImg(int info, String fileUrl) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
+	public int update(int id , String name, int price, String img) throws SQLException {
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement("UPDATE TICKET SET ticket_name = ?, ticket_price = ? ,ticket_img =? WHERE ticket_id = ?");
+			pstmt.setString(1, name);
+			pstmt.setInt(2, price);
+			pstmt.setString(3, img);
+			pstmt.setInt(4, id);
+			
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}		
+		
+		return cnt;
+	} // end update()
+	public int deleteByid(int id) throws SQLException {
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement("DELETE FROM TICKET WHERE ticket_id = ?");
+			pstmt.setInt(1, id);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}		
+		return cnt;
+	} // end deleteByUid()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 } //TicketDAO
 

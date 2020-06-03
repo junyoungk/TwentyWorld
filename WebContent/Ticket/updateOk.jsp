@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:choose>
-	<c:when test="${seleok == 0 }">
+	<c:when test="${result == 0 }">
 	<script>
 		alert('수정 실패');
 		history.back();
@@ -14,7 +14,7 @@
 	<c:otherwise>
 		<script>
 		alert("수정 성공");
-		location.href = "list.doi?uid="+${param.id };
+		location.href = "list.doi";
 		</script>
 	</c:otherwise>
 </c:choose>

@@ -7,7 +7,7 @@ SELECT * FROM USERS;
 DELETE FROM USERS WHERE USER_ID = 'kimjinyoung';
 SELECT * FROM BOARD;
 
-
+DELETE FROM TICKET WHERE ticket_id = 6
 
 SELECT user_id FROM USERS WHERE user_name = '관리자' AND user_jumin = '1111111111111'
 

@@ -26,7 +26,7 @@ function chkDelete(id){
 	// 삭제 여부, 다시 확인 하고 진행하기
 	var r = confirm("삭제하시겠습니까?");
 	if(r){
-		location.href = 'deleteOk.do?id='+id;
+		location.href = 'deleteOk.doi?id='+id;
 	}
 }
 </script>
@@ -37,7 +37,6 @@ function chkDelete(id){
 이용권이름 : ${read[0].ticket_name }<br>
 가격 : ${read[0].ticket_price }<br>
 내용: <br>
-<hr>
 <div>
 ${read[0].ticket_img }
 </div>

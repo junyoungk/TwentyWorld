@@ -1,32 +1,25 @@
 package Ticket.command;
-
 import java.sql.SQLException;
-import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Ticket.beans.Ticket;
 import Ticket.beans.TicketDAO;
-
-public class ViewCommand implements Command{
+public class SelectCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		 
-		int tid = Integer.parseInt(request.getParameter("id"));
-
 		TicketDAO dao = new TicketDAO();
-		Ticket[] arr = null;
-		
+		Ticket [] arr = null;
+		int id = Integer.parseInt(request.getParameter("id"));  // 매개변수 검증 필요
+
 		try {
-		arr = dao.readByid(tid);
-		} catch(SQLException e) {
+			arr = dao.selectByid(id);  // 읽기 only
+			request.setAttribute("select", arr);
+		} catch (SQLException e) { // 만약 ConnectionPool 을 사용한다면 여기서 NamingException 도 catch 해야 한다 
 			e.printStackTrace();
 		}
-		request.setAttribute("read", arr);
-		System.out.println(Arrays.toString(arr));
-		
 	}
 
 }

@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import Ticket.command.Command;
+import Ticket.command.DeleteCommand;
+import Ticket.command.DownloadCommand;
 import Ticket.command.FileUploadCommand;
 import Ticket.command.ListCommand;
+import Ticket.command.SelectCommand;
+import Ticket.command.UpdateCommand;
 import Ticket.command.ViewCommand;
 import Ticket.command.WriteCommand;
 
@@ -77,6 +80,30 @@ public class TicketController extends HttpServlet{
 			
 		case "/Ticket/fileUpload.doi":
 			new FileUploadCommand().execute(request, response);
+			break;
+		case "/Ticket/update.doi":
+			command = new SelectCommand();  // '수정' 이지만, 일단 읽어오는것부터 시작이다.
+			command.execute(request, response);
+			viewPage = "/Ticket/update.jsp";
+			break;
+
+		case "/Ticket/updateOk.doi":
+			command = new UpdateCommand();
+			command.execute(request, response);
+			viewPage = "/Ticket/updateOk.jsp";
+			break;  // 디버깅 훈련, 이 break를 없애고, 찾아보기
+
+		case "/Ticket/deleteOk.doi":
+			command = new DeleteCommand();
+			command.execute(request, response);
+			viewPage = "/Ticket/deleteOk.jsp";
+			break;
+			
+		// 파일 다운로드!
+		case "/Ticket/download.doi":
+			command = new DownloadCommand();
+			command.execute(request, response);
+			// 굳이 view 필요하지 않다.
 			break;
 			
 		} // end switch

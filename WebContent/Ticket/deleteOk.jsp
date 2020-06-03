@@ -6,7 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  
 <c:choose>
-	<c:when test="${de == 0 }">
+	<c:when test="${delete == 0 }">
 	<script>
 		alert('삭제 실패');
 		history.back();
