@@ -24,3 +24,39 @@ INSERT INTO board VALUES (board_SEQ.nextval, sysdate, ?, ?, ?, ?, 0, ?, ?);
 DELETE FROM board WHERE board_id BETWEEN 21 AND 22;
 
 UPDATE board SET board_img = 132 WHERE board_id = 25;
+
+SELECT * FROM board;
+
+/* 2020-06-03 테이블 구조 변경 */
+
+alter table board drop column board_img;
+
+CREATE TABLE boardImg
+(
+	bi_uid number NOT NULL,
+	bi_source varchar2(200) NOT NULL,
+	bi_file varchar2(200) NOT NULL,
+	board_id number NOT NULL,
+	PRIMARY KEY (bi_uid)
+);
+
+ALTER TABLE boardImg
+	ADD FOREIGN KEY (board_id)
+	REFERENCES board (board_id)
+;
+
+CREATE SEQUENCE boardImg_SEQ;
+
+alter table attraction modify(attr_img varchar2(200));
+alter table attraction modify(attr_cardimg varchar2(200));
+alter table attraction modify(attr_name varchar2(30));
+
+alter table board modify(board_subject varchar2(50));
+
+alter table users modify(user_email varchar2(100));
+
+alter table ticket modify(ticket_img varchar2(200));
+alter table ticket modify(ticket_name varchar2(50));
+
+
+
