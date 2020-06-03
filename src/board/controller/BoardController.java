@@ -34,7 +34,7 @@ public class BoardController extends HttpServlet {
 	protected void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("actionDo() 호출");
 		
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
 		
 		// 컨트롤러는 다음 두개를 선택해야 한다.
 		String viewPage = null;   // 어떠한 뷰? --> 페이지

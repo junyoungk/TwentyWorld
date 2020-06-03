@@ -55,12 +55,12 @@
 	<body>
 		<div class="wrapper">
 		<%@ include file="../HF/header.jsp" %>
-		<div class="mypage container"style="min-height:700px; background-color:beige;">
-			<div class="editInfo" style="background-color:aqua;padding: 20px 0 20px 0;">
+		<div class="mypage container"style="min-height:700px;">
+			<div class="editInfo text-center" style="padding: 20px 0 20px 0;">
 				<h3 class="text-left" style="display: inline-block;">회원 정보 및 수정</h3>
 				<form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
 					 <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
-					 고객 명 : <%= user_name %><br>
+					 <label>고객 명 : <%= user_name %></label>
 					 고객 아이디 : <%=user_id  %><br>
 					 비밀번호 : 
 					<input type="password" name="user_pw" value="<%= user_pw %>"/><br>
