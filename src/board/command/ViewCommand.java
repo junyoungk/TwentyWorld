@@ -90,8 +90,6 @@ public class ViewCommand implements Command{
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		
 	}
 		}
-
 }

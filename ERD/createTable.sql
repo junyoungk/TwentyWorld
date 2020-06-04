@@ -161,10 +161,30 @@ SELECT * FROM USERS;
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '게시물', '내용', '', 1, 0, 3000, '자유');
 SELECT * FROM board;
 
-select * from reply;
+select * from reply r;
 
 INSERT INTO reply VALUES(reply_SEQ.nextval,)
 
 SELECT * FROM BOARDIMG;
 
 SELECT * FROM USERS;
+
+SELECT  r.reply_id, r.reply_boarderid, u.user_name, r.reply_comment, r.reply_regdate FROM reply r,board b, users u 
+				  WHERE u.USER_UID = r.REPLY_USERUID AND r.REPLY_BOARDERID = 5 ;
+SELECT b.board_id, b.board_category, u.user_name, b.board_subject,b.board_viewcnt, b.board_regdate FROM board b, users u "
+						+ "WHERE b.board_writeuid = u.user_uid ORDER BY b.board_id DESC
+						
+						
+SELECT r.reply_id,r.reply_boarderid, u.user_name, r.reply_comment, r.reply_regdate FROM reply r,board b, users u 
+WHERE b.board_id = r.reply_boarderid AND u.USER_UID = r.REPLY_USERUID					
+												
+SELECT r.reply_id,r.reply_boarderid, u.user_name, r.reply_comment, r.reply_regdate FROM reply r,board b, users u WHERE b.board_id = r.reply_boarderid AND u.USER_UID = r.REPLY_USERUID					
+						
+						
+SELECT r.reply_id, r.reply_boarderid, u.USER_UID ,u.user_name, r.reply_comment, r.reply_regdate 
+FROM reply r,board b, users u WHERE r.reply_boarderid = 5 AND u.USER_UID = r.REPLY_USERUID AND 
+b.BOARD_ID = r.REPLY_BOARDERID ; 
+								
+						
+						
+						

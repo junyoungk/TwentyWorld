@@ -113,7 +113,7 @@ public class ReplyDAO {
 	  
 	  ArrayList<ReplyDTO> list = new ArrayList<ReplyDTO>();
 	  
-	  String SQL = "SELECT r.reply_id, r.REPLY_BOARDERID, u.user_name, r.reply_comment, r.reply_regdate"+
+	  String SQL = "SELECT r.reply_id, r.REPLY_BOARDERID, u.user_uid, u.user_name, r.reply_comment, r.reply_regdate"+
 	  " FROM reply r,board b, users u "+
 	  "WHERE r.reply_boarderid = ? AND u.USER_UID = r.REPLY_USERUID AND b.BOARD_ID = r.REPLY_BOARDERID"; 
 	  try {
@@ -124,6 +124,7 @@ public class ReplyDAO {
 		  while(rs.next()) {
 			  int reply_id =rs.getInt("reply_id");
 			  String user_name = rs.getString("user_name");
+			  int user_uid = rs.getInt("user_uid");
 			  String reply_comment = rs.getString("reply_comment");
 			  Date reply_regdate = rs.getDate("reply_regdate"); 
 				
@@ -134,6 +135,7 @@ public class ReplyDAO {
 				ReplyDTO Replydto = new ReplyDTO();
 				Replydto.setReply_id(reply_id);
 				Replydto.setWriteName(user_name);
+				Replydto.setReply_useruid(user_uid);
 				Replydto.setReply_comment(reply_comment);
 				Replydto.setReply_regdate(regDate);
 

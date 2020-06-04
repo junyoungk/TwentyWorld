@@ -4,7 +4,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
+ <%
+	int userID = 0;
+	if(session.getAttribute("userID") != null) {
+		userID = Integer.parseInt(session.getAttribute("userID").toString());
+	} 
+%>
 <c:choose>
 	<c:when test="${empty read || fn:length(read) == 0 }">
 		<script>
@@ -72,8 +77,10 @@ ${read[0].board_content }
 	<tr>
 		<th>No</th>
 		<th>작성자</th>
+		<th>작성자uid</th>
 		<th>내용</th>
 		<th>작성일</th>
+		<th>삭제?</th>
 	</tr>
 	
 	<c:choose>
@@ -83,8 +90,10 @@ ${read[0].board_content }
 			<tr>
 				<td>${reply.reply_id }</td>
 				<td>${reply.writeName }</td>
+				<td>${reply.reply_useruid }</td>
 			<td>${reply.reply_comment }</td>
 			<td>${reply.reply_regdate }</td>
+			<td>삭제</td>
 			</tr>		
 			</c:forEach>
 			
