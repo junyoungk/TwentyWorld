@@ -303,6 +303,55 @@ public class BoardDAO {
 			}
 			return cnt;
 		}
+		
+		public Board[] selectByCategory(String bCategory) throws SQLException{
+			Board[] arr = null;
+			
+			List<Board> list = new ArrayList<Board>();
+			
+			try {
+				pstmt = conn.prepareStatement("SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate "
+						+ "FROM board b, users u " 
+						+ "WHERE b.board_writeuid = u.user_uid  AND b.board_category = ? "
+						+ "ORDER BY b.board_id DESC");
+				pstmt.setString(1,bCategory);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					int bid = rs.getInt("board_id");
+					String subject = rs.getString("board_subject");
+					String name = rs.getString("user_name");
+					Date d = rs.getDate("board_regdate"); 
+					
+					String regDate = "";
+					if(d != null){
+						regDate = new SimpleDateFormat("yyyy-MM-dd").format(d);
+						}
+					String category = rs.getString("board_category");
+					int viewcnt = rs.getInt("board_viewcnt");
+					
+					Board dto = new Board();
+					dto.setBoard_id(bid);
+					dto.setBoard_subject(subject);
+					dto.setWriteName(name);
+					dto.setBoard_regdate(regDate);
+					dto.setBoard_category(category);
+					dto.setBoard_viewcnt(viewcnt);
+					
+					list.add(dto);
+				}
+				
+				int size = list.size();
+				
+				if(size == 0) return null;
+				arr = new Board[size];
+				
+				list.toArray(arr);
+			} finally {
+				close();
+			}
+			return arr;
+		}
 } //BoardDAO
 
 
