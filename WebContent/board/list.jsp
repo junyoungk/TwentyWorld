@@ -20,6 +20,7 @@ table, th, td {
 </style>
 </head>
 <body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<h2>게시판</h2>
 			<a href="list.do?category=1"><input type="button" value="전체" class="btnCategory"></a>
@@ -45,7 +46,7 @@ table, th, td {
 				<td>${dto.board_id }</td>
 				<td>${dto.board_category }</td>
 				<td>${dto.writeName }</td>
-				<td><a href="view.do?uid=${dto.board_id }">${dto.board_subject }</a></td>
+				<td><a href="view.do?uid=${dto.board_id }" onClick="javascript:location.reload()">${dto.board_subject }</a></td>
 				<td>${dto.board_viewcnt }</td>
 				<td>${dto.board_regdate }</td>
 			</tr>		
@@ -57,8 +58,7 @@ table, th, td {
 		</table>
 		<br>
 		<button onclick="location.href='write.do?bid=${bid+1 }'">글쓰기</button>
-
-
+	
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>

@@ -18,9 +18,9 @@ FROM board b, users u
 WHERE b.board_writeuid = u.user_uid 
 ORDER BY b.board_id DESC;
 
-SELECT b.board_subject, u.user_name, b.board_regdate, b.board_content, b.board_category, b.board_img, b.board_viewcnt
+SELECT b.board_subject, u.user_name, b.board_regdate, b.board_content, b.board_category, b.board_viewcnt
 FROM board b , users u
-WHERE b.board_writeuid = u.user_uid AND b.board_id = 2;
+WHERE b.board_writeuid = u.user_uid AND b.board_category = '자유';
 
 UPDATE board SET board_viewcnt = board_viewcnt + 1 WHERE board_id = 2;
 
@@ -64,7 +64,7 @@ alter table users modify(user_email varchar2(100));
 alter table ticket modify(ticket_img varchar2(200));
 alter table ticket modify(ticket_name varchar2(50));
 
-SELECT * FROM boardImg;
+SELECT * FROM boardImg ORDER BY BI_UID DESC ;
 SELECT * FROM board ORDER BY board_id desc;
 
 SELECT bi_uid, bi_source, bi_file FROM boardImg WHERE BOARD_ID = 43 ORDER BY bi_uid DESC;
@@ -74,7 +74,7 @@ SELECT board_subject FROM board WHERE board_id = 42;
 SELECT * FROM ATTRACTION;
 SELECT * FROM TICKET;
 SELECT * FROM users;
-
+SELECT * FROM TICKETBUY;
 SELECT board_id, board_subject 
 FROM board 
 WHERE board_id = (SELECT max(board_id) FROM board WHERE board_id < 9) ;
@@ -82,6 +82,18 @@ WHERE board_id = (SELECT max(board_id) FROM board WHERE board_id < 9) ;
 SELECT board_id, board_subject 
 FROM board 
 WHERE board_id = (SELECT min(board_id) FROM board WHERE board_id > 10) ;
+
+SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate 
+FROM board b, users u 
+WHERE b.board_writeuid = u.user_uid 
+ORDER BY b.board_id DESC;
+
+
+SELECT * FROM board;
+SELECT * FROM board WHERE board_category = '기타';
+
+UPDATE board SET BOARD_AUTHORIZE = '1' WHERE BOARD_CATEGORY = '기타';
+
 
 
 
