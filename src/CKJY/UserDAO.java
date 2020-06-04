@@ -167,9 +167,11 @@ public class UserDAO {
 	public int UserDelete(int session) {
 		String SQL = "DELETE FROM USERS WHERE user_uid = ?";
 		try {
+			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, session);
 			rs = pstmt.executeQuery();
+			conn.commit();
 			if (rs.next()) {				
 				return 1; // 로그인 성공					
 				}
@@ -183,6 +185,7 @@ public class UserDAO {
 		String SQL = "SELECT user_id FROM USERS WHERE user_name = ? AND user_jumin = ?";
 		String user_id = "";
 		try {
+			
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, user_name);
 			pstmt.setString(2, user_jumin);
@@ -219,14 +222,17 @@ public class UserDAO {
 		int cnt = 0;
 		String SQL = "UPDATE USERS SET user_pw = ? , user_email = ? ,user_cardnum = ? WHERE user_uid = ?";
 		try {
+			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1,user_pw);
 			pstmt.setString(2,user_email);
 			pstmt.setString(3,user_cardnum);
 			pstmt.setInt(4,user_uid);
+			
 
 			
 			cnt = pstmt.executeUpdate();
+			conn.commit();
 		}finally {
 			close();
 		}	

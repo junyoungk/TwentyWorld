@@ -43,8 +43,11 @@ function passchk(){
 	 return;
 	}
 	
+	
+	
 function idcheck(){
 	 var id = document.form.user_id.value;
+	
 	 if(id.length<1 || id==null){
 	  alert("중복체크할 아이디를 입력하십시오");
 	  return false;
@@ -53,6 +56,117 @@ function idcheck(){
 	 window.open(url, "get", "height = 180, width = 300");
 	
 	}
+
+function check() { 
+	
+	var id = document.form.user_id.value;
+	 var pw = document.form.user_pw.value;
+	 var pw2 = document.form.user_pw2.value;
+	 var jumin = document.form.user_jumin.value;
+	 var jumin2 = document.form.user_jumin2.value;
+	 var email = document.form.user_email.value;
+	 var email2 = document.form.user_email2.value;
+	 var age = document.form.user_age.value;
+	 var name = document.form.user_name.value;
+	 var kor_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+		var eng_check = /^[A-za-z]/g;
+		var num_check=/^[0-9]*$/;
+		var check =  /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
+	 
+	if(id==""){
+		alert("아이디를 입력해주세요");
+		return false;
+	}
+	else {
+		
+		
+	    
+		if (kor_check.test(id)){
+			alert("한글은 아이디에 포함시킬수 없습니다 (영어, 숫자만)")
+			document.form.user_id.focus();
+			return false;
+			} 	
+		
+		if (check.test(id)){
+			alert("특수문자는 아이디에 포함시킬수 없습니다 (영어, 숫자만)")
+			document.form.user_id.focus();
+			return false;
+			} 	
+		
+	}
+	
+	if ( pw=="" || pw2 == ""){
+		alert("비밀번호를 입력해주세요.");
+		return false;
+	}  else {
+		if(pw != pw2){
+			alert("비밀번호가 일치하지 않습니다.");
+			return false;
+		}
+	}
+	
+	if(kor_check.test(email)){
+		alert("이메일에는 한글을 입력 불가능");
+		return false;
+	}
+	
+	if(check.test(email)){
+		alert("이메일에는 특수문자 입력 불가능.");
+		return false;
+	}
+	
+	
+	
+	
+	if(num_check.test(name)){
+		alert("이름에는 숫자 입력 불가능");
+		return false;
+	}
+	
+	if(check.test(name)){
+		alert("이름에는 특수문자 입력 불가능.");
+		return false;
+	}
+	
+	
+	
+
+	
+	if(jumin.length!= 6){
+		alert("앞자리는 6자리를 입력해주세요");
+		return false;
+	}
+	
+	if(jumin2.length!= 7) {
+		alert("뒷자리는 7자리를 입력해주세요");
+		return false;
+	}
+	
+	if(jumin2.charAt(0) != "1" && jumin2.charAt(0) != "2" && jumin2.charAt(0) != "3" && jumin2.charAt(0) != "4"){
+		alert("주민번호 뒷자리에는 (1,2,3,4) 만 입력가능합니다.");
+		return false
+	}
+	
+	if ( age== "") {
+		alert("나이를 입력해주세요.");
+		return false;
+	} else {
+		if(isNaN(age) || age < 1 || age > 130){
+			alert("유효한 나이값을 입력해주세요.");
+			return false;
+		}
+	}
+	document.form.user_jumin.value = jumin + jumin2;
+	 document.form.user_email.value = email + "@" + email2;
+	
+}
+	
+
+
+
+
+
+
 </script>
 </head>
 <body>
@@ -116,11 +230,11 @@ function idcheck(){
       </div>
 		<div class="join container" style="min-height:700px; max-width:400px; margin-top:70px;">
 			<div class="join-section">
-				<form method="post" action="joinCheck.jsp" name="form">
+				<form method="post" action="joinCheck.jsp" name="form" onsubmit="return check();">
 					<h2 class="text-center">회원가입</h2>
 					
 					<label>아이디</label>
-					<input type="text" name="user_id" id="user_id">
+					<input  type="text" name="user_id" id="user_id">
 					<button type="button" onclick="idcheck()">중복체크</button><br>
 					
 					<label>비밀번호</label>
@@ -136,10 +250,23 @@ function idcheck(){
 					<input type="text" name="user_name" id="user_name"><br>
 					
 					<laberl>이메일</laberl>
-					<input type="email" name="user_email" id="user_email"><br> 
+					<input type="text" name="user_email" id="user_email"><br>@
+					
+					<select name="user_email2">
+						<option value="naver.com">naver.com</option>
+						<option value="daum.net">daum.net</option>
+						<option value="nate.com">nate.com</option>
+						<option value="kakao.com">kakao.com</option>
 						
-					<label>주민번호</label>
-					<input type="number" name="user_jumin" id="user_jumin"><br>
+					</select>
+						
+					<label>주민번호앞자리</label>
+					<input type="number" name="user_jumin" id="user_jumin">-
+						<label>주민번호뒷자리</label>
+					<input type="number" name="user_jumin2" id="user_jumin2"><br>
+					
+					
+						 
 					
 					<label>나이</label>
 					<input type="number" name="user_age" id="user_age"><br> 

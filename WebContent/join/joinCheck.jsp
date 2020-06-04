@@ -23,9 +23,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<%  
+	  
 		UserDAO userDAO = new UserDAO();
+	    
 	
 		if(dto.getUser_id() == null  || dto.getUser_pw() == null || dto.getUser_name() == null ||
 		dto.getUser_jumin() == null || dto.getUser_age() == 0 || dto.getUser_email() == null ||
@@ -36,17 +37,17 @@
 			out.println("</script>");
 		}  else if( userDAO.idCheckFunction(dto.getUser_id())==0){
 			out.println("<script>");
-			out.println("alert('사용중인 아이디 입니다.')");
-			out.println("history.back()");
+			out.println("alert('사용중인 아이디 입니다. 회원가입 페이지로 돌아갑니다.')");
+			out.println("location.href =  'join.jsp'");
 			out.println("</script>");
-		}
-		
+		} 
+		 
 		
 		else {
 		
 			int result = userDAO.join(dto);
 			
-			
+		
 			out.println("<script>");
 			out.println("alert('가입완료.')");
 			out.println("location.href =  '../login/login.jsp'");
