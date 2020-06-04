@@ -1,31 +1,32 @@
 package Ticket.command;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Ticket.beans.Ticket;
 import Ticket.beans.TicketDAO;
 
-
-public class DeleteCommand implements Command {
+public class TicketViewCommand implements TicketCommand{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		int cnt = 0;
+		 
+		int tid = Integer.parseInt(request.getParameter("id"));
 
 		TicketDAO dao = new TicketDAO();
-
-		//입력한 값을 받아오기
-		int id = Integer.parseInt(request.getParameter("id"));
-
-		try {			
-			cnt = dao.deleteByid(id);
-		} catch (SQLException e) {
+		Ticket[] arr = null;
+		
+		try {
+		arr = dao.readByid(tid);
+		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-
-		request.setAttribute("delete", cnt);
+		request.setAttribute("read", arr);
+		System.out.println(Arrays.toString(arr));
+		
 	}
 
 }

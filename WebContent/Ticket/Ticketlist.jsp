@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>글 목록</title>
+<title>티켓 목록</title>
 <style>
 table {width: 100%;}
 table, th, td {
@@ -37,10 +37,10 @@ table, th, td {
 			<c:forEach var="dto" items="${list}">
 			<tr>
 				<td>${dto.ticket_id }</td>
-				<td>${dto.ticket_img }</td>
+				<td><img src="${dto.ticket_img }" style="width:50px" height="50px"/></td>
 				<td>${dto.ticket_name }</td>
 				<td>${dto.ticket_price }</td> 
-				 <td><a href="view.doi?id=${dto.ticket_id }">${dto.ticket_name }</a></td>
+				 <td><a href="Ticketview.doi?id=${dto.ticket_id }">${dto.ticket_name }</a></td>
 				 
 			</tr>		
 			</c:forEach>
@@ -49,7 +49,7 @@ table, th, td {
 
 		</table>
 		<br>
-		<button onclick="location.href='write.doi'">이용권작성 (추가)</button>
+		<button onclick="location.href='Ticketwrite.doi'">이용권작성 (추가)</button>
 
 
 

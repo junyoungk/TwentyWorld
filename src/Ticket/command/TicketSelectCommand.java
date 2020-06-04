@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Ticket.beans.Ticket;
 import Ticket.beans.TicketDAO;
-public class SelectCommand implements Command {
+public class TicketSelectCommand implements TicketCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

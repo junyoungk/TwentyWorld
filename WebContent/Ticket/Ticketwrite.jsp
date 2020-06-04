@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>글작성</title>
+<title>티켓작성</title>
 
 <script src="../ckeditor/ckeditor.js"></script>
  
@@ -17,11 +17,11 @@
 <script>
 function chkSubmit(){
 	frm = document.forms['frm'];
-	var idd = frm['idd'].value.trim();
+	var idd = frm['id'].value.trim();
 	
 	if(idd==""){
-		alert("티켓분류은 반드시 작성하셔야 합니다 1.자유이용권  2.입장권 3.빅3");
-		frm['idd'].focus();
+		alert("티켓분류은 반드시 작성하셔야 합니다 \n ex)1.자유이용권  2.입장권 3.빅3");
+		frm['id'].focus();
 		return false;
 	}
 		return true;
@@ -31,30 +31,24 @@ function chkSubmit(){
 <body>
 <h2>글 작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
-<form name="frm" action="writeOk.doi" method="post" onsubmit="return chkSubmit()">
+<form name="frm" action="TicketwriteOk.doi" method="post" onsubmit="return chkSubmit()" >
+<!--  
+enctype="Multipart/form-data"
+-->
 <input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
 이용권분류:
-<input type="number" name="idd"/><br>
+<input type="number" name="ticket_id"/><br>
 이용권이름:
 <input type="text" name="name" /><br>
-가격:
-<input type="text" name="price"/><br>
-이미지:
-<textarea name="img" ></textarea><br>
-<script>
-	CKEDITOR.replace('img',{
-		allowedContent: true, //HTML 태그 자동삭제 방지 설정
-		width: '640px',
-		height: '400px',
-		filebrowserUploadUrl: '${pageContext.request.contextPath}/Ticket/fileUpload.doi'
-	});
-	
-</script>
+이용권가격:
+<input type="text" name="price"/>원<br>
+티켓이미지:
+<input type="file" name="img"><br> <%-- part: file1 --%>
 
 <br><br>
-<input type="submit" value="게시"/>
+<input type="submit" value="추가"/>
 </form>
 <br>
-<button type="button" onclick="location.href='list.doi'">목록으로</button>
+<button type="button" onclick="location.href='Ticketlist.doi'">목록으로</button>
 </body>
 </html>

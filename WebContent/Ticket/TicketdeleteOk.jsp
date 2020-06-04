@@ -15,7 +15,7 @@
 	<c:otherwise>
 		<script>
 		alert("삭제 성공");
-		location.href ="list.doi";
+		location.href ="Ticketlist.doi";
 	</script>
 	</c:otherwise>
 </c:choose>

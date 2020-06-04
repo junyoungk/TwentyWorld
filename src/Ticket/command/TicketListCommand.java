@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import Ticket.beans.Ticket;
 import Ticket.beans.TicketDAO;
 
-public class ListCommand implements Command{
+public class TicketListCommand implements TicketCommand{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

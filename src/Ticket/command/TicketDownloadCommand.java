@@ -9,10 +9,10 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board.beans.FileDAO;
-import board.beans.FileDTO;
+import Ticket.beans.FileDAO;
+import Ticket.beans.FileDTO;
 
-public class FileUploadCommand implements Command {
+public class TicketDownloadCommand implements TicketCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
@@ -25,14 +25,14 @@ public class FileUploadCommand implements Command {
 		ServletOutputStream sout = null;
 		
 		try {
-			fileArr = fileDao.selectByUid(uid); // 특정 파일 정보 읽어 오기
+			fileArr = fileDao.selectByUid(uid);  // 특정 파일 (하나) 정보 읽어오기
 			
-			String fileSystemName = fileArr[0].getFile();
-			String originalFileName = fileArr[0].getSource();
+			String fileSystemName = fileArr[0].getFile();  // 저장된 파일명
+			String originalFileName = fileArr[0].getSource();  // 원본 파일명
 			
 			String realPath = request.getServletContext().getRealPath("upload");
 			String downloadFilePath = realPath + File.separator + fileSystemName;
-			System.out.println(downloadFilePath);
+			System.out.println("downloadFilePath: " + downloadFilePath);
 			
 			String fileType = request.getServletContext().getMimeType(downloadFilePath);
 			
@@ -43,47 +43,45 @@ public class FileUploadCommand implements Command {
 			
 			response.setContentType(fileType);
 			
-			// 원본 파일명으로 다운 받을 수 있게 처리
+			// 원본 파일명으로 다운 받을수 있게 처리
 			String enc = "utf-8";
 			String encFileName = URLEncoder.encode(originalFileName, enc);
-			
 			response.setHeader("Content-Disposition", "attachment; filename=" + encFileName);
 			
-			File scrFile = new File(downloadFilePath);
-			in = new FileInputStream(scrFile);
+			File srcFile = new File(downloadFilePath);
+			in = new FileInputStream(srcFile);
 			sout = response.getOutputStream();
 			
-			byte [] buff = new byte[(int)scrFile.length()];
+			byte [] buff = new byte[(int)srcFile.length()];  // 파일 크기만큼 버퍼 준비
 			int numRead = 0;
 			int totalRead = 0;
 			
 			// 파일로부터 읽기
-			while((numRead = in.read(buff, 0, buff.length)) != -1) {
+			while( (numRead = in.read(buff, 0, buff.length)) != -1 ) {
 				totalRead += numRead;
-				sout.write(buff, 0, numRead);
-			}
+				sout.write(buff, 0, numRead);								
+			} // end while
 			
-			System.out.println("전송 byte : " + totalRead + " bytes");
+			System.out.println("전송 byte: " + totalRead + " bytes");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			
 			try {
-				if(sout != null) {
+				if(sout != null) {					
 					sout.flush();
 					sout.close();
 				}
-				if(in != null) {
-					in.close();
-				}
+				if(in != null) in.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-	}
-}
+		
+	} // end execute()
 
-
+} // end Command
 
 
 

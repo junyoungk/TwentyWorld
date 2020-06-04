@@ -8,14 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Ticket.command.Command;
-import Ticket.command.DeleteCommand;
-import Ticket.command.FileUploadCommand;
-import Ticket.command.ListCommand;
-import Ticket.command.SelectCommand;
-import Ticket.command.UpdateCommand;
-import Ticket.command.ViewCommand;
-import Ticket.command.WriteCommand;
+import Ticket.command.TicketCommand;
+import Ticket.command.TicketDeleteCommand;
+import Ticket.command.TicketFileUploadCommand;
+import Ticket.command.TicketListCommand;
+import Ticket.command.TicketSelectCommand;
+import Ticket.command.TicketListCommand;
+import Ticket.command.TicketUpdateCommand;
+import Ticket.command.TicketViewCommand;
+import Ticket.command.TicketWriteCommand;
 
 
 @WebServlet("*.doi")
@@ -41,7 +42,7 @@ public class TicketController extends HttpServlet{
 		
 		// 컨트롤러는 다음 두개를 선택해야 한다.
 		String viewPage = null;   // 어떠한 뷰? --> 페이지
-		Command command = null;   // 어떠한 커맨드? --> 어떠한 로직 수행.
+		TicketCommand command = null;   // 어떠한 커맨드? --> 어떠한 로직 수행.
 		
 		// URL로부터 URI, ContextPath, Command 분리 
 		String uri = request.getRequestURI();
@@ -56,46 +57,46 @@ public class TicketController extends HttpServlet{
 		// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
-		case "/Ticket/list.doi":
-			command = new ListCommand();
+		case "/Ticket/Ticketlist.doi":
+			command = new TicketListCommand();
 			command.execute(request, response);
-			viewPage = "/Ticket/list.jsp";
+			viewPage = "/Ticket/Ticketlist.jsp";
 			break;
 
-		case "/Ticket/write.doi":
-			viewPage="/Ticket/write.jsp";
+		case "/Ticket/Ticketwrite.doi":
+			viewPage="/Ticket/Ticketwrite.jsp";
 			break;
 			
-		case "/Ticket/writeOk.doi":
-			command = new WriteCommand();
+		case "/Ticket/TicketwriteOk.doi":
+			command = new TicketWriteCommand();
 			command.execute(request, response);
-			viewPage="/Ticket/writeOk.jsp";
+			viewPage="/Ticket/TicketwriteOk.jsp";
 			break;
-		case "/Ticket/view.doi":
-			command = new ViewCommand();
+		case "/Ticket/Ticketview.doi":
+			command = new TicketViewCommand();
 			command.execute(request, response);
-			viewPage="/Ticket/view.jsp";
+			viewPage="/Ticket/Ticketview.jsp";
 			break;
 			
-		case "/Ticket/fileUpload.doi":
-			new FileUploadCommand().execute(request, response);
+		case "/Ticket/TicketfileUpload.doi":
+			new TicketFileUploadCommand().execute(request, response);
 			break;
-		case "/Ticket/update.doi":
-			command = new SelectCommand();  // '수정' 이지만, 일단 읽어오는것부터 시작이다.
+		case "/Ticket/Ticketupdate.doi":
+			command = new TicketSelectCommand();  // '수정' 이지만, 일단 읽어오는것부터 시작이다.
 			command.execute(request, response);
-			viewPage = "/Ticket/update.jsp";
+			viewPage = "/Ticket/Ticketupdate.jsp";
 			break;
 
-		case "/Ticket/updateOk.doi":
-			command = new UpdateCommand();
+		case "/Ticket/TicketupdateOk.doi":
+			command = new TicketUpdateCommand();
 			command.execute(request, response);
-			viewPage = "/Ticket/updateOk.jsp";
+			viewPage = "/Ticket/TicketupdateOk.jsp";
 			break;  // 디버깅 훈련, 이 break를 없애고, 찾아보기
 
-		case "/Ticket/deleteOk.doi":
-			command = new DeleteCommand();
+		case "/Ticket/TicketdeleteOk.doi":
+			command = new TicketDeleteCommand();
 			command.execute(request, response);
-			viewPage = "/Ticket/deleteOk.jsp";
+			viewPage = "/Ticket/TicketdeleteOk.jsp";
 			break;
 			
 		// 파일 다운로드!

@@ -4,7 +4,7 @@ INSERT INTO USERS VALUES
 
 /* 테이블 확인 */
 SELECT * FROM USERS;
-DELETE FROM USERS WHERE USER_ID = 'kimjinyoung';
+DELETE FROM USERS WHERE USER_ID = '관리자';
 SELECT * FROM BOARD;
 
 DELETE FROM TICKET WHERE ticket_id = 6
@@ -17,8 +17,9 @@ INSERT INTO TICKET  VALUES (1, '자유이용권', 20000, '이미지');
 INSERT INTO TICKET  VALUES (2, '입장권', 5000, '이미지');
 INSERT INTO TICKET  VALUES (3, '빅3', 10000, '이미지');
 
-SELECT ticket_id, ticket_name, ticket_price ,ticket_img FROM TICKET WHERE ticket_id = ?;
+SELECT ticket_name, ticket_price ,ticket_img FROM TICKET WHERE ticket_id = 3;
 SELECT * FROM TICKET WHERE ticket_id = 4;
+SELECT * FROM TICKET ORDER BY TICKET_ID ASC;
 
 DELETE FROM TICKET WHERE TICKET_ID > 3;
  

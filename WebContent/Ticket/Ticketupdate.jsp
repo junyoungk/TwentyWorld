@@ -37,7 +37,7 @@ function chkSubmit(){
 </script>
 <body>
 <h2>수정</h2>
-<form name = "frm" action="updateOk.doi" method="post" onsubmit="return chkSubmit()">
+<form name = "frm" action="TicketupdateOk.doi" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name ="id" value="${select[0].ticket_id }">
 이용권분류 :  ${select[0].ticket_id }<br> <%-- 작성자 이름 변경 불가 --%>
 이용권이름 : 
@@ -45,18 +45,18 @@ function chkSubmit(){
  가격: 
 <input type="text" name="price" value="${select[0].ticket_price }"><br>
 이미지: <br>
-<textarea name="img">${select[0].ticket_img }</textarea>
+<textarea name="img" id="img">${select[0].ticket_img }</textarea>
 <script>
 	CKEDITOR.replace('img',{
 		allowedContent: true, //HTML 태그 자동삭제 방지 설정
-		filebrowserUploadUrl: '${pageContext.request.contextPath}/Ticket/fileUpload.doi'
+		filebrowserUploadUrl: '${pageContext.request.contextPath}/Ticket/TicketfileUpload.doi'
 	});
 </script>
 <br>
 <input type="submit" value="수정"/>
 </form>
 <button onclick="history.back()">이전으로</button>
-<button onclick="location.href='list.doi'">목록보기</button>
+<button onclick="location.href='Ticketlist.doi'">목록보기</button>
 
 
 </body>

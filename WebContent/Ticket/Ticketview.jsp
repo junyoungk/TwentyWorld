@@ -26,7 +26,7 @@ function chkDelete(id){
 	// 삭제 여부, 다시 확인 하고 진행하기
 	var r = confirm("삭제하시겠습니까?");
 	if(r){
-		location.href = 'deleteOk.doi?id='+id;
+		location.href = 'TicketdeleteOk.doi?id='+id;
 	}
 }
 </script>
@@ -42,10 +42,10 @@ ${read[0].ticket_img }
 </div>
 <hr>
 <br>
-<button onclick="location.href='update.doi?id=${read[0].ticket_id }'">수정</button>
+<button onclick="location.href='Ticketupdate.doi?id=${read[0].ticket_id }'">수정</button>
 <button onclick="chkDelete(${read[0].ticket_id })">삭제</button>
 
-<button onclick="location.href = 'list.doi'">목록보기</button>
+<button onclick="location.href = 'Ticketlist.doi'">목록보기</button>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>

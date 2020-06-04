@@ -5,10 +5,9 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import Ticket.beans.TicketDAO;
 
-public class UpdateCommand implements Command {
+public class TicketUpdateCommand implements TicketCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
