@@ -47,24 +47,22 @@ public class ReplyDAO {
 				
 				while(rs.next()) {
 					int reply_id = rs.getInt("reply_id");
-					int reply_boarderid = rs.getInt("reply_boarderid");
-					int reply_useruid = rs.getInt("reply_useruid");
-					String writeid = rs.getString("user_id");
+					String user_name = rs.getString("user_name");
 					String reply_comment = rs.getString("reply_comment");
+					int reply_boarderid = rs.getInt("reply_boarderid");
 					Date d = rs.getDate("reply_regdate");
 					String reply_regdate = "";
 					if(d != null){
 						reply_regdate = new SimpleDateFormat("yyyy-MM-dd").format(d);
 						}
 					
-					ReplyDTO dto = new ReplyDTO();
-					dto.setReply_useruid(reply_useruid);
-					dto.setReply_boarderid(reply_boarderid);
-					dto.setReply_comment(reply_comment);
-					dto.setWriteId(writeid);
-					dto.setReply_regdate(reply_regdate);
-					dto.setWriteId(writeid);
-					list.add(dto);
+					ReplyDTO rdto = new ReplyDTO();
+					rdto.setReply_id(reply_id);
+					rdto.setWriteName(user_name);
+					rdto.setReply_boarderid(reply_boarderid);
+					rdto.setReply_comment(reply_comment);
+					rdto.setReply_regdate(reply_regdate);
+					list.add(rdto);
 					
 				} // end while
 				
@@ -73,52 +71,90 @@ public class ReplyDAO {
 				return arr;
 			}
 		
+			
+			  public ReplyDTO[] replyselect() throws SQLException{
+				  ReplyDTO[] replyarr = null;
+				  String SQL = 
+				"SELECT r.reply_id,r.reply_boarderid, u.user_name, r.reply_comment, r.reply_regdate FROM reply r,board b, users u " + 
+				"WHERE b.board_id = r.reply_boarderid AND u.USER_UID = r.REPLY_USERUID";
+				  try {
+					  pstmt = conn.prepareStatement(SQL);
+					  rs =pstmt.executeQuery();
+					  
+					  replyarr = createArray(rs);
+				  }finally {
+						close();
+					}
+				  
+				  return replyarr;
+			  }
+			
+			
 	public int insert(int reply_boarderid, int reply_useruid, String reply_comment) throws SQLException{
 		int cnt = 0;
-		String SQL = "INSERT INTO reply (reply_id,reply_boarderid,reply_useruid,reply_comment,reply_regdate)"
-				+ "VALUES(reply_SEQ.nextval,?,?,?,sysdate)";
+		String SQL = "INSERT INTO reply VALUES(reply_SEQ.nextval,?,?,?,sysdate)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, reply_boarderid);
 			pstmt.setInt(2, reply_useruid);
 			pstmt.setString(3, reply_comment);
 			
-			cnt = pstmt.executeUpdate();
+			cnt += pstmt.executeUpdate();
 			
 		} finally {
 			close();			
 		}
 
-		
 		return cnt;
 	}
-			
-	public ReplyDTO[] Replyselect() throws SQLException{
-		ReplyDTO[] arr = null;
-		String SQL = "SELECT b.board_id, u.user_name, r.reply_comment FROM reply r,board b, users u";
-		try {
-			pstmt = conn.prepareStatement(SQL);
-			rs = pstmt.executeQuery();
-			
-			arr = createArray(rs);
-			
-		}finally {
+	
+	  public ReplyDTO[] selectReplyByBoardid(int board_id) throws SQLException{
+	  ReplyDTO[] arr = null; 
+	  
+	  ArrayList<ReplyDTO> list = new ArrayList<ReplyDTO>();
+	  
+	  String SQL = "SELECT r.reply_id, r.REPLY_BOARDERID, u.user_name, r.reply_comment, r.reply_regdate"+
+	  " FROM reply r,board b, users u "+
+	  "WHERE r.reply_boarderid = ? AND u.USER_UID = r.REPLY_USERUID AND b.BOARD_ID = r.REPLY_BOARDERID"; 
+	  try {
+		  pstmt = conn.prepareStatement(SQL); 
+		  pstmt.setInt(1, board_id);
+		  rs = pstmt.executeQuery();
+		  
+		  while(rs.next()) {
+			  int reply_id =rs.getInt("reply_id");
+			  String user_name = rs.getString("user_name");
+			  String reply_comment = rs.getString("reply_comment");
+			  Date reply_regdate = rs.getDate("reply_regdate"); 
+				
+				String regDate = "";
+				if(reply_regdate != null){
+					regDate = new SimpleDateFormat("yyyy-MM-dd").format(reply_regdate);
+					}
+				ReplyDTO Replydto = new ReplyDTO();
+				Replydto.setReply_id(reply_id);
+				Replydto.setWriteName(user_name);
+				Replydto.setReply_comment(reply_comment);
+				Replydto.setReply_regdate(regDate);
+
+				list.add(Replydto);
+			}
+			int size = list.size();
+			if (size == 0)
+				return null;
+			arr = new ReplyDTO[size];
+			list.toArray(arr);
+		} finally {
 			close();
 		}
-		
 		return arr;
-		}
-	/*
-	 * public ReplyDTO[] selectReplyByBoardid(int board_id) throws SQLException{
-	 * ReplyDTO[] arr = null; String SQL =
-	 * "SELECT reply_id,reply_comment,reply_regdate FROM reply where reply_boarderid = ?"
-	 * ; try { pstmt = conn.prepareStatement(SQL); pstmt.setInt(1, board_id); rs =
-	 * pstmt.executeQuery(); arr = createArray(rs); } finally { close(); } return
-	 * arr; }
-	 */
+	}
+	  
+
+	  
+	  
+
 }
-
-
 
 
 

@@ -7,7 +7,7 @@ public class ReplyDTO {
 	private int reply_useruid;
 	private String reply_comment;
 	private String reply_regdate;
-	private String writeid;
+	private String writeName;
 	
 	public ReplyDTO() {
 		super();
@@ -21,13 +21,14 @@ public class ReplyDTO {
 		this.reply_comment = reply_comment;
 	}
 
-	public String getWriteId() {
-		return writeid;
+	public String getWriteName() {
+		return writeName;
 	}
 
-	public void setWriteId(String writeid) {
-		this.writeid = writeid;
+	public void setWriteName(String writeName) {
+		this.writeName = writeName;
 	}
+	
 	public int getReply_id() {
 		return reply_id;
 	}

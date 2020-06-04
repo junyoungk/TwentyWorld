@@ -20,6 +20,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>읽기 ${read[0].board_subject }</title> <!-- title에 글제목 넣기 -->
+<style>
+table {width: 100%;}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
 </head>
 <script>
 function chkDelete(uid){
@@ -58,30 +65,40 @@ ${read[0].board_content }
 				</div>
 			</c:if>
 		</c:forEach>
-		
 	</ul>
 </c:if>
-<!-- shinhoonji -->
-댓글 내용<br>
-<c:choose>
-	<c:when test="${empty replylist || fn:length(replylist) == 0 }"></c:when>
-	<c:otherwise>
-	<c:forEach var="dto" items="${replylist }">
+
+<table>
+	<tr>
+		<th>No</th>
+		<th>작성자</th>
+		<th>내용</th>
+		<th>작성일</th>
+	</tr>
 	
-	</c:forEach>
-	</c:otherwise>
-</c:choose>
+	<c:choose>
+			<c:when test="${empty replyresult || fn:length(replyresult) == 0 }"></c:when>
+			<c:otherwise>
+			<c:forEach var="reply" items="${replyresult }">
+			<tr>
+				<td>${reply.reply_id }</td>
+				<td>${reply.writeName }</td>
+			<td>${reply.reply_comment }</td>
+			<td>${reply.reply_regdate }</td>
+			</tr>		
+			</c:forEach>
+			
+			</c:otherwise>
+		</c:choose>
+</table>
 
-<%-- <form name="frm" action="ReplywriteOk.do" method="post">
-<input type="text" name="reply_boarderid" value="${read[0].board_id }"/>
-user_uid: <%=session.getAttribute("userID")%>
-
+<form name="frm" action="ReplywriteOk.do" method="post">
+<input type="hidden" name="reply_boarderid" value="${read[0].board_id }"/>
+<input type="hidden" name="reply_useruid" value="<%=session.getAttribute("userID")%>"/>
 <textarea name="reply_comment"></textarea>
 
 <input type="submit" value="댓글게시"/>
-</form> --%>
-<!-- shinhoonji -->
-
+</form>
 <button onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
 <button onclick="chkDelete(${read[0].board_id })">삭제</button>
 

@@ -16,7 +16,7 @@ public class ReplyWriteCommand implements Command{
 		ReplyDAO Replydao = new ReplyDAO();
 		
 		int reply_boarderid = Integer.parseInt(request.getParameter("reply_boarderid"));
-		int reply_useruid = Integer.parseInt(request.getParameter("user_id"));
+		int reply_useruid = Integer.parseInt(request.getParameter("reply_useruid"));
 		String reply_comment = request.getParameter("reply_comment");
 		
 		if(reply_comment != null && reply_comment.trim().length() > 0) {
