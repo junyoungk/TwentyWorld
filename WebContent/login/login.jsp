@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.util.Enumeration"%>
+ <%
+	int userID = 0;
+	if(session.getAttribute("userID") != null) {
+		userID = Integer.parseInt(session.getAttribute("userID").toString());
+	} 
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,22 +20,75 @@
 </head>
 <body>
 <div class="wrapper">
-      <%@ include file="../HF/header.jsp" %>
+      <div class="header">
+        <div class="container">
+          <div class="row">
+            <div id="myNav" class="overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="overlay-content">
+                <a href="#">소개 / 오시는 길</a>
+                <a href="#">어트랙션</a>
+                <a href="#">자유게시판</a>
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+              </div>
+            </div>
+
+            <div class="d-block col-lg-2 logo text-center">
+              <div class="mobile_ver d-block d-lg-none">
+                <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
+              </div>
+              <a href="../login/testmain.jsp">
+                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
+              </a>
+            </div>
+            <div class="d-none d-lg-block col-lg-8 main_menu align-self-center">
+              <ul class="nav  justify-content-center list-group list-group-horizontal">
+                <li class="nav-item list-group-item dropdown">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">소개 글 및 오시는 길</a>
+                  </div>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">어트랙션</a>
+                  </div>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">소통 게시판</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
+            <h3>세션값 : <%= userID %></h3>
+            <% if (userID == 0) { %>
+              <a href="login.jsp">로그인</a> |
+              <a href="../join/join.jsp">회원가입</a>
+               <% } else { %>
+               <a href="mypage.jsp">마이페이지</a>
+               <a href="logoutCheck.jsp">로그아웃</a>
+                <% } %>
+            </div>           
+          </div>
+        </div>
+      </div>
+
       <div class="login container" style="min-height:700px; max-width:400px;">
 	<div class="login-section">
 		<h3 class="text-center">LOGIN</h3>
-		<form method="post" action="loginCheck.jsp">
+		<form method="post" action="loginCheck.jsp" name="form" onsubmit="return validateForm()">
 			<label>Your ID *</label>
 			<input type="text" name="user_id" id="login_id" placeholder="아이디를 입력해주세요"><br>
 			<label>Your PW *</label>
 			<input type="text" name="user_pw" id="login_pw" placeholder="비밀번호를 입력해주세요"><br>
 			<input class="login_submit" type="submit" value="로그인"> <br>
 		</form>
-	</div>
-	</div>
-	<!-- <hr>
-	 
-	<form method="post" action="idfind.jsp">
+		<form method="post" action="idfind.jsp">
 	이름<input type="text" name="user_name"><br>
 	주민번호<input type="text" name="user_jumin"><br>
 		<input type="submit" value="찾기"> <br>
@@ -41,10 +101,17 @@
 	주민번호<input type="text" name="user_jumin"><br>
 		<input type="submit" value="찾기"> <br>	
 	</form>
-	 -->
+	</div>
+	</div>
+	<hr>
+	 
+	
 	<%@ include file="../HF/footer.jsp" %>
     </div>
     <script>
+    
+    
+    
       function openNav() {
         document.getElementById("myNav").style.width = "60%";
       }

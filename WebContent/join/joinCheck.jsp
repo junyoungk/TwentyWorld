@@ -31,7 +31,7 @@
 		dto.getUser_jumin() == null || dto.getUser_age() == 0 || dto.getUser_email() == null ||
 		dto.getUser_gender() == null){
 			out.println("<script>");
-			out.println("alert('입력이 안된사항이 있습니다 다시확인해주세요.')");
+			out.println("alert('입력이 안된 사항이 있습니다 다시확인해주세요.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}  else if( userDAO.idCheckFunction(dto.getUser_id())==0){
