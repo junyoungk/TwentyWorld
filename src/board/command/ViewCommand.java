@@ -32,10 +32,7 @@ public class ViewCommand implements Command{
 		ReplyDAO Replydao = new ReplyDAO();
 		ReplyDTO[] replyarr = null;
 	
-
-		
 		int uid = Integer.parseInt(request.getParameter("uid"));
-		
 		
 		try {
 			arr = dao.selectByUid(uid);
@@ -47,9 +44,6 @@ public class ViewCommand implements Command{
 			
 			dao = new BoardDAO();
 			arr1 = dao.selectBySubjectNext(uid);
-			if(arr1 == null) {
-				System.out.println("다음글이 없다!");
-			}
 			request.setAttribute("next", arr1);
 			
 			

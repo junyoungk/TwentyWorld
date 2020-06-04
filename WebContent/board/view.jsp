@@ -24,6 +24,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>읽기 ${read[0].board_subject }</title> <!-- title에 글제목 넣기 -->
 <style>
 table {width: 100%;}
@@ -100,7 +101,6 @@ ${read[0].board_content }
 			</c:otherwise>
 		</c:choose>
 </table>
-
 <form name="frm" action="ReplywriteOk.do" method="post">
 <input type="hidden" name="reply_boarderid" value="${read[0].board_id }"/>
 <input type="hidden" name="reply_useruid" value="<%=session.getAttribute("userID")%>"/>
