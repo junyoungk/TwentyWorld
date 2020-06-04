@@ -270,6 +270,39 @@ public class BoardDAO {
 			}
 			return cnt;
 		}
+		
+		public int update(int uid, String subject, String content) throws SQLException{
+			int cnt = 0;
+			
+			try {
+				conn.setAutoCommit(false);
+				pstmt = conn.prepareStatement("UPDATE board SET board_subject = ?, board_content = ? WHERE board_id = ?");
+				pstmt.setString(1, subject);
+				pstmt.setString(2, content);
+				pstmt.setInt(3, uid);
+				
+				cnt = pstmt.executeUpdate();
+				conn.commit();
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+		
+		public int deleteByUid(int uid) throws SQLException{
+			int cnt = 0;
+			
+			try {
+				conn.setAutoCommit(false);
+				pstmt = conn.prepareStatement("DELETE FROM board WHERE board_id = ?");
+				pstmt.setInt(1, uid);
+				cnt = pstmt.executeUpdate();
+				conn.commit();
+			} finally {
+				close();
+			}
+			return cnt;
+		}
 } //BoardDAO
 
 

@@ -10,9 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import board.command.Command;
+import board.command.DeleteCommand;
 import board.command.FileUploadCommand;
 import board.command.ListCommand;
+import board.command.SelectCommand;
+import board.command.UpdateCommand;
 import board.command.ViewCommand;
+import board.command.WriCommand;
 import board.command.WriteCommand;
 
 @WebServlet("*.do")
@@ -66,6 +70,8 @@ public class BoardController extends HttpServlet {
 			break;
 			
 		case "/board/write.do":
+			command = new WriCommand();
+			command.execute(request, response);
 			viewPage = "write.jsp";
 			break;
 			
@@ -73,6 +79,24 @@ public class BoardController extends HttpServlet {
 			command = new WriteCommand();
 			command.execute(request, response);
 			viewPage = "writeOk.jsp";
+			break;
+			
+		case "/board/update.do":
+			command = new SelectCommand();
+			command.execute(request, response);
+			viewPage ="update.jsp";
+			break;
+			
+		case "/board/updateOk.do":
+			command = new UpdateCommand();
+			command.execute(request, response);
+			viewPage ="updateOk.jsp";
+			break;
+			
+		case "/board/deleteOk.do":
+			command = new DeleteCommand();
+			command.execute(request, response);
+			viewPage ="deleteOk.jsp";
 			break;
 			
 		case "/board/fileUpload.do":

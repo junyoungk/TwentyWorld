@@ -38,7 +38,7 @@ table, th, td {
 				<th>조회수</th>
 				<th>등록일</th>
 			</tr>
-		
+		<c:set var="bid" value="${list[0].board_id }"/>
 		<c:choose>
 			<c:when test="${empty list || fn:length(list) == 0 }"></c:when>
 			<c:otherwise>
@@ -52,12 +52,13 @@ table, th, td {
 				<td>${dto.board_regdate }</td>
 			</tr>		
 			</c:forEach>
+			
 			</c:otherwise>
 		</c:choose>
 
 		</table>
 		<br>
-		<button onclick="location.href='write.do'">글쓰기</button>
+		<button onclick="location.href='write.do?bid=${bid+1 }'">글쓰기</button>
 
 
 

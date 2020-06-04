@@ -67,13 +67,11 @@ public class FileDAO {
 		FileDTO[] arr = null;
 		
 		try {
-			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement("SELECT bi_uid, bi_source, bi_file FROM boardImg WHERE BOARD_ID = ? ORDER BY bi_uid DESC");
 			pstmt.setInt(1, board_id);
 			rs = pstmt.executeQuery();
 			
 			arr = createArray(rs);
-			conn.commit();
 		} finally {
 			close();
 		}
@@ -86,13 +84,11 @@ public class FileDAO {
 			FileDTO[] arr = null;
 			
 			try {
-				conn.setAutoCommit(false);
 				pstmt = conn.prepareStatement("SELECT bi_uid, bi_source, bi_file FROM boardImg WHERE bi_uid = ?");
 				pstmt.setInt(1, uid);
 				rs = pstmt.executeQuery();
 				
 				arr = createArray(rs);
-				conn.commit();
 			} finally {
 				close();
 			}
@@ -111,7 +107,7 @@ public class FileDAO {
 		try {
 			conn.setAutoCommit(false);
 			// 1. 물리적인 파일 삭제
-			pstmt = conn.prepareStatement("");
+			pstmt = conn.prepareStatement("SELECT bi_uid, bi_source, bi_file FROM boardImg WHERE board_id=? ORDER BY bi_uid DESC");
 			pstmt.setInt(1, wrUid);
 			rs = pstmt.executeQuery();
 			
@@ -140,7 +136,7 @@ public class FileDAO {
 			pstmt.close();
 			rs.close();
 			
-			pstmt = conn.prepareStatement("");
+			pstmt = conn.prepareStatement("DELETE FROM boardImg WHERE board_id = ?");
 			pstmt.setInt(1, wrUid);
 			cnt = pstmt.executeUpdate();
 			System.out.println("첨부파일" + cnt + "개 삭제");
@@ -161,7 +157,7 @@ public class FileDAO {
 		try {
 			conn.setAutoCommit(false);
 			// 1. 물리적인 파일 삭제
-			StringBuffer sql= new StringBuffer("SELECT bf_file FROM test_file WHERE bf_uid IN(");
+			StringBuffer sql= new StringBuffer("SELECT bi_file FROM boardImg WHERE bi_uid IN(");
 			for(int uid : uids) {
 				sql.append(uid + ",");
 			}
@@ -176,7 +172,7 @@ public class FileDAO {
 			String saveDirectory = context.getRealPath("upload");
 			
 			while(rs.next()) {
-				String fileName = rs.getString("bf_file"); // 삭제할 파일명
+				String fileName = rs.getString("bi_file"); // 삭제할 파일명
 				File f = new File(saveDirectory, fileName);
 				
 				System.out.println("삭제시도 --> " + f.getAbsolutePath());
@@ -195,7 +191,7 @@ public class FileDAO {
 			
 			
 			// 2. test_file 삭제
-			sql = new StringBuffer("DELETE FROM test_file WHERE bf_uid IN (");
+			sql = new StringBuffer("DELETE FROM boardImg WHERE bi_uid IN (");
 			for(int uid : uids) {
 				sql.append(uid + ",");
 			}
@@ -220,16 +216,16 @@ public class FileDAO {
 			List<String> file
 			) throws SQLException{
 		int cnt = 0;
-		
+		conn.setAutoCommit(false);
 		// 첨부파일 정보 추가(저장)
-		pstmt = conn.prepareStatement("");
+		pstmt = conn.prepareStatement("INSERT INTO boardImg (bi_uid, bi_source, bi_file, board_id) VALUES(boardImg_SEQ.nextval, ?, ?, ?)");
 		for(int i =0; i<original.size(); i++) {
 			pstmt.setString(1, original.get(i));
 			pstmt.setString(2, file.get(i));
 			pstmt.setInt(3, wrUid);
 			cnt += pstmt.executeUpdate();
 		}
-		
+		conn.commit();
 		return cnt;
 	}
 }

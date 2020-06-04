@@ -24,6 +24,7 @@ public class ViewCommand implements Command{
 
 		BoardDAO dao = new BoardDAO();
 		Board[] arr = null;
+		Board[] arr1 = null; // 이전글 이후글 관련 보드
 		
 		FileDAO fileDAO = new FileDAO();
 		FileDTO [] fileArr = null;
@@ -43,15 +44,15 @@ public class ViewCommand implements Command{
 			request.setAttribute("read", arr);
 		
 			dao = new BoardDAO();
-			arr = dao.selectBySubjectPre(uid);
-			request.setAttribute("prev", arr);
+			arr1 = dao.selectBySubjectPre(uid);
+			request.setAttribute("prev", arr1);
 			
 			dao = new BoardDAO();
-			arr = dao.selectBySubjectNext(uid);
-			if(arr == null) {
+			arr1 = dao.selectBySubjectNext(uid);
+			if(arr1 == null) {
 				System.out.println("다음글이 없다!");
 			}
-			request.setAttribute("next", arr);
+			request.setAttribute("next", arr1);
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -74,7 +75,6 @@ public class ViewCommand implements Command{
 						fileDto.setImage(true); // 이미지 맞네
 					}
 				}
-				
 				request.setAttribute("file", fileArr);
 			}
 		} catch (SQLException e) {

@@ -1,14 +1,11 @@
 package board.command;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-import javax.imageio.ImageIO;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,22 +14,21 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 
-import board.beans.Board;
 import board.beans.BoardDAO;
 import board.beans.FileDAO;
-import board.beans.FileDTO;
 
-public class WriteCommand implements Command{
+public class UpdateCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
 		int cnt = 0;
 		BoardDAO dao = new BoardDAO();
+		FileDAO fileDao = new FileDAO(); // 첨부 파일
 		
+		//--------------------------------------------
+		// 1. 업로드 파일(들)
 		ServletContext context = request.getServletContext();
 		String saveDirectory = context.getRealPath("upload");
-		
 		
 		int maxPostSize = 5 * 1024 * 1024;
 		String encoding = "utf-8";
@@ -70,22 +66,52 @@ public class WriteCommand implements Command{
 			}
 		}
 		
-		// 매개변수 받아오기
-		String subject = multi.getParameter("subject");
-		String content = multi.getParameter("content");
-		String category = multi.getParameter("category");
-		int uid = Integer.parseInt(multi.getParameter("uid"));
-		
-		if( subject != null && subject.trim().length() > 0) {
+		//----------------------------------------------
+		// 2. 삭제될 첨부파일(들)
+		String [] delfiles = multi.getParameterValues("delfile");
+		if(delfiles != null && delfiles.length > 0) { // 삭제 대상의 파일이 있다면
+			int [] delFileUids = new int[delfiles.length];
+			
+			for(int i =0; i<delFileUids.length; i++	) {
+				delFileUids[i] = Integer.parseInt(delfiles[i]);
+			}
+			
 			try {
-				cnt = dao.insert(subject, content, category, uid, originalFileNames, fileSystemNames);
+				fileDao.deleteByUid(delFileUids, request); // 물리적인 삭제  + DB 테이블 삭제
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
+		}
+		
+		//----------------------------------------------
+		// 3. 글 수정
+		int uid = Integer.parseInt(multi.getParameter("uid"));
+		String subject = multi.getParameter("subject");
+		String content = multi.getParameter("content");
+ 
 			
-		} // end if
+			try {
+				cnt = dao.update(uid, subject, content);
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}		
+		
+			//-------------------------------------
+			// 추가된 첨부파일(들)
+			fileDao = new FileDAO();
 			
-		request.setAttribute("result", cnt);
-	}
+			try {
+				fileDao.insert(uid, originalFileNames, fileSystemNames);
+			} catch (SQLException e ) {
+				e.printStackTrace();
+			}
+		
+		request.setAttribute("uid", uid); // Multipart로 받은 뒤 updateOk.jsp로 넘겨야함
+		request.setAttribute("seleok", cnt);
+
+	} // end execute()
+		
 
 }
+
+

@@ -14,7 +14,7 @@
 	<c:otherwise>
 		<script>
 		alert("수정 성공");
-		location.href = "view.do?uid="+${param.uid };
+		location.href = "view.do?uid="+${uid };
 		</script>
 	</c:otherwise>
 </c:choose>
