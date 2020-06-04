@@ -130,9 +130,7 @@ public class TicketDAO {
 		return arr;
 	}	
 
-	public int insert(int id, String name, int price ,String img,
-			List<String> originalFileNames,
-			List<String> fileSystemNames) throws SQLException{
+	public int insert(int id, String name, int price ,String img) throws SQLException{
 		int cnt = 0;
 		
 		

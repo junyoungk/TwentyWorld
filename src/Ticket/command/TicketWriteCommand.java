@@ -1,5 +1,6 @@
 package Ticket.command;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,10 +24,10 @@ public class TicketWriteCommand implements TicketCommand{
 		
 		int cnt = 0; 
 		TicketDAO dao = new TicketDAO();
-		String saveDirectory = "C:\\tomcat\\upload";
+//		String saveDirectory = "C:\\tomcat\\upload";
 		// 매개변수 받아오기
-//		ServletContext context = request.getServletContext();
-//		String saveDirectory = context.getRealPath("upload");
+		ServletContext context = request.getServletContext();
+		String saveDirectory = context.getRealPath("upload");
 		
 		int maxPostSize = 5 * 1024 * 1024;
 		String encoding = "utf-8";
@@ -66,13 +67,16 @@ public class TicketWriteCommand implements TicketCommand{
 		
 		// 매개변수 받아오기
 		int id = Integer.parseInt(multi.getParameter("ticket_id"));
+		System.out.println(id);
 		String name = multi.getParameter("name");
+		System.out.println(name);
 		int price = Integer.parseInt(multi.getParameter("price"));
-		String img = multi.getParameter("img");
-		
+		System.out.println(price);
+		String img = fileSystemNames.get(0);
+		System.out.println(img);
 		if( name != null && name.trim().length() > 0) {
 			try {
-				cnt = dao.insert(id, name, price, img, originalFileNames, fileSystemNames);
+				cnt = dao.insert(id, name, price, img);
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}

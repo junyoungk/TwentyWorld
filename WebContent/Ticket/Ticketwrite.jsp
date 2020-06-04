@@ -31,9 +31,8 @@ function chkSubmit(){
 <body>
 <h2>글 작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
-<form name="frm" action="TicketwriteOk.doi" method="post" onsubmit="return chkSubmit()" >
+<form name="frm" action="TicketwriteOk.doi" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 <!--  
-enctype="Multipart/form-data"
 -->
 <input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
 이용권분류:
