@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import Ticket.command.TicketCommand;
 import Ticket.command.TicketDeleteCommand;
-import Ticket.command.TicketFileUploadCommand;
 import Ticket.command.TicketListCommand;
 import Ticket.command.TicketSelectCommand;
 import Ticket.command.TicketListCommand;
 import Ticket.command.TicketUpdateCommand;
 import Ticket.command.TicketViewCommand;
 import Ticket.command.TicketWriteCommand;
+import Ticket.command.TicketflexCommand;
 
 
 @WebServlet("*.doi")
@@ -78,9 +78,6 @@ public class TicketController extends HttpServlet{
 			viewPage="/Ticket/Ticketview.jsp";
 			break;
 			
-		case "/Ticket/TicketfileUpload.doi":
-			new TicketFileUploadCommand().execute(request, response);
-			break;
 		case "/Ticket/Ticketupdate.doi":
 			command = new TicketSelectCommand();  // '수정' 이지만, 일단 읽어오는것부터 시작이다.
 			command.execute(request, response);
@@ -97,6 +94,11 @@ public class TicketController extends HttpServlet{
 			command = new TicketDeleteCommand();
 			command.execute(request, response);
 			viewPage = "/Ticket/TicketdeleteOk.jsp";
+			break;
+		case "/Ticket/Ticketflex.doi":
+			command = new TicketflexCommand();
+			command.execute(request, response);
+			viewPage = "/Ticket/Ticketflex.jsp";
 			break;
 			
 		// 파일 다운로드!

@@ -89,6 +89,21 @@ public class TicketDAO {
 		return arr;
 		
 	}
+	public Ticket [] flexselect() throws SQLException{
+		Ticket [] arr = null;
+		
+		try {
+			pstmt = conn.prepareStatement("SELECT ticket_id, ticket_name, ticket_price, ticket_img FROM Ticket");
+				
+			rs = pstmt.executeQuery();
+			
+			arr = createArray(rs);
+		} finally {
+			close();
+		}
+		return arr;
+		
+	}
 	public Ticket[] readByid(int ticket_id) throws SQLException{
 		int cnt = 0;
 		Ticket[] arr = null;
