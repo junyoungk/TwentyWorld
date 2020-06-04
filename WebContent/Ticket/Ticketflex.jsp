@@ -23,6 +23,9 @@ table, th, td {
 </style>
 </head>
 <body>
+<form name="frm" action="TicketflexOk.doi" method="post">
+<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
+    <h3><%=session.getAttribute("userID")%></h3>
 
 
 	<table>
@@ -49,7 +52,7 @@ table, th, td {
 						</td>
 						<td>${dto.ticket_name }</td>
 						<td>${dto.ticket_price }</td>
-						<td><a href="TicketFlexOk.doi?id=${dto.ticket_id}">${dto.ticket_name}예매하기</a></td>
+						<td><a href="TicketflexOk.doi?id=${dto.ticket_id}">${dto.ticket_name}예매하기</a></td>
 
 					</tr>
 				</c:forEach>
@@ -57,6 +60,7 @@ table, th, td {
 		</c:choose>
 
 	</table>
+	</form>
 	<br>
 
 

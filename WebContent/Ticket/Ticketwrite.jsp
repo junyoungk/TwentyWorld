@@ -29,12 +29,13 @@ function chkSubmit(){
 </script>
 
 <body>
-<h2>글 작성</h2>
+<h2>티켓 작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" action="TicketwriteOk.doi" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 <!--  
 -->
 <input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
+<h3><%=session.getAttribute("userID")%></h3>
 이용권분류:
 <input type="number" name="ticket_id"/><br>
 이용권이름:
@@ -43,6 +44,8 @@ function chkSubmit(){
 <input type="text" name="price"/>원<br>
 티켓이미지:
 <input type="file" name="img"><br> <%-- part: file1 --%>
+
+
 
 <br><br>
 <input type="submit" value="추가"/>

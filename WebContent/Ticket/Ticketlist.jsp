@@ -23,7 +23,8 @@ table, th, td {
 </style>
 </head>
 <body>
-
+<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
+<h3><%=session.getAttribute("userID")%></h3>
 
 	<table>
 		<tr>

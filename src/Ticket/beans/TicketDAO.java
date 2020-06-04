@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import CKJY.UserDAO;
 import Ticket.beans.Ticket;
 
 public class TicketDAO {
@@ -179,10 +180,6 @@ public class TicketDAO {
 		}
 		return arr;
 	}
-	public int insertImg(int info, String fileUrl) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	public int update(int id , String name, int price, String img) throws SQLException {
 		int cnt = 0;
@@ -212,6 +209,20 @@ public class TicketDAO {
 		return cnt;
 	} // end deleteByUid()
 	
+	
+	
+	public int insertBuy( int id)throws SQLException{
+		int cnt = 0;
+		try {
+			pstmt = conn.prepareStatement("INSERT INTO TICKETBUY VALUES(ticketbuy_SEQ,65,?)");
+//			pstmt.setInt(1, uid);
+			pstmt.setInt(1, id);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}		
+		return cnt;
+	}
 	
 	
 	

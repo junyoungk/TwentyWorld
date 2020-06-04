@@ -31,6 +31,7 @@ function chkDelete(id){
 }
 </script>
 <body>
+<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
 <h2>읽기 ${read[0].ticket_name }</h2>
 <br>
 이용권분류 : ${read[0].ticket_id }<br>

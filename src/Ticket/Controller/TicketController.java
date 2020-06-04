@@ -12,11 +12,11 @@ import Ticket.command.TicketCommand;
 import Ticket.command.TicketDeleteCommand;
 import Ticket.command.TicketListCommand;
 import Ticket.command.TicketSelectCommand;
-import Ticket.command.TicketListCommand;
 import Ticket.command.TicketUpdateCommand;
 import Ticket.command.TicketViewCommand;
 import Ticket.command.TicketWriteCommand;
 import Ticket.command.TicketflexCommand;
+import Ticket.command.TicketflexOkCommand;
 
 
 @WebServlet("*.doi")
@@ -99,6 +99,11 @@ public class TicketController extends HttpServlet{
 			command = new TicketflexCommand();
 			command.execute(request, response);
 			viewPage = "/Ticket/Ticketflex.jsp";
+			break;
+		case "/Ticket/TicketflexOk.doi":
+			command = new TicketflexOkCommand();
+			command.execute(request, response);
+			viewPage = "/Ticket/TicketflexOk.jsp";
 			break;
 			
 		// 파일 다운로드!
