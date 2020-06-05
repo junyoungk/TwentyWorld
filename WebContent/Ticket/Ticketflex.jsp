@@ -38,21 +38,23 @@ table, th, td {
 		</tr>
 
 		<c:choose>
-			<c:when test="${empty flexlist || fn:length(flexlist) == 0 }"></c:when>
+			<c:when test="${empty flexTicketlist || fn:length(flexTicketlist) == 0 }"></c:when>
 			<c:otherwise>
-				<c:forEach var="dto" items="${flexlist}">
+				<c:forEach var="dto" items="${flexTicketlist}">
 					<tr>
 						
 						<td style="width: 200px" height="100px">
-						<!-- 
-						 <img src="../upload/${dto.ticket_img }" />
-						 -->
-						<img src="${pageContext.request.contextPath}/upload/${dto.ticket_img}" />
+						<!-- <img src="../upload/${dto.ticket_img }" /> -->
+			<!-- <th>유저</th> -->
+						<%-- <td>${dto.user_uid}</td> --%>
+					
+						  <img src="${pageContext.request.contextPath}/upload/${dto.ticket_img}" />
 						
 						</td>
+						
 						<td>${dto.ticket_name }</td>
 						<td>${dto.ticket_price }</td>
-						<td><a href="TicketflexOk.doi?id=${dto.ticket_id}">${dto.ticket_name}예매하기</a></td>
+						<td><a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a></td>
 
 					</tr>
 				</c:forEach>

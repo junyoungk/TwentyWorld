@@ -41,13 +41,7 @@ function chkDelete(uid){
 		location.href = 'deleteOk.do?uid='+uid;
 	}
 }
-function replyDelete(reply_id){
-	// 삭제 여부, 다시 확인 하고 진행하기
-	var r = confirm("댓글삭제");
-	if(r){
-		location.href = 'ReplydeleteOk.do?reply_id='+reply_id;
-	}
-}
+
 </script>
 <body>
 <h2>읽기 ${read[0].board_subject }</h2>
@@ -95,7 +89,7 @@ ${read[0].board_content }
 				${reply.reply_regdate }
 				<c:choose>
 					<c:when test="${user_uid == reply.reply_useruid }">
-					<button type="button" id="replydelete" onclick="replyDelete(${reply.reply_id })">삭제</button>
+					<button type="button" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">삭제</button>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
@@ -106,13 +100,8 @@ ${read[0].board_content }
 			</c:otherwise>
 		</c:choose>
 
-<script>
-$('#replydelete').click(function(){
-	$('#table_result').remove();
-});
-</script>
 <form name="frm" action="ReplywriteOk.do" method="post">
-<input type="hidden" name="reply_boarderid" value="${read[0].board_id }"/>
+<input type="text" name="reply_boarderid" value="${read[0].board_id }"/>
 <input type="hidden" name="reply_useruid" value="<%=session.getAttribute("userID")%>"/>
 <textarea name="reply_comment"></textarea>
 

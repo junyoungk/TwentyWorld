@@ -152,12 +152,13 @@ public class ReplyDAO {
 		return arr;
 	}
 	  
-	public int deleteByReplyUid(int reply_id) throws SQLException {
+	public int deleteByReplyUid(int reply_id, int reply_boarderid) throws SQLException {
 		int cnt = 0;
-		String SQL = "DELETE FROM reply WHERE REPLY_ID = ? ";
+		String SQL = "DELETE FROM reply WHERE reply_id = ? AND reply_boarderid = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, reply_id);
+			pstmt.setInt(2, reply_boarderid);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();

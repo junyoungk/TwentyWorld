@@ -19,10 +19,12 @@ public class TicketflexOkCommand implements TicketCommand {
 		// 입력한 값을 받아오기
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
 		
+		int uid = Integer.parseInt(request.getParameter("uid"));
+		System.out.println(uid); //null
+		System.out.println(id);
 		try {
-			cnt = dao.insertBuy(id);
+			cnt = dao.insertBuy(uid,id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

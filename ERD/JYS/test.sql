@@ -2,6 +2,8 @@
 INSERT INTO USERS VALUES
 (user_SEQ.nextval, '관리자','1234','관리자','','1111111111111',100,3000,'관리자@관리자.com','-');
 
+
+DROP SEQUENCE user_SEQ;
 /* 테이블 확인 */
 SELECT * FROM USERS;
 DELETE FROM USERS WHERE USER_ID = '관리자';
@@ -17,7 +19,9 @@ INSERT INTO TICKET  VALUES (1, '자유이용권', 20000, '이미지');
 INSERT INTO TICKET  VALUES (2, '입장권', 5000, '이미지');
 INSERT INTO TICKET  VALUES (3, '빅3', 10000, '이미지');
 
-SELECT ticket_name, ticket_price ,ticket_img FROM TICKET WHERE ticket_id = 3;
+
+//
+SELECT t.ticket_name, t.ticket_price ,t.ticket_img FROM TICKET t , USERS u WHERE u.user_uid = 1;
 SELECT * FROM TICKET WHERE ticket_id = 4;
 SELECT * FROM TICKET ORDER BY TICKET_ID ASC;
 
@@ -37,6 +41,8 @@ SELECT * FROM TICKET;
 SELECT * FROM TICKETBUY;
 
 
+
+SELECT * FROM TICKET t , USERS u ;
 
 SELECT *
 FROM TICKET t , USERS u ,TICKETBUY tb
