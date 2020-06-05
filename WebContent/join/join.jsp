@@ -249,9 +249,8 @@ function check() {
 					<label>이름</label>
 					<input type="text" name="user_name" id="user_name"><br>
 					
-					<laberl>이메일</laberl>
-					<input type="text" name="user_email" id="user_email"><br>@
-					
+					<label>이메일</label>
+					<input type="text" name="user_email" id="user_email">@
 					<select name="user_email2">
 						<option value="naver.com">naver.com</option>
 						<option value="daum.net">daum.net</option>

@@ -27,5 +27,6 @@ public class ReplyWriteCommand implements Command{
 			}
 		}
 		request.setAttribute("replyresult", cnt);
+		request.setAttribute("boarderid", reply_boarderid);
 	}
 }

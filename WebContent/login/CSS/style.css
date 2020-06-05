@@ -220,3 +220,6 @@ padding: 20px 0;
 .sticky + .content {
   padding-top: 60px;
 }
+#user_email{
+	width:150px !important;
+}
