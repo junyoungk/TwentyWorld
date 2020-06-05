@@ -49,41 +49,41 @@ public class AttrWriteController extends HttpServlet {
 		// 컨트롤러는 커맨드에 따라, 로직을 수행하고
 		// 결과를 내보낼 view 를 결정한다
 		switch(com) {
-		case "/attrAdminListMain.doat":
+		case "/attraction/attrAdminListMain.doat":
 			command = new AttrListCommand();
 			command.execute(request, response);
 			viewPage = "attrAdminListMain.jsp";
 			break;
 			
-		case "/attrClientListMain.doat":
+		case "/attraction/attrClientListMain.doat":
 			command = new AttrListCommand();
 			command.execute(request, response);
 			viewPage = "attrClientListMain.jsp";
 			break;
 			
-		case "/attrWrite.doat":
+		case "/attraction/attrWrite.doat":
 			viewPage = "attrWrite.jsp";
 			break;
 			
-		case "/attrWriteOk.doat":
+		case "/attraction/attrWriteOk.doat":
 			command = new AttrWriteCommand();
 			command.execute(request, response);
 			viewPage = "attrWriteOk.jsp";
 			break;		
 			
-		case "/attrClientView.doat":
+		case "/attraction/attrClientView.doat":
 			command = new AttrViewCommand();
 			command.execute(request, response);
 			viewPage = "attrClientView.jsp";
 			break;	
 			
-		case "/attrAdminView.doat":
+		case "/attraction/attrAdminView.doat":
 			command = new AttrViewCommand();
 			command.execute(request, response);
 			viewPage = "attrAdminView.jsp";
 			break;	
 			
-		case "/attrUpdate.doat":
+		case "/attraction/attrUpdate.doat":
 			command = new AttrSelectCommand();  // '수정' 이지만, 일단 읽어오는것부터 시작이다.
 			command.execute(request, response);
 			viewPage = "attrUpdate.jsp";
