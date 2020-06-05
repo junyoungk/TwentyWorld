@@ -89,7 +89,7 @@ table, th, td {
         </div>
       </div>
       <div class="container">
-		<h2>게시판</h2>
+		<h2><a href="list.do">게시판</a></h2>
 			<a href="list.do?category=1"><input type="button" value="전체" class="btnCategory"></a>
 			<a href="list.do?category=2"><input type="button" value="공지" class="btnCategory"></a>
 			<a href="list.do?category=3"><input type="button" value="행사" class="btnCategory"></a>
@@ -110,7 +110,7 @@ table, th, td {
 			<c:otherwise>
 			<c:forEach var="dto" items="${list }">
 			<tr>
-				<td>${dto.board_id }</td>
+				<td>${dto.rownum }</td>
 				<td>${dto.board_category }</td>
 				<td>${dto.writeName }</td>
 				<td><a href="view.do?uid=${dto.board_id }">${dto.board_subject }</a></td>
@@ -124,6 +124,15 @@ table, th, td {
 
 		</table>
 		<br>
+		<form name='frm' method='get' action='list.do'>
+      	<select name='col'> <!-- 검색 컬럼 -->
+        	<option value='none' selected>작성자+제목</option>
+        	<option value='name'>작성자</option>
+        	<option value='subject'>제목</option>
+      	</select>
+      	<input type='text' name='word' value='' placeholder="특수문자 입력불가">
+      	<button type='submit'>검색</buttion>    
+  		</form>
 		<button onclick="location.href='write.do?bid=${bid+1 }'">글쓰기</button>
 		</div>
 		<%@ include file="../HF/footer.jsp" %>

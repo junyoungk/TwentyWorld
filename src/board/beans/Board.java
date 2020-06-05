@@ -3,6 +3,7 @@ package board.beans;
 import java.util.Date;
 
 public class Board {
+	private int rownum;
 	private int board_id;
 	private String board_regdate;
 	private String board_subject;
@@ -13,8 +14,6 @@ public class Board {
 	private String board_category;
 	private String writeName;
 	
-	
-
 	public Board() {
 		super();
 	}
@@ -31,6 +30,14 @@ public class Board {
 		this.board_category = board_category;
 	}
 
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+	
 	public String getWriteName() {
 		return writeName;
 	}
