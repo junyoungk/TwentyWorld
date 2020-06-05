@@ -49,14 +49,46 @@
 </head>
 <script>
 function chkSubmit(){
-	frm = document.forms['frm'];
-	var subject = frm['subject'].value.trim();
+frm = document.forms["frm"];
 	
-	if(subject == ""){
-		alert("제목은 반드시 작성해야 합니다");
-		frm['subject'].focus();
-		return false;
-	}
+	//폼...검증 (길다)
+	var name = frm["attr_name"].value.trim();
+	var content = frm["attr_content"].value.trim();
+	var fileCheck1 = document.getElementById("attr_setimg").value;
+	var fileCheck2 = document.getElementById("attr_setcardimg").value;
+	
+	var attrTime = frm["attr_time"].value.trim();
+	var attrMax = frm["attr_max"].value.trim();
+	var attrPrice = frm["attr_price"].value.trim();
+	var attrAuthorize = frm["attr_authorize"].value.trim();
+	
+	var minAge = frm["attr_min_age"].value.trim();
+	var maxAge = frm["attr_max_age"].value.trim();
+	var minHeight = frm["attr_min_height"].value.trim();
+	var maxHeight = frm["attr_max_height"].value.trim();
+
+	if(name == ""){	alert("이름은 반드시 입력해야 합니다!"); frm["attr_name"].focus();	return false;}
+	if(content == ""){ alert("설명은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(!fileCheck1){ alert("상세정보에 들어갈 파일을 첨부해 주세요"); return false; }
+	if(!fileCheck2){ alert("메인 카드 이미지 파일을 첨부해 주세요"); return false; }
+	
+	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(attrAuthorize == ""){ alert("권한은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	
+	if(minAge == ""){ alert("최소나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(maxAge == ""){ alert("최대나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(minHeight == ""){ alert("최소키는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(maxHeight == ""){ alert("최대키는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+
+	if(minAge < 0 || maxAge < 0 || minHeight < 0 || maxHeight < 0){
+		alert("나이와 키는 0이상이여야 합니다."); return false; }
+	if(minAge > maxAge){
+		alert("최소나이(" + minAge + ")는 최대나이(" + maxAge + ")를 넘을 수 없습니다."); return false;}
+	if(minHeight > maxHeight){
+		alert("최소키(" + minHeight + ")는 최대키(" + maxHeight + ")를 넘을 수 없습니다."); return false;}
+	
 	return true;
 }
 </script>
@@ -68,8 +100,8 @@ function chkSubmit(){
 
 이름: <input type="text" name="attr_name" value="<%= attr_name %>"/><br>
 내용: <input type="text" name="attr_content" value="<%= attr_content %>"/><br>
-상세페이지사진: <input type="file" name="attr_setimg"/>기존 :<%= attr_cardimg %><br>
-메인사진(카드): <input type="file" name="attr_setcardimg" />기존 :<%= attr_img %><br>
+상세페이지사진: <input type="file" name="attr_setimg" id = "attr_setimg"/>기존 :<%= attr_cardimg %><br>
+메인사진(카드): <input type="file" name="attr_setcardimg" id ="attr_setcardimg"/>기존 :<%= attr_img %><br>
 
 소요시간: <input type="number" name="attr_time" value="<%= attr_time %>"/><br>
 탑승인원수: <input type="number" name="attr_max" value="<%= attr_max %>"/><br>

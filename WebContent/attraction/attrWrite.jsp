@@ -11,33 +11,45 @@
 </head>
 <script>
 function chkSubmit(){  // 폼 검증
-	frm = document.forms["frm"];
+frm = document.forms["frm"];
 	
 	//폼...검증 (길다)
-	List listcheck = new ArrayList();
-	var attr_name = frm["attr_name"].value.trim();
-	var attr_content = frm["attr_content"].value.trim();
-	var attr_setimg = document.getElementById("attr_setimg").value;
-	out.println("폼검증 attr_setimg" + attr_setimg);
-	var attr_setcardimg = document.getElementById("attr_setcardimg").value;
-	var attr_time = frm["attr_time"].value.trim();
-	var attr_max = frm["attr_max"].value.trim();
-	var attr_price = frm["attr_price"].value.trim();
-	var attr_authorize = frm["attr_authorize"].value.trim();
-	var attr_min_age = frm["attr_min_age"].value.trim();
-	var attr_max_age = frm["attr_max_age"].value.trim();
-	var attr_min_height = frm["attr_min_height"].value.trim();
-	var attr_max_height = frm["attr_max_height"].value.trim();
+	var name = frm["attr_name"].value.trim();
+	var content = frm["attr_content"].value.trim();
+	var fileCheck1 = document.getElementById("attr_setimg").value;
+	var fileCheck2 = document.getElementById("attr_setcardimg").value;
+	
+	var attrTime = frm["attr_time"].value.trim();
+	var attrMax = frm["attr_max"].value.trim();
+	var attrPrice = frm["attr_price"].value.trim();
+	var attrAuthorize = frm["attr_authorize"].value.trim();
+	
+	var minAge = frm["attr_min_age"].value.trim();
+	var maxAge = frm["attr_max_age"].value.trim();
+	var minHeight = frm["attr_min_height"].value.trim();
+	var maxHeight = frm["attr_max_height"].value.trim();
 
-	var alert_sen = "은(는) 반드시 입력해야 합니다!";
-	if(attr_name == " "){ alert("이름" + alert_sen); frm["attr_name"].focus(); return false; }
-	if(attr_content == " "){ alert("설명" + alert_sen); frm["attr_content"].focus(); return false; }
-	if(attr_min_age < 0 || attr_min_height< 0 || attr_min_height < 0 || attr_max_height < 0){
-		alert("나이와 키는 0이상이여야 합니다."); return false;}
-	if(attr_min_age > attr_min_height){
-		alert("최소나이(" + attr_min_age + ")는 최대나이(" + attr_min_height + ")를 넘을 수 없습니다."); return false;}
-	if(attr_min_height > attr_max_height){
-		alert("최소키(" + attr_min_height + ")는 최대키(" + attr_max_height + ")를 넘을 수 없습니다."); return false;}
+	if(name == ""){	alert("이름은 반드시 입력해야 합니다!"); frm["attr_name"].focus();	return false;}
+	if(content == ""){ alert("설명은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(!fileCheck1){ alert("상세정보에 들어갈 파일을 첨부해 주세요"); return false; }
+	if(!fileCheck2){ alert("메인 카드 이미지 파일을 첨부해 주세요"); return false; }
+	
+	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(attrAuthorize == ""){ alert("권한은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	
+	if(minAge == ""){ alert("최소나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(maxAge == ""){ alert("최대나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(minHeight == ""){ alert("최소키는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(maxHeight == ""){ alert("최대키는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+
+	if(minAge < 0 || maxAge < 0 || minHeight < 0 || maxHeight < 0){
+		alert("나이와 키는 0이상이여야 합니다."); return false; }
+	if(minAge > maxAge){
+		alert("최소나이(" + minAge + ")는 최대나이(" + maxAge + ")를 넘을 수 없습니다."); return false;}
+	if(minHeight > maxHeight){
+		alert("최소키(" + minHeight + ")는 최대키(" + maxHeight + ")를 넘을 수 없습니다."); return false;}
 	
 	return true;
 }
