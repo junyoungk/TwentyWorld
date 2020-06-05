@@ -8,8 +8,8 @@ package attraction.common;
 public class AttrD {
 	public static final String DRIVER = "oracle.jdbc.driver.OracleDriver";  // JDBC 드라이버 클래스
 	public static final String URL = "jdbc:oracle:thin:@localhost:1521:XE";  // DB 접속 URL
-	public static final String USERID = "scott0316";  // DB 접속 계정 정보
-	public static final String USERPW = "tiger0316";
+	public static final String USERID = "TEAM20";  // DB 접속 계정 정보
+	public static final String USERPW = "TIGER20";
 	
 	public static final String SQL_WRITE_SELECT = 
 			"SELECT * FROM attraction ORDER BY attr_id DESC"; 
