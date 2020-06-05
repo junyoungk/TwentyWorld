@@ -20,7 +20,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+ 
 	
 	<%
 	
@@ -30,7 +30,7 @@
 		}
 		if(userID != 0){
 			out.println("<script>");
-			out.println("alert('로그인 상태')");
+			out.println("alert('로그인 상태')"); 
 			out.println("location.href= 'testmain.jsp'");
 			out.println("</script>");
 		}
@@ -42,7 +42,7 @@
 			session.setAttribute("userID", uid);
 			out.println("<script>");
 			out.println("alert('로그인성공') ");
-			out.println("location.href =  '../board/list.do'");
+			out.println("location.href =  'testmain.jsp'");
 			 
 			out.println("</script>");
 		} else if (result == 0) {

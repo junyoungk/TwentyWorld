@@ -192,7 +192,7 @@
         <img class="price-img"src="https://wwwcdn.everland.com/web/everland/now/card/__icsFiles/afieldfile/2020/05/15/icon_sh.png" alt="">
         <span class="price">31,000원</span>
       </a>
-    </div>
+    </div> 
   </div>
 </div>
 <!-- shinhoonji -->

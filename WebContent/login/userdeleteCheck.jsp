@@ -16,7 +16,7 @@ if(session.getAttribute("userID") != null) {
 	 
 	out.println("<script>");
 	out.println("alert('그동안감사했습니다 수고링~!')");
-	out.println("location.href('testmain.jsp')");
+	out.println("location.href= 'testmain.jsp'");
 	out.println("</script>");
 	
 	

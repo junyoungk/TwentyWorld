@@ -132,7 +132,8 @@
 					<br>
 					<input type="submit" value="수정"/>
 				 </form>
-				 <button><a href="userdeleteCheck.jsp">회원탈퇴</a></button>
+				 
+				 <a href="userdeleteCheck.jsp">회원탈퇴</a> <!-- 버튼 > a 태그 넣으면 이클립스는 안넘어감 ?.... -->
 			 </div>
 			 <div>내가 쓴글 (★ 최신순 5개까지만 표시됩니다. ★) <br>
 			 <% for(int i=0; i<a.length; i++){
