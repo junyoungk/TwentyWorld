@@ -13,6 +13,7 @@ import board.command.Command;
 import board.command.DeleteCommand;
 import board.command.FileUploadCommand;
 import board.command.ListCommand;
+import board.command.ReplyWriteCommand;
 import board.command.SelectCommand;
 import board.command.UpdateCommand;
 import board.command.ViewCommand;
@@ -102,7 +103,11 @@ public class BoardController extends HttpServlet {
 		case "/board/fileUpload.do":
 			new FileUploadCommand().execute(request, response);
 			break;
-			
+		case "/board/ReplywriteOk.do":
+			command = new ReplyWriteCommand();
+			command.execute(request, response);
+			viewPage = "ReplywriteOk.jsp";
+			break;
 		} // end switch
 		
 		// request 를 위에서 결정된 view 에 forward 해줌.
