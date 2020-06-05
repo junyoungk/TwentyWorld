@@ -88,8 +88,8 @@ public class AttrWriteCommand implements AttrCommand {
 		int attr_max_height = Integer.parseInt(multi.getParameter("attr_max_height"));
 		
 		int attr_authorize = Integer.parseInt(multi.getParameter("attr_authorize"));
-		String attr_img = "upload/" + x1;
-		String attr_cardimg = "upload/" + x2;
+		String attr_img = "/upload/" + x1;
+		String attr_cardimg = "/upload/" + x2;
 
 		//TODO 유효성체크!!!!!!!!!!!
 		if(attr_name != null && attr_content != null &&
