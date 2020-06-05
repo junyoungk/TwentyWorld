@@ -18,6 +18,8 @@ FROM board b, users u
 WHERE b.board_writeuid = u.user_uid 
 ORDER BY b.board_id DESC;
 
+
+
 SELECT b.board_subject, u.user_name, b.board_regdate, b.board_content, b.board_category, b.board_viewcnt
 FROM board b , users u
 WHERE b.board_writeuid = u.user_uid AND b.board_category = '자유';
@@ -64,8 +66,8 @@ alter table users modify(user_email varchar2(100));
 alter table ticket modify(ticket_img varchar2(200));
 alter table ticket modify(ticket_name varchar2(50));
 
-SELECT * FROM boardImg ORDER BY BI_UID DESC ;
-SELECT * FROM board ORDER BY board_id desc;
+SELECT * FROM boardImg ORDER BY BI_UID DESC;
+SELECT * FROM board ORDER BY board_id DESC;
 
 SELECT bi_uid, bi_source, bi_file FROM boardImg WHERE BOARD_ID = 43 ORDER BY bi_uid DESC;
 DELETE FROM board WHERE board_id = 8;
@@ -89,11 +91,34 @@ WHERE b.board_writeuid = u.user_uid
 ORDER BY b.board_id DESC;
 
 
-SELECT * FROM board;
+SELECT * FROM boardImg;
 SELECT * FROM board WHERE board_category = '기타';
 
 UPDATE board SET BOARD_AUTHORIZE = '1' WHERE BOARD_CATEGORY = '기타';
 
 
+SELECT rownum , b.* FROM (SELECT * FROM board ORDER BY board_id DESC) b;
+
+/* 페이징 처리 rownum */
+SELECT * FROM (
+	SELECT rownum AS rnum , b.* 
+	FROM (SELECT * FROM board ORDER BY board_id DESC) b
+)
+WHERE rnum >= 21 AND rnum < (21+10); 
+
+/* rownum 활용한 게시판 출력 */
+SELECT rownum, b.*
+FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate 
+FROM board b, users u
+WHERE b.board_writeuid = u.user_uid 
+ORDER BY b.board_id ASC) b
+ORDER BY ROWNUM desc; 
+
+SELECT rownum, b.* FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate 
+FROM board b, users u
+WHERE b.board_writeuid = u.user_uid 
+ORDER BY b.board_id ASC) b
+WHERE board_subject LIKE '%이미지%' OR user_name LIKE '%관리자%'
+ORDER BY ROWNUM desc; 
 
 

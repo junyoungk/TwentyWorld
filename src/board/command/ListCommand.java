@@ -12,11 +12,17 @@ public class ListCommand implements Command{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-
+		
 		BoardDAO dao = new BoardDAO();
 		Board[] arr = null;
+		Board[] arr1 = null;
+		
 		String categoryS = "";
 		int category = 0;
+		
+		String param = request.getParameter("col");
+		String param1 = request.getParameter("word");
+		
 		
 		if(request.getParameter("category") == null) {
 			categoryS = "전체";
@@ -53,13 +59,25 @@ public class ListCommand implements Command{
 			arr = dao.selectByCategory(categoryS);
 			request.setAttribute("list", arr);
 			}
+			
 		} catch (SQLException e) {
 			// 만약 cp 사용한다면
 			// NamingException 도 처리 해야 함
 			e.printStackTrace();
 		}
 		
-		
+		try {
+			if((param != null && param.trim().length() > 0) && (param1 != null && param1.trim().length() > 0)) {
+				String col = param;
+				String word = param1;
+				
+				dao = new BoardDAO();
+				arr1 = dao.selectBySearch(col, word);
+				request.setAttribute("list", arr1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -44,6 +44,7 @@ public class BoardDAO {
 			ArrayList<Board> list = new ArrayList<Board>();
 			
 			while(rs.next()) {
+				int rownum = rs.getInt("rownum");
 				int uid = rs.getInt("board_id");
 				String category = rs.getString("board_category");
 				String name = rs.getString("user_name");
@@ -57,6 +58,7 @@ public class BoardDAO {
 					}
 				
 				Board dto = new Board();
+				dto.setRownum(rownum);
 				dto.setBoard_regdate(regDate);
 				dto.setBoard_id(uid);
 				dto.setBoard_category(category);
@@ -81,9 +83,12 @@ public class BoardDAO {
 			Board [] arr = null;
 			
 			try {
-				pstmt = conn.prepareStatement("SELECT b.board_id, b.board_category, u.user_name, b.board_subject, "
-						+ "b.board_viewcnt, b.board_regdate FROM board b, users u "
-						+ "WHERE b.board_writeuid = u.user_uid ORDER BY b.board_id DESC");
+				pstmt = conn.prepareStatement("SELECT rownum, b.* " + 
+						"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
+						"FROM board b, users u " + 
+						"WHERE b.board_writeuid = u.user_uid " + 
+						"ORDER BY b.board_id ASC) b " + 
+						"ORDER BY ROWNUM desc");
 				rs = pstmt.executeQuery();
 				
 				arr = createArray(rs);
@@ -234,8 +239,10 @@ public class BoardDAO {
 			
 			int authorize = 0;
 			int board_uid = 0;
-			if(uid == 1) authorize = 3000;
-			else authorize = 1;
+			
+			if(category.equals("자유") || category.equals("기타")) authorize = 1;
+			else if(category.equals("공지") || category.equals("행사")) authorize = 3000;
+			else authorize = 3000;
 			
 			try {		
 				conn.setAutoCommit(false);
@@ -310,14 +317,17 @@ public class BoardDAO {
 			List<Board> list = new ArrayList<Board>();
 			
 			try {
-				pstmt = conn.prepareStatement("SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate "
-						+ "FROM board b, users u " 
-						+ "WHERE b.board_writeuid = u.user_uid  AND b.board_category = ? "
-						+ "ORDER BY b.board_id DESC");
+				pstmt = conn.prepareStatement("SELECT rownum, b.* FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
+						"FROM board b, users u " + 
+						"WHERE b.board_writeuid = u.user_uid " + 
+						"ORDER BY b.board_id ASC) b " + 
+						"WHERE board_category = ? " + 
+						"ORDER BY ROWNUM desc");
 				pstmt.setString(1,bCategory);
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
+					int rownum = rs.getInt("rownum");
 					int bid = rs.getInt("board_id");
 					String subject = rs.getString("board_subject");
 					String name = rs.getString("user_name");
@@ -331,6 +341,7 @@ public class BoardDAO {
 					int viewcnt = rs.getInt("board_viewcnt");
 					
 					Board dto = new Board();
+					dto.setRownum(rownum);
 					dto.setBoard_id(bid);
 					dto.setBoard_subject(subject);
 					dto.setWriteName(name);
@@ -352,9 +363,124 @@ public class BoardDAO {
 			}
 			return arr;
 		}
+		
+		public Board[] selectBySearch(String col, String word) throws SQLException{
+			Board[] arr = null;
+			
+			
+			try {
+					if(col.equals("none")) {
+					pstmt = conn.prepareStatement("SELECT rownum, b.* " + 
+							"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
+							"FROM board b, users u " + 
+							"WHERE b.board_writeuid = u.user_uid " + 
+							"ORDER BY b.board_id ASC) b " + 
+							"WHERE board_subject LIKE ? OR user_name LIKE ? " + 
+							"ORDER BY ROWNUM desc");
+						pstmt.setString(1, "%"+word+"%");
+						pstmt.setString(2, "%"+word+"%");
+						rs = pstmt.executeQuery();
+	
+						arr = createArray(rs);
+					
+					} else if(col.equals("name")) {
+						pstmt = conn.prepareStatement("SELECT rownum, b.* " + 
+								"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
+								"FROM board b, users u " + 
+								"WHERE b.board_writeuid = u.user_uid " + 
+								"ORDER BY b.board_id ASC) b " + 
+								"WHERE user_name LIKE ? " + 
+								"ORDER BY ROWNUM desc");
+						pstmt.setString(1, "%"+word+"%");
+						rs = pstmt.executeQuery();
+						arr = createArray(rs);
+					} else if(col.equals("subject")) {
+						pstmt = conn.prepareStatement("SELECT rownum, b.* " + 
+								"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
+								"FROM board b, users u " + 
+								"WHERE b.board_writeuid = u.user_uid " + 
+								"ORDER BY b.board_id ASC) b " + 
+								"WHERE board_subject LIKE ? " + 
+								"ORDER BY ROWNUM desc");
+						pstmt.setString(1, "%"+word+"%");
+						rs = pstmt.executeQuery();
+						arr = createArray(rs);
+					}
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return arr;
+		}
+		
+		public Board[] SelectByPages(int from, int pageRows) throws SQLException{
+			Board[] arr = null;
+			int cnt = 0;
+			int curPage = 1;   // 현재 페이지 (디폴트 1 page)
+			int writePages = 10;   // 한 [페이징] 에 몇개의 '페이지' 를 표현할 것인가?
+			int totalPage = 0;	 // 총 몇 '페이지' 분량인가?
+			
+			List<Board> list = new ArrayList<Board>();
+			try {
+			pstmt = conn.prepareStatement("SELECT count(*) FROM board");
+			rs = pstmt.executeQuery();
+			
+			if(rs.next())
+				cnt = rs.getInt(1);   // count(*), 전체 글의 개수
+				
+			rs.close();
+			pstmt.close();
+			
+			totalPage = (int)Math.ceil(cnt / (double)pageRows); // 총 몇페이지 분량
+			
+			int fromRow = (curPage - 1) * pageRows + 1;  // 몇번째 row 부터?
+					
+			pstmt = conn.prepareStatement("SELECT * FROM (" + 
+					"SELECT rownum AS rnum , b.* " + 
+					"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid ORDER BY board_id DESC) b " + 
+					") " + 
+					"WHERE rnum >= ? AND rnum < ?");
+			pstmt.setInt(1, fromRow);  
+			pstmt.setInt(2, fromRow + pageRows);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int rownum = rs.getInt("rownum");
+				int bid = rs.getInt("board_id");
+				String subject = rs.getString("board_subject");
+				String name = rs.getString("user_name");
+				Date d = rs.getDate("board_regdate"); 
+				
+				String regDate = "";
+				if(d != null){
+					regDate = new SimpleDateFormat("yyyy-MM-dd").format(d);
+					}
+				String category = rs.getString("board_category");
+				int viewcnt = rs.getInt("board_viewcnt");
+				
+				Board dto = new Board();
+				dto.setRownum(rownum);
+				dto.setBoard_id(bid);
+				dto.setBoard_subject(subject);
+				dto.setWriteName(name);
+				dto.setBoard_regdate(regDate);
+				dto.setBoard_category(category);
+				dto.setBoard_viewcnt(viewcnt);
+				
+				list.add(dto);
+			}
+			
+			int size = list.size();
+			
+			if(size == 0) return null;
+			arr = new Board[size];
+			
+			list.toArray(arr);
+			} finally {
+				close();
+			}
+			return arr;
+		}
 } //BoardDAO
-
-
 
 
 
