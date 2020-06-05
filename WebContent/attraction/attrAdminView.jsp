@@ -70,10 +70,22 @@ background-image:url(<%=attr_img%>)"></div>
     <div id = "attr_time">소요시간 : <%=attr_time %></div>
     <div id = "attr_max">최대탑승인원 : <%=attr_max %></div>
 </div>
-<div id = "attr_good_info">어트랙션 추천하기</div>
-<div id = "attr_good">엄지모양버튼</div>
-<div id = "attr_name">더 많은 어트랙션 보러가기</div>
-<div id = "attr_name">더 많은 어트랙션 보러가기</div>
+<div>
+가격 : <%= attr_price %><br>
+이름 : <%= attr_name %><br>
+위치 : <%= attr_location %><br>
+최소나이 : <%= attr_min_age %><br>
+최대나이 : <%= attr_max_age %><br>
+최소 키 : <%= attr_min_height %><br>
+최대 키 : <%= attr_max_height %><br>
+
+권한 : <%= attr_authorize %><br>
+등록날짜 : <%= attr_regDate %><br>
+상세페이지 이미지 주소? : <%= attr_img %><br>
+카드이미지 주소? : <%= attr_cardimg %><br>
+
+
+</div>
 
 <hr>
 <br>
