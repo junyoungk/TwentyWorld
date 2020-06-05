@@ -265,7 +265,7 @@ public class UserDAO {
 	
 	public String[] writeList (int user_uid) {
 		String SQL = "SELECT BOARD_SUBJECT FROM BOARD WHERE BOARD_WRITEUID = ? ORDER BY BOARD_ID DESC ";
-		String  [] a = new String[5]; // 최근 10개만 받아오게.
+		String  [] a = new String[5]; // 최근 5개만 받아오게.
 		int i = 0;
 		
 		try {
@@ -291,7 +291,7 @@ public class UserDAO {
 	
 	public int[] writeListUID (int user_uid) {
 		String SQL = "SELECT BOARD_ID FROM BOARD WHERE BOARD_WRITEUID = ? ORDER BY BOARD_ID DESC ";
-		int  [] a = new int[5]; // 최근 10개만 받아오게.
+		int  [] a = new int[5]; // 최근 5개만 받아오게.
 		int i = 0;
 		
 		try {
@@ -302,6 +302,59 @@ public class UserDAO {
 			
 			while(rs.next()) {
 				a[i] = rs.getInt("BOARD_ID");
+				i++;
+				if(i==5) break;
+			} 
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
+	}
+	
+	
+	public String[] replyList (int user_uid) {
+		String SQL = "SELECT REPLY_COMMENT FROM REPLY WHERE REPLY_USERUID = ? ORDER BY REPLY_REGDATE DESC ";
+		String  [] a = new String[5]; // 최근 10개만 받아오게.
+		int i = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				a[i] = rs.getString("reply_comment");
+				i++;
+				if(i==5) break;
+			}
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
+	}
+	
+	public int[] replyListUID (int user_uid) {
+		String SQL = "SELECT REPLY_BOARDERID FROM REPLY WHERE REPLY_USERUID = ? ORDER BY REPLY_REGDATE DESC ";
+		int  [] a = new int[5]; // 최근 10개만 받아오게.
+		int i = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				a[i] = rs.getInt("reply_boarderid");
 				i++;
 				if(i==5) break;
 			} 

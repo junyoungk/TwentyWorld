@@ -27,6 +27,8 @@
 <% UserDTO [] arr = dao.readMypage(userID); %> 
 <% String []  a   = dao.writeList(userID);
    int [] b = dao.writeListUID(userID);
+   String [] replyList  = dao.replyList(userID);
+   int [] replyBoard = dao.replyListUID(userID);
    
 %>
 
@@ -146,11 +148,32 @@
 				 out.println("<br>");
 			 
 			 }
-			 %> 
-			 			 
+			 %> 	 			 
 			 
 			 
 			 </div>
+			 <div>====HTML / CSS로 정돈 필요  ============</div>
+			 
+			 
+			  <div>내가 쓴 최신 댓글 (★ 최신순 5개까지만 표시됩니다. ★) <br>
+			 <% for(int i=0; i<replyList.length; i++){
+				 
+				 if(replyList[i] == null) break;
+				 out.println("<a href='../board/view.do?uid=" + replyBoard[i] +"'>");
+				 out.println(replyList[i]);
+				 
+				 out.println("</a>");
+				 out.println("<br>");
+			 
+			 }
+			 %> 	 			 
+			 
+			 
+			 </div>
+			 
+			 
+			 
+			 
 		</div>
 		<%@ include file="../HF/footer.jsp" %>
 	    </div>
