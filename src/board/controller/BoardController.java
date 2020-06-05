@@ -112,7 +112,7 @@ public class BoardController extends HttpServlet {
 		case "/board/ReplydeleteOk.do":
 			command = new ReplydeleteCommand();
 			command.execute(request, response);
-			viewPage ="ReplydeleteOk.jsp";
+			viewPage = "ReplydeleteOk.jsp";
 			break;
 		} // end switch
 		

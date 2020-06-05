@@ -13,7 +13,7 @@
 	<c:otherwise>
 		<script>
 		alert("삭제 성공");
-		location.href = "list.do";
+		location.href = "view.do?uid="+${boarderid};
 	</script>
 	</c:otherwise>
 </c:choose>

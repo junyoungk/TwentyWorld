@@ -185,6 +185,6 @@ SELECT r.reply_id, r.reply_boarderid, u.USER_UID ,u.user_name, r.reply_comment, 
 FROM reply r,board b, users u WHERE r.reply_boarderid = 5 AND u.USER_UID = r.REPLY_USERUID AND 
 b.BOARD_ID = r.REPLY_BOARDERID ; 
 								
-DELETE FROM reply WHERE REPLY_ID = 1;				
+DELETE FROM reply WHERE REPLY_ID = 62 AND REPLY_BOARDERID = 21;				
 						
 						
