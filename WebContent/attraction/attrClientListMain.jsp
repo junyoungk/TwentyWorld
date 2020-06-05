@@ -55,9 +55,55 @@ table, th, td {
 </style>
 </head>
 <body>
-<form id="frm">
-    <div>
-        <label>위치</label>
+<h1>**사용자페이지** ListMain</h1>
+
+<form id="frm" >
+    <style>
+    /* 버튼 css? */
+        select{
+            width: 200px;
+            padding: .8em .5em;
+            border: 1px solid #999;
+            font-family: inherit;
+            background: url('https://t1.daumcdn.net/cfile/tistory/99761B495C84AA8716') no-repeat 95% 50%;
+            border-radius: 0px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            }
+            select::-ms-expand {
+                display: none;
+            }
+            #attr_select{
+                display:inline-block; margin: 10px;
+            }
+    </style>
+    <style>
+	/* 검색버튼 */
+	
+	#attr_search {
+	  width: 140px;
+	  height: 45px;
+	  font-family: 'Roboto', sans-serif;
+	  font-size: 11px;
+	  text-transform: uppercase;
+	  letter-spacing: 2.5px;
+	  font-weight: 500;
+	  color: #000;
+	  background-color: #fff;
+	  border: none;
+	  border-radius: 45px;
+	  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	  transition: all 0.3s ease 0s;
+	  cursor: pointer;
+	  outline: none;
+	  display:inline-block;
+	  }
+	
+	</style>
+
+    <div id = "attr_select">
+        <label>위치 : </label>
         <!-- <input type="text" name="number" id="number"> -->
         <select name="attr_location" id="attr_location">
 			<option value="2222">상관없음</option>
@@ -66,49 +112,56 @@ table, th, td {
 		</select>
     </div>
     
-    <div>
-	    <label>나이</label>
+    <div id = "attr_select">
+	    <label>나이 : </label>
     	<select name="attr_age" id="attr_age">
 			<option value="2222">상관없음</option>
-			<option value="4">4세이하</option>
-		    <option value="20">5세이상~65세미만</option>
-		    <option value="70">65세이상</option>
+			<option value="4">8세이하</option>
+		    <option value="40">8세이상~65세미만</option>
+		    <option value="80">65세이상</option>
 		</select>
     </div>
     
-        <div>
-	    <label>키</label>
+        <div id = "attr_select">
+	    <label>키 : </label>
     	<select name="attr_height" id="attr_height">
 			<option value="2222">상관없음</option>
-			<option value="90">110미만</option>
-			<option value="140">110이상~190미만</option>
-		    <option value="200">190이상</option>
+			<option value="50">110미만</option>
+			<option value="150">110이상~190미만</option>
+		    <option value="250">190이상</option>
 		</select>
     </div>
     
-    <div style="margin-top: 20px">
-        <input type="button" value="button" id="button">
-    </div>
+    <div>
+	  <button type="button" value="button" id="attr_search">검색</button>
+	</div>
+	<!-- ajaxReturn: 버튼을 누르면 동작함! -->
     <div id="ajaxReturn">결과 값</div>
-
 </form>
-<div id="ajaxReturn0">
+    
+    <!--  ajaxReturn0 : 처음에 전체 화면 보여주는 용도 (버튼을 눌러야 동작하기 때문에) 버튼 누르면 값 없어짐 -->
+	<div id="ajaxReturn0">
 <%
 		while(rs.next()){
 			int uid = rs.getInt("attr_id");
 			String attr_name = rs.getString("attr_name");
 			String attr_cardimg = rs.getString("attr_cardimg");
+			int attr_id = Integer.parseInt(rs.getString("attr_id"));
 %>
 <!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
-	<div id = "attr_menu" style="width: 250px;width:200px; border:2px solids lategrey; display:inline-block;">
-	    <a href="">
-		    <div id="item_img" style="height:200px;width:200px; background-position:center;
-		    		background-image:url(<%=attr_cardimg%>); background-size: cover;">
-		    </div>
-			<div id="item_name"style="width: 50px;width:200px;"><b><%=attr_name%></b></div>
-			<div id="attr_uid"><%=uid%></div>
-		</a>
-	</div>
+	
+    <div id = "attr_menu" style="width: 250px;width:200px; border:5px ridge burlywood;
+                 display:inline-block; margin: 10px;">
+        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
+            <div id="item_img" style="height:200px; width:200px; background-position:center;
+                    background-image:url(<%=attr_cardimg%>); 
+                    background-size: cover;">
+            </div>
+            <div id="item_name" style="width: 50px; width:200px; color: dimgray; margin: 10px;
+            font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;"><b><%=attr_name%></b></div>
+            <div id="attr_uid">attr_id 확인용 : <%=uid%></div>
+        </a>
+    </div>
 		<%		
 			} // end while
 %>	<br>
@@ -128,18 +181,20 @@ table, th, td {
 		}
 	}
 %>
+
 </div>
+<button onclick="location.href='attrAdminListMain.doat'">관리자페이지로 이동(테스트용)</button>
 </body>
 </html>
 
 <script>
 
 $(function () {
-    $("#button").click(function () {
+    $("#attr_search").click(function () {
         $.ajax({
             
             type : "get",
-            url : "check.jsp",
+            url : "attrClientListCheck.jsp",
             //여러개 데이터 보낼 때 Json 방식
             data : {
             	attr_location : $("#attr_location").val(),

@@ -39,7 +39,7 @@ if(attr_location != 2222){//위치
 	if(attr_age != 2222){//나이
 		if(attr_height != 2222){//키
 			text+= " WHERE attr_location = " +attr_location  +
-					" AND attr_min_age< " +attr_age+" AND "+attr_age +"<= attr_max_age " +
+					" AND attr_min_age< " + attr_age +" AND "+ attr_age +"<= attr_max_age " +
 					" AND attr_min_height < "+attr_height+" AND "+attr_height+" <= attr_max_height ";
 		}else{
 			text+= " WHERE attr_location = " +attr_location  +
@@ -91,16 +91,25 @@ out.println(text);
 			int attrlo = rs.getInt("attr_location");
 			String attr_name = rs.getString("attr_name");
 			String attr_cardimg = rs.getString("attr_cardimg");
+			int attr_id = Integer.parseInt(rs.getString("attr_id"));
+			%>
+			<!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
 			
-			//전체 출력
-			//TODO
-			out.println("<div id = 'attr_menu'style='width: 250px;width:200px;border:2px solids lategrey;display:inline-block;'>"
-			+"<a href=''><div id='item_img'style='height:200px;width:200px;background-position:center;background-image:url(" + attr_cardimg
-		    + ");background-size: cover;'></div>" + "<div id='item_name'style='width: 50px;width:200px;'><b>" + attr_name 
-		    + "</b></div><div id='attr_uid'>" + uid +"</div></a></div>");
-			
-		} // end while
-%>			
+    <div id = "attr_menu" style="width: 250px;width:200px; border:5px ridge burlywood;
+                 display:inline-block; margin: 10px;">
+        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
+            <div id="item_img" style="height:200px; width:200px; background-position:center;
+                    background-image:url(<%=attr_cardimg%>); 
+                    background-size: cover;">
+            </div>
+            <div id="item_name" style="width: 50px; width:200px; color: dimgray; margin: 10px;
+            font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;"><b><%=attr_name%></b></div>
+            <div id="attr_uid">attr_id 확인용 : <%=uid%></div>
+        </a>
+    </div>
+				<%		
+					} // end while
+		%>		
 		<br>
 <%
 	} catch(Exception e){
