@@ -17,26 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="CSS/style.css" rel="stylesheet" type="text/css">
     <title>Hello, world!</title>
-    <script>
-window.onpageshow = function(event) {
-    if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-    
-      location.reload();
-    }
-
-}
-</script>
 </head>
 <body>
-<% if(userID != 0 ){
-	out.println("<script>");
-	out.println("alert('이미 로그인 상태입니다. 메인페이지로갑니다.')");
-	out.println("location.href= 'testmain.jsp'");
-    
-	out.println("</script>");
-}
-	
-%>
 <div class="wrapper">
       <div class="header">
         <div class="container">
@@ -96,40 +78,44 @@ window.onpageshow = function(event) {
         </div>
       </div>
 
-      <div class="login container" style="min-height:700px; max-width:400px;">
-	<div class="login-section">
-		<h3 class="text-center">LOGIN</h3>
-		<form method="post" action="loginCheck.jsp" name="form" onsubmit="return validateForm()">
-			<label>Your ID *</label>
-			<input type="text" name="user_id" id="login_id" placeholder="아이디를 입력해주세요"><br>
-			<label>Your PW *</label>
-			<input type="text" name="user_pw" id="login_pw" placeholder="비밀번호를 입력해주세요"><br>
-			<input class="login_submit" type="submit" value="로그인"> <br>
-		</form>
-		<form method="post" action="idfind.jsp">
-	이름<input type="text" name="user_name"><br>
-	주민번호<input type="text" name="user_jumin"><br>
-		<input type="submit" value="찾기"> <br>
-	</form>	
-	<hr>
-	
-	<form method="post" action="pwfind.jsp">
-	이름<input type="text" name="user_name"><br>
-	아이디<input type="text" name="user_id"><br>
-	주민번호<input type="text" name="user_jumin"><br>
-		<input type="submit" value="찾기"> <br>	
-	</form>
-	</div>
-	</div>
-	<hr>
-	 
-	
-	<%@ include file="../HF/footer.jsp" %>
+		<div class="login container"
+			style="min-height: 700px; max-width: 400px;">
+			<div class="login-section">
+				<h3 class="text-center">LOGIN</h3>
+				<form method="post" action="loginCheck.jsp" name="form"
+					onsubmit="return validateForm()">
+					<label id="login_label">Your ID *</label> 
+					<input type="text" name="user_id" id="login_id" placeholder="아이디를 입력해주세요">
+					<br> 
+					<label id="login_label">Your PW *</label>
+					 <input type="password" name="user_pw" id="login_pw" placeholder="비밀번호를 입력해주세요">
+					 <br> 
+					 <input class="login_submit" type="submit" value="로그인">
+				</form>
+				<hr>
+				<h4 class="text-center" style="padding-bottom: 10px;">아이디 찾기</h4>
+				<form method="post" action="idfind.jsp" style="text-align: center;">
+					<label style="width:80px;text-align:left;">이름</label> <input type="text" id="find_user_name" name="user_name" placeholder="이름을 입력하세요"><br>
+					<label style="width:80px;text-align:left;">주민번호</label> <input type="text" id="find_user_jumin" name="user_jumin" placeholder="주민번호를 입력하세요"><br>
+					<input class="find_id_submit" type="submit" value="찾기"> <br>
+				</form>
+				<hr>
+				<h3 class="text-center" style="padding-bottom: 10px;">비밀번호 찾기</h3>
+				<form method="post" action="pwfind.jsp" class="text-center">
+					<label style="width:80px;text-align:left;">이름</label> 
+					<input type="text" id="find_user_name" name="user_name" placeholder="이름을 입력하세요"><br>
+					<label style="width:80px;text-align:left;">아이디</label> 
+					<input type="text" id="find_user_id" name="user_id" placeholder="아이디를  입력하세요"><br>
+					<label style="width:80px;text-align:left;">주민번호</label> 
+					<input type="text" id="find_user_jumin" name="user_jumin" placeholder="주민번호를 입력하세요"><br>
+					<input class="find_pw_submit" type="submit" value="찾기"> <br>
+				</form>
+			</div>
+		</div>
+		<hr>
+		<%@ include file="../HF/footer.jsp" %>
     </div>
     <script>
-    
-    
-    
       function openNav() {
         document.getElementById("myNav").style.width = "60%";
       }
