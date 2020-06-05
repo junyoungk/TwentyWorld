@@ -44,9 +44,9 @@ overflow: scroll;
 				<th>attr_max_height</th>
 				
 				<th>attr_authorize</th>
-				<th>attr_regDate</th>
-				<th>attr_img</th>
-				<th>attr_cardimg</th>
+				<th>attr_regDate ㅁㅁ</th>
+				<th>attr_img </th>
+				<th>attr_cardimg </th>
 			</tr>
 
 
