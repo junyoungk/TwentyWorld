@@ -34,7 +34,7 @@ overflow: scroll;
 				<th>attr_max</th>
 				<th>attr_time</th>
 				<th>attr_price</th>
-				<th>attr_content</th>
+				<th style="width: 400px">attr_content</th>
 				<th>attr_name</th>
 				
 				<th>attr_location</th>

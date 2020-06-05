@@ -12,62 +12,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>티켓 목록</title>
 <style>
-table {
+div{
 	width: 100%;
 }
 
-table, th, td {
+div #can{
+	width: 300px;
 	border: 1px solid black;
 	border-collapse: collapse;
+	float: left;
 }
 </style>
 </head>
 <body>
-<form name="frm" action="TicketflexOk.doi" method="post">
-<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
-    <h3><%=session.getAttribute("userID")%></h3>
+	<form name="frm" action="TicketflexOk.doi" method="post">
+		<input type="hidden" name="uid"
+			value="<%=session.getAttribute("userID")%>" />
+		<h3><%=session.getAttribute("userID")%></h3>
 
 
-	<table>
-		<tr>
+		<div>
 
-			<th>이미지</th>
-			<th>이용권</th>
-			<th>가격</th>
-			<th>예매</th>
-		</tr>
 
-		<c:choose>
-			<c:when test="${empty flexTicketlist || fn:length(flexTicketlist) == 0 }"></c:when>
-			<c:otherwise>
-				<c:forEach var="dto" items="${flexTicketlist}">
-					<tr>
-						
-						<td style="width: 200px" height="100px">
-						<!-- <img src="../upload/${dto.ticket_img }" /> -->
-			<!-- <th>유저</th> -->
-						<%-- <td>${dto.user_uid}</td> --%>
-					
-						  <img src="${pageContext.request.contextPath}/upload/${dto.ticket_img}" />
-						
-						</td>
-						
-						<td>${dto.ticket_name }</td>
-						<td>${dto.ticket_price }</td>
-						<td><a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a></td>
+			<c:choose>
+				<c:when
+					test="${empty flexTicketlist || fn:length(flexTicketlist) == 0 }"></c:when>
+				<c:otherwise>
+					<c:forEach var="dto" items="${flexTicketlist}">
+						<div id="can">
+							<div >
+								<!-- <img src="../upload/${dto.ticket_img }" /> -->
+								<!-- <th>유저</th> -->
+								<%-- <td>${dto.user_uid}</td> --%>
 
-					</tr>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
+								<img src="${pageContext.request.contextPath}/upload/${dto.ticket_img}" />
 
-	</table>
+							</div>
+
+							<div>${dto.ticket_name }</div>
+							<div>${dto.ticket_price }</div>
+							<div>
+								<a
+									href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a>
+							</div>
+						</div>
+
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+
+		</div>
 	</form>
 	<br>
 
 
 
-	
+
 </body>
 </html>
 
