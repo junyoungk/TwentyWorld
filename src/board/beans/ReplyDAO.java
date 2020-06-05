@@ -165,26 +165,4 @@ public class ReplyDAO {
 		
 		return cnt;
 	}
-	  
-	  
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

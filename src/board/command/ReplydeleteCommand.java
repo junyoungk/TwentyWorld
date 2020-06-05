@@ -22,9 +22,6 @@ public class ReplydeleteCommand implements Command {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}	
-		
 		request.setAttribute("replyDEL", cnt);
-		
 	}
-
 }
