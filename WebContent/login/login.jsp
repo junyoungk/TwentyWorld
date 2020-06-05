@@ -17,8 +17,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="CSS/style.css" rel="stylesheet" type="text/css">
     <title>Hello, world!</title>
+    <script>
+window.onpageshow = function(event) {
+    if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+    
+      location.reload();
+    }
+
+}
+</script>
 </head>
 <body>
+<% if(userID != 0 ){
+	out.println("<script>");
+	out.println("alert('이미 로그인 상태입니다. 메인페이지로갑니다.')");
+	out.println("location.href= 'testmain.jsp'");
+    
+	out.println("</script>");
+}
+	
+%>
 <div class="wrapper">
       <div class="header">
         <div class="container">

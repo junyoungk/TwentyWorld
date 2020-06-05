@@ -277,6 +277,7 @@ public class UserDAO {
 			while(rs.next()) {
 				a[i] = rs.getString("board_subject");
 				i++;
+				if(i==5) break;
 			}
 	
 			
@@ -302,7 +303,8 @@ public class UserDAO {
 			while(rs.next()) {
 				a[i] = rs.getInt("BOARD_ID");
 				i++;
-			}
+				if(i==5) break;
+			} 
 	
 			
 		} catch (Exception e) {
