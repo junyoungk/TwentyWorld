@@ -94,6 +94,7 @@ public class TicketDAO {
 		Ticket [] arr = null;
 		
 		try {
+//			pstmt = conn.prepareStatement("SELECT * FROM TICKET t , USERS u");
 			pstmt = conn.prepareStatement("SELECT ticket_id, ticket_name, ticket_price, ticket_img FROM Ticket");
 				
 			rs = pstmt.executeQuery();
@@ -211,12 +212,12 @@ public class TicketDAO {
 	
 	
 	
-	public int insertBuy( int id)throws SQLException{
+	public int insertBuy(int uid, int id)throws SQLException{
 		int cnt = 0;
 		try {
-			pstmt = conn.prepareStatement("INSERT INTO TICKETBUY VALUES(ticketbuy_SEQ,65,?)");
-//			pstmt.setInt(1, uid);
-			pstmt.setInt(1, id);
+			pstmt = conn.prepareStatement("INSERT INTO TICKETBUY VALUES(ticketbuy_SEQ.nextval , ? , ?)");
+			pstmt.setInt(1, uid);
+			pstmt.setInt(2, id);
 			cnt = pstmt.executeUpdate();
 		} finally {
 			close();
