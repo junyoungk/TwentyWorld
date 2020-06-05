@@ -25,14 +25,27 @@
 <script>
 function chkSubmit(){
 	frm = document.forms['frm'];
-	var name = frm['name'].value.trim();
+	var named = frm['name'].value.trim();
+	var priced = frm['price'].value.trim();
+	var img = frm['img'].value.trim();
+	/* var ticketfile = document.getElementById("img").value.trim(); */
 	
-	if(name==""){
-		alert("티켓이름은 반드시 작성하셔야 합니다");
+
+	if(named==""){
+		alert("이용권 이름은 반드시 작성하셔야합니다");
 		frm['name'].focus();
 		return false;
 	}
-		return true; 
+	if(priced==""){
+		alert("이용권 가격은 반드시 자겅하셔야합니다.");
+		frm['price'].focus();
+		return false;
+	}
+	if(!img){
+		alert("파일을 첨부해 주세요"); 
+		return false;
+		} 
+		return true;
 }
 </script>
 <body>

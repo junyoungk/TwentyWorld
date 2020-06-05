@@ -17,15 +17,37 @@
 <script>
 function chkSubmit(){
 	frm = document.forms['frm'];
-	var idd = frm['id'].value.trim();
+	var idd = frm['ticket_id'].value.trim();
+	var named = frm['name'].value.trim();
+	var priced = frm['price'].value.trim();
+	var img = frm['img'].value.trim();
+	/* var ticketfile = document.getElementById("img").value.trim(); */
 	
 	if(idd==""){
 		alert("티켓분류은 반드시 작성하셔야 합니다 \n ex)1.자유이용권  2.입장권 3.빅3");
-		frm['id'].focus();
+		frm['ticket_id'].focus();
 		return false;
 	}
+	if(named==""){
+		alert("이용권 이름은 반드시 작성하셔야합니다");
+		frm['name'].focus();
+		return false;
+	}
+	if(priced==""){
+		alert("이용권 가격은 반드시 자겅하셔야합니다.");
+		frm['price'].focus();
+		return false;
+	}
+	if(!img){
+		alert("파일을 첨부해 주세요"); 
+		return false;
+		} 
 		return true;
 }
+
+
+
+
 </script>
 
 <body>
@@ -43,7 +65,7 @@ function chkSubmit(){
 이용권가격:
 <input type="text" name="price"/>원<br>
 티켓이미지:
-<input type="file" name="img"><br> <%-- part: file1 --%>
+<input type="file" name="img" id="img" ><br> <%-- part: file1 --%>
 
 
 
