@@ -9,7 +9,10 @@
 	if(session.getAttribute("userID") != null) {
 		userID = Integer.parseInt(session.getAttribute("userID").toString());
 	} 
+	
+
 %>
+
 <c:choose>
 	<c:when test="${empty read || fn:length(read) == 0 }">
 		<script>
@@ -27,11 +30,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>읽기 ${read[0].board_subject }</title> <!-- title에 글제목 넣기 -->
 <style>
-table {width: 100%;}
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
+
 </style>
 </head>
 <script>
@@ -40,6 +39,13 @@ function chkDelete(uid){
 	var r = confirm("삭제하시겠습니까?");
 	if(r){
 		location.href = 'deleteOk.do?uid='+uid;
+	}
+}
+function replyDelete(reply_id){
+	// 삭제 여부, 다시 확인 하고 진행하기
+	var r = confirm("댓글삭제");
+	if(r){
+		location.href = 'ReplydeleteOk.do?reply_id='+reply_id;
 	}
 }
 </script>
@@ -73,34 +79,38 @@ ${read[0].board_content }
 		</c:forEach>
 	</ul>
 </c:if>
+  <h3>세션값 : ${userID }</h3>
 
-<table>
-	<tr>
-		<th>No</th>
-		<th>작성자</th>
-		<th>작성자uid</th>
-		<th>내용</th>
-		<th>작성일</th>
-		<th>삭제?</th>
-	</tr>
-	
+	<c:set var="user_uid" value="<%= userID %>" />
 	<c:choose>
 			<c:when test="${empty replyresult || fn:length(replyresult) == 0 }"></c:when>
 			<c:otherwise>
 			<c:forEach var="reply" items="${replyresult }">
-			<tr>
-				<td>${reply.reply_id }</td>
-				<td>${reply.writeName }</td>
-				<td>${reply.reply_useruid }</td>
-			<td>${reply.reply_comment }</td>
-			<td>${reply.reply_regdate }</td>
-			<td>삭제</td>
-			</tr>		
-			</c:forEach>
+			<div>
 			
+				${reply.reply_id } |
+				${reply.writeName } |
+				${reply.reply_useruid } |
+				${reply.reply_comment } |
+				${reply.reply_regdate }
+				<c:choose>
+					<c:when test="${user_uid == reply.reply_useruid }">
+					<button type="button" id="replydelete" onclick="replyDelete(${reply.reply_id })">삭제</button>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
+			</tr>	
+			</div>	
+			</c:forEach>
 			</c:otherwise>
 		</c:choose>
-</table>
+
+<script>
+$('#replydelete').click(function(){
+	$('#table_result').remove();
+});
+</script>
 <form name="frm" action="ReplywriteOk.do" method="post">
 <input type="hidden" name="reply_boarderid" value="${read[0].board_id }"/>
 <input type="hidden" name="reply_useruid" value="<%=session.getAttribute("userID")%>"/>

@@ -152,7 +152,19 @@ public class ReplyDAO {
 		return arr;
 	}
 	  
-
+	public int deleteByReplyUid(int reply_id) throws SQLException {
+		int cnt = 0;
+		String SQL = "DELETE FROM reply WHERE REPLY_ID = ? ";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, reply_id);
+			cnt = pstmt.executeUpdate();
+		} finally {
+			close();
+		}
+		
+		return cnt;
+	}
 	  
 	  
 

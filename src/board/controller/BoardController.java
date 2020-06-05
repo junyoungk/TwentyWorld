@@ -14,6 +14,7 @@ import board.command.DeleteCommand;
 import board.command.FileUploadCommand;
 import board.command.ListCommand;
 import board.command.ReplyWriteCommand;
+import board.command.ReplydeleteCommand;
 import board.command.SelectCommand;
 import board.command.UpdateCommand;
 import board.command.ViewCommand;
@@ -107,6 +108,11 @@ public class BoardController extends HttpServlet {
 			command = new ReplyWriteCommand();
 			command.execute(request, response);
 			viewPage = "ReplywriteOk.jsp";
+			break;
+		case "/board/ReplydeleteOk.do":
+			command = new ReplydeleteCommand();
+			command.execute(request, response);
+			viewPage ="ReplydeleteOk.jsp";
 			break;
 		} // end switch
 		
