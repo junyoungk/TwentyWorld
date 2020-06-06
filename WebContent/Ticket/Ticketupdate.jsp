@@ -22,6 +22,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>수정 ${select[0].ticket_name }</title>
 </head>
+<script type="text/javascript"> 
+
+function fileCheck(el) { 
+
+    if(!/\.(jpeg|jpg|png|gif|bmp)$/i.test(el.value)){ 
+
+        alert('이미지 파일만 업로드 가능합니다.'); 
+
+        el.value = ''; 
+
+        el.focus(); 
+
+    }
+
+}
+
+</script>
 <script>
 function chkSubmit(){
 	frm = document.forms['frm'];
@@ -58,7 +75,7 @@ function chkSubmit(){
  가격: 
 <input type="text" name="price" value="${select[0].ticket_price }"><br>
 이미지: <br>
-<input type="file" name="img" value="${select[0].ticket_img }"><br>
+<input type="file" name="img" value="${select[0].ticket_img }" accept="image/*" onchange="fileCheck(this)"><br>
 
 <!-- 
  <script>

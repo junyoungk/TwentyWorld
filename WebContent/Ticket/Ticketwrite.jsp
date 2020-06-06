@@ -14,6 +14,29 @@
 <script src="../ckeditor/ckeditor.js"></script>
  
 </head>
+
+
+
+<script type="text/javascript"> 
+
+function fileCheck(el) { 
+
+    if(!/\.(jpeg|jpg|png|gif|bmp)$/i.test(el.value)){ 
+
+        alert('이미지 파일만 업로드 가능합니다.'); 
+
+        el.value = ''; 
+
+        el.focus(); 
+
+    }
+
+}
+
+</script>
+
+
+
 <script>
 function chkSubmit(){
 	frm = document.forms['frm'];
@@ -65,7 +88,7 @@ function chkSubmit(){
 이용권가격:
 <input type="text" name="price"/>원<br>
 티켓이미지:
-<input type="file" name="img" id="img" ><br> <%-- part: file1 --%>
+<input type="file" name="img" id="img"  accept="image/*" onchange="fileCheck(this)" ><br> <%-- part: file1 --%>
 
 
 
