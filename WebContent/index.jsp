@@ -26,6 +26,15 @@ th,td {
 	<input type="button" onClick="getAddr();" value="검색하기"/>
 </form><br>
 <div id="list" ></div><!-- 검색 결과 리스트 출력 영역 -->
+<button id="button">버튼눌러봐</button>
+<script>
+$("#button")
+.click(function(){
+	var a =  document.getElementById('i').innerText;
+	alert(a)
+})
+
+</script>
 <script>
 
 function getAddr(){
@@ -51,7 +60,7 @@ function makeList(xmlStr){
 	htmlStr += "<table>";
 	$(xmlStr).find("juso").each(function(){
 		htmlStr += "<tr>";
-		htmlStr += "<td>"+$(this).find('roadAddr').text()+"</td>";    // 전체 도로명 주소
+		htmlStr += "<td id='i'>"+$(this).find('roadAddr').text()+"</td>";    // 전체 도로명 주소
 		htmlStr += "</tr>";
 	});
 	htmlStr += "</table>";
