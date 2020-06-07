@@ -149,6 +149,7 @@ $(document).ready(function(){
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
     center: new kakao.maps.LatLng(37.509030, 127.099978), // 지도의 중심좌표
+    draggable: false,
     level: 3 // 지도의 확대 레벨
 };
 
@@ -158,19 +159,44 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 var positions = [
 {
     content: '<div>자이로스윙</div>', 
-    latlng: new kakao.maps.LatLng(37.508278, 127.099738)
+    latlng: new kakao.maps.LatLng(37.508223, 127.099763)
 },
 {
-    content: '<div>혜성특급</div>', 
-    latlng: new kakao.maps.LatLng(37.508980, 127.100601)
+    content: '<div>월드모노레일</div>', 
+    latlng: new kakao.maps.LatLng(37.508424, 127.100304)
 },
 {
-    content: '<div>회전그네</div>', 
-    latlng: new kakao.maps.LatLng(37.509247, 127.100071)
+    content: '<div>아트란티스</div>', 
+    latlng: new kakao.maps.LatLng(37.508438, 127.099499)
+},
+{
+    content: '<div>어린이 왕국</div>',
+    latlng: new kakao.maps.LatLng(37.509491, 127.100504)
+},
+{
+    content: '<div>자이로드롭</div>',
+    latlng: new kakao.maps.LatLng(37.508657, 127.100593)
+},
+{
+    content: '<div>번지드롭</div>',
+    latlng: new kakao.maps.LatLng(37.509359, 127.100174)
+},
+{
+    content: '<div>회전그네</div>',
+    latlng: new kakao.maps.LatLng(37.509268, 127.100414)
 },
 {
     content: '<div>자이로스핀</div>',
-    latlng: new kakao.maps.LatLng(37.509085, 127.100490)
+    latlng: new kakao.maps.LatLng(37.509266, 127.100639)
+},
+{  
+    content: '<div>혜성특급</div>',
+    latlng: new kakao.maps.LatLng(37.509114, 127.100703 )
+},
+
+{   
+    content: '<div>귀신의집</div>',
+    latlng: new kakao.maps.LatLng(37.508802, 127.099167 )
 }
 ];
 
@@ -217,64 +243,341 @@ return function() {
 }
 });
 
-
 $("#see1").click(function(){
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new kakao.maps.LatLng(37.509030, 127.099978), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+	document.getElementById("map").innerHTML = "";
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+mapOption = { 
+    center: new kakao.maps.LatLng(37.509030, 127.099978), // 지도의 중심좌표
+    draggable: false,
+    level: 3 // 지도의 확대 레벨
+};
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
- 
-	var positions = [
-	    {
-	        content: '<div>자이로</div>', 
-	        latlng: new kakao.maps.LatLng(37.508418, 127.0996249)
-	    },
-	    {
-	        content: '<div>생태연못</div>', 
-	        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-	    },
-	    {
-	        content: '<div>텃밭</div>', 
-	        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
-	    },
-	    {
-	        content: '<div>근린공원</div>',
-	        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-	    }
-	];
-	alert('야');
+
+//마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+{
+    content: '<div>자이로스윙</div>', 
+    latlng: new kakao.maps.LatLng(37.508223, 127.099763)
+},
+{
+    content: '<div>월드모노레일</div>', 
+    latlng: new kakao.maps.LatLng(37.508424, 127.100304)
+},
+{
+    content: '<div>아트란티스</div>', 
+    latlng: new kakao.maps.LatLng(37.508438, 127.099499)
+},
+{
+    content: '<div>어린이 왕국</div>',
+    latlng: new kakao.maps.LatLng(37.509491, 127.100504)
+},
+{
+    content: '<div>자이로드롭</div>',
+    latlng: new kakao.maps.LatLng(37.508657, 127.100593)
+},
+{
+    content: '<div>번지드롭</div>',
+    latlng: new kakao.maps.LatLng(37.509359, 127.100174)
+},
+{
+    content: '<div>회전그네</div>',
+    latlng: new kakao.maps.LatLng(37.509268, 127.100414)
+},
+{
+    content: '<div>자이로스핀</div>',
+    latlng: new kakao.maps.LatLng(37.509266, 127.100639)
+},
+{
+    content: '<div>혜성특급</div>',
+    latlng: new kakao.maps.LatLng(37.509114, 127.100703 )
+},
+{   
+    content: '<div>귀신의집</div>',
+    latlng: new kakao.maps.LatLng(37.508802, 127.099167 )
+}
+];
+
+
+
+var imageSrc = "https://adventure.lotteworld.com/common/images/map_check.png";
+
+for (var i = 0; i < positions.length; i ++) {
+// 마커를 생성합니다
+var imageSize = new kakao.maps.Size(24, 35); 
+
+var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+var marker = new kakao.maps.Marker({
+    map: map, // 마커를 표시할 지도
+    position: positions[i].latlng, // 마커의 위치
+    image : markerImage
+});
+
+// 마커에 표시할 인포윈도우를 생성합니다 
+var infowindow = new kakao.maps.InfoWindow({
+    content: positions[i].content // 인포윈도우에 표시할 내용
+});
+
+// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+
+//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+return function() {
+    infowindow.open(map, marker);
+};
+}
+
+//인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+return function() {
+    infowindow.close();
+};
+}
+});
+
+$("#see2").click(function(){
+	document.getElementById("map").innerHTML = "";
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+mapOption = { 
+    center: new kakao.maps.LatLng(37.509030, 127.099978), // 지도의 중심좌표
+    draggable: false,
+    level: 3 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+//마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+{
+    content: '<div>화장실1</div>', 
+    latlng: new kakao.maps.LatLng(37.508671, 127.099345)
+},
+{
+    content: '<div>화장실2</div>', 
+    latlng: new kakao.maps.LatLng(37.508443, 127.100284)
+},
+{
+    content: '<div>화장실3</div>', 
+    latlng: new kakao.maps.LatLng(37.508859, 127.100925)
+},
+{
+    content: '<div>화장실4</div>',
+    latlng: new kakao.maps.LatLng(37.509434, 127.100494)
+}
+
+];
+
+var positions2 = [
+	{
+	    content: '<div>포토존1</div>',
+	    latlng: new kakao.maps.LatLng(37.508862, 127.099929)
+	},
+	{
+	    content: '<div>포토존2</div>',
+	    latlng: new kakao.maps.LatLng(37.509358, 127.099647)
+	},
+	{
+	    content: '<div>포토존3</div>',
+	    latlng: new kakao.maps.LatLng(37.509055, 127.099245 )
+	},
+	{
+	    content: '<div>포토존4</div>',
+	    latlng: new kakao.maps.LatLng(37.508363, 127.099691)
+	},
+	{
+	    content: '<div>포토존5</div>',
+	    latlng: new kakao.maps.LatLng(37.508714, 127.100420)
+	},
+	{
+	    content: '<div>포토존6</div>',
+	    latlng: new kakao.maps.LatLng(37.509254, 127.100648)
+	}
 	
-	var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
-	for (var i = 0; i < positions.length; i ++) {
-	    // 마커를 생성합니다
-	    var imageSize = new kakao.maps.Size(24, 35); 
-	    
-	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-	    
-	    var marker = new kakao.maps.Marker({
-	        map: map, // 마커를 표시할 지도
-	        position: positions[i].latlng, // 마커의 위치
-	        image : markerImage
-	    });
+	];
 
-	    // 마커에 표시할 인포윈도우를 생성합니다 
-	    var infowindow = new kakao.maps.InfoWindow({
-	        content: positions[i].content // 인포윈도우에 표시할 내용
-	    });
 
-	    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-	    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
-	    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-	    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+
+
+
+var imageSrc = "4.png";
+var imageSrc2 = "6.png";
+for (var i = 0; i < positions.length; i ++) {
+// 마커를 생성합니다
+var imageSize = new kakao.maps.Size(24, 24); 
+
+var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+var marker = new kakao.maps.Marker({
+    map: map, // 마커를 표시할 지도
+    position: positions[i].latlng, // 마커의 위치
+    image : markerImage
+});
+
+// 마커에 표시할 인포윈도우를 생성합니다 
+var infowindow = new kakao.maps.InfoWindow({
+    content: positions[i].content // 인포윈도우에 표시할 내용
+});
+
+// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+
+for (var i = 0; i < positions2.length; i ++) {
+	// 마커를 생성합니다
+	var imageSize = new kakao.maps.Size(24, 24); 
+
+	var markerImage = new kakao.maps.MarkerImage(imageSrc2, imageSize); 
+
+	var marker = new kakao.maps.Marker({
+	    map: map, // 마커를 표시할 지도
+	    position: positions2[i].latlng, // 마커의 위치
+	    image : markerImage
+	});
+
+	// 마커에 표시할 인포윈도우를 생성합니다 
+	var infowindow = new kakao.maps.InfoWindow({
+	    content: positions2[i].content // 인포윈도우에 표시할 내용
+	});
+
+	// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+	// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+	// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+	kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+	kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
 	}
 
 
-})
+
+//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+return function() {
+    infowindow.open(map, marker);
+};
+}
+
+//인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+return function() {
+    infowindow.close();
+};
+}
+});
+
+
+$("#see3").click(function(){
+	document.getElementById("map").innerHTML = "";
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+mapOption = { 
+    center: new kakao.maps.LatLng(37.509030, 127.099978), // 지도의 중심좌표
+    draggable: false,
+    level: 3 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+//마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+var positions = [
+{
+    content: '<div>음식점1</div>', 
+    latlng: new kakao.maps.LatLng(37.509050, 127.099450)
+},
+{
+    content: '<div>음식점2</div>', 
+    latlng: new kakao.maps.LatLng(37.508651, 127.099748)
+},
+{
+    content: '<div>음식점3</div>', 
+    latlng: new kakao.maps.LatLng(37.508412, 127.099890)
+},
+{
+    content: '<div>음식점4/div>',
+    latlng: new kakao.maps.LatLng(37.508638, 127.100377)
+},
+{
+    content: '<div>음식점5</div>',
+    latlng: new kakao.maps.LatLng(37.508794, 127.100814)
+},
+{
+    content: '<div>음식점6</div>',
+    latlng: new kakao.maps.LatLng(37.508921, 127.100075)
+},
+{
+    content: '<div>음식점7</div>',
+    latlng: new kakao.maps.LatLng(37.508924, 127.100436)
+},
+{
+    content: '<div>음식점8</div>',
+    latlng: new kakao.maps.LatLng(37.509284, 127.100113)
+},
+{
+    content: '<div>음식점9</div>',
+    latlng: new kakao.maps.LatLng(37.509164, 127.100667 )
+},
+{
+    content: '<div>음식점10</div>',
+    latlng: new kakao.maps.LatLng(37.509370, 127.099630 )
+}
+];
+
+
+
+var imageSrc = "5.png";
+
+for (var i = 0; i < positions.length; i ++) {
+// 마커를 생성합니다
+var imageSize = new kakao.maps.Size(24, 35); 
+
+var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+var marker = new kakao.maps.Marker({
+    map: map, // 마커를 표시할 지도
+    position: positions[i].latlng, // 마커의 위치
+    image : markerImage
+});
+
+// 마커에 표시할 인포윈도우를 생성합니다 
+var infowindow = new kakao.maps.InfoWindow({
+    content: positions[i].content // 인포윈도우에 표시할 내용
+});
+
+// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+
+//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+function makeOverListener(map, marker, infowindow) {
+return function() {
+    infowindow.open(map, marker);
+};
+}
+
+//인포윈도우를 닫는 클로저를 만드는 함수입니다 
+function makeOutListener(infowindow) {
+return function() {
+    infowindow.close();
+};
+}
+});
+
+
+
+
+
+
+
 
 
          function initTmap() {               
@@ -856,3 +1159,6 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
             resultMarkerArr = [];
             resultdrawArr = [];
          }
+         
+         
+         

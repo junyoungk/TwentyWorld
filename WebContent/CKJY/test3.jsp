@@ -23,7 +23,14 @@ th,td {
       
 
 
-<body>
+
+
+
+
+
+
+
+ <body onload="initTmap2();initTmap()">
 
 
 <h3>20대월드 모험지도</h3>
@@ -37,15 +44,18 @@ th,td {
 
 
 <br><br>
-
-
-
-
-
- <body onload="initTmap2();initTmap()">
+ 
+<form name="form" id="form" method="post">
+	<input type="hidden" name="currentPage" value="1"/><br> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
+	<input type="hidden" name="countPerPage" value="10"/><br><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) --> 
+	<input type="hidden" name="confmKey" value="devU01TX0FVVEgyMDIwMDUxMjE3MTkyOTEwOTc1MTE="/><br><!-- 요청 변수 설정 (승인키) -->
+	위치 입력 : <input type="text" name="keyword" value="" onkeydown="enterSearch();" placeholder="위치를 입력하세요"/><!-- 요청 변수 설정 (키워드) -->
+	<input type="button" onClick="getAddr();" value="검색하기"/>
+</form><br> 
+<div id="list" style="display: none;" ></div><!-- 검색 결과 리스트 출력 영역이지만 하나만뽑기위해사용 > 필요없으므로 감추어논다. --> 
       <input type="text" class="text_custom" id="fullAddr"
-         name="fullAddr" value="서울시 마포구 와우산로29가길 69">
-      <button id="btn_select">적용하기</button>
+         name="fullAddr" value="" readonly="readonly" size="50px" style="background-color: #EAEAEA">
+      <button id="btn_select">주소 확인!</button>
       <div class="ft_area">
          <div class="ft_select_wrap">
             <div class="ft_select">
@@ -62,7 +72,7 @@ th,td {
                   <option value="Y">Y</option>
                   <option value="N">N</option>
                </select>
-               <button id="btn_select2">적용하기</button>
+               <button id="btn_select2">길찾기</button>
             </div>
          </div>
          <div class="map_act_btn_wrap clear_box"></div>
@@ -77,8 +87,8 @@ th,td {
       <br/>
       
       
-      <p id="result2"></p>
-      <p id="result3"></p>
+      <p id="result2" style="display: none"></p> <!--그저 값얻기위해서  display:none-->
+      <p id="result3" style="display: none"></p> <!--그저 값얻기위해서  display:none-->
       
 
 
@@ -101,7 +111,87 @@ th,td {
 
 
 
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
- <script src="chart.js"></script>
+ <script src="mapapi.js"></script>
+ 
+ <!--  밑에는 도로명주소를 위 한 script.. -->
+ <script>
+ function getAddr(){
+	if (!checkSearchedWord(document.form.keyword)) {
+		return ;
+	}
+	
+	$.ajax({
+		url :"http://www.juso.go.kr/addrlink/addrLinkApiJsonp.do"
+		, type : "post"
+		, data : $("#form").serialize() 
+		, dataType: "jsonp"
+		, crossDomain: true
+		, success: function(xmlStr){
+			$("#list").html("");
+			makeList(xmlStr.returnXml);
+			var a =  document.getElementById('i').innerText;
+			alert(a)
+			
+			document.getElementById('fullAddr').value = a;
+		}
+	});
+}
+
+function makeList(xmlStr){
+	var htmlStr = "";
+	htmlStr += "<table>";
+	$(xmlStr).find("juso").each(function(){
+		htmlStr += "<tr>";
+		htmlStr += "<td id='i'>"+$(this).find('roadAddr').text()+"</td>";    // 전체 도로명 주소
+		htmlStr += "</tr>";
+	});
+	htmlStr += "</table>";
+	$("#list").html(htmlStr);
+}
+
+//특수문자, 특정문자열(sql예약어의 앞뒤공백포함) 제거
+function checkSearchedWord(obj){
+	if(obj.value.length >0){
+		//특수문자 제거
+		var expText = /[%=><]/ ;
+		if(expText.test(obj.value) == true){
+			alert("특수문자를 입력 할수 없습니다.") ;
+			obj.value = obj.value.split(expText).join(""); 
+			return false;
+		}
+		
+		//특정문자열(sql예약어의 앞뒤공백포함) 제거
+		var sqlArray = new Array(
+			//sql 예약어
+			"OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC",
+             		 "UNION",  "FETCH", "DECLARE", "TRUNCATE" 
+		);
+		
+		var regex;
+		for(var i=0; i<sqlArray.length; i++){
+			regex = new RegExp( sqlArray[i] ,"gi") ;
+			
+			if (regex.test(obj.value) ) {
+			    alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+				obj.value =obj.value.replace(regex, "");
+				return false;
+			}
+		}
+	}
+	return true ;
+}
+
+function enterSearch() {
+	var evt_code = (window.netscape) ? ev.which : event.keyCode;
+	if (evt_code == 13) {    
+		event.keyCode = 0;  
+		getAddr(); //jsonp사용시 enter검색 
+	} 
+}
+</script>
+ 
 </html>
