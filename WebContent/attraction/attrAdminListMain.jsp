@@ -81,7 +81,7 @@ overflow: scroll;
 		</table>
 		<br>
 		<button onclick="location.href='attrWrite.doat'">신규등록</button>
-		<button onclick="location.href='attrClientListMain.jsp'">클라이언트페이지로 이동(테스트용)</button>
+		<button onclick="location.href='attrClientListMain.doat'">클라이언트페이지로 이동(테스트용)</button>
 
 </body>
 </html>

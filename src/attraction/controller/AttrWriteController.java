@@ -52,53 +52,53 @@ public class AttrWriteController extends HttpServlet {
 		case "/attraction/attrAdminListMain.doat":
 			command = new AttrListCommand();
 			command.execute(request, response);
-			viewPage = "attrAdminListMain.jsp";
+			viewPage = "/attraction/attrAdminListMain.jsp";
 			break;
 			
 		case "/attraction/attrClientListMain.doat":
 			command = new AttrListCommand();
 			command.execute(request, response);
-			viewPage = "attrClientListMain.jsp";
+			viewPage = "/attraction/attrClientListMain.jsp";
 			break;
 			
 		case "/attraction/attrWrite.doat":
-			viewPage = "attrWrite.jsp";
+			viewPage = "/attraction/attrWrite.jsp";
 			break;
 			
 		case "/attraction/attrWriteOk.doat":
 			command = new AttrWriteCommand();
 			command.execute(request, response);
-			viewPage = "attrWriteOk.jsp";
+			viewPage = "/attraction/attrWriteOk.jsp";
 			break;		
 			
 		case "/attraction/attrClientView.doat":
 			command = new AttrViewCommand();
 			command.execute(request, response);
-			viewPage = "attrClientView.jsp";
+			viewPage = "/attraction/attrClientView.jsp";
 			break;	
 			
 		case "/attraction/attrAdminView.doat":
 			command = new AttrViewCommand();
 			command.execute(request, response);
-			viewPage = "attrAdminView.jsp";
+			viewPage = "/attraction/attrAdminView.jsp";
 			break;	
 			
 		case "/attraction/attrUpdate.doat":
 			command = new AttrSelectCommand();  // '수정' 이지만, 일단 읽어오는것부터 시작이다.
 			command.execute(request, response);
-			viewPage = "attrUpdate.jsp";
+			viewPage = "/attraction/attrUpdate.jsp";
 			break;
 
-		case "/attrUpdateOk.doat":
+		case "/attraction/attrUpdateOk.doat":
 			command = new AttrUpdateCommand();
 			command.execute(request, response);
-			viewPage = "attrUpdateOk.jsp";
+			viewPage = "/attraction/attrUpdateOk.jsp";
 			break;  // 디버깅 훈련, 이 break를 없애고, 찾아보기
 
-		case "/attrDeleteOk.doat":
+		case "/attraction/attrDeleteOk.doat":
 			command = new AttrDeleteCommand();
 			command.execute(request, response);
-			viewPage = "attrDeleteOk.jsp";
+			viewPage = "/attraction/attrDeleteOk.jsp";
 			break;	
 			
 		} // end switch

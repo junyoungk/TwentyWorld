@@ -116,9 +116,9 @@ table, th, td {
 	    <label>나이 : </label>
     	<select name="attr_age" id="attr_age">
 			<option value="2222">상관없음</option>
-			<option value="4">8세이하</option>
-		    <option value="40">8세이상~65세미만</option>
-		    <option value="80">65세이상</option>
+			<option value="0">8세이하</option>
+		    <option value="1">8세이상~65세미만</option>
+		    <option value="2">65세이상</option>
 		</select>
     </div>
     
@@ -126,9 +126,9 @@ table, th, td {
 	    <label>키 : </label>
     	<select name="attr_height" id="attr_height">
 			<option value="2222">상관없음</option>
-			<option value="50">110미만</option>
-			<option value="150">110이상~190미만</option>
-		    <option value="250">190이상</option>
+			<option value="0">110미만</option>
+			<option value="1">110이상~190미만</option>
+		    <option value="2">190이상</option>
 		</select>
     </div>
     

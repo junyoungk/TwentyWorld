@@ -47,6 +47,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>수정 <%= attr_name %></title>
 </head>
+<script src="ckeditor/ckeditor.js"></script>
+<!-- 이미지 파일인지 아닌지 확인, ticket 참조했어요 감사해요! -->
+<script type="text/javascript"> 
+function imgfileCheck(el) { 
+    if(!/\.(jpeg|jpg|png|gif|bmp)$/i.test(el.value)){ 
+        alert('이미지 파일만 업로드 가능합니다.'); 
+        el.value = ''; 
+        el.focus(); 
+    }
+}
+</script>
+   
 <script>
 function chkSubmit(){
 frm = document.forms["frm"];
@@ -54,8 +66,8 @@ frm = document.forms["frm"];
 	//폼...검증 (길다)
 	var name = frm["attr_name"].value.trim();
 	var content = frm["attr_content"].value.trim();
-	var fileCheck1 = document.getElementById("attr_setimg").value;
-	var fileCheck2 = document.getElementById("attr_setcardimg").value;
+	var fileCheck1 = frm["attr_setimg"].value.trim();
+	var fileCheck2 = frm["attr_setcardimg"].value.trim();
 	
 	var attrTime = frm["attr_time"].value.trim();
 	var attrMax = frm["attr_max"].value.trim();
@@ -100,8 +112,8 @@ frm = document.forms["frm"];
 
 이름: <input type="text" name="attr_name" value="<%= attr_name %>"/><br>
 내용: <input type="text" name="attr_content" value="<%= attr_content %>"/><br>
-상세페이지사진: <input type="file" name="attr_setimg" id = "attr_setimg"/>기존 :<%= attr_cardimg %><br>
-메인사진(카드): <input type="file" name="attr_setcardimg" id ="attr_setcardimg"/>기존 :<%= attr_img %><br>
+상세페이지사진: <input type="file" name="attr_setimg" value="attr_cardimg" accept="image/*" onchange="imgfileCheck(this)"/>기존 :<%= attr_cardimg %><br>
+메인사진(카드): <input type="file" name="attr_setcardimg" value="attr_img" accept="image/*" onchange="imgfileCheck(this)"/>기존 :<%= attr_img %><br>
 
 소요시간: <input type="number" name="attr_time" value="<%= attr_time %>"/><br>
 탑승인원수: <input type="number" name="attr_max" value="<%= attr_max %>"/><br>
