@@ -25,6 +25,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
 <title>Hello, world!</title>
+
 <script>
 function passchk(){
 	 var pass = document.form.user_pw.value;
@@ -43,8 +44,6 @@ function passchk(){
 	 return;
 	}
 	
-	
-	
 function idcheck(){
 	 var id = document.form.user_id.value;
 	
@@ -54,7 +53,6 @@ function idcheck(){
 	 }
 	 var url = "idCheck.jsp?id=" + id;
 	 window.open(url, "get", "height = 180, width = 300");
-	
 	}
 
 function check() { 
@@ -78,9 +76,6 @@ function check() {
 		return false;
 	}
 	else {
-		
-		
-	    
 		if (kor_check.test(id)){
 			alert("한글은 아이디에 포함시킬수 없습니다 (영어, 숫자만)")
 			document.form.user_id.focus();
@@ -92,7 +87,6 @@ function check() {
 			document.form.user_id.focus();
 			return false;
 			} 	
-		
 	}
 	
 	if ( pw=="" || pw2 == ""){
@@ -115,9 +109,6 @@ function check() {
 		return false;
 	}
 	
-	
-	
-	
 	if(num_check.test(name)){
 		alert("이름에는 숫자 입력 불가능");
 		return false;
@@ -127,10 +118,6 @@ function check() {
 		alert("이름에는 특수문자 입력 불가능.");
 		return false;
 	}
-	
-	
-	
-
 	
 	if(jumin.length!= 6){
 		alert("앞자리는 6자리를 입력해주세요");
@@ -160,13 +147,6 @@ function check() {
 	 document.form.user_email.value = email + "@" + email2;
 	
 }
-	
-
-
-
-
-
-
 </script>
 </head>
 <body>
@@ -179,7 +159,7 @@ function check() {
               <div class="overlay-content">
                 <a href="#">소개 / 오시는 길</a>
                 <a href="#">어트랙션</a>
-                <a href="#">자유게시판</a>
+                <a href="../board/list.do">자유게시판</a>
                 <a href="#">로그인</a>
                 <a href="#">회원가입</a>
               </div>
@@ -210,7 +190,7 @@ function check() {
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">소통 게시판</a>
+                    <a class="dropdown-item" href="../board/list.do">소통 게시판</a>
                   </div>
                 </li>
               </ul>

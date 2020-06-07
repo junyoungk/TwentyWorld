@@ -49,9 +49,15 @@
               <div class="overlay-content">
                 <a href="#">소개 / 오시는 길</a>
                 <a href="#">어트랙션</a>
-                <a href="#">자유게시판</a>
-                <a href="#">로그인</a>
-                <a href="#">회원가입</a>
+                <a href="../board/list.do">자유게시판</a>
+                 <h3>세션값 : <%= userID %></h3>
+            <% if (userID == 0) { %>
+              <a href="../login/login.jsp">로그인</a> 
+              <a href="../join/join.jsp">회원가입</a>
+               <% } else { %>
+               <a href="../login/mypage.jsp">마이페이지</a>
+               <a href="../login/logoutCheck.jsp">로그아웃</a>
+                <% } %>
               </div>
             </div>
 
@@ -80,7 +86,7 @@
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">소통 게시판</a>
+                    <a class="dropdown-item" href="../board/list.do">소통 게시판</a>
                   </div>
                 </li>
               </ul>
@@ -88,11 +94,11 @@
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
             <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
-              <a href="login.jsp">로그인</a> |
+              <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
-               <a href="mypage.jsp">마이페이지</a>
-               <a href="logoutCheck.jsp">로그아웃</a>
+               <a href="../login/mypage.jsp">마이페이지</a>
+               <a href="../login/logoutCheck.jsp">로그아웃</a>
                 <% } %>
             </div>           
           </div>
