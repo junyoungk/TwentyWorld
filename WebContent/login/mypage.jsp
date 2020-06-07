@@ -29,7 +29,8 @@
    int [] b = dao.writeListUID(userID);
    String [] replyList  = dao.replyList(userID);
    int [] replyBoard = dao.replyListUID(userID);
-   
+   String [] TicketList = dao.myTicketList(userID);
+   int [] TicketNum = dao.myTicketNum(userID);
 %>
 
 <%
@@ -37,7 +38,7 @@
 %>
 			<script>
 				alert("해당 정보가 삭제되거나 없습니다");
-				history.back();
+				location.href = 'testmain.jsp';
 			</script>
 <%
 		return;   // 더이상 JSP 프로세싱 하지 않고 종료
@@ -143,7 +144,7 @@
 				 
 				 <a href="userdeleteCheck.jsp">회원탈퇴</a> <!-- 버튼 > a 태그 넣으면 이클립스는 안넘어감 ?.... -->
 			 </div>
-			 <div>내가 쓴글 (★ 최신순 5개까지만 표시됩니다. ★) <br>
+			<div><h4>내가 쓴글 (★ 최신순 5개까지만 표시됩니다. ★) </h4><br>
 			 <% for(int i=0; i<a.length; i++){
 				 
 				 if(a[i] == null) break;
@@ -161,7 +162,7 @@
 			 <div>====HTML / CSS로 정돈 필요  ============</div>
 			 
 			 
-			  <div>내가 쓴 최신 댓글 (★ 최신순 5개까지만 표시됩니다. ★) <br>
+			  <div><h4>내가 쓴 최신 댓글 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br>
 			 <% for(int i=0; i<replyList.length; i++){
 				 
 				 if(replyList[i] == null) break;
@@ -170,6 +171,20 @@
 				 
 				 out.println("</a>");
 				 out.println("<br>");
+			 
+			 }
+			 %> 	 			 
+			 
+			 
+			 </div>
+			 <br>
+			 	  <div><h4>예매목록 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br><br>
+			 <% for(int i=0; i<TicketList.length; i++){
+				 
+				 if(TicketList[i] == null) break;
+				 out.println("예매이용권 : " + TicketList[i]);
+				 out.println(" /이용권 고유번호: " + TicketNum[i]+ "<br>");
+				 
 			 
 			 }
 			 %> 	 			 

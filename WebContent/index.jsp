@@ -27,6 +27,8 @@ th,td {
 </form><br>
 <div id="list" ></div><!-- 검색 결과 리스트 출력 영역 -->
 <button id="button">버튼눌러봐</button>
+
+<input type="text" id="aaa" readonly="readonly" value="dd" style="background-color: gray"/>
 <script>
 $("#button")
 .click(function(){
@@ -51,6 +53,10 @@ function getAddr(){
 		, success: function(xmlStr){
 			$("#list").html("");
 			makeList(xmlStr.returnXml);
+			var a =  document.getElementById('i').innerText;
+			alert(a)
+			
+			document.getElementById('aaa').value = a;
 		}
 	});
 }

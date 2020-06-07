@@ -368,6 +368,62 @@ public class UserDAO {
 		return a;
 	}
 	
+	public String[] myTicketList (int user_uid) {
+		String SQL = "SELECT t.TICKET_NAME FROM TICKET t , USERS u ,TICKETBUY tb"
+				+ " WHERE tb.USER_UID = u.USER_UID AND tb.TICKET_ID  = t.TICKET_ID AND u.USER_UID = ?"
+				+ " ORDER BY tb.TICKETBUY_ID DESC";
+		String  [] a = new String[5]; // 최근 10개만 받아오게.
+		int i = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				a[i] = rs.getString("TICKET_NAME");
+				i++;
+				if(i==5) break;
+			}
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
+	}
+	
+	public int[] myTicketNum (int user_uid) {
+		String SQL = "SELECT tb.TICKETBUY_ID FROM TICKET t , USERS u ,TICKETBUY tb"
+				+ " WHERE tb.USER_UID = u.USER_UID AND tb.TICKET_ID  = t.TICKET_ID AND u.USER_UID = ?"
+				+ " ORDER BY tb.TICKETBUY_ID DESC";
+		int  [] a = new int[5]; // 최근 10개만 받아오게.
+		int i = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				a[i] = rs.getInt("TICKETBUY_ID");
+				i++;
+				if(i==5) break;
+			} 
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
+	}
+	
 	
 	
 
