@@ -1,8 +1,7 @@
-SELECT * FROM board;
-
 
 
 SELECT * FROM users;
+INSERT INTO users VALUES (board_SEQ.nextval, 'test', '1111', 'tester', '남', '111111', '27', '1', 'goldrex1@naver.com', '');
 
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '占쌉쏙옙占쏙옙 占쏙옙占쏙옙', '占쌉쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占실억옙占쏙옙占싹댐옙! 占쏙옙占쏙옙占쌈곤옙 占싱울옙占싹쇽옙占쏙옙~', '', 1, 0, 3000, '占쏙옙占쏙옙');
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '占쏙옙占쏙옙占쌉쏙옙占쏙옙 占쏙옙占쏙옙', '占쏙옙占쏙옙占쌉쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占실억옙占쏙옙占싹댐옙! 占쏙옙占쏙옙占쌈곤옙 占싱울옙占싹쇽옙占쏙옙~', '', 1, 0, 3000, '占쏙옙占쏙옙');
@@ -32,7 +31,7 @@ DELETE FROM board WHERE board_id BETWEEN 21 AND 22;
 
 UPDATE board SET board_img = 132 WHERE board_id = 25;
 
-SELECT * FROM board;
+SELECT * FROM board ORDER BY board_id desc;
 SELECT * FROM BOARDIMG;
 
 /* 2020-06-03 �뀒�씠釉� 援ъ“ 蹂�寃� */
@@ -99,13 +98,6 @@ UPDATE board SET BOARD_AUTHORIZE = '1' WHERE BOARD_CATEGORY = '기타';
 
 SELECT rownum , b.* FROM (SELECT * FROM board ORDER BY board_id DESC) b;
 
-/* 페이징 처리 rownum */
-SELECT * FROM (
-	SELECT rownum AS rnum , b.* 
-	FROM (SELECT * FROM board ORDER BY board_id DESC) b
-)
-WHERE rnum >= 21 AND rnum < (21+10); 
-
 /* rownum 활용한 게시판 출력 */
 SELECT rownum, b.*
 FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate 
@@ -118,7 +110,30 @@ SELECT rownum, b.* FROM (SELECT b.board_id, b.board_category, u.user_name, b.boa
 FROM board b, users u
 WHERE b.board_writeuid = u.user_uid 
 ORDER BY b.board_id ASC) b
-WHERE board_subject LIKE '%이미지%' OR user_name LIKE '%관리자%'
+WHERE board_subject LIKE '%이미지%' OR user_name LIKE '%김%'
 ORDER BY ROWNUM desc; 
 
+SELECT rownum, b.* FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate 
+FROM board b, users u
+WHERE b.board_writeuid = u.user_uid 
+ORDER BY b.board_id ASC) b
+WHERE board_category = '기타'
+ORDER BY ROWNUM desc; 
+
+UPDATE board SET BOARD_AUTHORIZE = 1 WHERE BOARD_CATEGORY ='자유';
+
+SELECT * FROM board ORDER BY board_id desc;
+
+
+/* 페이징 처리 rownum */
+SELECT * FROM (
+	SELECT rownum AS rnum , b.* 
+	FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid ORDER BY board_id DESC) b
+)
+WHERE rnum >= 21 AND rnum < 21+10;
+
+SELECT * FROM board ORDER BY board_id desc;
+
+DELETE FROM board WHERE board_id = 9 AND board_writeuid = 1;
+UPDATE board SET board_subject = '테스트 됫냐', board_content = '테스트 됫지?' WHERE board_id = 7 AND BOARD_WRITEUID = 1;
 

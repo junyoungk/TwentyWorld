@@ -140,7 +140,6 @@ table, th, td {
 <script>
 window.onpageshow = function(event) {
     if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-		console.log("찍히나");
 		location.reload();
     }
 

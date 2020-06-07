@@ -93,8 +93,7 @@ ${read[0].board_content }
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
-				</c:choose>
-			</tr>	
+				</c:choose>	
 			</div>	
 			</c:forEach>
 			</c:otherwise>
@@ -107,8 +106,11 @@ ${read[0].board_content }
 
 <input type="submit" value="댓글게시"/>
 </form>
-<button onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
-<button onclick="chkDelete(${read[0].board_id })">삭제</button>
+
+<c:if test="${read[0].board_writeuid == (sessionScope.sessionName = userID) || (sessionScope.sessionName = userID) == 1 }">
+	<button onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
+	<button onclick="chkDelete(${read[0].board_id })">삭제</button>
+</c:if>
 
 <hr>
 <c:choose>

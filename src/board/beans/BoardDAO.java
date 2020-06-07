@@ -114,7 +114,7 @@ public class BoardDAO {
 				
 				pstmt.close();
 				
-				pstmt = conn.prepareStatement("SELECT b.board_id, b.board_subject, u.user_name, b.board_regdate, b.board_content, b.board_category, b.board_viewcnt " + 
+				pstmt = conn.prepareStatement("SELECT b.board_id, b.board_subject, u.user_name, b.board_regdate, b.board_content, b.board_category, b.board_viewcnt, b.board_writeuid " + 
 						"FROM board b , users u " + 
 						"WHERE b.board_writeuid = u.user_uid AND b.board_id = ?");
 				pstmt.setInt(1, board_id);
@@ -133,7 +133,7 @@ public class BoardDAO {
 					String content = rs.getString("board_content");
 					String category = rs.getString("board_category");
 					int viewcnt = rs.getInt("board_viewcnt");
-					
+					int wuid = rs.getInt("board_writeuid");
 					Board dto = new Board();
 					dto.setBoard_id(bid);
 					dto.setBoard_subject(subject);
@@ -142,6 +142,7 @@ public class BoardDAO {
 					dto.setBoard_content(content);
 					dto.setBoard_category(category);
 					dto.setBoard_viewcnt(viewcnt);
+					dto.setBoard_writeuid(wuid);
 					
 					list.add(dto);
 				}
