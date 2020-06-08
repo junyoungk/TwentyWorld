@@ -10,6 +10,7 @@ public class UserDTO {
 	int user_age;
 	int user_authorize;
 	String user_email;
+	
 	String user_cardnum;
 	
 	public UserDTO() {

@@ -164,7 +164,7 @@ function checkSearchedWord(obj){
 			return false;
 		}
 		
-		//특정문자열(sql예약어의 앞뒤공백포함) 제거
+		//특정문자열(sql예약어의 앞뒤공백포함) 제거 //아앙아
 		var sqlArray = new Array(
 			//sql 예약어
 			"OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC",
