@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+
+
+.imagediv {
+	float: left;
+	margin-right: 30px; 
+	margin-bottom: 30px;
+	height: 300px;
+	width: 300px;
+	border: 1px solid black;
+	
+}
+
+.imagediv #can{
+	height: 200px;
+	width: 300px;
+	box-sizing: border-box;
+	border-collapse: collapse;
+}
