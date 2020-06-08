@@ -22,8 +22,18 @@
 <style>
 table {width: 100%;}
 table, th, td {
-	border: 1px solid black;
+	border: 1px solid #cccccc;
 	border-collapse: collapse;
+	text-align:center;
+}
+button{
+background-color: white !important;
+}
+.board-list{
+	margin: 30px 0 !important;
+}
+.board{
+	min-height:600px;
 }
 </style>
 <link rel="stylesheet" type="text/css" href="CSS/common.css"/>
@@ -86,26 +96,36 @@ $(document).ready(function(){
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
             <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
-              <a href="login.jsp">로그인</a> |
+              <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
-               <a href="mypage.jsp">마이페이지</a>
-               <a href="logoutCheck.jsp">로그아웃</a>
+               <a href="../login/mypage.jsp">마이페이지</a>
+               <a href="../login/logoutCheck.jsp">로그아웃</a>
                 <% } %>
             </div>           
           </div>
         </div>
       </div>
-      <div class="container">
-		<h2><a href="list.do">게시판</a></h2>
-			<input type="button" value="1" class="btnCategory">
-			<input type="button" value="2" class="btnCategory">
-			<input type="button" value="3" class="btnCategory">
-			<input type="button" value="4" class="btnCategory">
-			<input type="button" value="5" class="btnCategory">
-			<script>
-	
-			</script>
+      <div class="board container">
+		<div class="board-list">
+		<ul class="nav nav-pills nav-fill">
+  <li class="nav-item btnCategory" value="1" >
+    <a class="nav-link" href="#">전체</a>
+  </li>
+  <li class="nav-item btnCategory" value="2">
+    <a class="nav-link" href="#">공지</a>
+  </li>
+  <li class="nav-item btnCategory" value="3">
+    <a class="nav-link" href="#">행사</a>
+  </li>
+  <li class="nav-item btnCategory" value="4">
+    <a class="nav-link" href="#">자유</a>
+  </li>
+  <li class="nav-item btnCategory" value="5">
+    <a class="nav-link" href="#">기타</a>
+  </li>
+</ul>
+		
 		<table>
 			<tr>
 				<th>No</th>
@@ -134,13 +154,14 @@ $(document).ready(function(){
 		</c:choose>
 
 		</table>
+		
 		<jsp:include page="pagination.jsp">
 		<jsp:param value="${5 }" name="writePages"/>
 		<jsp:param value="${cnt }" name="totalPage"/>
 		<jsp:param value="${page }" name="curPage"/>
 		</jsp:include>	
-		<br>
-		<form name='frm' method='get' action='list.do'>
+		<button onclick="location.href='write.do?bid=${bid+1 }'" style="padding: 1px 10px;">글쓰기</button>
+		<form name='frm' method='get' action='list.do' style="display: inline-block;float: right;">
       	<select name='col'> <!-- 검색 컬럼 -->
         	<option value='none' selected>작성자+제목</option>
         	<option value='name'>작성자</option>
@@ -149,7 +170,8 @@ $(document).ready(function(){
       	<input type='text' name='word' value='' placeholder="특수문자 입력불가">
       	<button type='submit'>검색</buttion>    
   		</form>
-		<button onclick="location.href='write.do?bid=${bid+1 }'">글쓰기</button>
+		
+		</div>
 		</div>
 		<%@ include file="../HF/footer.jsp" %>
     </div>

@@ -50,7 +50,6 @@
                 <a href="#">소개 / 오시는 길</a>
                 <a href="#">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
-                 <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
@@ -61,7 +60,7 @@
               </div>
             </div>
 
-            <div class="d-block col-lg-2 logo text-center">
+            <div class="d-block col-lg-1 logo text-center">
               <div class="mobile_ver d-block d-lg-none">
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
               </div>
@@ -69,7 +68,7 @@
                 <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
               </a>
             </div>
-            <div class="d-none d-lg-block col-lg-8 main_menu align-self-center">
+            <div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
               <ul class="nav  justify-content-center list-group list-group-horizontal">
                 <li class="nav-item list-group-item dropdown">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
@@ -82,6 +81,9 @@
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#">어트랙션</a>
                   </div>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link active" href="../Ticket/Ticketflex.doi" role="button">예매 하기</a>
                 </li>
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
@@ -120,6 +122,7 @@
 					 <input class="login_submit" type="submit" value="로그인">
 				</form>
 				<hr>
+				
 				<h4 class="text-center" style="padding-bottom: 10px;">아이디 찾기</h4>
 				<form method="post" action="idfind.jsp" style="text-align: center;">
 					<label style="width:80px;text-align:left;">이름</label> <input type="text" id="find_user_name" name="user_name" placeholder="이름을 입력하세요"><br>

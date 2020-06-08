@@ -35,7 +35,7 @@
       }
       
       footer .container {
-        padding: 50px 0 160px;
+        padding: 50px 0 60px;
       }
 
      
@@ -132,7 +132,7 @@
 	    display: block !important;
 	    }
 	      .main-banner{
-        height:750px;
+        height:100%;
       }
       .best-text,.info-text{
         padding:75px 0 75px 0;
@@ -229,3 +229,20 @@ padding: 20px 0;
 #user_email{
 	width:150px !important;
 }
+
+.intro-img{
+    width: 100%;
+  }
+  .intro-head,.intro-content{
+    padding: 20px 0;
+  }
+  strong{
+    font-size: 30px;
+    padding-bottom: 15px;
+  }
+  .intro-content p{
+    font-size: 15px;
+  }
+  .intro-content img{
+    width:550px;
+  }

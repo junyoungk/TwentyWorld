@@ -21,6 +21,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>글작성</title>
 <script src="../ckeditor/ckeditor.js"></script>
+<style>
+.write-board{
+	min-height:600px;
+}
+.write-form{
+	margin: 40px 0;
+}
+.write{
+	padding: 30px 0;
+}
+</style>
 </head>
 <script>
 function chkSubmit(){ // 폼 검증
@@ -97,10 +108,11 @@ function chkSubmit(){ // 폼 검증
           </div>
         </div>
       </div>
-<div class="container">
-<h2>글 작성</h2>
+<div class="write-board container">
+<div class="write-form">
+<h2 class="text-center">글 작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
-<form name="frm" action="writeOk.do" method="post" onsubmit="return chkSubmit()"
+<form class="write" name="frm" action="writeOk.do" method="post" onsubmit="return chkSubmit()"
 	enctype="Multipart/form-data">
 <input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
 <input type="hidden" name="bid" value="${bid }"/>
@@ -119,7 +131,7 @@ function chkSubmit(){ // 폼 검증
 	</script>
 </c:if>
 내용:<br>
-<textarea name="content" style="width:700px; height:auto">
+<textarea name="content" style="width:100%; height:auto">
 <c:if test="${fn:length(file) > 0 }">
 	<div>
 		<c:forEach var="element" items="${file }">
@@ -132,7 +144,7 @@ function chkSubmit(){ // 폼 검증
 	</div>
 </c:if>
 </textarea>
-<br><br>
+
 <div style="background-color: #dddddd; padding: 2px 10px; margin-bottom:5px; border: 1px solid black;">
 	<h4>첨부파일</h4>
 	<button type="button" id="btnAdd">추가</button>
@@ -148,8 +160,8 @@ $('#btnAdd').click(function(){
 </script>
 <input type="submit" value="게시"/>
 </form>
-<br>
 <button type="button" onclick="location.href='list.do'">목록으로</button>
+</div>
 </div>
 <%@ include file="../HF/footer.jsp" %>
     </div>
