@@ -31,6 +31,7 @@
                 <a href="../board/list.do">자유게시판</a>
                  <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
+            
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>

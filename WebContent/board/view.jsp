@@ -87,6 +87,9 @@ function chkDelete(uid){
                   </div>
                 </li>
                 <li class="nav-item list-group-item">
+                  <a class="nav-link active" href="../Ticket/Ticketflex.doi" role="button">예매 하기</a>
+                </li>
+                <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="../board/list.do">소통 게시판</a>
