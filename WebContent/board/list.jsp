@@ -159,8 +159,10 @@ $(document).ready(function(){
 		<jsp:param value="${5 }" name="writePages"/>
 		<jsp:param value="${cnt }" name="totalPage"/>
 		<jsp:param value="${page }" name="curPage"/>
-		</jsp:include>	
+		</jsp:include>
+		<c:if test="${(sessionScope.sessionName = userID) != null}">
 		<button onclick="location.href='write.do?bid=${bid+1 }'" style="padding: 1px 10px;">글쓰기</button>
+		</c:if>
 		<form name='frm' method='get' action='list.do' style="display: inline-block;float: right;">
       	<select name='col'> <!-- 검색 컬럼 -->
         	<option value='none' selected>작성자+제목</option>
