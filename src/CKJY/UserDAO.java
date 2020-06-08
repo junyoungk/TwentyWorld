@@ -167,7 +167,7 @@ public class UserDAO {
 		return arr;
 	}
 	
-	public int UserDelete(int session) {
+	public int UserDelete(int session) { // 계정 삭제
 		String SQL = "DELETE FROM USERS WHERE user_uid = ?";
 		try {
 			conn.setAutoCommit(false);
@@ -462,6 +462,23 @@ public class UserDAO {
 		return arr;
 	}
 	
+	
+	public int UserTicketDelete(int ticketNum) { // 계정 삭제
+		String SQL = "DELETE FROM TICKETBUY WHERE TICKETBUY_ID = ?";
+		try {
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, ticketNum);
+			rs = pstmt.executeQuery();
+			conn.commit();
+			if (rs.next()) {				
+				return 1; // 로그인 성공					
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 
 	
 	

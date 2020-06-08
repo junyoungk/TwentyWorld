@@ -1,11 +1,13 @@
 $(document).ready(function(){
 	 
-		
+		 
 		 // XML (<--이쪽)
 		 var url = 'http://ws.bus.go.kr/api/rest/arrive/getLowArrInfoByStId';
 		 var queryParams = '?' + encodeURIComponent('ServiceKey') + '=f5XGi6uNgZy%2FRhoPbCtvsvHGs%2Fd4nQuTu0WUXEEQTRP0bQ81HIYik8ja0nbO6hZSq8CD5mDshJgOnMv2IPXhpA%3D%3D'; /* Service Key*/
 		 queryParams += '&' + encodeURIComponent('stId') + '=' + encodeURIComponent('123000003'); /* */
-		$.ajax({
+		
+		 
+		 $.ajax({
 			url : url+queryParams,
 			type : "GET",
 			cache : false,

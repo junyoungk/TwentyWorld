@@ -22,7 +22,7 @@ th,td {
 	<input type="hidden" name="currentPage" value="1"/><br> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
 	<input type="hidden" name="countPerPage" value="10"/><br><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) --> 
 	<input type="hidden" name="confmKey" value="devU01TX0FVVEgyMDIwMDUxMjE3MTkyOTEwOTc1MTE="/><br><!-- 요청 변수 설정 (승인키) -->
-	위치 입력 : <input type="text" name="keyword" value="역삼역" onkeydown="enterSearch();"/><br><br><!-- 요청 변수 설정 (키워드) -->
+	위치 입력 : <input type="text" name="keyword" value="역삼역" /><br><br><!-- 요청 변수 설정 (키워드) -->
 	<input type="button" onClick="getAddr();" value="검색하기"/>
 </form><br>
 <div id="list" ></div><!-- 검색 결과 리스트 출력 영역 -->

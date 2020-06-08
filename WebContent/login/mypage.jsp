@@ -194,10 +194,35 @@
 			 
 			 
 			 </div>
+					 <% if (userID == 1) {  %>
+			    <hr>
+			    <h3>관리자 활동 목록</h3>
+			 	<button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button>
+			 	<button onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button>
 			 
-			 
-			 
-			 
+			 	
+			 	<button onclick="location.href='../attraction/attrAdminListMain.doat'">놀이기구리스트 </button>
+			 	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button>
+			 <% }
+			 %>
+			 <form method="post" action="userdeleteCheck2.jsp" class="text-center">
+					
+					<input type="text" id="user_uid" name="user_uid" placeholder="삭제할 회원 uid 입력"><br>
+					
+				
+					<input type="submit" value="계정삭제"> <br>
+				</form>
+				
+				
+				 <form method="post" action="userticketDelete.jsp" class="text-center">
+					
+					<input type="text" id="" name="user_uid" placeholder="삭제할 티켓 번호 입력"><br>
+				
+				
+					<input type="submit" value="티켓삭제"> <br>
+				</form>
+			  
+	
 		</div>
 		<%@ include file="../HF/footer.jsp" %>
 	    </div>
