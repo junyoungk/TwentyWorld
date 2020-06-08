@@ -135,7 +135,7 @@
 							test="${empty flexTicketlist || fn:length(flexTicketlist) == 0 }"></c:when>
 						<c:otherwise>
 							<c:forEach var="dto" items="${flexTicketlist}">
-								<div >
+						
 									<div class="imagediv">
 										<!-- <img src="../upload/${dto.ticket_img }" /> -->
 										<!-- <th>유저</th> -->
@@ -145,7 +145,7 @@
 									<a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a>
 
 									</div>
-								</div>
+						
 
 							</c:forEach>
 						</c:otherwise>
