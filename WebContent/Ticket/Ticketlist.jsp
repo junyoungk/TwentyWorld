@@ -5,6 +5,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- JSTL 버젼으로 바뀌니 import 번잡함도 사라진다. 자바변수 선언도 사라진다 -->
 
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -22,6 +27,20 @@ table, th, td {
 }
 </style>
 </head>
+<%
+
+int userID = 0;
+if(session.getAttribute("userID") != null){
+	userID = Integer.parseInt(session.getAttribute("userID").toString());
+}
+if(userID != 1){
+	out.println("<script>");
+	out.println("alert('관리자 페이지입니다')"); 
+	out.println("location.href= '../login/testmain.jsp'");
+	out.println("</script>");
+}
+%>
+
 <body>
 <input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
 <h3><%=session.getAttribute("userID")%></h3>

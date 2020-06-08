@@ -5,10 +5,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- JSTL 버젼으로 바뀌니 import 번잡함도 사라진다. 자바변수 선언도 사라진다 -->
 <%
-	int userID = 0;
-	if (session.getAttribute("userID") != null) {
-		userID = Integer.parseInt(session.getAttribute("userID").toString());
-	}
+
+int userID = 0;
+if(session.getAttribute("userID") != null){
+	userID = Integer.parseInt(session.getAttribute("userID").toString());
+}
+if(userID != 1){
+	out.println("<script>");
+	out.println("alert('로그인후 이용가능합니다')"); 
+	out.println("location.href= '../login/testmain.jsp'");
+	out.println("</script>");
+}
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -25,7 +32,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<link href="CSS/Ticket.css" rel="stylesheet" type="text/css">
+<link href="CSS/Ticketflex.css" rel="stylesheet" type="text/css">
 <title>티켓 목록</title>
 
 </head>
@@ -104,7 +111,8 @@
 						<%
 							if (userID == 0) {
 						%>
-						<a href="../login/login.jsp">로그인</a> | <a href="../join/join.jsp">회원가입</a>
+						<a href="../login/login.jsp">로그인</a> 
+						<a href="../join/join.jsp">회원가입</a>
 						<%
 							} else {
 						%>
@@ -117,22 +125,18 @@
 				</div>
 			</div>
 		</div>
-
-
-
+		<div class="headerimg"></div>
 		<div class="container">
+		
+		<div>
+		<h1>이용권</h1>
+		</div>
 			<form name="frm" action="TicketflexOk.doi" method="post">
-				<input type="hidden" name="uid"
-					value="<%=session.getAttribute("userID")%>" />
-				<h3><%=session.getAttribute("userID")%></h3>
-
-
 				<div>
-
-
 					<c:choose>
 						<c:when
-							test="${empty flexTicketlist || fn:length(flexTicketlist) == 0 }"></c:when>
+							test="${empty flexTicketlist || fn:length(flexTicketlist) == 0 }">
+						</c:when>
 						<c:otherwise>
 							<c:forEach var="dto" items="${flexTicketlist}">
 						
@@ -141,12 +145,12 @@
 										<!-- <th>유저</th> -->
 										<%-- <td>${dto.user_uid}</td> --%>
 										<img id="can" src="${pageContext.request.contextPath}/upload/${dto.ticket_img}" /><br>
-										${dto.ticket_name }<br> ${dto.ticket_price }<br>
-									<a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a>
-
+										${dto.ticket_name }<br>
+										${dto.ticket_price }<br> 
+					
+									<button type="button" onclick="location.href='TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }'">${dto.ticket_name}예매하기</button>
+									<%-- <a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a> --%>
 									</div>
-						
-
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>
