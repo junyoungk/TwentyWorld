@@ -45,6 +45,7 @@ if(attr_age == 0){//0세~8세이하
 }else{//상관없음
 	min_age = 0;max_age = 9999;}
 
+/*
 //최소키 최대나이 정하기
 int min_height = 0;
 int max_height = 0;
@@ -56,17 +57,19 @@ if(attr_height == 0){//0~110미만
 	min_height = 190;max_height = 9999;
 }else{//상관없음
 	min_height = 0;max_height = 9999;}
-
+*/
 
 String text = "SELECT * FROM ATTRACTION";
 if(attr_location != 2222){//위치 상관없음
 	text+= " WHERE attr_location = " +attr_location  +
 			" AND " + min_age +" <= attr_min_age AND attr_max_age <= " + max_age +
-			" AND "+ min_height +" <= attr_min_height AND attr_max_height <= " + max_height ;
+//			" AND "+ min_height +" <= attr_min_height AND attr_max_height <= " + max_height ;
+			" AND attr_min_height <= "+ attr_height +" AND  "+ attr_height +" <= attr_max_height ";
 }else{
 	text+= " WHERE "
 			+ min_age +" <= attr_min_age AND attr_max_age <= " + max_age +
-			" AND "+ min_height +" <= attr_min_height AND attr_max_height <=" + max_height;
+//			" AND "+ min_height +" <= attr_min_height AND attr_max_height <= " + max_height ;
+			" AND attr_min_height <= "+ attr_height +" AND  "+ attr_height +" <= attr_max_height ";
 }
 //text+=" ORDER BY attr_id DESC;";
 out.println(text);

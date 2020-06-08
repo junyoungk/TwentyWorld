@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ page import="attraction.beans.*" %>
-
+<!-- 세션 값 받기 -->
+ <%
+	int userID = 0;
+	if(session.getAttribute("userID") != null) {
+		userID = Integer.parseInt(session.getAttribute("userID").toString());
+	} 
+%>
 <%
 	// Controller 로부터 결과 데이터 받음
 	AttrWriteDTO [] arr = (AttrWriteDTO [])request.getAttribute("list");
 %>
-
 <%
 	if(arr == null || arr.length == 0){ 
 %>
@@ -63,8 +67,10 @@ background-image:url(<%=attr_img%>)"></div>
     <div id = "attr_max">최대탑승인원 : <%=attr_max %></div>
 </div>
 <div id = "attr_good_info">어트랙션 추천하기</div>
-<div id = "attr_good">엄지모양버튼</div>
 
+
+<button type="button" value="button" id="attr_likes">좋아요</button>
+<div id="ajaxReturn1" value=" "> </div>
 <hr>
 <br>
 <button onclick="location.href = 'attrClientListMain.doat'">더 많은 어트랙션 보러가기</button>
@@ -72,17 +78,40 @@ background-image:url(<%=attr_img%>)"></div>
 </body>
 </html>
 
+<script>
 
 
+$(function () {
+	$(document).ready(function(){
+	    alert("$(document).ready ALERT 경고창");
+	})
+	
+    $("#attr_likes").click(function () {
+    	if(userID == 0){
+    		alert('로그인 후 사용해주세요!');
+    	} else {
+	        $.ajax({
+	            type : "get",
+	            url : "attrClientLikes.jsp",
+	            //여러개 데이터 보낼 때 Json 방식
+	            data : {
+	            	attr_num : $("#userID"),
+	            	user_num : $("#attr_id"),
+	            },
+	            success : function(data){
+	                //check.jsp에서 DB확인해서 출력은 index에서
+	                $("#ajaxReturn1").html(data);
+	            },
+	            error : function(){
+	                alert("error");
+	            }
+	        });
+	        
+    	}
+	        
+	 });
+});
 
-
-
-
-
-
-
-
-
-
+</script>
 
 

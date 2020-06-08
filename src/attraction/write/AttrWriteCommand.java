@@ -87,7 +87,6 @@ public class AttrWriteCommand implements AttrCommand {
 		int attr_min_height = Integer.parseInt(multi.getParameter("attr_min_height"));
 		int attr_max_height = Integer.parseInt(multi.getParameter("attr_max_height"));
 		
-		int attr_authorize = Integer.parseInt(multi.getParameter("attr_authorize"));
 		String attr_img = "../upload/" + x1;
 		String attr_cardimg = "../upload/" + x2;
 
@@ -97,7 +96,7 @@ public class AttrWriteCommand implements AttrCommand {
 			try {
 				cnt = dao.insert(attr_max, attr_time, attr_price, 
 						attr_content, attr_name, attr_location, attr_min_age, attr_max_age, 
-						attr_min_height, attr_max_height, attr_authorize,
+						attr_min_height, attr_max_height, 
 						attr_img, attr_cardimg);
 			} catch(SQLException e) {
 				e.printStackTrace();

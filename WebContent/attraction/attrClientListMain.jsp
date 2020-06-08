@@ -26,9 +26,9 @@
 <%
 	try{
 		Class.forName(DRIVER);
-		out.println("드라이버 로딩 성공" + "<br>");
+		//out.println("드라이버 로딩 성공" + "<br>");
 		conn = DriverManager.getConnection(URL, USERID, USERPW);
-		out.println("conn 성공" + "<br>");
+		//out.println("conn 성공" + "<br>");
 		
 		// 트랜잭션 실행
 		pstmt = conn.prepareStatement(SQL_WRITE_SELECT);
@@ -124,12 +124,15 @@ table, th, td {
     
         <div id = "attr_select">
 	    <label>키 : </label>
+	    <!-- 
     	<select name="attr_height" id="attr_height">
 			<option value="2222">상관없음</option>
 			<option value="0">110미만</option>
 			<option value="1">110이상~190미만</option>
 		    <option value="2">190이상</option>
 		</select>
+		 -->
+		 <input type="number" name="attr_height" id="attr_height"/>
     </div>
     
     <div>
@@ -188,7 +191,6 @@ table, th, td {
 </html>
 
 <script>
-
 $(function () {
     $("#attr_search").click(function () {
         $.ajax({

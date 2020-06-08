@@ -20,7 +20,7 @@ public class AttrD {
 					+ "attr_min_age, attr_max_age, attr_min_height, attr_max_height,"
 					+ "attr_authorize, attr_regDate, attr_img, attr_cardimg) " 
 					 + " VALUES(attraction_write_seq.nextval, ?, ?, ?," 
-					+ " ?, ?, ?," + "?, ?, ?, ?," + " ?, sysdate, ?, ?)";
+					+ " ?, ?, ?," + "?, ?, ?, ?," + " 1, sysdate, ?, ?)";
 
 	
 
@@ -32,7 +32,7 @@ public class AttrD {
 			+ " attr_max = ?, attr_time = ?, attr_price = ?, "
 			+ "attr_content = ?, attr_name = ?, attr_location = ?,"
 			+ "attr_min_age = ?, attr_max_age = ?, attr_min_height = ?, attr_max_height = ?, "
-			+ "attr_authorize = ?, attr_img = ?, attr_cardimg = ? "
+			+ " attr_img = ?, attr_cardimg = ? "
 			+ " WHERE attr_id = ?";
 
 	public static final String SQL_WRITE_DELETE_BY_UID = 

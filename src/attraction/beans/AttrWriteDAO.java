@@ -59,13 +59,11 @@ public class AttrWriteDAO {
 		int attr_max_age = dto.getAttr_max_age();
 		int attr_min_height = dto.getAttr_min_height();
 		int attr_max_height = dto.getAttr_max_height();
-		int attr_authorize = dto.getAttr_authorize();
-		String attr_regDate = dto.getAttr_regDate();
 		String attr_img = dto.getAttr_img();
 		String attr_cardimg = dto.getAttr_cardimg();
 
 		int cnt = this.insert(attr_max, attr_time, attr_price, attr_content, attr_name,
-				attr_location, attr_min_age, attr_max_age, attr_min_height, attr_max_height, attr_authorize, 
+				attr_location, attr_min_age, attr_max_age, attr_min_height, attr_max_height, 
 				attr_img, attr_cardimg);
 		return cnt;
 	}
@@ -74,7 +72,7 @@ public class AttrWriteDAO {
 	public int insert(int attr_max, int attr_time, int attr_price, 
 			String attr_content, String attr_name, int attr_location, 
 			int attr_min_age, int attr_max_age, int attr_min_height, 
-			int attr_max_height, int attr_authorize, 
+			int attr_max_height,
 			String attr_img, String attr_cardimg) throws SQLException {
 		int cnt = 0;
 		
@@ -96,10 +94,10 @@ public class AttrWriteDAO {
 			pstmt.setInt(9, attr_min_height);
 			pstmt.setInt(10, attr_max_height);
 			
-			pstmt.setInt(11, attr_authorize);
+			//pstmt.setInt(11, attr_authorize);
 			//pstmt.setString(12, attr_regdate);
-			pstmt.setString(12, attr_img);
-			pstmt.setString(13, attr_cardimg);
+			pstmt.setString(11, attr_img);
+			pstmt.setString(12, attr_cardimg);
 			
 			cnt = pstmt.executeUpdate();
 		} finally {
@@ -220,7 +218,7 @@ public class AttrWriteDAO {
 	public int update( int attr_id, int attr_max, int attr_time, int attr_price, 
 			String attr_content, String attr_name, int attr_location, 
 			int attr_min_age, int attr_max_age, int attr_min_height, 
-			int attr_max_height, int attr_authorize, 
+			int attr_max_height, 
 			String attr_img, String attr_cardimg) throws SQLException {
 		int cnt = 0;
 		try {
@@ -239,10 +237,10 @@ public class AttrWriteDAO {
 			pstmt.setInt(9, attr_min_height);
 			pstmt.setInt(10, attr_max_height);
 			
-			pstmt.setInt(11, attr_authorize);
-			pstmt.setString(12, attr_img);
-			pstmt.setString(13, attr_cardimg);
-			pstmt.setInt(14, attr_id);
+//			pstmt.setInt(11, attr_authorize);
+			pstmt.setString(11, attr_img);
+			pstmt.setString(12, attr_cardimg);
+			pstmt.setInt(13, attr_id);
 			
 			cnt = pstmt.executeUpdate();
 		} finally {

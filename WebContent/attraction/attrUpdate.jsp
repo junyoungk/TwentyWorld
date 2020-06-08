@@ -34,7 +34,6 @@
 	int attr_min_height =  arr[0].getAttr_min_height(); 
 	int attr_max_height =  arr[0].getAttr_max_height();
 	
-	int attr_authorize =  arr[0].getAttr_authorize();
 	String attr_regDate =  arr[0].getAttr_regDate();
 	String attr_img =  arr[0].getAttr_img();
 	String attr_cardimg =  arr[0].getAttr_cardimg();
@@ -72,7 +71,6 @@ frm = document.forms["frm"];
 	var attrTime = frm["attr_time"].value.trim();
 	var attrMax = frm["attr_max"].value.trim();
 	var attrPrice = frm["attr_price"].value.trim();
-	var attrAuthorize = frm["attr_authorize"].value.trim();
 	
 	var minAge = frm["attr_min_age"].value.trim();
 	var maxAge = frm["attr_max_age"].value.trim();
@@ -87,7 +85,6 @@ frm = document.forms["frm"];
 	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
-	if(attrAuthorize == ""){ alert("권한은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	
 	if(minAge == ""){ alert("최소나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(maxAge == ""){ alert("최대나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
@@ -118,7 +115,6 @@ frm = document.forms["frm"];
 소요시간: <input type="number" name="attr_time" value="<%= attr_time %>"/><br>
 탑승인원수: <input type="number" name="attr_max" value="<%= attr_max %>"/><br>
 가격: <input type="number" name="attr_price" value="<%= attr_price %>"/><br>
-권한 :  <input type="number" name="attr_authorize" value="<%= attr_authorize %>"/><br>
 
 <hr>
 최소나이: <input type="number" name="attr_min_age" value="<%= attr_min_age %>"/>

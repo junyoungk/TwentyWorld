@@ -35,7 +35,6 @@ frm = document.forms["frm"];
 	var attrTime = frm["attr_time"].value.trim();
 	var attrMax = frm["attr_max"].value.trim();
 	var attrPrice = frm["attr_price"].value.trim();
-	var attrAuthorize = frm["attr_authorize"].value.trim();
 	
 	var minAge = frm["attr_min_age"].value.trim();
 	var maxAge = frm["attr_max_age"].value.trim();
@@ -50,7 +49,6 @@ frm = document.forms["frm"];
 	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
-	if(attrAuthorize == ""){ alert("권한은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	
 	if(minAge == ""){ alert("최소나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(maxAge == ""){ alert("최대나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
@@ -80,7 +78,6 @@ frm = document.forms["frm"];
 소요시간: <input type="number" name="attr_time"/><br>
 최대탑승인원수: <input type="number" name="attr_max"/><br>
 가격: <input type="number" name="attr_price"/><br>
-권한 :  <input type="number" name="attr_authorize"/><br>
 
 <hr>
 최소나이: <input type="number" name="attr_min_age"/>
