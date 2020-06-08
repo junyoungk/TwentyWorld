@@ -109,7 +109,6 @@ public class AttrWriteController extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		
-		
 	} // end actionDo()
 
 }

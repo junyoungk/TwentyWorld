@@ -103,13 +103,13 @@ INSERT
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 6, 20, 5000, '아시아 최초 저소음 무진동 회전 어트랙션! 입이 쩍~ 벌어지는 놀라운 스피드를 경험해 보세요!', 
-	'자이로스핀', 1, 10, 60, 100, 250, 1,sysdate, 
+	'자이로스핀', 1, 10, 60, 100, 180, 1,sysdate, 
 	'https://adventure.lotteworld.com/image/2018/6/20180614061126354_275.jpg', 'https://adventure.lotteworld.com/image/2018/6/20180608045716558_1350.jpg');
 --16	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 32, 15, 5000, '나뭇잎 의자에 앉아 빠른 속도로 빙글빙글 도는 느낌이 금방이라도 하늘로 튕겨져 오르는 기분을 느낄 수 있습니다. 호흡을 가다듬고 하늘로 출발!', 
-	'회전그네', 1, 10, 100, 0, 250, 1,sysdate,
+	'회전그네', 1, 10, 100, 0, 200, 1,sysdate,
 	 'http://adventure.lotteworld.com/image/2018/6/20180620073640138_275.jpg', 'http://adventure.lotteworld.com/image/2018/6/20180620073652436_1350.jpg');
  
 
@@ -135,12 +135,13 @@ INSERT
 
 
 
-
+-- 좋아요 확인용 -- 아래는 실행 x
 SELECT count(*) FROM likes GROUP BY user_uid;
 
 
+SELECT count(*) FROM likes WHERE user_uid = 1 GROUP BY user_uid ;	
 
-
+INSERT INTO likes VALUES (USER_UID , ATTR_ID);	
 
 
 
