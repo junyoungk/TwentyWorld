@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="attraction.beans.*" %>
+<link href="attrCSS/attrDetail.css" rel="stylesheet" type="text/css">
+
 <!-- 세션 값 받기 -->
  <%
 	int userID = 0;
@@ -53,27 +55,34 @@
 </head>
 
 <body>
-<h1>**사용자페이지** <%=attr_name %> View</h1>
-
-<div id = "attr_name"><%=attr_name %></div>
-<div id = "attr_img" style="height : 500px; width : 80%;
-background-position: center center; background-size : cover;
-background-image:url(<%=attr_img%>)"></div>
-<div id = "attr_content"><%=attr_content %></div>
-<hr>
-<div id = "attr_content_info">어트랙션 정보</div>
-<div id = "attr_info">
-    <div id = "attr_time">소요시간 : <%=attr_time %></div>
-    <div id = "attr_max">최대탑승인원 : <%=attr_max %></div>
-</div>
-<div id = "attr_good_info">어트랙션 추천하기</div>
 
 
-<button type="button" value="button" id="attr_likes">좋아요</button>
-<div id="ajaxReturn1" value=" "> </div>
-<hr>
-<br>
-<button onclick="location.href = 'attrClientListMain.doat'">더 많은 어트랙션 보러가기</button>
+    <body>
+    <h2 id ="attr_name"> 어트랙션 이름<h2>
+    <div id = "attr_bgimg" style="background-image: url(<%=attr_img %>);"></div> 
+    
+    <div id = "attr_content">
+        <%=attr_content %>
+    </div>
+    <br><br>
+    <hr id="attr_hr">
+    
+    <h2 id ="attr_info"> 어트랙션 정보<h2>
+    <div id = "attr_guidediv">
+        <div id = "attr_guide"> <h3>소요 시간</h3><br><%=attr_time %> 분<br>&nbsp;</div>
+        <div id = "attr_guide"> <h3>탑승 최대 인원</h3><br><%=attr_max %> 명<br>&nbsp;</div>
+        <div id = "attr_guide"> <h3>현장 구매 가격</h3><br><%=attr_price %> 원 <br>&nbsp;</div>
+        <div id = "attr_guide"> <h3>탑승 가능한 나이</h3><br><%=attr_min_age %>살<br>~<%=attr_max_age %>살 </div>
+        <div id = "attr_guide"> <h3>탑승 가능한 키</h3><br><%=attr_min_height %>cm<br>~<%=attr_max_height %>cm </div>
+    </div>
+    <br><br>
+    <hr id="attr_hr">
+    
+    <br><br>
+    <div id="attr_back_menu"><a id="attr_menuback" class = "button button-3"
+        onclick="location.href = 'attrClientListMain.doat'">더 많은 어트랙션 보러가기 →</a></div>
+    
+
 
 </body>
 </html>
