@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ page import="attraction.beans.*" %>
-
 <%
 	// Controller 로부터 결과 데이터 받음
 	AttrWriteDTO [] arr = (AttrWriteDTO [])request.getAttribute("list");
@@ -45,6 +43,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../attraction/attrCss/attrDetail.css" rel="stylesheet" type="text/css">
+
 <title>읽기 <%=attr_name %></title> <!-- title에 글제목 넣기 -->
 </head>
 <script>
@@ -81,8 +81,8 @@ background-image:url(<%=attr_img%>)"></div>
 
 권한 : <%= attr_authorize %><br>
 등록날짜 : <%= attr_regDate %><br>
-상세페이지 이미지 주소? : <%= attr_img %><br>
-카드이미지 주소? : <%= attr_cardimg %><br>
+상세페이지 이미지 주소 : <%= attr_img %><br>
+카드이미지 주소 : <%= attr_cardimg %><br>
 
 
 </div>

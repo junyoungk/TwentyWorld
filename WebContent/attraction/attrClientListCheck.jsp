@@ -8,9 +8,8 @@
 <%
     int attr_location =  Integer.parseInt(request.getParameter("attr_location"));
 	int attr_age = Integer.parseInt(request.getParameter("attr_age"));
-	int attr_height = Integer.parseInt(request.getParameter("attr_height"));
+	
 %>
-<%=attr_location %>/<%=attr_age %>/<%=attr_height %>
 <%!
 	// JDBC 관련 기본 객체변수
 	Connection conn = null;
@@ -45,33 +44,39 @@ if(attr_age == 0){//0세~8세이하
 }else{//상관없음
 	min_age = 0;max_age = 9999;}
 
-/*
-//최소키 최대나이 정하기
-int min_height = 0;
-int max_height = 0;
-if(attr_height == 0){//0~110미만
-	min_height = 0;max_height = 110;
-}else if(attr_height == 1){//110이상~190미만
-	min_height = 110;max_height = 190;
-}else if(attr_height == 2){//190이상
-	min_height = 190;max_height = 9999;
-}else{//상관없음
-	min_height = 0;max_height = 9999;}
-*/
+// 키 상관없을으로 들어올 때 99999로 들어옵니다 
+int attr_hei = 0;int min_height = 0; int max_height = 0;
+	attr_hei = Integer.parseInt(request.getParameter("attr_height"));
+if(attr_hei == 99999){
+	min_height = 0; max_height = 9999;
+}else{
+	min_height = 0; max_height = 0;
+}
+%>
+<!-- 확인용 지우면 됨 -->
+<%=attr_location %>/<%=attr_age %>/<%=attr_hei %>/ <%=min_height %> / <%= max_height%>
+<%
 
 String text = "SELECT * FROM ATTRACTION";
 if(attr_location != 2222){//위치 상관없음
 	text+= " WHERE attr_location = " +attr_location  +
-			" AND " + min_age +" <= attr_min_age AND attr_max_age <= " + max_age +
-//			" AND "+ min_height +" <= attr_min_height AND attr_max_height <= " + max_height ;
-			" AND attr_min_height <= "+ attr_height +" AND  "+ attr_height +" <= attr_max_height ";
+		" AND " + min_age +" <= attr_min_age AND attr_max_age <= " + max_age ;
+		if(attr_hei == 99999){ //나이 상관없음
+			text+= " AND "+ min_height +" <= attr_min_height AND attr_max_height <= " + max_height ;
+			max_age = 0;
+		}else{
+			text+= " AND attr_min_height <= "+ attr_hei +" AND  "+ attr_hei +" <= attr_max_height ";
+		}
 }else{
-	text+= " WHERE "
-			+ min_age +" <= attr_min_age AND attr_max_age <= " + max_age +
-//			" AND "+ min_height +" <= attr_min_height AND attr_max_height <= " + max_height ;
-			" AND attr_min_height <= "+ attr_height +" AND  "+ attr_height +" <= attr_max_height ";
+	text+= " WHERE " + min_age +" <= attr_min_age AND attr_max_age <= " + max_age ;
+		if(attr_hei == 99999){ //나이 상관없음
+			text+= " AND "+ min_height +" <= attr_min_height AND attr_max_height <= " + max_height ;
+			max_age = 0;
+		}else{
+			text+= " AND attr_min_height <= "+ attr_hei +" AND "+ attr_hei +" <= attr_max_height ";
+		}
 }
-//text+=" ORDER BY attr_id DESC;";
+//text+=" ORDER BY attr_id DESC";
 out.println(text);
 
 	try{
@@ -86,7 +91,7 @@ out.println(text);
 		rs = pstmt.executeQuery();
 		out.println("쿼리 성공<br>");
 %>		
-		<hr>
+		<hr> 
 <%
 		while(rs.next()){
 			int uid = rs.getInt("attr_id");

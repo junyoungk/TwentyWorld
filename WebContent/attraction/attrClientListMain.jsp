@@ -21,7 +21,7 @@
 <%!
 	// 쿼리문 준비
 	final String SQL_WRITE_SELECT = 
-		"SELECT * FROM attraction ORDER BY attr_id DESC"; 
+		"SELECT * FROM attraction ORDER BY attr_id ASC"; 
 %>
 <%
 	try{
@@ -29,14 +29,12 @@
 		//out.println("드라이버 로딩 성공" + "<br>");
 		conn = DriverManager.getConnection(URL, USERID, USERPW);
 		//out.println("conn 성공" + "<br>");
-		
 		// 트랜잭션 실행
 		pstmt = conn.prepareStatement(SQL_WRITE_SELECT);
 		
 		rs = pstmt.executeQuery();
 		out.println("쿼리 성공<br>");
 %>	
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -57,26 +55,25 @@ table, th, td {
 <body>
 <h1>**사용자페이지** ListMain</h1>
 
-<form id="frm" >
     <style>
-    /* 버튼 css? */
-        select{
-            width: 200px;
-            padding: .8em .5em;
-            border: 1px solid #999;
-            font-family: inherit;
-            background: url('https://t1.daumcdn.net/cfile/tistory/99761B495C84AA8716') no-repeat 95% 50%;
-            border-radius: 0px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            }
-            select::-ms-expand {
-                display: none;
-            }
-            #attr_select{
-                display:inline-block; margin: 10px;
-            }
+  /* 버튼 css? */
+      select{
+          width: 200px;
+          padding: .8em .5em;
+          border: 1px solid #999;
+          font-family: inherit;
+          background: url('https://t1.daumcdn.net/cfile/tistory/99761B495C84AA8716') no-repeat 95% 50%;
+          border-radius: 0px;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          }
+          select::-ms-expand {
+              display: block;
+          }
+          #attr_select{
+              display:inline-block; margin: 10px;
+          }
     </style>
     <style>
 	/* 검색버튼 */
@@ -102,6 +99,7 @@ table, th, td {
 	
 	</style>
 
+<form id="frm" >
     <div id = "attr_select">
         <label>위치 : </label>
         <!-- <input type="text" name="number" id="number"> -->
@@ -122,25 +120,18 @@ table, th, td {
 		</select>
     </div>
     
-        <div id = "attr_select">
+   <div id = "attr_select">
 	    <label>키 : </label>
-	    <!-- 
-    	<select name="attr_height" id="attr_height">
-			<option value="2222">상관없음</option>
-			<option value="0">110미만</option>
-			<option value="1">110이상~190미만</option>
-		    <option value="2">190이상</option>
-		</select>
-		 -->
-		 <input type="number" name="attr_height" id="attr_height"/>
+
+		 <input type="text" name="attr_height" id="attr_height"/>cm
     </div>
     
-    <div>
+    <div id = "attr_select">
 	  <button type="button" value="button" id="attr_search">검색</button>
 	</div>
+</form>
 	<!-- ajaxReturn: 버튼을 누르면 동작함! -->
     <div id="ajaxReturn">결과 값</div>
-</form>
     
     <!--  ajaxReturn0 : 처음에 전체 화면 보여주는 용도 (버튼을 눌러야 동작하기 때문에) 버튼 누르면 값 없어짐 -->
 	<div id="ajaxReturn0">
@@ -193,27 +184,49 @@ table, th, td {
 <script>
 $(function () {
     $("#attr_search").click(function () {
-        $.ajax({
-            
-            type : "get",
-            url : "attrClientListCheck.jsp",
-            //여러개 데이터 보낼 때 Json 방식
-            data : {
-            	attr_location : $("#attr_location").val(),
-            	attr_age : $("#attr_age").val(),
-            	attr_height : $("#attr_height").val(),
-            },
-            success : function(data){
-                //check.jsp에서 DB확인해서 출력은 index에서
-                $("#ajaxReturn").html(data);
-                $("#ajaxReturn0").html("");
-                //$("#ajaxReturn").html("(ex)사용할 수 있는 ID입니다.");
-            },
-            error : function(){
-                alert("error");
-            }
-        });
-        
+    	var test = $("#attr_height").val();
+    	var ttttest = 0;
+    	
+    	//값이 빈칸일 경우 값을  99999로 변경함
+    	if(test == ""){
+    		ttttest = 99999;
+    		alert('값을 상관없음으로~~' + test + ttttest);
+    	}else{
+    		ttttest = $("#attr_height").val();
+    	}
+    	
+    	//정규표현식 사용
+    	var regId = /^[0-9]+$/;
+    	var isValid = regId.test(ttttest);
+    	
+    	//정규표현식 사용
+    	if(isValid){
+    		alert('일단은 숫자입니다 ' + '값은 : ' + ttttest);
+	    		$.ajax({
+	            type : "get",
+	            url : "attrClientListCheck.jsp",
+	            data : {
+	            	attr_location : $("#attr_location").val(),
+	            	attr_age : $("#attr_age").val(),
+	            	attr_height : ttttest,
+	            },
+	            success : function(data){
+	                $("#ajaxReturn").html(data);
+	                $("#ajaxReturn0").html("");
+	                //$("#ajaxReturn").html("(ex)사용할 수 있는 ID입니다.");
+	            },
+	            error : function(){
+	                alert("error");
+	            }
+	     	   });
+    	}else{
+    		alert('빈칸도 숫자도 아닙니다' + '값은 ' + ttttest);
+    				alert('키에는 숫자만 입력해 주세요!');
+    				history.back();
+    	}
+	    	
+	    	
+		
     });
 });
 
