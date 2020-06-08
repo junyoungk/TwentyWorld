@@ -44,7 +44,7 @@ public class BoardDAO {
 			ArrayList<Board> list = new ArrayList<Board>();
 			
 			while(rs.next()) {
-				int rownum = rs.getInt("rownum");
+				int rownum = rs.getInt("rnum");
 				int uid = rs.getInt("board_id");
 				String category = rs.getString("board_category");
 				String name = rs.getString("user_name");
@@ -312,23 +312,24 @@ public class BoardDAO {
 			return cnt;
 		}
 		
-		public Board[] selectByCategory(String bCategory) throws SQLException{
+		public Board[] selectByCategory(String bCategory, int from, int pageRows) throws SQLException{
 			Board[] arr = null;
 			
 			List<Board> list = new ArrayList<Board>();
 			
 			try {
-				pstmt = conn.prepareStatement("SELECT rownum, b.* FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
-						"FROM board b, users u " + 
-						"WHERE b.board_writeuid = u.user_uid " + 
-						"ORDER BY b.board_id ASC) b " + 
-						"WHERE board_category = ? " + 
-						"ORDER BY ROWNUM desc");
+				pstmt = conn.prepareStatement("SELECT * FROM (" + 
+						"SELECT rownum AS rnum , b.* " + 
+						"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid AND BOARD_CATEGORY = ? ORDER BY board_id DESC) b " + 
+						") " + 
+						"WHERE rnum >= ? AND rnum < ?");
 				pstmt.setString(1,bCategory);
+				pstmt.setInt(2, from);
+				pstmt.setInt(3, from+pageRows);
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
-					int rownum = rs.getInt("rownum");
+					int rownum = rs.getInt("rnum");
 					int bid = rs.getInt("board_id");
 					String subject = rs.getString("board_subject");
 					String name = rs.getString("user_name");
@@ -365,45 +366,45 @@ public class BoardDAO {
 			return arr;
 		}
 		
-		public Board[] selectBySearch(String col, String word) throws SQLException{
+		public Board[] selectBySearch(String col, String word, int from, int pageRows) throws SQLException{
 			Board[] arr = null;
 			
 			
 			try {
 					if(col.equals("none")) {
-					pstmt = conn.prepareStatement("SELECT rownum, b.* " + 
-							"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
-							"FROM board b, users u " + 
-							"WHERE b.board_writeuid = u.user_uid " + 
-							"ORDER BY b.board_id ASC) b " + 
-							"WHERE board_subject LIKE ? OR user_name LIKE ? " + 
-							"ORDER BY ROWNUM desc");
+					pstmt = conn.prepareStatement("SELECT * FROM (" + 
+							"SELECT rownum AS rnum , b.* " + 
+							"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid AND (board_subject LIKE ? OR user_name LIKE ? ) ORDER BY board_id DESC) b " + 
+							") " + 
+							"WHERE rnum >= ? AND rnum < ?");
 						pstmt.setString(1, "%"+word+"%");
 						pstmt.setString(2, "%"+word+"%");
+						pstmt.setInt(3, from);
+						pstmt.setInt(4, from+pageRows);
 						rs = pstmt.executeQuery();
 	
 						arr = createArray(rs);
 					
 					} else if(col.equals("name")) {
-						pstmt = conn.prepareStatement("SELECT rownum, b.* " + 
-								"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
-								"FROM board b, users u " + 
-								"WHERE b.board_writeuid = u.user_uid " + 
-								"ORDER BY b.board_id ASC) b " + 
-								"WHERE user_name LIKE ? " + 
-								"ORDER BY ROWNUM desc");
+						pstmt = conn.prepareStatement("SELECT * FROM (" + 
+								"SELECT rownum AS rnum , b.* " + 
+								"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid AND user_name LIKE ? ORDER BY board_id DESC) b " + 
+								") " + 
+								"WHERE rnum >= ? AND rnum < ?");
 						pstmt.setString(1, "%"+word+"%");
+						pstmt.setInt(2, from);
+						pstmt.setInt(3, from+pageRows);
 						rs = pstmt.executeQuery();
 						arr = createArray(rs);
 					} else if(col.equals("subject")) {
-						pstmt = conn.prepareStatement("SELECT rownum, b.* " + 
-								"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate " + 
-								"FROM board b, users u " + 
-								"WHERE b.board_writeuid = u.user_uid " + 
-								"ORDER BY b.board_id ASC) b " + 
-								"WHERE board_subject LIKE ? " + 
-								"ORDER BY ROWNUM desc");
+						pstmt = conn.prepareStatement("SELECT * FROM (" + 
+								"SELECT rownum AS rnum , b.* " + 
+								"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid AND board_subject LIKE ? ORDER BY board_id DESC) b " + 
+								") " + 
+								"WHERE rnum >= ? AND rnum < ?");
 						pstmt.setString(1, "%"+word+"%");
+						pstmt.setInt(2, from);
+						pstmt.setInt(3, from+pageRows);
 						rs = pstmt.executeQuery();
 						arr = createArray(rs);
 					}
@@ -413,6 +414,75 @@ public class BoardDAO {
 			return arr;
 		}
 		
+		public int countAll() throws SQLException{
+			int cnt = 0;
+			try {
+				pstmt = conn.prepareStatement("SELECT count(*) FROM board");
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					cnt = rs.getInt(1); 
+				}
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+		
+		public int countAllByCategory(String category) throws SQLException{
+			int cnt = 0;
+			
+			try {
+				pstmt = conn.prepareStatement("SELECT count(*) FROM board WHERE board_category = ?");
+				pstmt.setString(1, category);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					cnt = rs.getInt(1); 
+				}
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+		
+		public int countAllBySearch(String col, String word) throws SQLException{
+			int cnt = 0;
+			
+			try {
+					if(col.equals("none")) {
+					pstmt = conn.prepareStatement("SELECT count(*) FROM board b , users u WHERE b.board_writeuid = u.user_uid AND (board_subject LIKE ? OR user_name LIKE ?)");
+					pstmt.setString(1, "%"+word+"%");
+					pstmt.setString(2, "%"+word+"%");
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						cnt = rs.getInt(1); 
+					} 
+				} else if(col.equals("name")) {
+					pstmt = conn.prepareStatement("SELECT count(*) FROM board b , users u WHERE b.board_writeuid = u.user_uid AND  user_name LIKE ?");
+					pstmt.setString(1, "%"+word+"%");
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						cnt = rs.getInt(1); 
+					} 
+				} else if(col.equals("subject")) {
+					pstmt = conn.prepareStatement("SELECT count(*) FROM board b , users u WHERE b.board_writeuid = u.user_uid AND  BOARD_SUBJECT LIKE ?");
+					pstmt.setString(1, "%"+word+"%");
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						cnt = rs.getInt(1); 
+					} 
+				}
+					
+			} finally {
+				close();
+			}
+			
+			return cnt;
+		}
 		public Board[] SelectByPages(int from, int pageRows) throws SQLException{
 			Board[] arr = null;
 			int cnt = 0;
@@ -422,30 +492,17 @@ public class BoardDAO {
 			
 			List<Board> list = new ArrayList<Board>();
 			try {
-			pstmt = conn.prepareStatement("SELECT count(*) FROM board");
-			rs = pstmt.executeQuery();
-			
-			if(rs.next())
-				cnt = rs.getInt(1);   // count(*), 전체 글의 개수
-				
-			rs.close();
-			pstmt.close();
-			
-			totalPage = (int)Math.ceil(cnt / (double)pageRows); // 총 몇페이지 분량
-			
-			int fromRow = (curPage - 1) * pageRows + 1;  // 몇번째 row 부터?
-					
 			pstmt = conn.prepareStatement("SELECT * FROM (" + 
 					"SELECT rownum AS rnum , b.* " + 
 					"FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid ORDER BY board_id DESC) b " + 
 					") " + 
 					"WHERE rnum >= ? AND rnum < ?");
-			pstmt.setInt(1, fromRow);  
-			pstmt.setInt(2, fromRow + pageRows);
+			pstmt.setInt(1, from);  
+			pstmt.setInt(2, from + pageRows);
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int rownum = rs.getInt("rownum");
+				int rownum = rs.getInt("rnum");
 				int bid = rs.getInt("board_id");
 				String subject = rs.getString("board_subject");
 				String name = rs.getString("user_name");

@@ -26,8 +26,16 @@ table, th, td {
 	border-collapse: collapse;
 }
 </style>
+<link rel="stylesheet" type="text/css" href="CSS/common.css"/>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$(".btnCategory").click(function(){
+		location.href = "?category="+$(this).val();
+	}) // p 가 클릭되면 매개변수의 함수 수행
+});
+</script>
 <body>
 		<body>
 <div class="wrapper">
@@ -90,11 +98,14 @@ table, th, td {
       </div>
       <div class="container">
 		<h2><a href="list.do">게시판</a></h2>
-			<a href="list.do?category=1"><input type="button" value="전체" class="btnCategory"></a>
-			<a href="list.do?category=2"><input type="button" value="공지" class="btnCategory"></a>
-			<a href="list.do?category=3"><input type="button" value="행사" class="btnCategory"></a>
-			<a href="list.do?category=4"><input type="button" value="자유" class="btnCategory"></a>
-			<a href="list.do?category=5"><input type="button" value="기타" class="btnCategory"></a>
+			<input type="button" value="1" class="btnCategory">
+			<input type="button" value="2" class="btnCategory">
+			<input type="button" value="3" class="btnCategory">
+			<input type="button" value="4" class="btnCategory">
+			<input type="button" value="5" class="btnCategory">
+			<script>
+	
+			</script>
 		<table>
 			<tr>
 				<th>No</th>
@@ -123,6 +134,11 @@ table, th, td {
 		</c:choose>
 
 		</table>
+		<jsp:include page="pagination.jsp">
+		<jsp:param value="${5 }" name="writePages"/>
+		<jsp:param value="${cnt }" name="totalPage"/>
+		<jsp:param value="${page }" name="curPage"/>
+		</jsp:include>	
 		<br>
 		<form name='frm' method='get' action='list.do'>
       	<select name='col'> <!-- 검색 컬럼 -->
@@ -137,6 +153,7 @@ table, th, td {
 		</div>
 		<%@ include file="../HF/footer.jsp" %>
     </div>
+    
 <script>
 window.onpageshow = function(event) {
     if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
