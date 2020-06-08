@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Enumeration"%>
+<%@ page import="CKJY.UserDAO" %>
+<%@ page import="board.beans.Board" %>
+
  <%
 	int userID = 0;
 	if(session.getAttribute("userID") != null) {
@@ -156,11 +159,16 @@
         <p>새로운 소식</p>
       </div>
       <div class="news_notice_text container">
+      <%
+      UserDAO dao = new UserDAO();
+      Board[] arr1 = dao.boardGonggi();
+      %>
         <ul>
-          <li><a href="#">희망의 빛 아기동물 탄생</a></li>
-          <li><a href="#">[공지]어트랙션 정기점검(5월~6월)</a></li>
-          <li><a href="#">그랜스테이지 신규 공연</a></li>
-          <li><a href="#">꺠끗한 세상을 위한 라라의 몬스터 클린 업</a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[0].getBoard_id()%>"><%= arr1[0].getBoard_subject()%></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[1].getBoard_id()%>"><%= arr1[1].getBoard_subject()%></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[2].getBoard_id()%>"><%= arr1[2].getBoard_subject()%></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[3].getBoard_id()%>"><%= arr1[3].getBoard_subject()%></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[4].getBoard_id()%>"><%= arr1[4].getBoard_subject()%></a></li>
         </ul>
       </div>
     </div>

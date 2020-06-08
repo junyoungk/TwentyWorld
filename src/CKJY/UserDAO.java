@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+
+import board.beans.Board;
 
 
 
@@ -425,6 +428,39 @@ public class UserDAO {
 	}
 	
 	
+	public Board[] boardGonggi() throws SQLException{
+		Board[] arr = null;
+		List<Board> list = new ArrayList<Board>();
+		
+		try {
+			pstmt = conn.prepareStatement("SELECT rownum , b.BOARD_ID , b.BOARD_SUBJECT FROM board b WHERE BOARD_CATEGORY = '공지' AND rownum <= 5 ORDER BY board_id DESC");
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int rownum = rs.getInt("rownum");
+				String subject = rs.getString("board_subject");
+				int bid = rs.getInt("board_id");
+				
+				Board dto = new Board();
+				dto.setRownum(rownum);
+				dto.setBoard_subject(subject);
+				dto.setBoard_id(bid);
+				
+				list.add(dto);
+			}
+			int size = list.size();
+			
+			if(size == 0) return null;
+			
+			arr = new Board[size];
+			
+			list.toArray(arr);
+			
+		} finally {
+			close();
+		}
+		return arr;
+	}
 	
 
 	
