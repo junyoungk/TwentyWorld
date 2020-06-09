@@ -42,7 +42,7 @@ function chkSubmit(){
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <div class="overlay-content">
                  <a href="../login/intro.jsp">소개 / 오시는 길</a>
-                <a href="#">어트랙션</a>
+                <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
                  <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
@@ -74,7 +74,7 @@ function chkSubmit(){
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">어트랙션</a>
+                    <a class="dropdown-item" href="../attraction/attrClientListMain.jsp">어트랙션</a>
                   </div>
                 </li>
                  <li class="nav-item list-group-item">

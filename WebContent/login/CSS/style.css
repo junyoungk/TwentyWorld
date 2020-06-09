@@ -135,9 +135,15 @@
         height:100%;
       }
       .best-text,.info-text{
-        padding:75px 0 75px 0;
+        padding:50px 0 65px 0;
         font-size: 50px;
         font-weight: 700;
+      }
+      @media screen and (max-width:768px){
+	       .best-text,.info-text{
+	        padding:40px 0 50px 0 !important;
+	        font-size: 40px !important;
+	      }
       }
       .best-attraction{
         margin-bottom: 30px;
@@ -170,6 +176,7 @@
     font-size: 41px;
     font-weight: 800;
     font-family: Montserrat, sans-serif;
+    display:inline-block;
 }
 .info-section{
   padding-bottom: 40px;
@@ -246,3 +253,23 @@ padding: 20px 0;
   .intro-content img{
     width:550px;
   }
+  .open_time{
+  	padding: 20px 0;
+  }
+  li{
+  	list-style: none;
+  }
+  .news_notice_text ul li{
+  	font-size:20px;
+  }
+  ul{
+  padding-left: 0px !important;
+  }
+  
+  
+  
+  
+  
+  
+  
+  

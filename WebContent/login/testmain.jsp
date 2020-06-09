@@ -18,7 +18,7 @@
  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-    <link href="CSS/style.css" rel="stylesheet" type="text/css">
+    <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
     <title>Hello, world!</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <div class="overlay-content">
                 <a href="../login/intro.jsp">소개 / 오시는 길</a>
-                <a href="#">어트랙션</a>
+                <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
                  <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
@@ -61,7 +61,7 @@
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">어트랙션</a>
+                    <a class="dropdown-item" href="../attraction/attrClientListMain.jsp">어트랙션</a>
                   </div>
                 </li>
                  <li class="nav-item list-group-item">
@@ -118,6 +118,13 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<div class="open_time">
+	<div class="today text-center">
+		<small class="today-date" id="todayRt_dateMsg">06월 03일(수)</small>
+		<div class="today-time" id="todayRt_elStartEnd">10:00 - 21:00</div>
+	</div>
+</div>
+<hr>
 <div class="best-top container">
   <h2 class="best-text text-center">BEST TOP 3</h2>
   <div class="best-attraction">
@@ -139,20 +146,17 @@
   <div class="look-more text-center container">
 <button type="button" class=" btn btn-outline-secondary btn-lg">더 많은 어트랙션 즐기기</button>  </div>
 </div>
+
+
+
+
+
+
+
 <div class="Infomation container">
   <h2 class="text-center info-text">INFOMATION</h2>
   <div class="info row">
     <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <div class="section-head">
-        <h3 class="head1">TODAY</h3>
-        <p>오늘의 운영시간</p>
-      </div>
-      <div class="days-times">
-		<small class="today-date" id="todayRt_dateMsg">06월 03일(수)</small>
-		<div class="today-time" id="todayRt_elStartEnd">10:00 - 21:00</div>
-	  </div>
-      <button type="button" class="btn btn-secondary btn-lg">이용권 안내</button>
-      <button type="button" class="btn btn-secondary btn-lg">더 많은 꿀팁</button>
     </div>
     <div class="info-section2 text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <div class="section-head news_notice">
@@ -175,36 +179,7 @@
     </div>
   </div>
 </div>
-<div class="price-con container">
-  <p class="mainTit"><span>나에게 꼭 맞는 혜택</span> 알아볼까요?</p>
-  <p class="mainTxt">현재 진행 중인 할인혜택을 알아보세요.</p>
-  <div class="price-tol row">
-    <div class="price1 col-xs-6 col-sm-6 col-md-3 col-lg-3">
-      <a href="#">
-        <img class="price-img"src="https://wwwcdn.everland.com/web/everland/now/card/__icsFiles/afieldfile/2020/05/15/icon_sh.png" alt="">
-        <span class="price">31,000원</span>
-      </a>
-    </div>
-    <div class="price2 col-xs-6 col-sm-6 col-md-3 col-lg-3">
-      <a href="#">
-        <img class="price-img"src="https://wwwcdn.everland.com/web/everland/now/card/__icsFiles/afieldfile/2020/05/15/icon_sh.png" alt="">
-        <span class="price">31,000원</span>
-      </a>
-    </div>
-    <div class="price3 col-xs-6 col-sm-6 col-md-3 col-lg-3">
-      <a href="#">
-        <img class="price-img"src="https://wwwcdn.everland.com/web/everland/now/card/__icsFiles/afieldfile/2020/05/15/icon_sh.png" alt="">
-        <span class="price">31,000원</span>
-      </a>
-    </div>
-    <div class="price4 col-xs-6 col-sm-6 col-md-3 col-lg-3">
-      <a href="#">
-        <img class="price-img"src="https://wwwcdn.everland.com/web/everland/now/card/__icsFiles/afieldfile/2020/05/15/icon_sh.png" alt="">
-        <span class="price">31,000원</span>
-      </a>
-    </div> 
-  </div>
-</div>
+
 <!-- shinhoonji -->
 	  <%@ include file="../HF/footer.jsp" %>
 	   <script>
