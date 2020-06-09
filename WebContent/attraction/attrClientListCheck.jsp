@@ -1,6 +1,3 @@
-<!--  아직 코드 정리중이예요!!!! 0602중간백업!!!!!! -->
-<!--  죄송해요 아직 코드가 많이 더러워요 8ㅁ8!!!!!!! -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import = "java.sql.*"%>   

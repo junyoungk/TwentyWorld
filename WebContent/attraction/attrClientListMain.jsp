@@ -21,7 +21,7 @@
 <%!
 	// 쿼리문 준비
 	final String SQL_WRITE_SELECT = 
-		"SELECT * FROM attraction ORDER BY attr_id ASC"; 
+		"SELECT * FROM attraction ORDER BY attr_id DESC"; 
 %>
 <%
 	try{
@@ -77,24 +77,26 @@ table, th, td {
               display:inline-block; margin: 10px;
           }
           #attr_search {
-	  width: 140px;
-	  height: 45px;
-	  font-family: 'Roboto', sans-serif;
-	  font-size: 11px;
-	  text-transform: uppercase;
-	  letter-spacing: 2.5px;
-	  font-weight: 500;
-	  color: #000;
-	  background-color: #fff;
-	  border: none;
-	  border-radius: 45px;
-	  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-	  transition: all 0.3s ease 0s;
-	  cursor: pointer;
-	  outline: none;
-	  display:inline-block;
-	  }
+			  width: 140px;
+			  height: 45px;
+			  font-family: 'Roboto', sans-serif;
+			  font-size: 11px;
+			  text-transform: uppercase;
+			  letter-spacing: 2.5px;
+			  font-weight: 500;
+			  color: #000;
+			  background-color: #fff;
+			  border: none;
+			  border-radius: 45px;
+			  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+			  transition: all 0.3s ease 0s;
+			  cursor: pointer;
+			  outline: none;
+			  display:inline-block;
+		  }
 </style>
+<link rel="stylesheet" href="attr_menu_card.css" type="text/css">
+
 </head>
 <body>
 <div class="wrapper">
@@ -165,8 +167,6 @@ table, th, td {
           </div>
         </div>
       </div>
-<h1>**사용자페이지** ListMain</h1>
-
   
 <div class="container">
 <form id="frm" >
@@ -192,16 +192,15 @@ table, th, td {
     
    <div id = "attr_select">
 	    <label>키 : </label>
-
 		 <input type="text" name="attr_height" id="attr_height"/>cm
     </div>
     
     <div id = "attr_select">
 	  <button type="button" value="button" id="attr_search">검색</button>
 	</div>
-</form>
 	<!-- ajaxReturn: 버튼을 누르면 동작함! -->
     <div id="ajaxReturn">결과 값</div>
+</form>
     
     <!--  ajaxReturn0 : 처음에 전체 화면 보여주는 용도 (버튼을 눌러야 동작하기 때문에) 버튼 누르면 값 없어짐 -->
 	<div id="ajaxReturn0">
@@ -213,18 +212,18 @@ table, th, td {
 			int attr_id = Integer.parseInt(rs.getString("attr_id"));
 %>
 <!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
-	
-    <div id = "attr_menu" style="width: 250px;width:200px; border:5px ridge burlywood;
-                 display:inline-block; margin: 10px;">
-        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
-            <div id="item_img" style="height:200px; width:200px; background-position:center;
-                    background-image:url(<%=attr_cardimg%>); 
-                    background-size: cover;">
-            </div>
-            <div id="item_name" style="width: 50px; width:200px; color: dimgray; margin: 10px;
-            font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;"><b><%=attr_name%></b></div>
-            <div id="attr_uid">attr_id 확인용 : <%=uid%></div>
-        </a>
+    
+     <div class="attr_menu_container">
+      <div class="attr_box">
+       <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
+        <div class="attr_imgBx">
+          <img src="<%=attr_cardimg%>">
+        </div>
+        <div class="attr_menu_content">
+          <h3><%=attr_name%></h3>
+          <p>어트랙션 바로가기</p>
+        </div>
+      </div>
     </div>
 		<%		
 			} // end while
@@ -267,7 +266,8 @@ table, th, td {
 </body>
 </html>
 
-<script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
 $(function () {
     $("#attr_search").click(function () {
     	var test = $("#attr_height").val();
@@ -308,15 +308,95 @@ $(function () {
     	}else{
     		alert('빈칸도 숫자도 아닙니다' + '값은 ' + ttttest);
     				alert('키에는 숫자만 입력해 주세요!');
-    				history.back();
+    				$("#attr_height").html("");
     	}
-	    	
-	    	
-		
     });
 });
-
 </script>
+<<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+
+.attr_menu_container {
+  max-width: 1000px;
+  display: flex;
+  margin: 50px 0;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  display:inline-block;
+}
+
+.attr_box {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 15px;
+  background: #ffffff;
+  box-shadow: 0 30px 30px rgba(0,0,0,.5);
+}
+
+.attr_box .attr_imgBx {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.attr_box .attr_imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+
+
+.attr_box .attr_menu_content {
+  position: absolute;
+  bottom: 20px;
+  left: 10%;
+  width: 80%;
+  height: 60px;
+  background: #ffffffd2;
+  transition: 0.5s;
+  overflow: hidden;
+
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.attr_box:hover .attr_menu_content {
+  width: 80%;
+  height: 25%;
+  bottom: 10px;
+  left: 10%;
+}
+
+.attr_box .attr_menu_content h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.attr_box .attr_menu_content p {
+  margin: 10px 0 0;
+  padding: 0;
+  opacity: 0;
+  line-height: 1.2em;
+  transition: 0.5s;
+  text-align: justify;
+}
+
+.attr_box:hover .attr_menu_content p {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+</style>
 
 
 

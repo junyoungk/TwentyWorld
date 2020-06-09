@@ -8,62 +8,7 @@
 	    text-align: center;
 	    padding-top: 40px;
 	}
-	div#attr_bgimg{
-	    height : 550px; 
-	    margin-left: 10%;
-	    margin-right: 10%;
-	    background-position: center center; 
-	    background-size : cover;
-	    background-color: antiquewhite;
-	}
-	div#attr_content{
-	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
-	    font-weight: lighter;
-	    border: 1px solid #e1e1e1;
-	    background: #f8f8f8;
-	    padding: 48px 50px 40px;
-	    margin-top: 40px;
-	    margin-left: 10%;
-	    margin-right: 10%;
-	}
 	
-	h2#attr_info{
-	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
-	    font-size: 30px;
-	    color: #000;
-	    text-align: center;
-	    padding-top: 40px;
-	}
-	
-	
-	div#attr_guidediv{
-	    margin-left: 10%;
-	    margin-right: 10%;
-	    align-items: center;
-	    text-align: center;
-	
-	}
-	
-	hr#attr_hr{
-	    border-top: 1px solid #bbb;
-	    text-align: center;
-	    width: 80%;
-	}
-	
-	div#attr_guide{
-	    font-size: 20px;
-	    text-align: center;
-	    height: 300px;
-	    width: 250px;
-	    border: 1px solid #e1e1e1;
-	    background: #f8f8f8;
-	    padding: 48px 50px 40px;
-	    margin-top: 40px;
-	    margin-right: 20px;
-	    margin-left: 20px;
-	    display: inline-block;
-	    border-radius: 20px;
-	}
 	
 	.attr_menuback {
 	    text-align: center;
@@ -131,3 +76,5 @@
 	    transform: scale(1);
 	  }
 	}
+	
+  	
