@@ -17,5 +17,4 @@ public class ReplyListCommand implements Command {
 		
 		
 	}
-
 }
