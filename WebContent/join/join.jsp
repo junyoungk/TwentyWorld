@@ -24,6 +24,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
+<link href="../join/CSS/join.css" rel="stylesheet" type="text/css">
 <title>Hello, world!</title>
 
 <script>
@@ -32,13 +33,15 @@ function passchk(){
 	 var pass2 = document.form.user_pw2.value;
 	 if (pass2.length == 0 || pass2 == null) {
 	  document.form.chk.value = "비밀번호를 입력하세요";
-	  document.form.chk.value.style.color="red";
+	
 	  right = 0;
 	 } else if (pass != pass2) {
 	  document.form.chk.value = "비밀번호가 다릅니다.";
+	  document.form.chk.style.color="red";
 	  right = 0;
 	 } else {   
 	  document.form.chk.value = "비밀번호가 동일합니다.";
+	  document.form.chk.style.color="blue";
 	  right = 1;
 	 }
 	 return;
@@ -211,27 +214,29 @@ function check() {
 		<div class="join container" style="min-height:700px; max-width:400px; margin-top:70px;">
 			<div class="join-section">
 				<form method="post" action="joinCheck.jsp" name="form" onsubmit="return check();">
-					<h2 class="text-center">회원가입</h2>
+				 <div class="text-center"><img src="../login/logo4.jpg" alt="logo" width="200px" height="150px"></div>
+					<h3 class="text-center">JOIN</h3>
 					
-					<label>아이디</label>
+					<label id="login_label">Your ID *</label>
 					<input  type="text" name="user_id" id="user_id">
 					<button type="button" onclick="idcheck()">중복체크</button><br>
 					
-					<label>비밀번호</label>
+					<label id="login_label">Your PW *</label>
 					<input type="password" name="user_pw" id="user_pw"><br>
 					
-					<label style="display: inline !important;">비밀번호확인</label>
-					<input type="text" style="border-width: 0px;" size="20" name="chk" 
-						value="비밀번호를 입력하세요" readonly="readonly" class="danger1 text-right">
+					<label id="login_label">Your PW2 *</label>
+					
 					<input type="password" name="user_pw2" id="user_pw2" onblur="passchk()">
+					<input type="text" style="border-width: 0px; font-size: 10px" size="20" name="chk"  
+						value="비밀번호를 입력하세요" readonly="readonly" class="danger1 text-right">
 					<br>
 						
-					<label>이름</label>
+					<label id="login_label">Your NAME * </label>
 					<input type="text" name="user_name" id="user_name"><br>
 					
-					<label>이메일</label>
-					<input type="text" name="user_email" id="user_email">@
-					<select name="user_email2">
+					<label id="login_label">Your EMAIL * </label>
+					<input type="text" name="user_email" id="user_email"> @
+					<select name="user_email2" id="user_email2">
 						<option value="naver.com">naver.com</option>
 						<option value="daum.net">daum.net</option>
 						<option value="nate.com">nate.com</option>
@@ -239,25 +244,31 @@ function check() {
 						
 					</select>
 						
-					<label>주민번호앞자리</label>
-					<input type="number" name="user_jumin" id="user_jumin">-
-						<label>주민번호뒷자리</label>
+					<label id="login_label">Your Jumin  *</label>
+					<input type="number" name="user_jumin" id="user_jumin"> -
+						
 					<input type="number" name="user_jumin2" id="user_jumin2"><br>
 					
 					
 						 
 					
-					<label>나이</label>
+					<label id="login_label">Your age *</label>
 					<input type="number" name="user_age" id="user_age"><br> 
+					 <div style="text-align: center">
+					<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					
-					<label>성별은?</label>
-						 <label>
-						<input type="radio" name="user_gender" value="남자" checked="checked">남자
-					</label> <label> <input type="radio" name="user_gender" value="여자"
-						checked="checked">여자
-					</label> <br>
-					<input
-						type="submit" value="회원가입"><br>
+						 <label class="btn btn-secondary">
+						<input type="radio" name="user_gender" value="Man" checked="checked">  MAN
+					</label> 
+					<label class="btn btn-secondary"> <input type="radio" name="user_gender" value="여자"
+						checked="checked" style="width: 150px">WOMAN
+					</label>
+					</div>
+					</div>
+					 <br>
+					 <div class="text-center">
+					<input class="joinsubmittt" type="submit" value="JOIN" style="margin-top: 20px; width: 150px;"><br>
+					</div>
 				</form>
 			</div>
 		</div>

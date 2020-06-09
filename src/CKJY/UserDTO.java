@@ -11,6 +11,7 @@ public class UserDTO {
 	int user_authorize;
 	String user_email; 
 	String user_cardnum;
+	int ticketnum;
 	
 	public UserDTO() {
 		
@@ -77,6 +78,18 @@ public class UserDTO {
 	public void setUser_age(int user_age) {
 		this.user_age = user_age;
 	}
+	public int getTicketnum() {
+		return ticketnum;
+	}
+
+
+
+	public void setTicketnum(int ticketnum) {
+		this.ticketnum = ticketnum;
+	}
+
+
+
 	public int getUser_authorize() {
 		return user_authorize;
 	}

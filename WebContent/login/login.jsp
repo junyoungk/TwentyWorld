@@ -5,7 +5,7 @@
 	int userID = 0;
 	if(session.getAttribute("userID") != null) {
 		userID = Integer.parseInt(session.getAttribute("userID").toString());
-	} 
+	}  
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -110,7 +110,7 @@
 		<div class="login container"
 			style="min-height: 700px; max-width: 400px;">
 			<div class="login-section">
-			 <div class="text-center"><img src="logo4.jpg" alt="logo" width="200px" height="200px"></div>
+			 <div class="text-center"><img src="logo4.jpg" alt="logo" width="200px" height="150px"></div>
 				<h3 class="text-center">LOGIN</h3>
 				<form method="post" action="loginCheck.jsp" name="form"
 					onsubmit="return validateForm()">
@@ -124,14 +124,42 @@
 				</form>
 				<hr>
 				
-				<h4 class="text-center" style="padding-bottom: 10px;">아이디 찾기</h4>
-				<form method="post" action="idfind.jsp" style="text-align: center;">
+				
+				
+				
+			</div>
+			
+			<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         	아이디찾기
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+      	<form method="post" action="idfind.jsp" style="text-align: center;">
 					<label style="width:80px;text-align:left;">이름</label> <input type="text" id="find_user_name" name="user_name" placeholder="이름을 입력하세요"><br>
 					<label style="width:80px;text-align:left;">주민번호</label> <input type="text" id="find_user_jumin" name="user_jumin" placeholder="주민번호를 입력하세요"><br>
 					<input class="find_id_submit" type="submit" value="찾기"> <br>
 				</form>
-				<hr>
-				<h3 class="text-center" style="padding-bottom: 10px;">비밀번호 찾기</h3>
+      
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          비밀번호 찾기
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
 				<form method="post" action="pwfind.jsp" class="text-center">
 					<label style="width:80px;text-align:left;">이름</label> 
 					<input type="text" id="find_user_name" name="user_name" placeholder="이름을 입력하세요"><br>
@@ -140,8 +168,11 @@
 					<label style="width:80px;text-align:left;">주민번호</label> 
 					<input type="text" id="find_user_jumin" name="user_jumin" placeholder="주민번호를 입력하세요"><br>
 					<input class="find_pw_submit" type="submit" value="찾기"> <br>
-				</form>
-			</div>
+				</form>      </div>
+    </div>
+  </div>
+  </div>
+			
 		</div>
 		<hr>
 		<%@ include file="../HF/footer.jsp" %>

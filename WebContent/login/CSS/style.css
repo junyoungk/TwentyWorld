@@ -111,7 +111,7 @@
       	margin-top:70px;
       }
       #login_id , #login_pw, .login_submit, #user_pw,#user_pw2, #user_name,
-      #user_jumin, #user_age, #user_email{
+      #user_jumin,  #user_jumin2 ,#user_age, #user_email, #user_email2{
       	width: 370px;
 	    padding: 0 15px;
 	    margin-bottom: 20px;
@@ -119,7 +119,7 @@
 	    height: 35px;
 	    }
 	    #user_id{
-	    width: 220px;
+	    width: 285px;
 	    }
 	    .find_id_submit,.find_pw_submit{
 	    	width: 280px;
@@ -233,9 +233,31 @@ padding: 20px 0;
 .sticky + .content {
   padding-top: 60px;
 }
+
+
+
+/* 김진영 : 239 ~  */
 #user_email{
-	width:150px !important;
+	width:175px !important;
 }
+
+#user_email2{
+	width:170px !important;
+}
+
+#user_jumin{ 
+	width:175px !important;
+}
+
+#user_jumin2{
+	width:170px !important;
+}
+
+
+
+
+
+
 
 .intro-img{
     width: 100%;

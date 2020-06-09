@@ -117,7 +117,7 @@ ALTER TABLE likes
 
 ALTER TABLE reply
 	ADD FOREIGN KEY (reply_boarderid)
-	REFERENCES board (board_id)
+	REFERENCES board (board_id) ON DELETE CASCADE
 ;
 
 
@@ -127,10 +127,10 @@ ALTER TABLE ticketbuy
 ;
 
 
-ALTER TABLE board
-	ADD FOREIGN KEY (board_writeuid)
-	REFERENCES users (user_uid)
-;
+
+
+ALTER TABLE BOARD 
+	ADD CONSTRAINT board_writeuid FOREIGN KEY(BOARD_WRITEUID) REFERENCES users(user_uid) ON DELETE CASCADE;
 
 
 ALTER TABLE likes
@@ -141,13 +141,13 @@ ALTER TABLE likes
 
 ALTER TABLE reply
 	ADD FOREIGN KEY (reply_useruid)
-	REFERENCES users (user_uid)
+	REFERENCES users (user_uid) ON DELETE CASCADE
 ;
 
 
 ALTER TABLE ticketbuy
 	ADD FOREIGN KEY (user_uid)
-	REFERENCES users (user_uid)
+	REFERENCES users (user_uid) ON DELETE CASCADE
 ;
 
 CREATE SEQUENCE attraction_SEQ;

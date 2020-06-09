@@ -475,7 +475,7 @@ public class UserDAO {
 				return 1; // 로그인 성공					
 				}
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return -1;
 	}
