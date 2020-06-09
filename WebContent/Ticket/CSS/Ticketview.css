@@ -4,7 +4,7 @@
     font-family: sans-serif;
 }
 .wrap {
-    height: 2000px;
+    height: 1600px;
     width: 1600px;
     background-position: right;
     background-size: cover;
@@ -17,7 +17,7 @@
     position: relative;
     margin: 0 0 0 800px;
     padding: 5px;
-   
+  
 }
 
 
@@ -37,16 +37,20 @@
     background: transparent;
 }
 
-.btn {
-	width: 30%
-}
-
 div .imgbox{
    background-image: url(https://korean.visitseoul.net/comm/getImage?srvcId=MEDIA&parentSn=14920&fileTy=MEDIA&fileNo=1&thumbTy=L); 
    width: 750px;
    height: 500px;
    position: absolute;
 }
+
+
+
+
+.btn {
+	width: 50%
+}
+
 #frm {
     animation: fadein 5s;
     -webkit-animation: fadein 5s; /* Safari and Chrome */
@@ -68,4 +72,3 @@ div .imgbox{
         opacity:1;
     }
 }
-
