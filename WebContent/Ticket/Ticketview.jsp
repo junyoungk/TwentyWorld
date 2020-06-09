@@ -13,6 +13,20 @@
 		</script>
 	</c:when>
 	<c:otherwise>
+
+<%
+	int userID = 0;
+	if (session.getAttribute("userID") != null) {
+		userID = Integer.parseInt(session.getAttribute("userID").toString());
+	}
+	if (userID != 1) {
+		out.println("<script>");
+		out.println("alert('관리자 페이지입니다')");
+		out.println("location.href= '../login/testmain.jsp'");
+		out.println("</script>");
+	}
+%>
+
 	 
 <!DOCTYPE html>
 <html lang="ko">

@@ -55,7 +55,7 @@
 							class="img-fluid" alt="Responsive image"/><br>
 							이용권 : ${dto.ticket_name }<br>
 							가격 : ${dto.ticket_price }<br>
-							수정 / 삭제 : <a href="Ticketview.doi?id=${dto.ticket_id }">${dto.ticket_name }관리하기</a><br>
+							<a href="Ticketview.doi?id=${dto.ticket_id }">${dto.ticket_name } : 수정 / 삭제 </a><br>
 						</div>
 					</c:forEach>
 				</c:otherwise>
