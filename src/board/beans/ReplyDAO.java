@@ -75,7 +75,7 @@ public class ReplyDAO {
 			  public ReplyDTO[] replyselect() throws SQLException{
 				  ReplyDTO[] replyarr = null;
 				  String SQL = 
-				"SELECT r.reply_id,r.reply_boarderid, u.user_name, r.reply_comment, r.reply_regdate FROM reply r,board b, users u " + 
+				"SELECT r.rownum,r.reply_id,r.reply_boarderid, u.user_name, r.reply_comment, r.reply_regdate FROM reply r,board b, users u " + 
 				"WHERE b.board_id = r.reply_boarderid AND u.USER_UID = r.REPLY_USERUID";
 				  try {
 					  pstmt = conn.prepareStatement(SQL);
@@ -113,7 +113,7 @@ public class ReplyDAO {
 	  
 	  ArrayList<ReplyDTO> list = new ArrayList<ReplyDTO>();
 	  
-	  String SQL = "SELECT r.reply_id, r.REPLY_BOARDERID, u.user_uid, u.user_name, r.reply_comment, r.reply_regdate"+
+	  String SQL = "SELECT rownum ,r.reply_id, r.REPLY_BOARDERID, u.user_uid, u.user_name, r.reply_comment, r.reply_regdate"+
 	  " FROM reply r,board b, users u "+
 	  "WHERE r.reply_boarderid = ? AND u.USER_UID = r.REPLY_USERUID AND b.BOARD_ID = r.REPLY_BOARDERID"; 
 	  try {
@@ -122,6 +122,7 @@ public class ReplyDAO {
 		  rs = pstmt.executeQuery();
 		  
 		  while(rs.next()) {
+			  int reply_rownum = rs.getInt("rownum");
 			  int reply_id =rs.getInt("reply_id");
 			  String user_name = rs.getString("user_name");
 			  int user_uid = rs.getInt("user_uid");
@@ -133,6 +134,7 @@ public class ReplyDAO {
 					regDate = new SimpleDateFormat("yyyy-MM-dd").format(reply_regdate);
 					}
 				ReplyDTO Replydto = new ReplyDTO();
+				Replydto.setRownum(reply_rownum);
 				Replydto.setReply_id(reply_id);
 				Replydto.setWriteName(user_name);
 				Replydto.setReply_useruid(user_uid);

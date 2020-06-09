@@ -2,6 +2,7 @@ package board.beans;
 import java.util.Date;
 
 public class ReplyDTO {
+	private int rownum;
 	private int reply_id;
 	private int reply_boarderid;
 	private int reply_useruid;
@@ -21,6 +22,15 @@ public class ReplyDTO {
 		this.reply_comment = reply_comment;
 	}
 
+
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+	
 	public String getWriteName() {
 		return writeName;
 	}

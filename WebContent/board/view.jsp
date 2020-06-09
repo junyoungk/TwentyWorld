@@ -148,7 +148,7 @@ ${read[0].board_content }
 			<c:otherwise>
 			<c:forEach var="reply" items="${replyresult }">
 			<div>
-			
+				${reply.rownum } |
 				${reply.reply_id } |
 				${reply.writeName } |
 				${reply.reply_useruid } |
