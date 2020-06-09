@@ -95,7 +95,7 @@ table, th, td {
 			  display:inline-block;
 		  }
 </style>
-<link rel="stylesheet" href="attr_menu_card.css" type="text/css">
+<link rel="stylesheet" href="attrCSS/attrDetail.css" type="text/css">
 
 </head>
 <body>
@@ -167,9 +167,13 @@ table, th, td {
           </div>
         </div>
       </div>
-  
+<div class = "container">
+   <img src="https://adventure.lotteworld.com/common/images/icon/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
+    <p class ="jb-text" style = "height: 20px;width : 200px">어트랙션</p>
+</div>
+<br>
 <div class="container">
-<form id="frm" >
+<form id="frm" style="background-color: #ddd; border-radius: 10px" >
     <div id = "attr_select">
         <label>위치 : </label>
         <!-- <input type="text" name="number" id="number"> -->
@@ -192,15 +196,15 @@ table, th, td {
     
    <div id = "attr_select">
 	    <label>키 : </label>
-		 <input type="text" name="attr_height" id="attr_height"/>cm
+		 <input type="text" name="attr_height" id="attr_height" dir="rtl" style="height : 50px"/> cm
     </div>
     
     <div id = "attr_select">
-	  <button type="button" value="button" id="attr_search">검색</button>
+	  <button type="button" value="button" id="attr_search" style="float:left center">검색</button>
 	</div>
 	<!-- ajaxReturn: 버튼을 누르면 동작함! -->
-    <div id="ajaxReturn">결과 값</div>
 </form>
+    <div id="ajaxReturn"></div>
     
     <!--  ajaxReturn0 : 처음에 전체 화면 보여주는 용도 (버튼을 눌러야 동작하기 때문에) 버튼 누르면 값 없어짐 -->
 	<div id="ajaxReturn0">
@@ -217,11 +221,12 @@ table, th, td {
       <div class="attr_box">
        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
         <div class="attr_imgBx">
-          <img src="<%=attr_cardimg%>">
+          <img src="<%=attr_cardimg%>" >
         </div>
         <div class="attr_menu_content">
-          <h3><%=attr_name%></h3>
-          <p>어트랙션 바로가기</p>
+          <h3 style="color : white;"><%=attr_name%></h3>
+          <p style="color : bdbdbd;"> → 바로가기</p>
+          </a>
         </div>
       </div>
     </div>
@@ -246,7 +251,9 @@ table, th, td {
 %>
 
 </div>
+<div>
 <button onclick="location.href='attrAdminListMain.doat'">관리자페이지로 이동(테스트용)</button>
+</div>
 </div>
   <%@ include file="../HF/footer.jsp" %>
 	   <script>
@@ -267,6 +274,62 @@ table, th, td {
 </html>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<!--  버튼을 눌렀을 때 동작함 -->
+<script type="text/javascript">
+$('#attr_height').on("click keyup", function (e) { // IE 
+	if (this.createTextRange) { 
+		var range = this.createTextRange(); 
+		range.move('character', this.value.length);
+		// input box 의 글자 수 만큼 커서를 뒤로 옮김 
+		range.select(); 
+		} else if (this.selectionStart || this.selectionStart== '0') 
+			this.selectionStart = this.value.length; });
+
+$(function () {
+    $("#attr_search").click(function () {
+    	var test = $("#attr_height").val();
+    	var ttttest = 0;
+    	
+    	//값이 빈칸일 경우 값을  99999로 변경함
+    	if(test == ""){
+    		ttttest = 99999;
+    		alert('값을 상관없음으로~~' + test + ttttest);
+    	}else{
+    		ttttest = $("#attr_height").val();
+    	}
+    	
+    	//정규표현식 사용
+    	var regId = /^[0-9]+$/;
+    	var isValid = regId.test(ttttest);
+    	
+    	//정규표현식 사용
+    	if(isValid){
+    		//alert('일단은 숫자입니다 ' + '값은 : ' + ttttest);
+	    		$.ajax({
+	            type : "get",
+	            url : "attrClientListCheck.jsp",
+	            data : {
+	            	attr_location : $("#attr_location").val(),
+	            	attr_age : $("#attr_age").val(),
+	            	attr_height : ttttest,
+	            },
+	            success : function(data){
+	                $("#ajaxReturn").html(data);
+	                $("#ajaxReturn0").html("");
+	                //$("#ajaxReturn").html("(ex)사용할 수 있는 ID입니다.");
+	            },
+	            error : function(){
+	                alert("error");
+	            }
+	     	   });
+    	}else{
+    		//alert('빈칸도 숫자도 아닙니다' + '값은 ' + ttttest);
+    				alert('키에는 숫자만 입력해 주세요!');
+    				$("#attr_height").html("");
+    	}
+    });
+});
+</script>
 	<script type="text/javascript">
 $(function () {
     $("#attr_search").click(function () {
@@ -287,7 +350,7 @@ $(function () {
     	
     	//정규표현식 사용
     	if(isValid){
-    		alert('일단은 숫자입니다 ' + '값은 : ' + ttttest);
+    		//alert('일단은 숫자입니다 ' + '값은 : ' + ttttest);
 	    		$.ajax({
 	            type : "get",
 	            url : "attrClientListCheck.jsp",
@@ -306,34 +369,34 @@ $(function () {
 	            }
 	     	   });
     	}else{
-    		alert('빈칸도 숫자도 아닙니다' + '값은 ' + ttttest);
+    		//alert('빈칸도 숫자도 아닙니다' + '값은 ' + ttttest);
     				alert('키에는 숫자만 입력해 주세요!');
     				$("#attr_height").html("");
     	}
     });
 });
 </script>
-<<style>
+
+<!--  카드 이미지 스타일 불러오질 못해서 아래에 덧붙임 -->
+<style>
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-
-
 
 .attr_menu_container {
   max-width: 1000px;
   display: flex;
-  margin: 50px 0;
   flex-wrap: wrap;
   justify-content: space-around;
   display:inline-block;
+  align-items: center;
 }
 
 .attr_box {
   position: relative;
-  width: 300px;
-  height: 400px;
+  width: 235px;
+  height: 350px;
   margin: 15px;
   background: #ffffff;
-  box-shadow: 0 30px 30px rgba(0,0,0,.5);
+  box-shadow: 0 10px 10px rgba(0,0,0,.5);
 }
 
 .attr_box .attr_imgBx {
@@ -358,14 +421,14 @@ $(function () {
 
 .attr_box .attr_menu_content {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 10%;
   width: 80%;
   height: 60px;
-  background: #ffffffd2;
+  background: #393939d9;
   transition: 0.5s;
   overflow: hidden;
-
+  color : white;
   padding: 15px;
   box-sizing: border-box;
 }
@@ -380,7 +443,7 @@ $(function () {
 .attr_box .attr_menu_content h3 {
   margin: 0;
   padding: 0;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .attr_box .attr_menu_content p {
@@ -390,6 +453,7 @@ $(function () {
   line-height: 1.2em;
   transition: 0.5s;
   text-align: justify;
+  font-size: 10px;
 }
 
 .attr_box:hover .attr_menu_content p {

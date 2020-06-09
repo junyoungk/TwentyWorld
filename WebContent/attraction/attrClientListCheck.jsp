@@ -5,8 +5,8 @@
 <%
     int attr_location =  Integer.parseInt(request.getParameter("attr_location"));
 	int attr_age = Integer.parseInt(request.getParameter("attr_age"));
-	
 %>
+
 <%!
 	// JDBC 관련 기본 객체변수
 	Connection conn = null;
@@ -21,13 +21,15 @@
 	final String USERID = "TEAM20";  // DB 접속 계정 정보
 	final String USERPW = "TIGER20";
 %>
-<%--
-<%!
-	// 쿼리문 준비
-	final String SQL_WRITE_SELECT = 
-		"SELECT * FROM attraction ORDER BY attr_id DESC"; 
-%>
- --%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="attrCSS/attrDetail.css" rel="stylesheet" type="text/css">
+    
+</head>
 <%
 //최소나이 최대나이 정하기
 int min_age = 0;
@@ -50,10 +52,9 @@ if(attr_hei == 99999){
 	min_height = 0; max_height = 0;
 }
 %>
-<!-- 확인용 지우면 됨 -->
-<%=attr_location %>/<%=attr_age %>/<%=attr_hei %>/ <%=min_height %> / <%= max_height%>
+<!-- 확인용 : <%=attr_location %>/<%=attr_age %>/<%=attr_hei %>/ <%=min_height %> / <%= max_height%>
+-->
 <%
-
 String text = "SELECT * FROM ATTRACTION";
 if(attr_location != 2222){//위치 상관없음
 	text+= " WHERE attr_location = " +attr_location  +
@@ -74,13 +75,13 @@ if(attr_location != 2222){//위치 상관없음
 		}
 }
 //text+=" ORDER BY attr_id DESC";
-out.println(text);
+//out.println(text);
 
 	try{
 		Class.forName(DRIVER);
-		out.println("드라이버 로딩 성공" + "<br>");
+		//out.println("드라이버 로딩 성공" + "<br>");
 		conn = DriverManager.getConnection(URL, USERID, USERPW);
-		out.println("conn 성공" + "<br>");
+		//out.println("conn 성공" + "<br>");
 		
 		// 트랜잭션 실행
 		pstmt = conn.prepareStatement(text);
@@ -88,7 +89,7 @@ out.println(text);
 		rs = pstmt.executeQuery();
 		out.println("쿼리 성공<br>");
 %>		
-		<hr> 
+<body><hr> 
 <%
 		while(rs.next()){
 			int uid = rs.getInt("attr_id");
@@ -98,18 +99,17 @@ out.println(text);
 			int attr_id = Integer.parseInt(rs.getString("attr_id"));
 			%>
 			<!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
-			
-    <div id = "attr_menu" style="width: 250px;width:200px; border:5px ridge burlywood;
-                 display:inline-block; margin: 10px;">
-        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
-            <div id="item_img" style="height:200px; width:200px; background-position:center;
-                    background-image:url(<%=attr_cardimg%>); 
-                    background-size: cover;">
-            </div>
-            <div id="item_name" style="width: 50px; width:200px; color: dimgray; margin: 10px;
-            font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;"><b><%=attr_name%></b></div>
-            <div id="attr_uid">attr_id 확인용 : <%=uid%></div>
-        </a>
+	 <div class="attr_menu_container">
+      <div class="attr_box">
+       <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
+        <div class="attr_imgBx" style="background-size: cover; background-image: url('<%=attr_cardimg%>');
+        			background-repeat:no-repeat;" >
+        </div>
+        <div class="attr_menu_content">
+           <h3 style="color : white;"><%=attr_name%></h3>
+          <p style="color : bdbdbd;"> → 바로가기</p>
+        </div>
+      </div>
     </div>
 				<%		
 					} // end while
@@ -132,7 +132,8 @@ out.println(text);
 	}
 %>
 
-
+</body>
+</html>
 
 
 
