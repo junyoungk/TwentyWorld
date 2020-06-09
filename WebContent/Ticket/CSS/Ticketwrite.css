@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+
+
+
+.adios {
+	padding: 30px;
+	border: 1px solid black;
+	width: 600px;
+	height: 250px;
+	margin: 0 auto;
+}
+
+.adios input {
+	width: 80%;
+}
