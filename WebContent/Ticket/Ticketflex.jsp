@@ -10,12 +10,12 @@ int userID = 0;
 if(session.getAttribute("userID") != null){
 	userID = Integer.parseInt(session.getAttribute("userID").toString());
 }
-if(userID ==0){
+/* if(userID ==0){
 	out.println("<script>");
 	out.println("alert('로그인후 이용가능합니다')"); 
 	out.println("location.href= '../login/testmain.jsp'");
 	out.println("</script>");
-}
+} */
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -132,9 +132,10 @@ if(userID ==0){
 										<img id="can" src="${pageContext.request.contextPath}/upload/${dto.ticket_img}" /><br>
 										${dto.ticket_name }<br>
 										${dto.ticket_price }<br> 
-					
-									<button type="button" onclick="location.href='TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }'">${dto.ticket_name}예매하기</button>
+									<c:if test="${(sessionScope.sessionName = userID) != null}" >
+									<button onclick="location.href='TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }'">${dto.ticket_name}예매하기</button>
 									<%-- <a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a> --%>
+									</c:if>
 									</div>
 							</c:forEach>
 						</c:otherwise>
