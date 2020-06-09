@@ -66,7 +66,7 @@
 %>
 <!-- top nav -->
 <div class="center">
-	<ul class="pagination">
+	<ul class="pagination justify-content-center">
 	<%= str %>
 	</ul>
 </div>

@@ -47,7 +47,7 @@
             <div id="myNav" class="overlay">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <div class="overlay-content">
-                <a href="#">소개 / 오시는 길</a>
+                <a href="../login/intro.jsp">소개 / 오시는 길</a>
                 <a href="#">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
             <% if (userID == 0) { %>

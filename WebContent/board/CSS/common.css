@@ -1,5 +1,6 @@
 .center {
     text-align: center;
+    padding: 10px 0;
 }
 
 ul.pagination{
@@ -22,9 +23,7 @@ ul.pagination a {
 }
 
 ul.pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
+ color: black;
 }
 
 ul.pagination a:hover:not(.active) {background-color: #ddd;}
