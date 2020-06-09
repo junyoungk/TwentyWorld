@@ -79,7 +79,7 @@ public class TicketDAO {
 		Ticket [] arr = null;
 		
 		try {
-			pstmt = conn.prepareStatement("SELECT ticket_id, ticket_name, ticket_price, ticket_img FROM Ticket");
+			pstmt = conn.prepareStatement("SELECT ticket_id, ticket_name, ticket_price, ticket_img FROM Ticket ORDER BY ticket_id ASC");
 				
 			rs = pstmt.executeQuery();
 			
