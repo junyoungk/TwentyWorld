@@ -111,18 +111,16 @@ function chkDelete(uid){
         </div>
       </div>
 <div class="container">
-<h2>읽기 ${read[0].board_subject }</h2>
+<h2>${read[0].board_category } 게시판</h2>
 <br>
-작성자 : ${read[0].writeName }<br>
 제목 : ${read[0].board_subject }<br>
+작성자 : ${read[0].writeName }<br>
 등록일 : ${read[0].board_regdate }<br>
 조회수 : ${read[0].board_viewcnt }<br>
 내용: <br>
 <hr>
 <div>
 ${read[0].board_content }
-</div>
-<hr>
 <c:if test="${fn:length(file) > 0 }">
 	<h4>첨부파일</h4>
 	<ul>
@@ -140,20 +138,30 @@ ${read[0].board_content }
 		</c:forEach>
 	</ul>
 </c:if>
-  <h3>세션값 : ${userID }</h3>
-
+</div>
+<hr>
 	<c:set var="user_uid" value="<%= userID %>" />
 	<c:choose>
 			<c:when test="${empty replyresult || fn:length(replyresult) == 0 }"></c:when>
 			<c:otherwise>
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">No</th>
+			      <th scope="col">작성자</th>
+			      <th scope="col">내용</th>
+			      <th scope="col">등록일</th>
+			      <th></th>
+			    </tr>
+			  </thead>
 			<c:forEach var="reply" items="${replyresult }">
-			<div>
-				${reply.rownum } |
-				${reply.reply_id } |
-				${reply.writeName } |
-				${reply.reply_useruid } |
-				${reply.reply_comment } |
-				${reply.reply_regdate }
+			  <tbody>
+			    <tr>
+			      <td scope="row">${reply.rownum }</td>
+			      <td>${reply.writeName }</td>
+			      <td>${reply.reply_comment }</td>
+			      <td>${reply.reply_regdate }</td>
+			      <td>
 				<c:choose>
 					<c:when test="${user_uid == reply.reply_useruid || user_uid == 1}">
 					<button type="button" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">삭제</button>
@@ -161,8 +169,13 @@ ${read[0].board_content }
 					<c:otherwise>
 					</c:otherwise>
 				</c:choose>	
+					</td>
+			    </tr>
+			<div>
 			</div>	
 			</c:forEach>
+			  </tbody>
+			</table>
 			</c:otherwise>
 		</c:choose>
 
@@ -176,33 +189,38 @@ ${read[0].board_content }
 	<p>댓글 달고 싶으면 로그인 하고오셈</p>
 	</c:when>
 	<c:otherwise>
-	<textarea name="reply_comment"></textarea>
-	<input type="submit" value="댓글게시"/>
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text">댓글</span>
+	  </div>
+	  <textarea name="reply_comment" class="form-control"></textarea>
+	</div>
+	<input class="btn btn-dark mb-3" type="submit" value="댓글게시"/>
 	</c:otherwise>
 </c:choose>
-
-
-
-
 
 </form>
 
 <c:if test="${read[0].board_writeuid == (sessionScope.sessionName = userID) || (sessionScope.sessionName = userID) == 1 }">
-	<button onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
-	<button onclick="chkDelete(${read[0].board_id })">삭제</button>
+	<button  class="btn btn-dark mb-3 float-right m-2" onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
+	<button  class="btn btn-dark mb-3 float-right m-2" onclick="chkDelete(${read[0].board_id })">삭제</button>
 </c:if>
-
+<div style="clear:both"></div>
 <hr>
+<div class="text-center">이전글
 <c:choose>
 <c:when test="${prev != null }">
-<span>이전글</span><a href="view.do?uid=${prev[0].board_id }">${prev[0].board_subject }</a>
+<a href="view.do?uid=${prev[0].board_id }">${prev[0].board_subject }</a>
 </c:when>
 <c:otherwise>
 <span>이전글이 없습니다!</span>
 </c:otherwise>
 </c:choose>
+</div>
+
 <hr>
-<span>다음글</span>
+
+<div class="text-center">다음글
 <c:choose>
 <c:when test="${next != null }">
 <a href="view.do?uid=${next[0].board_id }">${next[0].board_subject }</a>
@@ -211,9 +229,10 @@ ${read[0].board_content }
 <span>다음글이 없습니다!</span>
 </c:otherwise>
 </c:choose>
-<br>
+<hr>
+</div>
 
-<button onclick="location.href = 'list.do'">목록보기</button>
+<button class="btn btn-dark" onclick="location.href = 'list.do'">목록보기</button>
 </div>
 <%@ include file="../HF/footer.jsp" %>
     </div>

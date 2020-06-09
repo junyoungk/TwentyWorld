@@ -125,51 +125,57 @@ function chkSubmit(){ // 폼 검증
 	enctype="Multipart/form-data">
 <input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>"/>
 <input type="hidden" name="bid" value="${bid }"/>
-제목:
-<input type="text" name="subject"/><br>
-<select name="category">
-	<option value="자유">자유</option>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">제목</span>
+  </div>
+  <input type="text" aria-label="First name" class="form-control" name="subject">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">카테고리</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01" name="category">
+    <option value="자유" selected>자유</option>
 	<option value="기타">기타</option>
 	<option value="행사">행사</option>
 	<option value="공지">공지</option>
-</select>
+  </select>
+</div>
+
 <c:if test="${sessionScope.userID != 1}">
 	<script>
 		$("select option[value*='공지']").remove();
 		$("select option[value*='행사']").remove();
 	</script>
 </c:if>
-내용:<br>
-<textarea name="content" style="width:100%; height:auto">
-<c:if test="${fn:length(file) > 0 }">
-	<div>
-		<c:forEach var="element" items="${file }">
-			<c:if test="${element.image == true}">
-				<div style="width:300px">
-					<img style="width:100%; height:auto" src="../upload/${element.file }"/>
-				</div>
-			</c:if>
-		</c:forEach>
-	</div>
-</c:if>
-</textarea>
 
 <div style="background-color: #dddddd; padding: 2px 10px; margin-bottom:5px; border: 1px solid black;">
-	<h4>첨부파일</h4>
-	<button type="button" id="btnAdd">추가</button>
+	<span>첨부파일</span>
+	<button class="btn btn-dark btn-sm m-3" type="button" id="btnAdd">추가</button>
 	<div id='files'></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 var i = 0;
 $('#btnAdd').click(function(){
-	$("#files").append("<div><input type='file' name='upfile" + i + "'/><button type='button' onclick='$(this).parent().remove()'>삭제</button></div>");
+	$("#files").append("<div><input type='file' name='upfile" + i + "'/><button class='btn btn-dark btn-sm' type='button' onclick='$(this).parent().remove()'>삭제</button></div>");
 	i++;
 });
 </script>
-<input type="submit" value="게시"/>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">내용</span>
+  </div>
+  <textarea name="content" class="form-control"></textarea>
+</div>
+
+<input class='btn btn-dark btn-sm' type="submit" value="게시"/>
 </form>
-<button type="button" onclick="location.href='list.do'">목록으로</button>
+<button class='btn btn-dark btn-sm' type="button" onclick="location.href='list.do'">목록으로</button>
 </div>
 </div>
 <%@ include file="../HF/footer.jsp" %>
