@@ -46,7 +46,6 @@ if(session.getAttribute("userID") != null){
 							 <a href="../login/intro.jsp">소개 / 오시는 길</a>
                 <a href="#">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
-                 <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
@@ -98,7 +97,6 @@ if(session.getAttribute("userID") != null){
 					</div>
 					<div
 						class="d-none d-lg-block col-lg-2 text-center align-self-center">
-						 <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
@@ -133,7 +131,7 @@ if(session.getAttribute("userID") != null){
 										${dto.ticket_name }<br>
 										${dto.ticket_price }<br> 
 									<c:if test="${(sessionScope.sessionName = userID) != null}" >
-									<button onclick="location.href='TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }'">${dto.ticket_name}예매하기</button>
+									<button type="button" onclick="location.href='TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }'">${dto.ticket_name}예매하기</button>
 									<%-- <a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a> --%>
 									</c:if>
 									</div>
