@@ -150,6 +150,7 @@ SELECT * FROM ATTRACTION ;
 SELECT * FROM users;
 
 
+SELECT * FROM BOARD; 
 SELECT count(*) FROM board WHERE BOARD_CATEGORY = '공지';
 
 SELECT * FROM (
@@ -166,4 +167,4 @@ WHERE rnum >= 11 AND rnum < 11+10;
 
 SELECT count(*) FROM board b , users u WHERE b.board_writeuid = u.user_uid AND (board_subject LIKE '%이미지%' OR user_name LIKE '%김%');
 
-SELECT rownum, r.* FROM reply r WHERE REPLY_BOARDERID = 561 ORDER BY REPLY_ID DESC;
+SELECT rownum, r.* FROM reply r WHERE REPLY_BOARDERID = 5 ORDER BY REPLY_ID DESC;

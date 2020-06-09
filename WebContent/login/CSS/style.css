@@ -288,8 +288,20 @@ padding: 20px 0;
   padding-left: 0px !important;
   }
   
+    @media screen and (min-width:992px){
+  .intro-bottom-image{
+     width: 100%; 
+     height: 500px; 
+     background: white url(https://t1.daumcdn.net/cfile/tistory/993563505DC8A67E2D) no-repeat 50% 50%/100% 100% ; 
+     background-attachment: fixed;
+  }
+}
   
-  
+  @media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1330px;
+}
+  }
   
   
   

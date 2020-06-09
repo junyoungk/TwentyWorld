@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
     <title>Hello, world!</title>
+    <style>
+    	.perform{
+    width: 100%;
+  }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -125,7 +130,7 @@
 	</div>
 </div>
 <hr>
-<!-- <div class="best-top container">
+<div class="best-top container">
   <h2 class="best-text text-center">BEST TOP 3</h2>
   <div class="best-attraction">
     <div class="row">
@@ -147,13 +152,13 @@
 <button type="button" class=" btn btn-outline-secondary btn-lg">더 많은 어트랙션 즐기기</button>  </div>
 </div>
 
- -->
+
  
- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ <!-- <div id="carouselExampleIndicators2" class="carousel slide container" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -196,25 +201,49 @@
             </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
       </div>
+ -->
 
 
 
-
-
-<div class="Infomation container">
-  <h2 class="text-center info-text">INFOMATION</h2>
+ <div class="container">
+ <h2 class="text-center info-text">INFOMATION</h2>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+            <a href="#">
+              <img class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img1.jpg" alt="">
+              <span>연간이용안내</span>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+            <a href="#">
+              <img  class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img2.jpg" alt="">
+              <span>프리미엄투어</span>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+            <a href="#">
+              <img  class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img3.jpg" alt="">
+              <span>공연참여 프로그램</span>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+            <a href="#">
+              <img   class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img4.jpg" alt="">
+              <span>단체 프로그램</span>
+            </a>
+          </div>
+        </div>
+        <div class="Infomation container">
   <div class="info row">
-    <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
-    </div>
     <div class="info-section2 text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <div class="section-head news_notice">
         <h3 class="head1">NEWS AND NOTICE</h3>
@@ -234,8 +263,13 @@
         </ul>
       </div>
     </div>
+    <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    </div>
   </div>
 </div>
+ 
+      </div>
+
 
 <!-- shinhoonji -->
 	  <%@ include file="../HF/footer.jsp" %>
