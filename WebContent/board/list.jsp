@@ -26,9 +26,6 @@ table, th, td {
 	border-collapse: collapse;
 	text-align:center;
 }
-button{
-background-color: white !important;
-}
 .board-list{
 	margin: 30px 0 !important;
 }
@@ -116,25 +113,26 @@ $(document).ready(function(){
       </div>
       <div class="board container">
 		<div class="board-list">
-		<ul class="nav nav-pills nav-fill">
+<ul class="nav nav-pills nav-fill">
   <li class="nav-item btnCategory" value="1" >
-    <a class="nav-link" href="#">전체</a>
+    <a class="nav-link list-group-item list-group-item-action list-group-item-light" href="#">전체</a>
   </li>
   <li class="nav-item btnCategory" value="2">
-    <a class="nav-link" href="#">공지</a>
+    <a class="nav-link list-group-item list-group-item-action list-group-item-light" href="#">공지</a>
   </li>
   <li class="nav-item btnCategory" value="3">
-    <a class="nav-link" href="#">행사</a>
+    <a class="nav-link list-group-item list-group-item-action list-group-item-light" href="#">행사</a>
   </li>
   <li class="nav-item btnCategory" value="4">
-    <a class="nav-link" href="#">자유</a>
+    <a class="nav-link list-group-item list-group-item-action list-group-item-light" href="#">자유</a>
   </li>
   <li class="nav-item btnCategory" value="5">
-    <a class="nav-link" href="#">기타</a>
+    <a class="nav-link list-group-item list-group-item-action list-group-item-light" href="#">기타</a>
   </li>
 </ul>
 		
-		<table>
+		<table class="table table-striped">
+			<thead class="thead-dark">
 			<tr>
 				<th>No</th>
 				<th>분류</th>
@@ -143,6 +141,7 @@ $(document).ready(function(){
 				<th>조회수</th>
 				<th>등록일</th>
 			</tr>
+			</thead>
 		<c:set var="bid" value="${list[0].board_id }"/>
 		<c:choose>
 			<c:when test="${empty list || fn:length(list) == 0 }"></c:when>
@@ -152,7 +151,7 @@ $(document).ready(function(){
 				<td>${dto.rownum }</td>
 				<td>${dto.board_category }</td>
 				<td>${dto.writeName }</td>
-				<td><a href="view.do?uid=${dto.board_id }">${dto.board_subject }</a></td>
+				<td><a href="view.do?uid=${dto.board_id }" class="card-link">${dto.board_subject }</a></td>
 				<td>${dto.board_viewcnt }</td>
 				<td>${dto.board_regdate }</td>
 			</tr>		
@@ -168,17 +167,23 @@ $(document).ready(function(){
 		<jsp:param value="${cnt }" name="totalPage"/>
 		<jsp:param value="${page }" name="curPage"/>
 		</jsp:include>
+		
 		<c:if test="${(sessionScope.sessionName = userID) != null}">
-		<button onclick="location.href='write.do?bid=${bid+1 }'" style="padding: 1px 10px;">글쓰기</button>
+		<button type="button" class="btn btn-dark" onclick="location.href='write.do?bid=${bid+1 }'">글쓰기</button>
 		</c:if>
+		
 		<form name='frm' method='get' action='list.do' style="display: inline-block;float: right;">
-      	<select name='col'> <!-- 검색 컬럼 -->
+      	<select name='col' class="custom-select custom-select-sm" style="width: auto; margin-bottom: 10px"> <!-- 검색 컬럼 -->
         	<option value='none' selected>작성자+제목</option>
         	<option value='name'>작성자</option>
         	<option value='subject'>제목</option>
       	</select>
-      	<input type='text' name='word' value='' placeholder="특수문자 입력불가">
-      	<button type='submit'>검색</buttion>    
+      	<div class="input-group mb-3">
+		  <input type="text" class="form-control" name='word' value='' placeholder="특수문자 입력불가" aria-label="특수문자 입력 불가" aria-describedby="button-addon2">
+		  <div class="input-group-append">
+		    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+		  </div>
+		</div>
   		</form>
 		
 		</div>
