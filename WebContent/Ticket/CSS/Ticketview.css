@@ -1,74 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-.wrap {
-    height: 1600px;
-    width: 1600px;
-    background-position: right;
-    background-size: cover;
-    position: absolute;
-}
-.form-wrap {
-	background-color: white;
-    width: 380px;
-    height: 600px;
-    position: relative;
-    margin: 0 0 0 800px;
-    padding: 5px;
-  
+
+div .con{
+	margin: 0 auto;
+	width: 600px;
 }
 
 
-.input-group {
-    top: 20px;
-    position: absolute;
-    width: 370px;
-    transition: 5s;
-}
-.input-field {
-    width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    border: none;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background: transparent;
-}
-
-div .imgbox{
-   background-image: url(https://korean.visitseoul.net/comm/getImage?srvcId=MEDIA&parentSn=14920&fileTy=MEDIA&fileNo=1&thumbTy=L); 
-   width: 750px;
-   height: 500px;
-   position: absolute;
-}
-
-
-
-
-.btn {
-	width: 50%
-}
-
-#frm {
-    animation: fadein 5s;
-    -webkit-animation: fadein 5s; /* Safari and Chrome */
-}
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
