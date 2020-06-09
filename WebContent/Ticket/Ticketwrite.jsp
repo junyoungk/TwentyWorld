@@ -16,7 +16,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="CSS/Ticketwrite.css" rel="stylesheet" type="text/css">
-
+  <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
 <title>티켓작성</title>
 
 <script src="../ckeditor/ckeditor.js"></script>
@@ -88,7 +88,73 @@
 </script>
 
 <body>
-	
+<div class="wrapper">
+<div class="header">
+        <div class="container">
+          <div class="row">
+            <div id="myNav" class="overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="overlay-content">
+                <a href="../login/intro.jsp">소개 / 오시는 길</a>
+                <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
+                <a href="../board/list.do">자유게시판</a>
+                 <h3>세션값 : <%= userID %></h3>
+            <% if (userID == 0) { %>
+              <a href="../login/login.jsp">로그인</a> 
+              <a href="../join/join.jsp">회원가입</a>
+               <% } else { %>
+               <a href="../login/mypage.jsp">마이페이지</a>
+               <a href="../login/logoutCheck.jsp">로그아웃</a>
+                <% } %>
+              </div>
+            </div>
+           <div class="d-block col-lg-1 logo text-center">
+              <div class="mobile_ver d-block d-lg-none">
+                <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
+              </div>
+              <a href="../login/testmain.jsp">
+                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
+              </a>
+            </div>
+            <div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
+              <ul class="nav  justify-content-center list-group list-group-horizontal">
+                <li class="nav-item list-group-item dropdown">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="../login/intro.jsp">소개 글 및 오시는 길</a>
+                  </div>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="../attraction/attrClientListMain.jsp">어트랙션</a>
+                  </div>
+                </li>
+                 <li class="nav-item list-group-item">
+                  <a class="nav-link active" href="../Ticket/Ticketflex.doi" role="button">예매 하기</a>
+                </li>
+                <li class="nav-item list-group-item">
+                  <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소통 게시판</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="../board/list.do">소통 게시판</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
+            <h3>세션값 : <%= userID %></h3>
+            <% if (userID == 0) { %>
+              <a href="../login/login.jsp">로그인</a> |
+              <a href="../join/join.jsp">회원가입</a>
+               <% } else { %>
+               <a href="../login/mypage.jsp">마이페이지</a>
+               <a href="../login/logoutCheck.jsp">로그아웃</a>
+                <% } %>
+            </div>           
+          </div>
+        </div>
+      </div>
+	<div class="container">
 	<%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 	<div class="wrap">
 		<div class="form-wrap">
@@ -109,8 +175,17 @@
 
 		</div>
 	</div>
-
-	<br>
+</div>
+  <%@ include file="../HF/footer.jsp" %>
+  </div>
+	   <script>
+      function openNav() {
+        document.getElementById("myNav").style.width = "60%";
+      }
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+      </script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
