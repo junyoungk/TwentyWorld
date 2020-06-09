@@ -5,7 +5,7 @@
 	int userID = 0;
 	if(session.getAttribute("userID") != null) {
 		userID = Integer.parseInt(session.getAttribute("userID").toString());
-	}  
+	}   
 %>
 <!DOCTYPE html>
 <html lang="ko">
