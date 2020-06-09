@@ -14,7 +14,7 @@
 .form-wrap {
 	background-color: lightcyan;
     width: 380px;
-    height: 480px;
+    height: 420px;
     position: relative;
     margin: 60px auto;
     padding: 5px;
@@ -39,7 +39,7 @@
 }
 
 .btn {
-	width: 50%
+	width: 30%
 }
 
 #frm {
@@ -63,3 +63,4 @@
         opacity:1;
     }
 }
+

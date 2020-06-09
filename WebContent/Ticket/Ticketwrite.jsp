@@ -88,31 +88,27 @@
 </script>
 
 <body>
-	<h2>티켓 작성</h2>
+	
 	<%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
-	<form id="frm" name="frm" action="TicketwriteOk.doi" method="post"
-		onsubmit="return chkSubmit()" enctype="Multipart/form-data">
+	<div class="wrap">
+		<div class="form-wrap">
+			<form id="frm" class="input-group" name="frm"
+				action="TicketwriteOk.doi" method="post"
+				onsubmit="return chkSubmit()" enctype="Multipart/form-data">
+				<input type="hidden" name="uid"
+					value="<%=session.getAttribute("userID")%>" /> 이용권분류: <input
+					type="number" class="input-field" name="ticket_id" /><br>
+				이용권이름: <input type="text" class="input-field" name="name" /><br>
+			        이용권 가격: <input type="text" class="input-field" name="price" value="${select[0].ticket_price }"><br>
+				티켓이미지: <input type="file" class="input-field" name="img" id="img"
+					accept="image/*" onchange="fileCheck(this)"><br> <input
+					class="btn" type="submit" value="추가" />
+				<button class="btn" type="button"
+					onclick="location.href='Ticketlist.doi'">목록으로</button>
+			</form>
 
-		<div class="adios">
-			<input type="hidden" name="uid"
-				value="<%=session.getAttribute("userID")%>" />
-			<div class="form-group">
-				이용권분류: <input type="number" name="ticket_id" /><br>
-			</div>
-			<div class="form-group">
-				이용권이름: <input type="text" name="name" /><br>
-			</div>
-			<div class="form-group">
-				이용권가격: <input type="text" name="price" />원<br>
-			</div>
-			<div class="form-group">
-				티켓이미지: <input type="file" name="img" id="img" accept="image/*" onchange="fileCheck(this)"><br>
-				<%-- part: file1 --%>
-			</div>
-					 <input type="submit" value="추가" />
-					 <button type="button" onclick="location.href='Ticketlist.doi'">목록으로</button>
 		</div>
-	</form>
+	</div>
 
 	<br>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
