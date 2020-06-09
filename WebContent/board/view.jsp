@@ -6,7 +6,11 @@
 	int userID = 0;
 	if(session.getAttribute("userID") != null) {
 		userID = Integer.parseInt(session.getAttribute("userID").toString());
-	} 
+	}
+%>
+<%
+	pageContext.setAttribute("br", "<br/>");
+	pageContext.setAttribute("cn", "\n");
 %>
 <c:choose>
 	<c:when test="${empty read || fn:length(read) == 0 }">
@@ -120,7 +124,7 @@ function chkDelete(uid){
 내용: <br>
 <hr>
 <div>
-${read[0].board_content }
+${fn:replace(read[0].board_content,cn,br) }
 <c:if test="${fn:length(file) > 0 }">
 	<h4>첨부파일</h4>
 	<ul>
@@ -186,7 +190,7 @@ ${read[0].board_content }
 
 <c:choose>
 	<c:when test="${userID == 0 || userID == null}">
-	<p>댓글 달고 싶으면 로그인 하고오셈</p>
+	<p>로그인 하셔야 댓글을 달 수 있습니다.</p>
 	</c:when>
 	<c:otherwise>
 	<div class="input-group mb-3">
