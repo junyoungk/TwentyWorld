@@ -1,30 +1,23 @@
 @charset "UTF-8";
 
-.headerimg{
-	width: 1600px;
-	height: 420px;
-	background-image: url("https://reservation.everland.com/web/img/202003170001/main_visual_el.jpg");
-	margin: 0 auto;
-}
 
-.imagediv {
+.listdiv {
 	display: inline-block;
 	margin-right: 30px; 
 	margin-bottom: 30px;
 	height: 300px;
 	width: 300px;
 	border: 1px solid black;
-	
 }
 
-.imagediv #can{
+.listdiv #ticketlistimg{
 	height: 200px;
 	width: 300px;
 	box-sizing: border-box;
 }
 
 
-.imagediv button{
+.listdiv button{
 	width: 100%;
 	padding: 10px 0 ;
 	background-color: #fdbb42;
