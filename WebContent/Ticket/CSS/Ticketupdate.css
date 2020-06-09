@@ -4,21 +4,20 @@
     font-family: sans-serif;
 }
 .wrap {
-    height: 100%;
-    width: 100%;
-    background-image: url(https://www.upinews.kr/data/upi/image/2020/02/06/upi202002060168.680x.0.jpg);
-    background-position: center;
+    height: 2000px;
+    width: 1600px;
+    background-position: right;
     background-size: cover;
     position: absolute;
 }
 .form-wrap {
-	background-color: lightcyan;
+	background-color: white;
     width: 380px;
-    height: 420px;
+    height: 600px;
     position: relative;
-    margin: 60px auto;
+    margin: 0 0 0 800px;
     padding: 5px;
-    border: 1px solid black;
+   
 }
 
 
@@ -26,7 +25,7 @@
     top: 20px;
     position: absolute;
     width: 370px;
-    transition: .5s;
+    transition: 5s;
 }
 .input-field {
     width: 100%;
@@ -42,6 +41,12 @@
 	width: 30%
 }
 
+div .imgbox{
+   background-image: url(https://webmagazine.lanxess.com/wp-content/uploads/2017/07/Rollercoaster_web-1030x687.jpg); 
+   width: 750px;
+   height: 500px;
+   position: absolute;
+}
 #frm {
     animation: fadein 5s;
     -webkit-animation: fadein 5s; /* Safari and Chrome */
