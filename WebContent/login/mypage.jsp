@@ -129,25 +129,47 @@
         </div>
       </div>
 
-		<div class="mypage container"style="min-height:700px;">
-			<div class="editInfo text-center" style="padding: 20px 0 20px 0;">
-				<h3 class="text-left" style="display: inline-block;">회원 정보 및 수정</h3>
+		<div class="mypage container"style="min-height:700px; max-width:400px;">
+			<div class="editInfo" style="padding: 20px 0 20px 0;">
+				<div class="text-center"><img src="logo4.jpg" alt="logo" width="200px" height="150px"></div>
+				<h3 class="text-center">USER INFO & CHANGE</h3>
 				<form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
 					 <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
-					 <label>고객 명 : <%= user_name %></label>
-					 고객 아이디 : <%=user_id  %><br>
-					 비밀번호 : 
-					<input type="password" name="user_pw" value="<%= user_pw %>"/><br>
-					이메일: <input type="email" name="user_email" value="<%= user_email %>" /><br>
-					성별 : <%=user_gender %> <br>
-					카드 번호<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
+					
+					<label id="login_label">USER NAME *</label>
+					<input type ="text" disabled="disabled" value="<%= user_name %>">
+					<hr>
+					<label id="login_label">USER ID *</label>
+					<input type ="text" disabled="disabled" value="<%= user_id %>">
+					<hr>
+					<label id="login_label">USER GENDER *</label>
+					<input type ="text" disabled="disabled" value="<%= user_gender %>">
+					<hr>
+					<label id="login_label">USER AGE *</label>
+					<input type ="text" disabled="disabled" value="<%= user_age %>">
+					<hr>
+					<label id="login_label">USER JUMIN *</label>
+					<input type ="text" disabled="disabled" value="<%= user_jumin %>">
+					<hr>
+					<label id="login_label">USER EMAIL *</label>
+					
+					<input type="email" name="user_email" value="<%= user_email %>" /><br>
+					<label id="login_label">USER CARDNUM *</label>
+					<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
 					<br>
-					<input type="submit" value="수정"/>
+					<input type="submit" value="수정" style="margin-top: 20px; width: 150px;"	/>
 				 </form>
 				 
 				 <a href="userdeleteCheck.jsp">회원탈퇴</a> <!-- 버튼 > a 태그 넣으면 이클립스는 안넘어감 ?.... -->
 			 </div>
-			<div><h4>내가 쓴글 (★ 최신순 5개까지만 표시됩니다. ★) </h4><br>
+			 
+			</div> 
+			 
+			 <div class="container">
+			 
+  <div class="row">
+    <div class="col-md-12 col-lg-4">
+					<div><h4>내가 쓴글 (★ 최신순 5개까지만 표시됩니다. ★) </h4><hr>
 			 <% for(int i=0; i<a.length; i++){
 				 
 				 if(a[i] == null) break;
@@ -162,10 +184,9 @@
 			 
 			 
 			 </div>
-			 <div>====HTML / CSS로 정돈 필요  ============</div>
-			 
-			 
-			  <div><h4>내가 쓴 최신 댓글 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br>
+    </div>
+    <div class="col-md-12 col-lg-4">
+					  <div><h4>내가 쓴 최신 댓글 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br>
 			 <% for(int i=0; i<replyList.length; i++){
 				 
 				 if(replyList[i] == null) break;
@@ -180,8 +201,9 @@
 			 
 			 
 			 </div>
-			 <br>
-			 	  <div><h4>예매목록 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br><br>
+    </div>
+    <div class="col-md-12 col-lg-4">
+		  <div><h4>예매목록 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br><br>
 			 <% for(int i=0; i<TicketList.length; i++){
 				 
 				 if(TicketList[i] == null) break;
@@ -194,17 +216,29 @@
 			 
 			 
 			 </div>
-					 <% if (userID == 1) {  %>
-			    <hr>
-			    <h3>관리자 활동 목록</h3>
+    </div>
+  </div>
+</div>
+			
+			<div class="row">
+			
+    		<div class="col-md-12 col-lg-6">
+    				<% if (userID == 1) {  %>
+			   
+			    
 			 	<button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button>
 			 	<button onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button>
 			 
 			 	
 			 	<button onclick="location.href='../attraction/attrAdminListMain.doat'">놀이기구리스트 </button>
 			 	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button>
-			 	
-			 	 <form method="post" action="userdeleteCheck2.jsp" class="text-center">
+			 	<% }
+			 %>
+    		</div>
+    		
+    		<div class="col-md-12 col-lg-6">
+    					<% if (userID == 1) {  %>
+    				 <form method="post" action="userdeleteCheck2.jsp" class="text-center">
 					
 					<input type="number" id="user_uid" name="user_uid" placeholder="삭제할 회원 uid 입력"><br>
 					
@@ -221,12 +255,22 @@
 					<input type="submit" value="티켓삭제"> <br>
 				</form>
 			 	
-			 <% }
+			  	<% }
 			 %>
+    		</div>
+    		</div>
+			 
+			 
+
+			 	
+					 
+			 
+			
+
 			
 			  
 	
-		</div>
+		
 		<%@ include file="../HF/footer.jsp" %>
 	    </div>
     <script>

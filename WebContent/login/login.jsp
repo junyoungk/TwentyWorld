@@ -109,7 +109,7 @@
 
 		<div class="login container"
 			style="min-height: 700px; max-width: 400px;">
-			<div class="login-section">
+			<div class="loginuser-section">
 			 <div class="text-center"><img src="logo4.jpg" alt="logo" width="200px" height="150px"></div>
 				<h3 class="text-center">LOGIN</h3>
 				<form method="post" action="loginCheck.jsp" name="form"

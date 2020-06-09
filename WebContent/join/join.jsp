@@ -55,7 +55,7 @@ function idcheck(){
 	  return false;
 	 }
 	 var url = "idCheck.jsp?id=" + id;
-	 window.open(url, "get", "height = 180, width = 300");
+	 window.open(url, "get", "height = 20, width = 100");
 	}
 
 function check() { 
@@ -257,11 +257,11 @@ function check() {
 					 <div style="text-align: center">
 					<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					
-						 <label class="btn btn-secondary">
-						<input type="radio" name="user_gender" value="Man" checked="checked">  MAN
+						 <label class="btn btn-secondary active">
+						<input type="radio" name="user_gender" value="Man">  MAN
 					</label> 
 					<label class="btn btn-secondary"> <input type="radio" name="user_gender" value="여자"
-						checked="checked" style="width: 150px">WOMAN
+						 style="width: 150px">WOMAN
 					</label>
 					</div>
 					</div>
