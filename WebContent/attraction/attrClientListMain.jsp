@@ -33,7 +33,7 @@
 		pstmt = conn.prepareStatement(SQL_WRITE_SELECT);
 		
 		rs = pstmt.executeQuery();
-		out.println("쿼리 성공<br>");
+		//out.println("쿼리 성공<br>");
 %>	
  <%
 	int userID = 0;
@@ -175,7 +175,7 @@ table, th, td {
       
 <div class = "container">
    <img src="https://adventure.lotteworld.com/common/images/icon/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
-    <p class ="jb-text" style = "height: 20px;width : 200px">어트랙션</p>
+    <p class ="jb-text" style = "height: 20px; width : 100%">어트랙션</p>
 </div>
 <br>
 <div class="container">
@@ -225,7 +225,7 @@ table, th, td {
 %>
 <!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
      <div class="attr_menu_container col-lg-3 col-md-4 col-sm-6 col-xs-12" >
-      <div class="attr_box">
+      <div class="attr_box" style="width : 100%; height : 200px">
        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
         <div class="attr_imgBx">
           <img src="<%=attr_cardimg%>" >
@@ -260,9 +260,6 @@ table, th, td {
 	}
 %>
 
-</div>
-<div>
-<button onclick="location.href='attrAdminListMain.doat'">관리자페이지로 이동(테스트용)</button>
 </div>
 </div>
   <%@ include file="../HF/footer.jsp" %>
@@ -396,7 +393,6 @@ $(function () {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  display:inline-block;
   align-items: center;
 }
 
@@ -418,7 +414,6 @@ $(function () {
 }
 
 .attr_box .attr_imgBx img {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
