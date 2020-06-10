@@ -15,9 +15,14 @@ SELECT user_id FROM USERS WHERE user_name = '관리자' AND user_jumin = '111111
 
 
 
-INSERT INTO TICKET  VALUES (1, '자유이용권', 20000, '이미지');
-INSERT INTO TICKET  VALUES (2, '입장권', 5000, '이미지');
-INSERT INTO TICKET  VALUES (3, '빅3', 10000, '이미지');
+INSERT INTO TICKET  VALUES (1, '호랑이자유이용권', 20000, 'ghfkddl.jpg');
+INSERT INTO TICKET  VALUES (2, '너구리입장권', 5000, 'sjrnfl.png');
+INSERT INTO TICKET  VALUES (3, '토끼3이용권', 10000, 'xhrl.jpg');
+INSERT INTO TICKET  VALUES (4, '고양이4이용권', 15000, 'rhdiddl.jpg');
+INSERT INTO TICKET  VALUES (5, '쿼카5이용권', 15000, 'znjzhk.jpg');
+INSERT INTO TICKET  VALUES (6, '팬더반년회원권', 120000, 'vosej.jpg');
+INSERT INTO TICKET  VALUES (7, '기린연간회원권', 200000, 'rlfls.jpg');
+
 
 
 //
@@ -25,7 +30,8 @@ SELECT t.ticket_name, t.ticket_price ,t.ticket_img FROM TICKET t , USERS u WHERE
 SELECT * FROM TICKET WHERE ticket_id = 4;
 SELECT * FROM TICKET ORDER BY TICKET_ID ASC;
 
-DELETE FROM TICKET WHERE TICKET_ID > 3;
+DELETE FROM TICKET WHERE TICKET_ID > 0;
+DELETE FROM TICKETBUY WHERE TICKET_ID > 0;
  
 회원   티켓   고유번호
 1      1     12344521548

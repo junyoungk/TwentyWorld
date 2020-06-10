@@ -87,7 +87,7 @@ CREATE TABLE reply
 CREATE TABLE ticket
 (
 	ticket_id number NOT NULL,
-	ticket_name varchar2(20) NOT NULL,
+	ticket_name varchar2(60) NOT NULL,
 	ticket_price number NOT NULL,
 	ticket_img varchar2(500) NOT NULL,
 	PRIMARY KEY (ticket_id)

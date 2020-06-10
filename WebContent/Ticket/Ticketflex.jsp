@@ -55,7 +55,7 @@ if(session.getAttribute("userID") != null){
                 <% } %>
 						</div>
 					</div>
-
+ 
 					<div class="d-block col-lg-2 logo text-center">
 						<div class="mobile_ver d-block d-lg-none">
 							<span class="mobile_btn" style="font-size: 30px; cursor: pointer"
