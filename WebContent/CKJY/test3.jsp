@@ -75,7 +75,7 @@ th,td {
       <p id="result"></p>
       <br/>
       
-      
+       
       <p id="result2" style="display: none"></p> <!--그저 값얻기위해서  display:none-->
       <p id="result3" style="display: none"></p> <!--그저 값얻기위해서  display:none-->
       
