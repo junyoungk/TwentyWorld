@@ -95,21 +95,33 @@
           <strong>Welcome to the 20's World</strong>
           <p>ahahahahahahha</p>
           <div class="row">
-            <div class="intro1-text align-self-center col-md-12 col-md-pull-12 col-lg-6">
+            <div class="intro1-text align-self-center d-none d-lg-block d-xl-block col-lg-6">
               <h3>롯데월드 어드벤처</h3>
               <br>
               <p>날씨와 관계없이 1년 365일,</p><p> 매일 짜릿한 스릴이 넘쳐나는 모험과 신비의 나라 롯데월드!</p>
             </div>
-            <div class=" col-md-12 col-md-push-12 col-lg-6">
+            <div class=" d-none d-lg-block d-xl-block col-lg-6">
               <img src="https://t1.daumcdn.net/cfile/tistory/99F35E4D5D32AB6B31" alt="">
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12  col-lg-6 ">
-              <img src="https://lh3.googleusercontent.com/proxy/krxbYR00-KD6kcOvm4oLKRtwKZEECrN_xufyGEAZucEXwhwHrSMq3sTaZpWZn1Z236Ub1Y3f07WevhbNVEORayqLEG0N2DcHVu51HRxHjs9Lnr3FcYdkDOBNIdfmaU1vSGZYtYX-6tgge8BP5FwLWL0Ik8__LM8XQ24XIdwgFi9ZQr4GTVblGYgVf1BC7vsK7HUkI77rWKotscMB2fmH4f-83ZBzsqiP7tQeCXbYEsxdXSCs42BJH8Kft37AKkUimYQRkPza6zWnyiP5QodfxHcYBfvxKr6vnnHV" alt="">
+            <div class="d-none d-lg-block d-xl-block col-lg-6">
+              <img src="https://img.insight.co.kr/static/2019/12/07/700/053f202o3c2n00zay326.jpg" alt="">
             </div>
-            <div class="intro2-text align-self-center col-xs-12 col-sm-12 col-md-12  col-lg-6">
+            <div class="intro2-text align-self-center d-none d-lg-block d-xl-block col-lg-6">
               <h3>국내 최초, 최대 실내테마파크</h3>
               <p>원하는 모든 것을 한 곳에서 즐길 수 있는 복합생활공간, 바로 롯데월드 입니다.</p>
             </div>
+          	<div class="intro-picture1 d-lg-none d-xs-block d-sm-block d-md-block col-12" style="padding-bottom:20px;">
+          		<img class="image2" src="https://img.insight.co.kr/static/2019/12/07/700/053f202o3c2n00zay326.jpg" alt="">
+          		<div class="overlay">
+				   <div class="text">Hello World</div>
+				</div>
+          	</div>
+          	<div class="intro-picture2 d-lg-none d-xs-block d-sm-block d-md-block col-12">
+				<img class="image2" src="https://t1.daumcdn.net/cfile/tistory/99F35E4D5D32AB6B31" alt=""> 
+				<div class="overlay">
+				   <div class="text">Hello World</div>
+				</div>
+			</div>
           </div>
         </div>
         </div>

@@ -267,6 +267,7 @@
       <button type="button" class="btn btn-light btn-sm" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
     </div>
     <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    	<img src="https://adventure.lotteworld.com/image/2019/12/201912060405241830.jpg"/>
     </div>
   </div>
 </div>

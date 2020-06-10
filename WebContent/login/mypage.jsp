@@ -166,7 +166,7 @@
 			 
   <div class="row">
     <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
-					<div class="text-center"><h5>글 작성 목록</h5><hr>
+					<div class="text-center" style="padding: 25px;"><h5>글 작성 목록</h5><hr>
 			 <% for(int i=0; i<a.length; i++){
 				 
 				 if(a[i] == null) break;
@@ -191,7 +191,7 @@
 			 </div>
     </div>
     <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
-					 <div><h5>댓글 작성 목록</h5><hr>
+					 <div class="text-center" style="padding: 25px;"><h5>댓글 작성 목록</h5><hr>
 			 <% for(int i=0; i<replyList.length; i++){
 				 
 				 if(replyList[i] == null) break;
@@ -208,7 +208,7 @@
 			 </div>
     </div>
     <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
-		  <div><h5>예매목록</h5></h2><hr>
+		  <div class="text-center" style="padding: 25px;"><h5>예매목록</h5></h2><hr>
 			 <% for(int i=0; i<TicketList.length; i++){
 				 
 				 if(TicketList[i] == null) break;
@@ -224,12 +224,13 @@
     </div>
   </div>
 </div>
+<% if (userID == 1) {  %>
 			 <div class="container">
 			<div class="row">
-			 <div class="col-lg-12 text-center"><h3>관리자 목록입니다.</h3></div>
+			 <div class="col-lg-12 text-center"><h3 style="padding: 20px 0;">관리자 목록입니다.</h3></div>
     		<div class="col-md-12 col-lg-6 text-center" style="border: 1px solid #ababab;">
     			<div class="row">
-    				<% if (userID == 1) {  %>
+    				
 			   
 			    <div class="col-3">
 			    <button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button>
@@ -243,27 +244,26 @@
 			    <div class="col-3">
 			    	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button>
 			    </div>
-			 	<% }
-			 %>
+			 	
 			 </div>
     		</div>
     		
     		<div class="col-md-12 col-lg-6" style="border: 1px solid #ababab;">
     			<div class="row">
-    				<div class="col-md-6" style="padding: 30px 0px;">
-    					<% if (userID == 1) {  %>
+    				<div class="col-6" style="padding: 30px 0px;">
+    					
     				 <form method="post" action="userdeleteCheck2.jsp" class="text-center">
 					
-					<input type="number" id="user_uid" name="user_uid" placeholder="삭제할 회원 uid 입력"><br>
+					<input type="number" id="user_uid" name="user_uid" placeholder="삭제할 회원 uid 입력" style="margin-bottom: 12px;s"><br>
 					
 				
 					<input type="submit" value="계정삭제"> <br>
 				</form>
 				</div>
-				<div class="col-md-6" style="padding: 30px 0px;">
+				<div class="col-6" style="padding: 30px 0px;">
 				 <form method="post" action="userticketDelete.jsp" class="text-center">
 					
-					<input type="number" id="ticketnum" name="ticketnum" placeholder="삭제 티켓 번호 입력"><br>
+					<input type="number" id="ticketnum" name="ticketnum" placeholder="삭제 티켓 번호 입력" style="margin-bottom: 12px;"><br>
 				
 				
 					<input type="submit" value="티켓삭제"> <br>
