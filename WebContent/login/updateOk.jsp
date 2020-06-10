@@ -12,7 +12,7 @@
 %>
 
 <%
-	int cnt = dao.update(user_uid, user_pw, user_email, user_cardnum);
+	int cnt = dao.update(user_uid, user_pw, user_email, user_cardnum); 
 %>
 <%-- 위 트랜잭션이 마무리 되면 페이지 보여주기 --%>
 <% if(cnt == 0){ %>

@@ -2,9 +2,8 @@
 
 /* 관리차 추가 */
 
-I
-NSERT INTO USERS VALUES
-(user_SEQ.nextval, '관리자','1234','관리자','','1111111111111',100,3000,'관리자@관리자.com','-');
+INSERT INTO USERS VALUES
+(user_SEQ.nextval, '관리자','1234','관리자','','111111111111',100,3000,'a@n.com','-');
 
 /* 테이블 확인 */
 SELECT * FROM USERS ORDER BY USER_UID DESC ;

@@ -97,15 +97,126 @@ function mapcheck(){
       </div>
 
 <div class="container">
-<h3>20대월드 모험지도</h3>
-<button id="see1">어트랙션</button>
-<button id="see2">화장실</button>
-<button id="see3">음식점</button>
-<div id="map" style="width:100%;height:350px;"></div>
+<div class="row">
+ <div class="col-md-12 col-lg-12">
+<h3 class="text-center" style="margin: 20px 0px 40px 0px">20's WORLD Adventure MAP</h3>
+<div class="row">
+ <div class="col-4 text-center">
+ <button id="see1" style="width: 100%" type="button" class="btn btn-outline-danger">ATTRACTION</button>
+ </div>
+ <div class="col-4 text-center">
+ <button id="see2" style="width: 100%" type="button" class="btn btn-outline-danger">REST&PHOTO</button>
+  </div>
+ <div class="col-4 text-center">
+ <button id="see3" style="width: 100%" type="button" class="btn btn-outline-danger">FOOD</button>
+ </div>
+ </div>
+ 
 
-<button onclick="mapcheck();">이걸 클릭하면 창이 열립니다.</button>
+
+
+<div id="map" style="width:100%;height:350px; margin: 20px 0px 50px 0px"></div>
+
+<h3 class="text-center" style="margin: 20px 0px 50px 0px">20's WORLD WAY TO COME</h3>
 </div>
-	
+</div>
+
+<div class="row">
+ <div class="col-md-12 col-lg-3">
+<h5 style="font-weight: bold;">지하철 이용시</h5>
+<hr>
+
+<span style="width: 25px; height: 25px; background-color: #5ab354; border-radius: 12.5px; margin-right: 10px; font-size: 15px; line-height: 25px; color: #fff; text-align: center; display: inline-block;">2 </span>
+<span style="font-size: 15px; line-height: 25px; color: #5ab354;">2호선</span> <span>잠실역 4번 출구</span> <br>
+<span style="width: 25px; height: 25px; background-color: #e04582; border-radius: 12.5px; margin-right: 10px; font-size: 15px; line-height: 25px; color: #fff; text-align: center; display: inline-block; margin-top: 10px;">2 </span>
+<span style="font-size: 15px; line-height: 25px; color: #e04582">8호선</span> <span>잠실역 4번 출구</span>
+
+<hr>
+</div>
+
+
+
+ <div class="col-md-12 col-lg-6">
+<h5 style="font-weight: bold;">버스 이용시</h5>
+<hr>
+
+<span style="width: 50px; height: 26px; line-height: 26px; border-radius: 15px; font-size: 15px; color: #fff; text-align: center; margin-right: 18px; background-color: #62af1e; display: inline-block;">지선 </span>
+<span> 3217번, 3313번, 3314번, 3315번, 3317번, 3411번</span>
+<br>
+<span style="width: 50px; height: 26px; line-height: 26px; border-radius: 15px; font-size: 15px; color: #fff; text-align: center; margin-right: 18px; background-color: #d63945; display: inline-block; margin-top: 10px;">광역 </span>
+<span> 1007-1번, 1100번, 1700번, 2000번, 6900번</span>
+<br>
+<span style="width: 50px; height: 26px; line-height: 26px; border-radius: 15px; font-size: 15px; color: #fff; text-align: center; margin-right: 18px; background-color: #366fc6; display: inline-block; margin-top: 10px;">간선 </span>
+<span> 301번, 341번, 360번, 362번</span>
+<br>
+<span style="width: 50px; height: 26px; line-height: 26px; border-radius: 15px; font-size: 15px; color: #fff; text-align: center; margin-right: 18px; background-color: #9e7940; display: inline-block; margin-top: 10px;">공항 </span>
+<span> 6000번, 6006번, 6705번, 6706A번</span>
+<hr>
+</div>
+
+
+
+
+ <div class="col-md-12 col-lg-3 text-center">
+<h5 style="font-weight: bold;">길찾기</h5>
+<button onclick="mapcheck();" type="button" class="btn btn-outline-success" style="width: 50%; margin-top: 50px;">YOUR LOAD CLICK</button>
+
+</div>
+
+
+
+</div>
+<h3 class="text-center" style="margin: 20px 0px 40px 0px">주차 안내</h3>
+<div class="row">
+ <div class="col-md-12 col-lg-6 text-center">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" colspan="2" style="border-top: 3px solid black;" >롯데월드 이용시</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="height: 100px;">
+      <td scope="row" style="vertical-align: middle;">종합이용권 구매시</td>
+       <th scope="row" style="vertical-align: middle;">당일무료</th>
+      
+    </tr>
+
+  </tbody>
+</table>
+ </div>
+  
+ 
+ <div class="col-md-12 col-lg-6 text-center">
+ 	<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" colspan="2" style="border-top: 3px solid black;" >일반 주차요금</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row">최초 30분</td>
+       <th scope="row">1000원</th>
+      
+    </tr>
+    
+    <tr>
+      <td scope="row" style="vertical-align: middle;">초과 10분마다</td>
+       <th scope="row" style="vertical-align: middle;">1000원/10분</th>
+      
+    </tr>
+
+  </tbody>
+</table>
+ </div>
+ </div>
+
+</div>
+
+
 		<%@ include file="../HF/footer.jsp" %>
 	    </div>
     <script>

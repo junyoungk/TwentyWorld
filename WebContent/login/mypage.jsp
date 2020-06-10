@@ -30,6 +30,7 @@
    int [] b = dao.writeListUID(userID);
    String [] replyList  = dao.replyList(userID);
    int [] replyBoard = dao.replyListUID(userID);
+   String [] replyListdate = dao.writereplyDate(userID);
    String [] TicketList = dao.myTicketList(userID);
    int [] TicketNum = dao.myTicketNum(userID);
    
@@ -143,6 +144,8 @@
 					<input type ="text" disabled="disabled" value="<%= user_name %>">
 					<label id="login_label">USER ID</label>
 					<input type ="text" disabled="disabled" value="<%= user_id %>">
+					<label id="login_label">USER PW</label>
+					<input type="text" name="user_pw" value="<%= user_pw %>" /><br>
 					<label id="login_label">USER GENDER</label>
 					<input type ="text" disabled="disabled" value="<%= user_gender %>">
 					<label id="login_label">USER AGE</label>
@@ -153,11 +156,14 @@
 					<input type="email" name="user_email" value="<%= user_email %>" /><br>
 					<label id="login_label">USER CARDNUM</label>
 					<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
+					
 					<br>
-					<input type="submit" value="수정" style="margin-top: 20px; width: 150px;"	/>
+					
+					<button type="submit" value="수정" style="margin-top: 20px; width: 150px;" class="btn btn-secondary">수정</button>
 				 </form>
-				 
-				 <a href="userdeleteCheck.jsp">회원탈퇴</a> <!-- 버튼 > a 태그 넣으면 이클립스는 안넘어감 ?.... -->
+				 <br>
+				 <button type="button" onclick="location.href='userdeleteCheck.jsp'" class="btn btn-outline-danger">회원탈퇴</button>
+				
 			 </div>
 			 
 			</div> 
@@ -165,8 +171,8 @@
 			 <div class="container">
 			 
   <div class="row">
-    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
-					<div class="text-center" style="padding: 25px;"><h5>글 작성 목록</h5><hr>
+    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab; margin: 10px;">
+					<div class="text-center" style="padding: 25px;"><h5 style="font-weight: bolder;">글 작성 목록</h5><hr style="border: 1px solid darkgray">
 			 <% for(int i=0; i<a.length; i++){
 				 
 				 if(a[i] == null) break;
@@ -190,30 +196,35 @@
 			 
 			 </div>
     </div>
-    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
-					 <div class="text-center" style="padding: 25px;"><h5>댓글 작성 목록</h5><hr>
+    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab; margin: 10px;">
+					 <div class="text-center" style="padding: 25px;"><h5 style="font-weight: bolder;">댓글 작성 목록</h5><hr style="border: 1px solid darkgray">
 			 <% for(int i=0; i<replyList.length; i++){
 				 
 				 if(replyList[i] == null) break;
+				 out.println("<div style='float:right;'>");
 				 out.println("<a href='../board/view.do?uid=" + replyBoard[i] +"'>");
 				 out.println(replyList[i]);
-				 
 				 out.println("</a>");
+				 out.println("&nbsp;&nbsp; &nbsp;&nbsp; ");
+				 out.println("<span style='float:right;'>");
+				 out.println(replyListdate[i]);
+				 out.println("</span>");
+				 out.println("</div>");
+				
 				 out.println("<br>");
-			 
 			 }
 			 %> 	 			 
 			 
 			 
 			 </div>
     </div>
-    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
-		  <div class="text-center" style="padding: 25px;"><h5>예매목록</h5></h2><hr>
+    <div class="col-md-12 col-lg-3" style="border: 1px solid #ababab; margin: 10px;">
+		  <div class="text-center" style="padding: 25px;"><h5 style="font-weight: bolder;">예매 목록</h5><hr style="border: 1px solid darkgray">
 			 <% for(int i=0; i<TicketList.length; i++){
 				 
 				 if(TicketList[i] == null) break;
-				 out.println("예매이용권 : " + TicketList[i]);
-				 out.println(" /이용권 고유번호: " + TicketNum[i]+ "<br>");
+				 out.println("예매 : " + TicketList[i]);
+				 out.println(" / 번호: " + TicketNum[i]+ "<br>");
 				 
 			 
 			 }
@@ -227,28 +238,28 @@
 <% if (userID == 1) {  %>
 			 <div class="container">
 			<div class="row">
-			 <div class="col-lg-12 text-center"><h3 style="padding: 20px 0;">관리자 목록입니다.</h3></div>
-    		<div class="col-md-12 col-lg-6 text-center" style="border: 1px solid #ababab;">
+			 <div class="col-lg-12 text-center" style="margin: 30px 0px 30px 0px"><h3 style="padding: 20px 0;">관리자 목록입니다.</h3></div>
+    		<div class="col-md-12 col-lg-6 text-center">
     			<div class="row">
     				
 			   
 			    <div class="col-3">
-			    <button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button>
+			    <button  class="btn btn-outline-secondary" onclick="location.href='../Ticket/Ticketlist.doi'">티켓목록</button>
 			    </div>
 			    <div class="col-3">
-			    <button onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button>
+			    <button  class="btn btn-outline-secondary" onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button>
 			    </div>
 			    <div class="col-3">
-			    <button onclick="location.href='../attraction/attrAdminListMain.doat'">놀이기구리스트 </button>
+			    <button  class="btn btn-outline-secondary" onclick="location.href='../attraction/attrAdminListMain.doat'">기구목록 </button>
 			    </div>
 			    <div class="col-3">
-			    	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button>
+			    	<button  class="btn btn-outline-secondary" onclick="location.href='../attraction/attrWrite.doat'">기구등록 </button>
 			    </div>
 			 	
 			 </div>
     		</div>
     		
-    		<div class="col-md-12 col-lg-6" style="border: 1px solid #ababab;">
+    		<div class="col-md-12 col-lg-6">
     			<div class="row">
     				<div class="col-6" style="padding: 30px 0px;">
     					
@@ -257,16 +268,17 @@
 					<input type="number" id="user_uid" name="user_uid" placeholder="삭제할 회원 uid 입력" style="margin-bottom: 12px;s"><br>
 					
 				
-					<input type="submit" value="계정삭제"> <br>
+					 <button type="submit" value="계정삭제" class="btn btn-outline-danger">계정 삭제</button>
 				</form>
 				</div>
 				<div class="col-6" style="padding: 30px 0px;">
 				 <form method="post" action="userticketDelete.jsp" class="text-center">
 					
 					<input type="number" id="ticketnum" name="ticketnum" placeholder="삭제 티켓 번호 입력" style="margin-bottom: 12px;"><br>
+				    
 				
-				
-					<input type="submit" value="티켓삭제"> <br>
+					
+					 <button type="submit" value="티켓삭제" class="btn btn-outline-danger">티켓 삭제</button>
 				</form>
 			 	</div>
 			  	<% }
