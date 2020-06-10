@@ -133,31 +133,25 @@
       </div>
 
 		<div class="mypage container"style="min-height:700px; max-width:400px;">
-			<div class="editInfo" style="padding: 20px 0 20px 0;">
+			<div class="editInfo text-center" style="padding: 20px 0 20px 0;">
 				<div class="text-center"><img src="logo4.jpg" alt="logo" width="200px" height="150px"></div>
 				<h3 class="text-center">USER INFO & CHANGE</h3>
 				<form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
 					 <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
 					
-					<label>USER NAME *</label>
+					<label id="login_label">USER NAME</label>
 					<input type ="text" disabled="disabled" value="<%= user_name %>">
-					<hr>
-					<label>USER ID *</label>
+					<label id="login_label">USER ID</label>
 					<input type ="text" disabled="disabled" value="<%= user_id %>">
-					<hr>
-					<label>USER GENDER *</label>
+					<label id="login_label">USER GENDER</label>
 					<input type ="text" disabled="disabled" value="<%= user_gender %>">
-					<hr>
-					<label id="login_label">USER AGE *</label>
+					<label id="login_label">USER AGE</label>
 					<input type ="text" disabled="disabled" value="<%= user_age %>">
-					<hr>
-					<label id="login_label">USER JUMIN *</label>
+					<label id="login_label">USER JUMIN</label>
 					<input type ="text" disabled="disabled" value="<%= user_jumin %>">
-					<hr>
-					<label id="login_label">USER EMAIL *</label>
-					
+					<label id="login_label">USER EMAIL</label>
 					<input type="email" name="user_email" value="<%= user_email %>" /><br>
-					<label id="login_label">USER CARDNUM *</label>
+					<label id="login_label">USER CARDNUM</label>
 					<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
 					<br>
 					<input type="submit" value="수정" style="margin-top: 20px; width: 150px;"	/>
@@ -234,20 +228,29 @@
 			<div class="row">
 			 <div class="col-lg-12 text-center"><h3>관리자 목록입니다.</h3></div>
     		<div class="col-md-12 col-lg-6 text-center" style="border: 1px solid #ababab;">
+    			<div class="row">
     				<% if (userID == 1) {  %>
 			   
-			    
-			 	<button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button><br>
-			 	<button onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button><br>
-			 
-			 	
-			 	<button onclick="location.href='../attraction/attrAdminListMain.doat'">놀이기구리스트 </button><br>
-			 	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button><br>
+			    <div class="col-3">
+			    <button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button>
+			    </div>
+			    <div class="col-3">
+			    <button onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button>
+			    </div>
+			    <div class="col-3">
+			    <button onclick="location.href='../attraction/attrAdminListMain.doat'">놀이기구리스트 </button>
+			    </div>
+			    <div class="col-3">
+			    	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button>
+			    </div>
 			 	<% }
 			 %>
+			 </div>
     		</div>
     		
     		<div class="col-md-12 col-lg-6" style="border: 1px solid #ababab;">
+    			<div class="row">
+    				<div class="col-md-6" style="padding: 30px 0px;">
     					<% if (userID == 1) {  %>
     				 <form method="post" action="userdeleteCheck2.jsp" class="text-center">
 					
@@ -256,18 +259,19 @@
 				
 					<input type="submit" value="계정삭제"> <br>
 				</form>
-				
-				
+				</div>
+				<div class="col-md-6" style="padding: 30px 0px;">
 				 <form method="post" action="userticketDelete.jsp" class="text-center">
 					
-					<input type="number" id="ticketnum" name="ticketnum" placeholder="삭제할 티켓 번호 입력"><br>
+					<input type="number" id="ticketnum" name="ticketnum" placeholder="삭제 티켓 번호 입력"><br>
 				
 				
 					<input type="submit" value="티켓삭제"> <br>
 				</form>
-			 	
+			 	</div>
 			  	<% }
 			 %>
+			 </div>
     		</div>
     		</div>
 			 

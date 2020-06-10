@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 *{
-	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif, ;
 }
 
  a{
@@ -124,7 +124,7 @@
 	    height: 35px;
 	    }
 	    #user_id{
-	    width: 285px;
+	    width: 284px;
 	    }
 	    .find_id_submit,.find_pw_submit{
 	    	width: 280px;
@@ -245,7 +245,7 @@ padding: 20px 0;
 
 /* 김진영 : 239 ~  */
 #user_email{
-	width:175px !important;
+	width:173px !important;
 }
 
 #user_email2{
