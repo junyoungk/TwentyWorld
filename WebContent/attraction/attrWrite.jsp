@@ -143,35 +143,111 @@ frm = document.forms["frm"];
           </div>
         </div>
       </div>
-<div class="container">
-<h2>글작성</h2>
+<div class="container" style="width: 485px;">
+<h2 style="text-align:center; padding: 25px;">글작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" action="attrWriteOk.doat" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
-이름: <input type="text" name="attr_name"/><br>
-내용: <input type="text" name="attr_content"/><br>
-상세페이지사진: <input type="file" name="attr_setimg" id = "attr_setimg" accept="image/*" onchange="imgfileCheck2(this)"/><br>
-메인사진(카드): <input type="file" name="attr_setcardimg" id = "attr_setcardimg" accept="image/*" onchange="imgfileCheck2(this)"/><br>
 
-소요시간: <input type="number" name="attr_time"/><br>
-최대탑승인원수: <input type="number" name="attr_max"/><br>
-가격: <input type="number" name="attr_price"/><br>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 이름</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_name">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 내용</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_content">
+</div>
+
+
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 상세사진</span>
+  </div>
+  <input type="file" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_setimg" id = "attr_setimg" accept="image/*" onchange="imgfileCheck2(this)">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 썸네일</span>
+  </div>
+  <input type="file" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_setcardimg" id = "attr_setcardimg" accept="image/*" onchange="imgfileCheck2(this)">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">장소</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">실내</option>
+    <option value="2">실외</option>
+  </select>
+</div>
 
 <hr>
-최소나이: <input type="number" name="attr_min_age"/>
-최대나이: <input type="number" name="attr_max_age"/><br>
 
-최소키: <input type="number" name="attr_min_height"/>
-최대키: <input type="number" name="attr_max_height"/><br>
-장소 : 
-<select name="attr_location" >
-    <option value="0">실내</option>
-    <option value="1">실외</option>
-</select>
-<br><br>
-<input type="submit" value="등록"/>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최소나이</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_time">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최대나이</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_max">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최소키</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_price">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최소나이</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_min_age">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최대나이</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_max_age">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최소키</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_min_height">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최대키</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_max_height">
+</div>
+
+<button type="submit"  value="등록" class="btn btn-secondary btn-lg btn-block" style="margin-bottom:20px;">등록</button>
 </form>
-<br>
-<button type="button" onclick="location.href='attrAdminListMain.doat'">목록으로</button>
+<button type="button" class="btn btn-secondary btn-lg btn-block" onclick="location.href='attrAdminListMain.doat'">목록으로</button>
+
+
 </div>
 <%@ include file="../HF/footer.jsp" %>
     </div>
