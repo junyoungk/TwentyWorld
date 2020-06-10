@@ -113,7 +113,7 @@ if(session.getAttribute("userID") != null){
 		<div class="container">
 		
 		<div>
-		<h1>이용권</h1>
+		
 		</div>
 			<form id="frm" name="frm" action="TicketflexOk.doi" method="post">
 				<div class="text-center">
@@ -129,10 +129,10 @@ if(session.getAttribute("userID") != null){
 										<!-- <th>유저</th> -->
 										<%-- <td>${dto.user_uid}</td> --%>
 										<img id="can" src="${pageContext.request.contextPath}/upload/${dto.ticket_img}" /><br>
-										${dto.ticket_name }<br>
-										${dto.ticket_price }<br> 
+										<h2>${dto.ticket_name }</h2><br>
+										<h4>${dto.ticket_price } 원</h4><br> 
 									<c:if test="${(sessionScope.sessionName = userID) != null}" >
-									<button type="button" onclick="location.href='TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }'">${dto.ticket_name}예매하기</button>
+									<button type="button" onclick="location.href='TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }'">예매하기</button>
 									<%-- <a href="TicketflexOk.doi?id=${dto.ticket_id}&uid=${sessionScope.sessionName = userID }">${dto.ticket_name}예매하기</a> --%>
 									</c:if>
 									</div>

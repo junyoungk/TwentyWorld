@@ -12,16 +12,16 @@
 	display: inline-block;
 	margin-right: 30px; 
 	margin-bottom: 30px;
-	height: 400px;
+	height: 500px;
 	width: 300px;
-	border: 1px solid black;
+	border: 10px solid black;
 	border-radius: 20%;
 	box-sizing: border-box; 
 }
 
 .listdiv #ticketlistimg{
 	height: 200px;
-	width: 300px;
+	width: 100%;
 	box-sizing: border-box;
 }
 
@@ -30,6 +30,34 @@
 	width: 100%;
 	padding: 10px 0 ;
 	background-color: #fdbb42;
+	 
+}
+
+div h1{
+	margin-top: 50px;
+}
+
+
+div .sun{
+	margin-top: 70px;
+}
+
+.container button {
+	width: 80px;
+	height: 80px;
+	border-radius : 50%; 
+	float: right;
+}
+
+
+.yab{
+	height: 200px;
+}
+.yab .ya{
+	height: 120px;
+	width: 120px;
+	border-radius : 50%; 
+	
 }
 
 
