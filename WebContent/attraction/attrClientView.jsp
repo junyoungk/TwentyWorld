@@ -94,16 +94,16 @@
       <li data-target="#myCarousel" data-slide-to="1"></li>
     </ol>
     <div class="carousel-inner" >
-      <div class="carousel-item active" style="background-image: url('<%=attr_img %>');background-size: cover;">
+      <div class="carousel-item active" style="background-image: url('<%=attr_img %>'); background-size: cover;">
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Example headline.</h1>
           </div>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('<%=attr_cardimg %>');background-size: cover;">
+      <div class="carousel-item" style="background-image: url('<%=attr_cardimg %>'); background-size: cover;">
         <div class="container">
-          <div class="carousel-caption">
+          <div class="carousel-caption text-left">
             <h1>Another example headline.</h1>
           </div>
         </div>
@@ -130,7 +130,8 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 .col-md-4">
+      		<div cladd="row">
         	 <svg class="bi bi-alarm" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 		        <path fill-rule="evenodd" d="M8 15A6 6 0 1 0 8 3a6 6 0 0 0 0 12zm0 1A7 7 0 1 0 8 2a7 7 0 0 0 0 14z"/>
 		        <path fill-rule="evenodd" d="M8 4.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.053.224l-1.5 3a.5.5 0 1 1-.894-.448L7.5 8.882V5a.5.5 0 0 1 .5-.5z"/>
@@ -138,17 +139,17 @@
 		        <path fill-rule="evenodd" d="M11.646 14.146a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1-.708.708l-1-1a.5.5 0 0 1 0-.708zm-7.292 0a.5.5 0 0 0-.708 0l-1 1a.5.5 0 0 0 .708.708l1-1a.5.5 0 0 0 0-.708zM5.5.5A.5.5 0 0 1 6 0h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
 		        <path d="M7 1h2v2H7V1z"/>
 		     </svg>
-        <h2>소요 시간</h2>
-        <p> <%=attr_time %> 분<br>&nbsp;</p>
+	        <h2>소요 시간</h2>
+	        <p> <%=attr_time %> 분<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
+      <div class="col-lg-4 .col-md-4">
 			<svg class="bi bi-person-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 			  <path fill-rule="evenodd" d="M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6.854.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
 			</svg>        
 			<h2>탑승 최대 인원</h2>
         <p><%=attr_max %> 명<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
+      <div class="col-lg-4 .col-md-4">
 			<svg class="bi bi-basket3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 			  <path fill-rule="evenodd" d="M10.243 1.071a.5.5 0 0 1 .686.172l3 5a.5.5 0 1 1-.858.514l-3-5a.5.5 0 0 1 .172-.686zm-4.486 0a.5.5 0 0 0-.686.172l-3 5a.5.5 0 1 0 .858.514l3-5a.5.5 0 0 0-.172-.686z"/>
 			  <path d="M0 6.5A.5.5 0 0 1 .5 6h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zM.81 9c0 .035.004.07.011.105l1.201 5.604A1 1 0 0 0 3 15.5h10a1 1 0 0 0 .978-.79l1.2-5.605A.495.495 0 0 0 15.19 9h-1.011L13 14.5H3L1.821 9H.81z"/>
@@ -156,12 +157,13 @@
 		<h2>현장 구매 가격</h2>
         <p><%=attr_price %> 원</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
+      <div class="col-lg-2 .col-md-2"><br><br></div> 
+      <div class="col-lg-4 .col-md-4">
       <i class="far fa-address-card"></i>
         <h2>사용 가능 나이</h2>
         <p><%=attr_min_age %>살~<%=attr_max_age %>살 </p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
+      <div class="col-lg-4 .col-md-4">
         <i class="fas fa-ruler"></i>
         <h2>사용 가능 신장</h2>
         <p style="height: 200px"><%=attr_min_height %>cm~<%=attr_max_height %>cm </p>

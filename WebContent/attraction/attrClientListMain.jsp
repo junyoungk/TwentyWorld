@@ -47,11 +47,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <title>글 목록</title>
 <style>
 table {width: 100%;}
@@ -167,6 +172,7 @@ table, th, td {
           </div>
         </div>
       </div>
+      
 <div class = "container">
    <img src="https://adventure.lotteworld.com/common/images/icon/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
     <p class ="jb-text" style = "height: 20px;width : 200px">어트랙션</p>
@@ -208,6 +214,8 @@ table, th, td {
     
     <!--  ajaxReturn0 : 처음에 전체 화면 보여주는 용도 (버튼을 눌러야 동작하기 때문에) 버튼 누르면 값 없어짐 -->
 	<div id="ajaxReturn0">
+     <div class="container">
+     <div class="row">
 <%
 		while(rs.next()){
 			int uid = rs.getInt("attr_id");
@@ -216,8 +224,7 @@ table, th, td {
 			int attr_id = Integer.parseInt(rs.getString("attr_id"));
 %>
 <!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
-    
-     <div class="attr_menu_container">
+     <div class="attr_menu_container col-lg-3 col-md-4 col-sm-6 col-xs-12" >
       <div class="attr_box">
        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
         <div class="attr_imgBx">
@@ -226,13 +233,16 @@ table, th, td {
         <div class="attr_menu_content">
           <h3 style="color : white;"><%=attr_name%></h3>
           <p style="color : bdbdbd;"> → 바로가기</p>
+          </div>
           </a>
-        </div>
       </div>
-    </div>
+     </div>
 		<%		
 			} // end while
-%>	<br>
+%>	
+    </div>
+    </div>
+   </div><br>
 <%
 	} catch(Exception e){
 		e.printStackTrace();
