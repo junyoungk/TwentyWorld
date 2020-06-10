@@ -433,18 +433,20 @@ public class UserDAO {
 		List<Board> list = new ArrayList<Board>();
 		
 		try {
-			pstmt = conn.prepareStatement("SELECT rownum , b.BOARD_ID , b.BOARD_SUBJECT FROM board b WHERE BOARD_CATEGORY = '공지' AND rownum <= 5 ORDER BY board_id DESC");
+			pstmt = conn.prepareStatement("SELECT rownum , b.BOARD_ID , b.BOARD_SUBJECT, b.BOARD_REGDATE FROM board b WHERE BOARD_CATEGORY = '공지' AND rownum <= 5 ORDER BY board_id DESC");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				int rownum = rs.getInt("rownum");
 				String subject = rs.getString("board_subject");
 				int bid = rs.getInt("board_id");
+				String b_regdate = rs.getString("board_regdate");
 				
 				Board dto = new Board();
 				dto.setRownum(rownum);
 				dto.setBoard_subject(subject);
 				dto.setBoard_id(bid);
+				dto.setBoard_regdate(b_regdate);
 				
 				list.add(dto);
 			}

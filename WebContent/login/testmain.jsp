@@ -216,8 +216,8 @@
 
  <div class="container" style="padding: 40px 0;">
  	<div style="padding-bottom:40px;">
-	<p class="mainTit">롯데월드를 좀 더<br><span>특별하게 즐기고 싶다면!</span></p>
-	<p class="mainTxt" >오늘 롯데월드의 소식을 만나보세요.</p>
+	<p class="mainTit">20's World를 좀 더<br><span>특별하게 즐기고 싶다면!</span></p>
+	<p class="mainTxt" >오늘 20's World의 소식을 만나보세요.</p>
 	</div>
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
@@ -257,11 +257,11 @@
       Board[] arr1 = dao.boardGonggi();
       %>
         <ul>
-          <li><a href="../board/view.do?uid=<%=arr1[0].getBoard_id()%>"><%= arr1[0].getBoard_subject()%></a></li>
-          <li><a href="../board/view.do?uid=<%=arr1[1].getBoard_id()%>"><%= arr1[1].getBoard_subject()%></a></li>
-          <li><a href="../board/view.do?uid=<%=arr1[2].getBoard_id()%>"><%= arr1[2].getBoard_subject()%></a></li>
-          <li><a href="../board/view.do?uid=<%=arr1[3].getBoard_id()%>"><%= arr1[3].getBoard_subject()%></a></li>
-          <li><a href="../board/view.do?uid=<%=arr1[4].getBoard_id()%>"><%= arr1[4].getBoard_subject()%></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[0].getBoard_id()%>"><%= arr1[0].getBoard_subject()%></a> <%= arr1[0].getBoard_regdate() %></li>
+          <li><a href="../board/view.do?uid=<%=arr1[1].getBoard_id()%>"><%= arr1[1].getBoard_subject()%></a> <%= arr1[1].getBoard_regdate() %></li>
+          <li><a href="../board/view.do?uid=<%=arr1[2].getBoard_id()%>"><%= arr1[2].getBoard_subject()%></a> <%= arr1[2].getBoard_regdate() %></li>
+          <li><a href="../board/view.do?uid=<%=arr1[3].getBoard_id()%>"><%= arr1[3].getBoard_subject()%></a> <%= arr1[3].getBoard_regdate() %></li>
+          <li><a href="../board/view.do?uid=<%=arr1[4].getBoard_id()%>"><%= arr1[4].getBoard_subject()%></a> <%= arr1[4].getBoard_regdate() %></li>
         </ul>
       </div>
       <button type="button" class="btn btn-light btn-sm" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
