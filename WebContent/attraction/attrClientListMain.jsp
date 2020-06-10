@@ -181,8 +181,7 @@ table, th, td {
 <div class="container">
 <form id="frm" style="background-color: #ddd; border-radius: 10px" >
     <div id = "attr_select">
-        <label>위치 : </label>
-        <!-- <input type="text" name="number" id="number"> -->
+        <label id = "select_label">위치 : </label>
         <select name="attr_location" id="attr_location">
 			<option value="2222">상관없음</option>
 			<option value="0">실내</option>
@@ -191,7 +190,7 @@ table, th, td {
     </div>
     
     <div id = "attr_select">
-	    <label>나이 : </label>
+	    <label id = "select_label">나이 : </label>
     	<select name="attr_age" id="attr_age">
 			<option value="2222">상관없음</option>
 			<option value="0">8세이하</option>
@@ -201,8 +200,8 @@ table, th, td {
     </div>
     
    <div id = "attr_select">
-	    <label>키 : </label>
-		 <input type="text" name="attr_height" id="attr_height" dir="rtl" style="height : 50px"/> cm
+	    <label id = "select_label"> 키 : </label>
+		 <input type="text" name="attr_height" id="attr_height" dir="rtl" /> cm
     </div>
     
     <div id = "attr_select">
@@ -231,8 +230,8 @@ table, th, td {
           <img src="<%=attr_cardimg%>" >
         </div>
         <div class="attr_menu_content">
-          <h3 style="color : white;"><%=attr_name%></h3>
-          <p style="color : bdbdbd;"> → 바로가기</p>
+          <h3 style="color : white;"><%=attr_name%><p style="color : bdbdbd;"> → 바로가기</p></h3>
+          
           </div>
           </a>
       </div>
@@ -300,7 +299,7 @@ $(function () {
     	//값이 빈칸일 경우 값을  99999로 변경함
     	if(test == ""){
     		ttttest = 99999;
-    		alert('값을 상관없음으로~~' + test + ttttest);
+    		//alert('값을 상관없음으로~~' + test + ttttest);
     	}else{
     		ttttest = $("#attr_height").val();
     	}
@@ -326,53 +325,8 @@ $(function () {
 	                //$("#ajaxReturn").html("(ex)사용할 수 있는 ID입니다.");
 	            },
 	            error : function(){
-	                alert("error");
-	            }
-	     	   });
-    	}else{
-    		//alert('빈칸도 숫자도 아닙니다' + '값은 ' + ttttest);
-    				alert('키에는 숫자만 입력해 주세요!');
-    				$("#attr_height").html("");
-    	}
-    });
-});
-</script>
-	<script type="text/javascript">
-$(function () {
-    $("#attr_search").click(function () {
-    	var test = $("#attr_height").val();
-    	var ttttest = 0;
-    	
-    	//값이 빈칸일 경우 값을  99999로 변경함
-    	if(test == ""){
-    		ttttest = 99999;
-    		alert('값을 상관없음으로~~' + test + ttttest);
-    	}else{
-    		ttttest = $("#attr_height").val();
-    	}
-    	
-    	//정규표현식 사용
-    	var regId = /^[0-9]+$/;
-    	var isValid = regId.test(ttttest);
-    	
-    	//정규표현식 사용
-    	if(isValid){
-    		//alert('일단은 숫자입니다 ' + '값은 : ' + ttttest);
-	    		$.ajax({
-	            type : "get",
-	            url : "attrClientListCheck.jsp",
-	            data : {
-	            	attr_location : $("#attr_location").val(),
-	            	attr_age : $("#attr_age").val(),
-	            	attr_height : ttttest,
-	            },
-	            success : function(data){
-	                $("#ajaxReturn").html(data);
-	                $("#ajaxReturn0").html("");
-	                //$("#ajaxReturn").html("(ex)사용할 수 있는 ID입니다.");
-	            },
-	            error : function(){
-	                alert("error");
+	                alert("에러 발생. 페이지를 새로고침합니다.");
+	                location.reload();
 	            }
 	     	   });
     	}else{
@@ -422,25 +376,23 @@ $(function () {
   transition: 0.5s;
 }
 
-
-
 .attr_box .attr_menu_content {
-  position: absolute;
-  bottom: 15px;
-  left: 10%;
-  width: 80%;
-  height: 60px;
-  background: #393939d9;
-  transition: 0.5s;
-  overflow: hidden;
-  color : white;
-  padding: 15px;
-  box-sizing: border-box;
+      position: absolute;
+    bottom: 5px;
+    left: 10%;
+    width: 80%;
+    height: 50px;
+    background: #393939d9;
+    transition: 0.5s;
+    overflow: hidden;
+    color: white;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .attr_box:hover .attr_menu_content {
   width: 80%;
-  height: 25%;
+  height: 70px;
   bottom: 10px;
   left: 10%;
 }
@@ -466,6 +418,8 @@ $(function () {
   transition-delay: 0.5s;
 }
 </style>
+
+
 
 
 

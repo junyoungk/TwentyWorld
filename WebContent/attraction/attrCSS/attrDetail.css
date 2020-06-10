@@ -85,7 +85,12 @@
 		   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 		   font-size: 30px; top:130px; left: 15%;
 			}
-
+		#select_label{font-size: 10px;margin-left: 20px;}
+		#attr_location{width : 120px;font-size: 10px;color: white;border-radius: 2px;}
+		#attr_age{width : 120px;font-size: 10px;color: white;border-radius: 2px;}
+		#attr_height{width : 120px;height:30px;font-size: 8px;color: white;border-radius: 2px;}
+		#attr_search{width : 120px;height:30px;font-size: 8px;color: white;margin-left: 40px;}
+		
 /* Tablet &amp; Desktop Device */
 @media all and (min-width:580px) {
     .jb-text {
@@ -96,9 +101,13 @@
 	   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 	   font-size: 40px; top:130px; left: 20%;
 		}
-		.attr_box{
-		height : 200px;
-		}
+		
+		#select_label{font-size: 12px;margin-left: 20px;}
+		#attr_location{width : 130px;font-size: 10px;color: red;border-radius: 2px;}
+		#attr_age{width : 130px;font-size: 10px;color: red;border-radius: 2px;}
+		#attr_height{width : 130px;height:30px;font-size: 10px;color: red;border-radius: 2px;}
+		#attr_search{width : 130px;height:30px;font-size: 10px;color: red;margin-left: 40px;}
+		
 }
 
 /* Tablet Device */
@@ -111,6 +120,12 @@
 		   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 		   font-size: 60px; top:140px; left: 18%;
 			}
+		#select_label{font-size: 15px;margin-left: 20px;}
+		#attr_location{width : 130px;font-size: 12px;color: blue;border-radius: 4px;}
+		#attr_age{width : 130px;height:40px;font-size: 12px;color: blue;border-radius: 4px;}
+		#attr_height{width : 130px;height:40px;font-size: 12px;color: blue;border-radius: 2px;}
+		#attr_search{width : 400px;height:40px;font-size: 15px;color: blue;margin-left: 130px;}
+		
 }
 
 /* Desktop Device */
@@ -123,6 +138,13 @@
 		   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 		   font-size: 80px; top:150px; left: 17%;
 			}
+			
+		#select_label{font-size: 20px;margin-left: 5px;}
+		#attr_location{width : 170px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
+		#attr_age{width : 170px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
+		#attr_height{width : 120px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
+		#attr_search{width : 100px;height : 44px;font-size: 20px;color: black;}
+		
 }
 
 /* Desktop Device */
@@ -134,4 +156,11 @@
 		   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 		   font-size: 100px; top:180px; left: 15%%;
 			}
+		
+		#select_label{font-size: 24px;}
+		#attr_location{width : 190px;height : 45px; font-size: 15px;color: yellow;border-radius: 8px;}
+		#attr_age{width : 190px;height : 45px; font-size: 15px;color: yellow;border-radius: 8px;}
+		#attr_height{width : 160px;height : 45px; font-size: 15px;color: yellow;border-radius: 4px;}
+		#attr_search{width : 100px;height : 45px; font-size: 15px;color: yellow;}
+		
 }

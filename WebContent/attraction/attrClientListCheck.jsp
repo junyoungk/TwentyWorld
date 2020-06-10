@@ -94,10 +94,13 @@
 		pstmt = conn.prepareStatement(text);
 
 		rs = pstmt.executeQuery();
-		out.println("쿼리 성공<br>");
+		//out.println("쿼리 성공<br>");
 %>
 <body>
+
 	<hr>
+	 <div class="container">
+     <div class="row">
 	<%
 		while (rs.next()) {
 				int uid = rs.getInt("attr_id");
@@ -107,26 +110,24 @@
 				int attr_id = Integer.parseInt(rs.getString("attr_id"));
 	%>
 	<!-- 테이블 안에 있지 않아서 생기는 노란줄이라는데 ㅠ 일단 잘 돌아가기는 해요 '-`? -->
-	<div class="attr_menu_container">
-		<div>
-			<div class="attr_box">
-				<a href="attrClientView.doat?attr_id=<%=attr_id%>"
-					style="text-decoration: none;">
-					<div class="attr_imgBx"
-						style="background-size: cover; background-image: url('<%=attr_cardimg%>');
-			        			background-repeat:no-repeat;">
-					</div>
-					<div class="attr_menu_content">
-						<h3 style="color: white;"><%=attr_name%></h3>
-						<p style="color: bdbdbd;">→ 바로가기</p>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
+	<div class="attr_menu_container col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+      <div class="attr_box" style="width : 100%; height : 200px">
+       <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
+        <div class="attr_imgBx">
+          <img src="<%=attr_cardimg%>" >
+        </div>
+        <div class="attr_menu_content">
+          <h3 style="color : white;"><%=attr_name%><p style="color : bdbdbd;"> → 바로가기</p></h3>
+          
+          </div>
+          </a>
+      </div>
+     </div>
 	<%
 		} // end while
 	%>
+	    </div>
+    </div>
 	<br>
 	<%
 		} catch (Exception e) {
