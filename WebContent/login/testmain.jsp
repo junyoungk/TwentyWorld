@@ -214,8 +214,11 @@
 
 
 
- <div class="container">
- <h2 class="text-center info-text">INFOMATION</h2>
+ <div class="container" style="padding: 40px 0;">
+ 	<div style="padding-bottom:40px;">
+	<p class="mainTit">롯데월드를 좀 더<br><span>특별하게 즐기고 싶다면!</span></p>
+	<p class="mainTxt" >오늘 롯데월드의 소식을 만나보세요.</p>
+	</div>
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
             <a href="#">
@@ -247,7 +250,6 @@
     <div class="info-section2 text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <div class="section-head news_notice">
         <h3 class="head1">NEWS AND NOTICE</h3>
-        <p>새로운 소식</p>
       </div>
       <div class="news_notice_text container">
       <%
@@ -262,6 +264,7 @@
           <li><a href="../board/view.do?uid=<%=arr1[4].getBoard_id()%>"><%= arr1[4].getBoard_subject()%></a></li>
         </ul>
       </div>
+      <button type="button" class="btn btn-light btn-sm" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
     </div>
     <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
     </div>
@@ -269,7 +272,7 @@
 </div>
  
       </div>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 <!-- shinhoonji -->
 	  <%@ include file="../HF/footer.jsp" %>
@@ -281,6 +284,27 @@
         document.getElementById("myNav").style.width = "0%";
       }
       </script>
+      <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
        <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
