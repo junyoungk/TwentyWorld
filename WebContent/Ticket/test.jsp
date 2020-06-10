@@ -1,22 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
-    String name = (String)request.getAttribute("name");
-    String email = (String)request.getAttribute("email");
-    String phone = (String)request.getAttribute("phone");
-    String address = (String)request.getAttribute("address");
-    int totalPrice = (int)request.getAttribute("totalPrice");    
+	String name = (String) request.getAttribute("name");
+	String email = (String) request.getAttribute("email");
+	String phone = (String) request.getAttribute("phone");
+	String address = (String) request.getAttribute("address");
+	int totalPrice = (int) request.getAttribute("totalPrice");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
-    <script>
+	<script>
     $(function(){
         var IMP = window.IMP; // 생략가능
         IMP.init('iamport'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
@@ -66,16 +68,16 @@
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
-                alert(msg);
-            }
-        });
-        
-    });
-    </script>
- 
+                location.href="<%=request.getContextPath()%>
+		/order/payFail";
+									alert(msg);
+								}
+							});
+
+		});
+	</script>
+
 </body>
 </html>
-
 
 

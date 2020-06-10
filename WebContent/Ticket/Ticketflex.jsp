@@ -108,13 +108,14 @@ if(session.getAttribute("userID") != null){
 				</div>
 			</div>
 		</div>
-		<div class="headerimg"></div>
+		<div class="headerimg"><img src="../upload/imggg.PNG"/></div>
+		
 		<div class="container">
 		
 		<div>
 		<h1>이용권</h1>
 		</div>
-			<form name="frm" action="TicketflexOk.doi" method="post">
+			<form id="frm" name="frm" action="TicketflexOk.doi" method="post">
 				<div>
 					<c:choose>
 						<c:when
@@ -172,9 +173,9 @@ if(session.getAttribute("userID") != null){
 
 
 
+   <script src="JS/flexslider.js"></script>
 </body>
 </html>
-
 
 
 
