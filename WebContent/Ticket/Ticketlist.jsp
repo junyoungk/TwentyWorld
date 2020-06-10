@@ -136,7 +136,7 @@
 
 
 
-			<div class="sun">
+			<div class="sun text-center">
 
 				<c:choose>
 					<c:when test="${empty list || fn:length(list) == 0 }"></c:when>

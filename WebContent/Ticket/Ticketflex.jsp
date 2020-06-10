@@ -116,7 +116,7 @@ if(session.getAttribute("userID") != null){
 		<h1>이용권</h1>
 		</div>
 			<form id="frm" name="frm" action="TicketflexOk.doi" method="post">
-				<div>
+				<div class="text-center">
 					<c:choose>
 						<c:when
 							test="${empty flexTicketlist || fn:length(flexTicketlist) == 0 }">
