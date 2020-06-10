@@ -4,8 +4,7 @@
     font-family: sans-serif;
 }
 .wrap {
-    height: 1600px;
-    width: 1600px;
+	margin-top: 120px;
     background-position: right;
     background-size: cover;
     position: absolute;
@@ -25,7 +24,7 @@
     top: 20px;
     position: absolute;
     width: 370px;
-    transition: 5s;
+    transition: 1s;
 }
 .input-field {
     width: 100%;
@@ -38,6 +37,7 @@
 }
 
 div .imgbox{
+	
    background-image: url(https://korean.visitseoul.net/comm/getImage?srvcId=MEDIA&parentSn=14920&fileTy=MEDIA&fileNo=1&thumbTy=L); 
    width: 750px;
    height: 500px;

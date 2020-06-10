@@ -4,8 +4,7 @@
     font-family: sans-serif;
 }
 .wrap {
-    height: 2000px;
-    width: 1600px;
+	margin-top: 120px;
     background-position: right;
     background-size: cover;
     position: absolute;
@@ -16,7 +15,7 @@
     height: 600px;
     position: relative;
     margin: 0 0 0 800px;
-    padding: 5px;
+    padding: 30px;
    
 }
 
@@ -41,8 +40,10 @@
 	width: 30%
 }
 
-div .imgbox{
-   background-image: url(https://webmagazine.lanxess.com/wp-content/uploads/2017/07/Rollercoaster_web-1030x687.jpg); 
+
+
+div .imgbox img{
+   /* background-image: url(https://webmagazine.lanxess.com/wp-content/uploads/2017/07/Rollercoaster_web-1030x687.jpg); */ 
    width: 750px;
    height: 500px;
    position: absolute;
