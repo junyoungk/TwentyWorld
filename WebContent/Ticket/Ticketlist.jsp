@@ -126,7 +126,7 @@
 		</div>
 
 		<div>
-		<h1 class="headertext">이용권 등록 <br>페이지</h1>
+		<h1 class="headertext">이용권 등록</h1>
 		</div>
 		<div class="container">
 			<input type="hidden" name="uid"
@@ -143,26 +143,24 @@
 					<c:otherwise>
 						<c:forEach var="dto" items="${list}">
 							<div class="listdiv">
-								No : ${dto.ticket_id }<br>
+								No . ${dto.ticket_id }<br>
 								<!-- <img src="../upload/${dto.ticket_img }" />-->
-								<img id="ticketlistimg"
-									src="${pageContext.request.contextPath}/upload/${dto.ticket_img }"
-									class="img-fluid" alt="Responsive image" /><br>
-									이용권 : ${dto.ticket_name }<br> 가격 : ${dto.ticket_price }<br>
-								<button type="button" onclick="location.href='Ticketview.doi?id=${dto.ticket_id}'">${dto.ticket_name} : 수정 / 삭제 </button>
+								<img id="ticketlistimg" src="${pageContext.request.contextPath}/upload/${dto.ticket_img }" class="img-fluid"  /><br>
+								  <h2>${dto.ticket_name }</h2><br> 
+									<h4>가격  ${dto.ticket_price }</h4><br>
+								<button type="button" onclick="location.href='Ticketview.doi?id=${dto.ticket_id}'" ><h5>수정</h5></button>
 							</div>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 			</div>
-
-
-
-			<br>
-			<button onclick="location.href='Ticketwrite.doi'">이용권작성 (추가)</button>
-
+			<div class="yab">
+			<button  class="ya" onclick="location.href='Ticketwrite.doi'"><h4>추가</h4></button>
+			</div>
+	
 		</div>
 		<%@ include file="../HF/footer.jsp"%>
+		</div>
 		<script>
 			function openNav() {
 				document.getElementById("myNav").style.width = "60%";

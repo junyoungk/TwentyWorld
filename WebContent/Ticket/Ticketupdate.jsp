@@ -174,30 +174,22 @@
 			</div>
 		</div>
 		<div class="container">
-		<div class="imgbox"></div>
 			<div class="wrap">
-				<div class="form-wrap">
-					<form id="frm" class="input-group" name="frm"
-						action="TicketupdateOk.doi" method="post"
-						onsubmit="return chkSubmit()" enctype="Multipart/form-data">
-						<input type="hidden" name="uid"
-							value="<%=session.getAttribute("userID")%>" /> <input
-							type="hidden" name="ticket_id" value="${select[0].ticket_id}" />
-						이용권분류 : ${select[0].ticket_id }<br> <br> 이용권이름 :<input
-							type="text" class="input-field" name="name"
-							value="${select[0].ticket_name }"><br> 이용권가격 :<input
-							type="text" class="input-field" name="price"
-							value="${select[0].ticket_price }" /><br> 티켓이미지 :<input
-							type="file" class="input-field" name="img"
-							value="${select[0].ticket_img }" accept="image/*"
-							onchange="fileCheck(this)"><br> <input class="btn"
-							type="submit" value="수정" />
-						<button class="btn" onclick="history.back()">이전으로</button>
-						<button class="btn" onclick="location.href='Ticketlist.doi'">목록보기</button>
-
-
-					</form>
-				</div>
+		<div class="imgbox"><img src="../upload/Rollercoaster.jpg"></div>
+					<div class="form-wrap">
+						<form id="frm" class="input-group" name="frm" action="TicketupdateOk.doi" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
+							<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>" /> 
+							<input type="hidden" name="ticket_id" value="${select[0].ticket_id}" />
+							이용권분류 ${select[0].ticket_id }<br><br> 
+							이용권이름 <input type="text" class="input-field" name="name" value="${select[0].ticket_name }"><br>
+							이용권가격 <input type="text" class="input-field" name="price" value="${select[0].ticket_price }" /><br> 
+							티켓이미지 <input type="file" class="input-field" name="img" value="${select[0].ticket_img }" accept="image/*" onchange="fileCheck(this)"><br> 
+							<input class="btn" type="submit" value="수정" />
+					<button type="button" class="btn" onclick="history.back()">이전으로</button>
+					<button type="button" class="btn" onclick="location.href='Ticketlist.doi'">목록보기</button>
+						</form>
+					</div>
+				
 					<%@ include file="../HF/footer.jsp"%>
 			</div>
 			<!-- 

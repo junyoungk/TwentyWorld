@@ -19,7 +19,6 @@
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
 <title>티켓작성</title>
 
-<script src="../ckeditor/ckeditor.js"></script>
 
 </head>
 
@@ -178,19 +177,19 @@
 			</div>
 		</div>
 		<div class="container">
-		<div class="imgbox"></div>
 			<%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 			<div class="wrap">
+		<div class="imgbox"></div>
 				<div class="form-wrap">
 					<form id="frm" class="input-group" name="frm"
 						action="TicketwriteOk.doi" method="post"
 						onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 						<input type="hidden" name="uid"
-							value="<%=session.getAttribute("userID")%>" /> 이용권분류: <input
-							type="number" class="input-field" name="ticket_id" /><br>
-						이용권이름: <input type="text" class="input-field" name="name" /><br>
-						이용권 가격: <input type="text" class="input-field" name="price" value="${select[0].ticket_price }"><br>
-						티켓이미지: <input type="file" class="input-field" name="img" id="img" accept="image/*" onchange="fileCheck(this)"><br>
+							value="<%=session.getAttribute("userID")%>" />
+							이용권분류 <input type="number" class="input-field" name="ticket_id" /><br>
+						이용권이름 <input type="text" class="input-field" name="name" /><br>
+						이용권 가격 <input type="text" class="input-field" name="price" value="${select[0].ticket_price }"><br>
+						티켓이미지 <input type="file" class="input-field" name="img" id="img" accept="image/*" onchange="fileCheck(this)"><br>
 							<input class="btn" type="submit" value="추가" />
 						<button class="btn" type="button"
 							onclick="location.href='Ticketlist.doi'">목록으로</button>
