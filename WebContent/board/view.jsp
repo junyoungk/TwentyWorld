@@ -33,7 +33,11 @@
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
 <title>읽기 ${read[0].board_subject }</title> <!-- title에 글제목 넣기 -->
 <style>
-
+#view {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 20px
+}
 </style>
 </head>
 <script>
@@ -115,23 +119,33 @@ function chkDelete(uid){
         </div>
       </div>
 <div class="container">
-<h2>${read[0].board_category } 게시판</h2>
+<br><br>
+
 <br>
-제목 : ${read[0].board_subject }<br>
-작성자 : ${read[0].writeName }<br>
-등록일 : ${read[0].board_regdate }<br>
-조회수 : ${read[0].board_viewcnt }<br>
-내용: <br>
-<hr>
-<div>
-${fn:replace(read[0].board_content,cn,br) }
+<div id="view">
+  <div class="card-header">
+    <h2 class="text-center">${read[0].board_category } 게시판</h2>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">${read[0].board_subject }</h3>
+    <p class="card-text"><i class="fas fa-user"></i>&nbsp&nbsp&nbsp${read[0].writeName }<br><br>
+         등록일 ${read[0].board_regdate } &nbsp&nbsp조회수 ${read[0].board_viewcnt }
+    <a href="#reply" class="btn btn-outline-info float-right"><i class="far fa-comment-dots"></i>&nbsp댓글보기</a></p>
+  </div>
 <c:if test="${fn:length(file) > 0 }">
-	<h4>첨부파일</h4>
+<hr>
+<h5>첨부파일</h5>
 	<ul>
 		<c:forEach var="element" items="${file }">
 			<li><a href="fileUpload.do?uid=${element.uid }">${element.source }</a></li>
 		</c:forEach>
-		
+	</ul>
+</c:if>
+<hr>
+<div>
+${fn:replace(read[0].board_content,cn,br) }
+<c:if test="${fn:length(file) > 0 }">
+	<ul>
 		<!-- 이미지인 경우 보여주기 -->
 		<c:forEach var="element" items="${file }">
 			<c:if test="${element.image == true}">
@@ -144,6 +158,8 @@ ${fn:replace(read[0].board_content,cn,br) }
 </c:if>
 </div>
 <hr>
+<br>
+<h5 id="reply" ><b>댓글</b></h5>
 	<c:set var="user_uid" value="<%= userID %>" />
 	<c:choose>
 			<c:when test="${empty replyresult || fn:length(replyresult) == 0 }"></c:when>
@@ -210,6 +226,8 @@ ${fn:replace(read[0].board_content,cn,br) }
 	<button  class="btn btn-dark mb-3 float-right m-2" onclick="chkDelete(${read[0].board_id })">삭제</button>
 </c:if>
 <div style="clear:both"></div>
+</div>
+<br><br><br>
 <hr>
 <div class="text-center">이전글
 <c:choose>
