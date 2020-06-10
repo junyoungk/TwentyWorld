@@ -144,19 +144,19 @@ function chkDelete(id){
 			</div>
 		</div>
 		<div class="container">
-			<h2>${read[0].ticket_name }</h2>
+			
 		<div class="con">
 			<input type="hidden" name="uid"
 				value="<%=session.getAttribute("userID")%>" />
-			<br>
-			이용권분류 : ${read[0].ticket_id }<br>
-			이용권이름 : ${read[0].ticket_name }<br> 
-			이용권가격 : ${read[0].ticket_price }<br>
-			이미지파일명 : ${read[0].ticket_img }<br>
-			이미지 : <br>
 			<img id="ticketlistimg"
 			src="${pageContext.request.contextPath}/upload/${read[0].ticket_img }"
 			class="img-fluid" alt="Responsive image" />
+			<br>
+			<h2>이용권분류 : ${read[0].ticket_id }</h2><br>
+			<h2>이용권이름 : ${read[0].ticket_name }</h2><br> 
+			<h2>이용권가격 : ${read[0].ticket_price }</h2><br>
+			<h2>이미지파일명 : ${read[0].ticket_img }</h2><br>
+			
 			<hr>
 			<br>
 			<button
