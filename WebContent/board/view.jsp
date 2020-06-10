@@ -229,8 +229,13 @@ ${fn:replace(read[0].board_content,cn,br) }
 </div>
 <br><br><br>
 <hr>
-<div class="text-center">이전글
-<c:choose>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      이전글<i class="fas fa-arrow-up"></i>
+    </div>
+    <div class="col-4">
+      <c:choose>
 <c:when test="${prev != null }">
 <a href="view.do?uid=${prev[0].board_id }">${prev[0].board_subject }</a>
 </c:when>
@@ -238,12 +243,15 @@ ${fn:replace(read[0].board_content,cn,br) }
 <span>이전글이 없습니다!</span>
 </c:otherwise>
 </c:choose>
-</div>
-
-<hr>
-
-<div class="text-center">다음글
-<c:choose>
+    </div>
+  </div>
+  <hr>
+ <div class="row justify-content-center">
+    <div class="col-4">
+      다음글<i class="fas fa-arrow-down"></i>
+    </div>
+    <div class="col-4">
+      <c:choose>
 <c:when test="${next != null }">
 <a href="view.do?uid=${next[0].board_id }">${next[0].board_subject }</a>
 </c:when>
@@ -251,6 +259,9 @@ ${fn:replace(read[0].board_content,cn,br) }
 <span>다음글이 없습니다!</span>
 </c:otherwise>
 </c:choose>
+    </div>
+  </div>
+</div>
 <hr>
 </div>
 
