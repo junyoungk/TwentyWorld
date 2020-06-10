@@ -77,6 +77,7 @@
 	  }
 	}
 	
+/* TODO 색상 바꾸기 */	
 .jb-text {
 		   position: absolute;
 		   width: 100%;
@@ -144,7 +145,6 @@
 		#attr_age{width : 170px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
 		#attr_height{width : 120px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
 		#attr_search{width : 100px;height : 44px;font-size: 20px;color: black;}
-		
 }
 
 /* Desktop Device */
