@@ -210,7 +210,7 @@ ${fn:replace(read[0].board_content,cn,br) }
 
 <c:choose>
 	<c:when test="${userID == 0 || userID == null}">
-	<p>로그인 하셔야 댓글을 달 수 있습니다.</p>
+	<p>로그인 하셔야 댓글기능을 사용하실 수 있습니다</p>
 	</c:when>
 	<c:otherwise>
 	<div class="input-group mb-3">

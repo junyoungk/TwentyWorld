@@ -284,7 +284,7 @@ public class BoardDAO {
 			
 			try {
 				conn.setAutoCommit(false);
-				pstmt = conn.prepareStatement("UPDATE board SET board_subject = ?, board_content = ? WHERE board_id = ?");
+				pstmt = conn.prepareStatement("UPDATE board SET board_subject = ?, board_content = ?, board_regdate = sysdate WHERE board_id = ?");
 				pstmt.setString(1, subject);
 				pstmt.setString(2, content);
 				pstmt.setInt(3, uid);

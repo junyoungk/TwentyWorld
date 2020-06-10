@@ -106,21 +106,29 @@ function chkSubmit(){
 <form name = "frm" action="updateOk.do" method="post" onsubmit="return chkSubmit()"
 	enctype="Multipart/form-data"> <!-- 수정 단계에서 파일 추가 가능 -->
 <input type="hidden" name ="uid" value="${selec[0].board_id }">
-작성자 :  ${selec[0].writeName }<br> <%-- 작성자 이름 변경 불가 --%>
-제목 : 
-<input type="text" name="subject" value="${selec[0].board_subject }"><br>
-내용 : <br>
-<textarea name="content">${selec[0].board_content }</textarea>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">제목</span>
+  </div>
+  <input type="text" aria-label="First name" class="form-control" name="subject" value="${selec[0].board_subject }">
+</div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">내용</span>
+  </div>
+  <textarea name="content" class="form-control" style="height: 350px">${selec[0].board_content }</textarea>
+</div>
 <br>
 
 	<!-- 첨부파일 목록 (삭제대상) -->
 	<c:if test="${fn:length(file) > 0 }">
 		<div style="background-color: #dddddd; padding: 2px 10px; margin-bottom:5px; border: 1px solid black;">
-			<h4>첨부파일 - 삭제할 것에 체크하세요</h4>
+			<h4>첨부파일 - 삭제</h4>
 			<div id="delFiles"></div>
 			<c:forEach var="element" items="${file }">
 				<div>
-					<button type="button" onclick="deleteFiles(${element.uid}); $(this).parent().remove()">삭제</button>${element.source } 
+					<button class="btn btn-dark btn-sm mb-2" type="button" onclick="deleteFiles(${element.uid}); $(this).parent().remove()">삭제</button>
+					&nbsp&nbsp${element.source } 
 				</div>
 			</c:forEach>
 		</div>
@@ -134,22 +142,21 @@ function chkSubmit(){
 	</script>
 	<!-- 첨부파일 (추가) -->
 	<div style="background-color: #dddddd; padding: 2px 10px; margin-bottom:5px; border: 1px solid black;">
-		<h4>첨부파일</h4>
-		<button type="button" id="btnAdd">추가</button>
+		<h4>첨부파일 - 추가</h4>
+		<button class="btn btn-dark btn-sm mb-3" type="button" id="btnAdd">추가</button>
 		<div id='files'></div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
 	var i = 0;
 	$('#btnAdd').click(function(){
-		$("#files").append("<div><input type='file' name='upfile" + i + "'/><button type='button' onclick='$(this).parent().remove()'>삭제</button></div>");
+		$("#files").append("<div><input type='file' name='upfile" + i + "'/><button class='btn btn-dark btn-sm' type='button' onclick='$(this).parent().remove()'>삭제</button></div>");
 		i++;
 	});
 	</script>
-<input type="submit" value="수정"/>
+<input class="btn btn-dark float-right mt-3" type="submit" value="수정 완료"/>
 </form>
-<button onclick="history.back()">이전으로</button>
-<button onclick="location.href='list.do'">목록보기</button>
+<button class="btn btn-outline-success mt-3" onclick="history.back()">취소</button>
 </div>
 <%@ include file="../HF/footer.jsp" %>
     </div>
