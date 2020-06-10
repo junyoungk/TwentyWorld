@@ -94,17 +94,19 @@
       <li data-target="#myCarousel" data-slide-to="1"></li>
     </ol>
     <div class="carousel-inner" >
-      <div class="carousel-item active" style="background-image: url('<%=attr_img %>'); background-size: cover;">
+      <div class="carousel-item active">
+      <img src="<%=attr_cardimg %>" >
         <div class="container">
           <div class="carousel-caption text-left">
-            <h1>Example headline.</h1>
+            <h1></h1>
           </div>
         </div>
       </div>
-      <div class="carousel-item" style="background-image: url('<%=attr_cardimg %>'); background-size: cover;">
+      <div class="carousel-item">
+      <img src="<%=attr_img %>" >
         <div class="container">
           <div class="carousel-caption text-left">
-            <h1>Another example headline.</h1>
+            <h1></h1>
           </div>
         </div>
       </div>

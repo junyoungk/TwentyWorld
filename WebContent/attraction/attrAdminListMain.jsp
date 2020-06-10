@@ -25,6 +25,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="attrCSS/attr_adminList.css" type="text/css">
+
 <title>글 목록</title>
 <style>
 table {
@@ -132,62 +134,52 @@ table, th, td {
 		</div>
 
 		<div class="container">
-			<h1>#관리자 페이지# ListMain</h1>
-			<table>
-				<tr>
-					<th>attr_id</th>
-					<th>attr_max</th>
-					<th>attr_time</th>
-					<th>attr_price</th>
-					<th style="width: 400px">attr_content</th>
-					<th>attr_name</th>
-
-					<th>attr_location</th>
-					<th>attr_min_age</th>
-					<th>attr_max_age</th>
-					<th>attr_min_height</th>
-					<th>attr_max_height</th>
-
-					<th>attr_authorize</th>
-					<th>attr_regDate ㅁㅁ</th>
-					<th>attr_img</th>
-					<th>attr_cardimg</th>
-				</tr>
-
-
+		<table class="type09">
+		    <thead>
+		        <th>고유번호</th>
+		        <th>이름</th>
+		        <th>탑승<br>최대인원</th>
+		        <th>소요시간</th>
+		        <th>현장 구매 <br>가격</th>
+		
+		        <th>장소</th>
+		        <th>나이</th>
+		        <th>키</th>
+		    </thead>
+		    <tbody>
 				<%
 					if (arr != null) {
 						for (int i = 0; i < arr.length; i++) {
 				%>
-				<tr>
-					<td><%=arr[i].getAttr_id()%></td>
-					<td><%=arr[i].getAttr_max()%></td>
-					<td><%=arr[i].getAttr_time()%></td>
-					<td><%=arr[i].getAttr_price()%></td>
-					<td><%=arr[i].getAttr_content()%></td>
-					<td><a
-						href="attrAdminView.doat?attr_id=<%=arr[i].getAttr_id()%>"><%=arr[i].getAttr_name()%></a></td>
-
-					<td><%=arr[i].getAttr_location()%></td>
-					<td><%=arr[i].getAttr_min_age()%></td>
-					<td><%=arr[i].getAttr_max_age()%></td>
-					<td><%=arr[i].getAttr_min_height()%></td>
-					<td><%=arr[i].getAttr_max_height()%></td>
-
-					<td><%=arr[i].getAttr_authorize()%></td>
-					<td><%=arr[i].getAttr_regDate()%></td>
-					<td><%=arr[i].getAttr_img()%></td>
-					<td><%=arr[i].getAttr_cardimg()%></td>
-				</tr>
+				<% 
+					String attr_loca;
+					if(arr[i].getAttr_location() == 0){
+					    attr_loca = "실내";
+					}else{
+					    attr_loca = "실외";
+					} %>
+					        <tr>
+					            <th scope="row"><%=arr[i].getAttr_id()%></th>
+					            <td style="width : 600px"><a href="attrAdminView.doat?attr_id=<%=arr[i].getAttr_id()%>">
+					                <%=arr[i].getAttr_name()%></a></td>
+					            <td><%=arr[i].getAttr_max()%>명</td>
+					            <td><%=arr[i].getAttr_time()%>분</td>
+					            <td><%=arr[i].getAttr_price()%>원</td>
+					
+					            <td><%=attr_loca %></td>
+					            <td style="width : 400px"><%=arr[i].getAttr_min_age()%>살 ~ <%=arr[i].getAttr_max_age()%>살</td>
+					            <td style="width : 500px"><%=arr[i].getAttr_min_height()%>cm ~ <%=arr[i].getAttr_max_height()%>cm</td>
+					        </tr>
 				<%
 					} // end for
 					} // end if
 				%>
 
+			        </tbody>
 			</table>
 			<br>
-			<button onclick="location.href='attrWrite.doat'">신규등록</button>
-			<button onclick="location.href='attrClientListMain.doat'">클라이언트페이지로
+			<button onclick="location.href='attrWrite.doat'" class = "myButton">신규등록</button>
+			<button onclick="location.href='attrClientListMain.doat'"  class = "myButton">클라이언트페이지로
 				이동(테스트용)</button>
 		</div>
 		<%@ include file="../HF/footer.jsp"%>
