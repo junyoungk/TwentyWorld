@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <!-- Bootstrap CSS -->
 <title>롯데월드 앞 버스정류장 상행/하행 실시간 도착정보</title>
 <style>
 table,th,td {
@@ -31,19 +33,6 @@ th,td {
 
 
  <body onload="initTmap2();initTmap()">
-
-
-<h3>20대월드 모험지도</h3>
-<button id="see1">어트랙션</button>
-<button id="see2">화장실</button>
-<button id="see3">음식점</button>
-<div id="map" style="width:50%;height:350px;"></div>
-
-
-
-
-
-<br><br>
  
 <form name="form" id="form" method="post">
 	<input type="hidden" name="currentPage" value="1"/><br> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
@@ -91,23 +80,11 @@ th,td {
       <p id="result3" style="display: none"></p> <!--그저 값얻기위해서  display:none-->
       
 
-
-<div style="float: left; font-size: 30px;">가락시장방면</div>
-<div style="float: left; font-size: 30px; margin-left: 400px;">반대편방면</div>
-<br><br>
-
-
-<h1>20대월드 앞 버스정류장 도착정보(10개씩 10초마다 (갯수, 초 수정가능)</h1>
-<form>
-
-
-<button id="btn_load" type="button">새로고침</button>
-
-</form>
-<table id="demoXML" style="float: left;"></table>
-
-
-<table id="demoXML2" style="float: left; margin-left: 30px;"></table>
+<h3>20대월드 모험지도</h3>
+<button id="see1">어트랙션</button>
+<button id="see2">화장실</button>
+<button id="see3">음식점</button>
+<div id="map" style="width:70%;height:350px;"></div>
 
 
 
