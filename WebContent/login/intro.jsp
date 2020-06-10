@@ -29,7 +29,7 @@
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <div class="overlay-content">
                <a href="../login/intro.jsp">소개 / 오시는 길</a>
-                <a href="#">어트랙션</a>
+                <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
                  <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
@@ -61,7 +61,7 @@
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">어트랙션</a>
+                    <a class="dropdown-item" href="../attraction/attrClientListMain.jsp">어트랙션</a>
                   </div>
                 </li>
                 <li class="nav-item list-group-item">
@@ -110,6 +110,34 @@
               <h3>국내 최초, 최대 실내테마파크</h3>
               <p>원하는 모든 것을 한 곳에서 즐길 수 있는 복합생활공간, 바로 롯데월드 입니다.</p>
             </div>
+            
+            <div class="flip-box d-lg-none d-xs-block d-sm-block d-md-block col-12">
+			  <div class="flip-box-inner">
+			    <div class="flip-box-front">
+			      <img class="image1" src="https://img.insight.co.kr/static/2019/12/07/700/053f202o3c2n00zay326.jpg" alt="">
+			    </div>
+			    <div class="flip-box-back">
+			      <h3>롯데월드 어드벤처</h3>
+	              <br>
+	              <p>날씨와 관계없이 1년 365일,</p><p> 매일 짜릿한 스릴이 넘쳐나는 모험과 신비의 나라 롯데월드!</p>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="flip-box d-lg-none d-xs-block d-sm-block d-md-block col-12">
+			  <div class="flip-box-inner">
+			    <div class="flip-box-front">
+					<img class="image2" src="https://t1.daumcdn.net/cfile/tistory/99F35E4D5D32AB6B31" alt=""> 
+			    </div>
+			    <div class="flip-box-back">
+			      <h3>국내 최초, 최대 실내테마파크</h3>
+            	  <p>원하는 모든 것을 한 곳에서 즐길 수 있는 복합생활공간, 바로 롯데월드 입니다.</p>
+			    </div>
+			  </div>
+			</div>
+            
+          <!--   
+            
           	<div class="intro-picture1 d-lg-none d-xs-block d-sm-block d-md-block col-12" style="padding-bottom:20px;">
           		<img class="image2" src="https://img.insight.co.kr/static/2019/12/07/700/053f202o3c2n00zay326.jpg" alt="">
           		<div class="overlay">
@@ -121,7 +149,7 @@
 				<div class="overlay">
 				   <div class="text">Hello World</div>
 				</div>
-			</div>
+			</div> -->
           </div>
         </div>
         </div>

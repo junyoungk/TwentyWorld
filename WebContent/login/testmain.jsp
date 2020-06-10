@@ -140,11 +140,11 @@
       </div>
       <div class="col-4">
           <img src="https://pds.joins.com/news/component/newsis/201808/07/NISI20180807_0014350831_web.jpg" class="card-img-top" alt="...">
-          <p class="text-center best-2">후룸라이드</p>
+          <p class="text-center best-2">회전목마</p>
       </div>
       <div class="col-4">
         <img src="https://pds.joins.com/news/component/newsis/201808/07/NISI20180807_0014350831_web.jpg" class="card-img-top" alt="...">
-        <p class="text-center best-3">후룸라이드</p>
+        <p class="text-center best-3">바이킹</p>
       </div>
     </div>
   </div>
