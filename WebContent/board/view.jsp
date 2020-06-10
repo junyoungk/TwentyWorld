@@ -128,8 +128,12 @@ function chkDelete(uid){
   </div>
   <div class="card-body">
     <h3 class="card-title">${read[0].board_subject }</h3>
-    <p class="card-text"><i class="fas fa-user"></i>&nbsp&nbsp&nbsp${read[0].writeName }<br><br>
-         등록일 ${read[0].board_regdate } &nbsp&nbsp조회수 ${read[0].board_viewcnt }
+    <p class="card-text">
+    <span class="fa-stack fa-lg">
+  	<i class="far fa-circle fa-stack-2x"></i>
+  	<i class="fas fa-user fa-stack-1x"></i>
+	</span>&nbsp&nbsp&nbsp<b> ${read[0].writeName }</b><br><br>
+         등록일 ${read[0].board_regdate } |&nbsp&nbsp조회수 ${read[0].board_viewcnt }
     <a href="#reply" class="btn btn-outline-info float-right"><i class="far fa-comment-dots"></i>&nbsp댓글보기</a></p>
   </div>
 <c:if test="${fn:length(file) > 0 }">
@@ -142,7 +146,7 @@ function chkDelete(uid){
 	</ul>
 </c:if>
 <hr>
-<div>
+<div style="padding: 20px">
 ${fn:replace(read[0].board_content,cn,br) }
 <c:if test="${fn:length(file) > 0 }">
 	<ul>
@@ -263,12 +267,10 @@ ${fn:replace(read[0].board_content,cn,br) }
   </div>
 </div>
 <hr>
-</div>
 
 <button class="btn btn-dark" onclick="location.href = 'list.do'">목록보기</button>
 </div>
 <%@ include file="../HF/footer.jsp" %>
-    </div>
      <script>
       function openNav() {
         document.getElementById("myNav").style.width = "60%";

@@ -170,12 +170,12 @@ $('#btnAdd').click(function(){
   <div class="input-group-prepend">
     <span class="input-group-text">내용</span>
   </div>
-  <textarea name="content" class="form-control"></textarea>
+  <textarea name="content" class="form-control" style="height: 350px"></textarea>
 </div>
 
-<input class='btn btn-dark btn-sm' type="submit" value="게시"/>
+<input class='btn btn-dark btn-sm float-right' type="submit" value="게시"/>
+<button class='btn btn-dark btn-sm' type="button" onclick="location.href='list.do'">작성 취소</button>
 </form>
-<button class='btn btn-dark btn-sm' type="button" onclick="location.href='list.do'">목록으로</button>
 </div>
 </div>
 <%@ include file="../HF/footer.jsp" %>
