@@ -319,6 +319,36 @@ public class UserDAO {
 	}
 	
 	
+	
+	public String[] writeListDate (int user_uid) {
+		String SQL = "SELECT BOARD_REGDATE FROM BOARD WHERE BOARD_WRITEUID = ? ORDER BY BOARD_ID DESC ";
+		String  [] a = new String[5]; // 최근 5개만 받아오게.
+		int i = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, user_uid);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				a[i] = rs.getString("BOARD_REGDATE");
+				i++;
+				if(i==5) break;
+			} 
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return a;
+	}
+	
+	
+	
+	
 	public String[] replyList (int user_uid) {
 		String SQL = "SELECT REPLY_COMMENT FROM REPLY WHERE REPLY_USERUID = ? ORDER BY REPLY_REGDATE DESC ";
 		String  [] a = new String[5]; // 최근 10개만 받아오게.
