@@ -538,6 +538,27 @@ public class BoardDAO {
 			}
 			return arr;
 		}
+		
+		public int[] replyCnt(Board[] barr) throws SQLException{
+			int [] arr = new int[barr.length];
+			
+			try {
+				pstmt = conn.prepareStatement("SELECT count(*) FROM reply WHERE REPLY_BOARDERID = ?");
+				
+				for(int i = 0; i<barr.length; i++) {
+					pstmt.setInt(1, barr[i].getBoard_id());
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()) {
+					arr[i] = rs.getInt(1);
+					}
+				}
+				
+			} finally {
+				close();
+			}
+			return arr;
+		}
 } //BoardDAO
 
 
