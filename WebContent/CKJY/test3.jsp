@@ -67,7 +67,7 @@ th,td {
          <div class="map_act_btn_wrap clear_box"></div>
          <div class="clear"></div>
       </div>
-   
+    
       <div id="map_wrap" class="map_wrap">
          <div id="map_div"></div>
       </div>
