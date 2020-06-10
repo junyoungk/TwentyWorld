@@ -14,7 +14,8 @@
 	margin-bottom: 30px;
 	height: 500px;
 	width: 400px;
-	border: 5px solid black;
+	border-radius: 15%;
+	border: 3px solid black;
 	box-sizing: border-box; 
 }
 
@@ -52,10 +53,12 @@ div .sun{
 .yab{
 	height: 200px;
 }
-.yab .ya{
+.yab #ya{
+	position:fixed;right:200px;bottom:200px;z-index:1000;
 	height: 120px;
 	width: 120px;
 	border-radius : 50%; 
+	background-color: red;
 	
 }
 

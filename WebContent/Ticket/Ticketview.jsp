@@ -159,11 +159,10 @@ function chkDelete(id){
 			
 			<hr>
 			<br>
-			<button
-				onclick="location.href='Ticketupdate.doi?id=${read[0].ticket_id }'">수정</button>
-			<button onclick="chkDelete(${read[0].ticket_id })">삭제</button>
+			<button class="btn btn-secondary" onclick="location.href='Ticketupdate.doi?id=${read[0].ticket_id }'">수정</button>
+			<button class="btn btn-secondary" onclick="chkDelete(${read[0].ticket_id })">삭제</button>
 
-			<button onclick="location.href = 'Ticketlist.doi'">목록보기</button>
+			<button class="btn btn-secondary" onclick="location.href = 'Ticketlist.doi'">목록보기</button>
 		</div>
 		</div>
 		<%@ include file="../HF/footer.jsp"%>
