@@ -163,7 +163,7 @@ ${fn:replace(read[0].board_content,cn,br) }
 			    <tr>
 			      <td scope="row">${reply.rownum }</td>
 			      <td>${reply.writeName }</td>
-			      <td>${reply.reply_comment }</td>
+			      <td>${fn:replace(reply.reply_comment,cn,br) }</td>
 			      <td>${reply.reply_regdate }</td>
 			      <td>
 				<c:choose>
