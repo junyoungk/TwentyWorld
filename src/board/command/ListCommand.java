@@ -16,6 +16,7 @@ public class ListCommand implements Command{
 		BoardDAO dao = new BoardDAO();
 		Board[] arr = null;
 		Board[] arr1 = null;
+		int [] rarr = null;
 		
 		String categoryS = "";
 		int category = 0;
@@ -76,18 +77,24 @@ public class ListCommand implements Command{
 			
 			dao = new BoardDAO();
 			arr = dao.SelectByPages(fromRow, 10);
+			dao = new BoardDAO();
+			rarr = dao.replyCnt(arr);
 			//"list" 란 name으로 request 에 arr 값 전달
 			// 즉 request 에 담아서 컨트롤러에 전달되는 셈
 			request.setAttribute("list", arr);
 			request.setAttribute("cnt", totalPage);
+			request.setAttribute("recnt", rarr);
 			} else {
 			cnt = dao.countAllByCategory(categoryS);
 			int totalPage = (int)Math.ceil(cnt / (double)10);
 				
 			dao = new BoardDAO();	
 			arr = dao.selectByCategory(categoryS, fromRow, 10);
+			dao = new BoardDAO();
+			rarr = dao.replyCnt(arr);
 			request.setAttribute("list", arr);
 			request.setAttribute("cnt", totalPage);
+			request.setAttribute("recnt", rarr);
 			}
 			
 		} catch (SQLException e) {
@@ -107,8 +114,11 @@ public class ListCommand implements Command{
 					
 				dao = new BoardDAO();
 				arr1 = dao.selectBySearch(col, word, fromRow, 10);
+				dao = new BoardDAO();
+				rarr = dao.replyCnt(arr1);
 				request.setAttribute("list", arr1);
 				request.setAttribute("cnt", totalPage);
+				request.setAttribute("recnt", rarr);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

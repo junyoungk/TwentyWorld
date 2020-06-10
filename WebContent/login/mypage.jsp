@@ -26,11 +26,14 @@
 
 <% UserDTO [] arr = dao.readMypage(userID); %> 
 <% String []  a   = dao.writeList(userID);
+   String [] writeListdate = dao.writeListDate(userID);
    int [] b = dao.writeListUID(userID);
    String [] replyList  = dao.replyList(userID);
    int [] replyBoard = dao.replyListUID(userID);
    String [] TicketList = dao.myTicketList(userID);
    int [] TicketNum = dao.myTicketNum(userID);
+   
+   
 %>
 
 <%
@@ -136,13 +139,13 @@
 				<form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
 					 <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
 					
-					<label id="login_label">USER NAME *</label>
+					<label>USER NAME *</label>
 					<input type ="text" disabled="disabled" value="<%= user_name %>">
 					<hr>
-					<label id="login_label">USER ID *</label>
+					<label>USER ID *</label>
 					<input type ="text" disabled="disabled" value="<%= user_id %>">
 					<hr>
-					<label id="login_label">USER GENDER *</label>
+					<label>USER GENDER *</label>
 					<input type ="text" disabled="disabled" value="<%= user_gender %>">
 					<hr>
 					<label id="login_label">USER AGE *</label>
@@ -168,15 +171,23 @@
 			 <div class="container">
 			 
   <div class="row">
-    <div class="col-md-12 col-lg-4">
-					<div><h4>내가 쓴글 (★ 최신순 5개까지만 표시됩니다. ★) </h4><hr>
+    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
+					<div class="text-center"><h5>글 작성 목록</h5><hr>
 			 <% for(int i=0; i<a.length; i++){
 				 
 				 if(a[i] == null) break;
+				 out.println("<div style='float:right;'>");
 				 out.println("<a href='../board/view.do?uid=" + b[i] +"'>");
 				 out.println(a[i]);
 				 
 				 out.println("</a>");
+				 out.println("&nbsp;&nbsp; &nbsp;&nbsp; ");
+				 out.println("<span style='float:right;'>");
+				 
+				 out.println(writeListdate[i]);
+				 out.println("</span>");
+				 out.println("</div>");
+				
 				 out.println("<br>");
 			 
 			 }
@@ -185,8 +196,8 @@
 			 
 			 </div>
     </div>
-    <div class="col-md-12 col-lg-4">
-					  <div><h4>내가 쓴 최신 댓글 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br>
+    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
+					 <div><h5>댓글 작성 목록</h5><hr>
 			 <% for(int i=0; i<replyList.length; i++){
 				 
 				 if(replyList[i] == null) break;
@@ -202,8 +213,8 @@
 			 
 			 </div>
     </div>
-    <div class="col-md-12 col-lg-4">
-		  <div><h4>예매목록 (★ 최신순 5개까지만 표시됩니다. ★)</h4> <br><br>
+    <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab;">
+		  <div><h5>예매목록</h5></h2><hr>
 			 <% for(int i=0; i<TicketList.length; i++){
 				 
 				 if(TicketList[i] == null) break;
@@ -219,24 +230,24 @@
     </div>
   </div>
 </div>
-			
+			 <div class="container">
 			<div class="row">
-			
-    		<div class="col-md-12 col-lg-6">
+			 <div class="col-lg-12 text-center"><h3>관리자 목록입니다.</h3></div>
+    		<div class="col-md-12 col-lg-6 text-center" style="border: 1px solid #ababab;">
     				<% if (userID == 1) {  %>
 			   
 			    
-			 	<button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button>
-			 	<button onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button>
+			 	<button onclick="location.href='../Ticket/Ticketlist.doi'">티켓리스트</button><br>
+			 	<button onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button><br>
 			 
 			 	
-			 	<button onclick="location.href='../attraction/attrAdminListMain.doat'">놀이기구리스트 </button>
-			 	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button>
+			 	<button onclick="location.href='../attraction/attrAdminListMain.doat'">놀이기구리스트 </button><br>
+			 	<button onclick="location.href='../attraction/attrWrite.doat'">놀이기구등록 </button><br>
 			 	<% }
 			 %>
     		</div>
     		
-    		<div class="col-md-12 col-lg-6">
+    		<div class="col-md-12 col-lg-6" style="border: 1px solid #ababab;">
     					<% if (userID == 1) {  %>
     				 <form method="post" action="userdeleteCheck2.jsp" class="text-center">
 					
@@ -261,7 +272,7 @@
     		</div>
 			 
 			 
-
+</div>
 			 	
 					 
 			 
