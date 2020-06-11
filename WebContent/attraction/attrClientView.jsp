@@ -177,8 +177,8 @@
   </a>
 </div>
   <!-- shinhoonji -->
-  
-  <div id = "attr_content" style="font-size: 25px; align-items: center;"><%=attr_content %></div>
+  <br>
+  <div id = "attr_content" style="font-size: 20px; align-items: center;"><%=attr_content %></div>
 <br><br><hr><br>
 
   <div class="container marketing">
