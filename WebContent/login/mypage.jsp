@@ -140,25 +140,64 @@
 				<form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
 					 <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
 					
-					<label id="login_label">USER NAME</label>
-					<input type ="text" disabled="disabled" value="<%= user_name %>">
-					<label id="login_label">USER ID</label>
-					<input type ="text" disabled="disabled" value="<%= user_id %>">
-					<label id="login_label">USER PW</label>
-					<input type="text" name="user_pw" value="<%= user_pw %>" /><br>
-					<label id="login_label">USER GENDER</label>
-					<input type ="text" disabled="disabled" value="<%= user_gender %>">
-					<label id="login_label">USER AGE</label>
-					<input type ="text" disabled="disabled" value="<%= user_age %>">
-					<label id="login_label">USER JUMIN</label>
-					<input type ="text" disabled="disabled" value="<%= user_jumin %>">
-					<label id="login_label">USER EMAIL</label>
-					<input type="email" name="user_email" value="<%= user_email %>" /><br>
-					<label id="login_label">USER CARDNUM</label>
-					<input type="text" name="user_cardnum" value="<%= user_cardnum %>" /><br>
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">이름</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="<%= user_name %>">
+					</div>
 					
-					<br>
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">아이디</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Userid" aria-label="Userid" aria-describedby="basic-addon1" disabled="disabled" value="<%= user_id %>">
+					</div>
 					
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">비밀번호</span>
+					  </div>
+					  <input type="password" class="form-control"  aria-label="Userpw" aria-describedby="basic-addon1" value="">
+					</div>
+					
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">성별</span>
+					  </div>
+					  <input type="text" class="form-control"  aria-label="Usergender" aria-describedby="basic-addon1" disabled="disabled" value="<%= user_gender %>">
+					</div>
+					
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">나이</span>
+					  </div>
+					  <input type="number" class="form-control"  aria-label="Userage" aria-describedby="basic-addon1" disabled="disabled" value="<%= user_age %>">
+					</div>
+					
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">주민등록번호</span>
+					  </div>
+					  <input type="number" class="form-control"  aria-label="Userjumin" aria-describedby="basic-addon1" disabled="disabled" value="<%= user_jumin %>">
+					</div>
+					
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">이메일</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Useremail" aria-label="Useremail" aria-describedby="basic-addon1" value="<%= user_email %>">
+					</div>
+					
+					
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">카드 번호</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Usercardnum" aria-label="Usercardnum" aria-describedby="basic-addon1" value="<%= user_cardnum %>">
+					</div>
+					
+				
 					<button type="submit" value="수정" style="margin-top: 20px; width: 150px;" class="btn btn-secondary">수정</button>
 				 </form>
 				 <br>
