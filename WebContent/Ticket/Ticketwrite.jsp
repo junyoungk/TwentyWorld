@@ -178,14 +178,15 @@
 		</div>
 		<div class="container">
 			<%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
-			<div class="wrap">
-		<div class="imgbox"><img src="../upload/ticketwrite.jpg"></div>
-				<div class="form-wrap">
+			<div class="row">
+				<div class="imgbox col-lg-6">
+					<img src="../upload/ticketwrite.jpg">
+				</div>
+				<div class="form-wrap col-lg-6">
 					<form id="frm" class="input-group" name="frm"
 						action="TicketwriteOk.doi" method="post"
 						onsubmit="return chkSubmit()" enctype="Multipart/form-data">
-						<input type="hidden" name="uid"
-							value="<%=session.getAttribute("userID")%>" />
+						<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>" />
 						이용권분류 <input type="number" class="input-field" name="ticket_id" /><br>
 						이용권이름 <input type="text" class="input-field" name="name" /><br>
 						이용권 가격 <input type="text" class="input-field" name="price" value="${select[0].ticket_price }"><br>
@@ -195,9 +196,10 @@
 							onclick="location.href='Ticketlist.doi'">목록으로</button>
 					</form>
 				</div>
-		<%@ include file="../HF/footer.jsp"%>
+		
 			</div>
 		</div>
+		<%@ include file="../HF/footer.jsp"%>
 	</div>
 	<script>
 		function openNav() {

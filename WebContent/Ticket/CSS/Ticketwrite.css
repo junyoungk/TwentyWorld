@@ -3,28 +3,21 @@
     padding: 0;
     font-family: sans-serif;
 }
-.wrap {
+/* .wrap {
 	margin-top: 120px;
     background-position: right;
     background-size: cover;
     position: absolute;
-}
+} */
 .form-wrap {
 	background-color: white;
-    width: 380px;
-    height: 600px;
-    position: relative;
-    margin: 0 0 0 800px;
-    padding: 5px;
   
 }
 
 
 .input-group {
     top: 20px;
-    position: absolute;
-    width: 370px;
-    transition: 1s;
+   
 }
 .input-field {
     width: 100%;
@@ -37,9 +30,7 @@
 }
 
 div .imgbox img{
-   width: 750px;
-   height: 500px;
-   position: absolute;
+   width: 100%;
 }
 
 

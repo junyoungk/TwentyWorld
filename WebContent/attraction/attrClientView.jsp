@@ -161,10 +161,10 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block " src="<%=attr_cardimg %>" alt="First slide">
+      <img class="d-block " src="<%=attr_cardimg %>" alt="First slide" onError="this.src='attr_img/20_black.jpg'">
     </div>
     <div class="carousel-item">
-      <img class="d-block " src="<%=attr_img %>" alt="Second slide">
+      <img class="d-block " src="<%=attr_img %>" alt="Second slide" onError="this.src='attr_img/20_black.jpg'">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
