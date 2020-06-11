@@ -229,5 +229,29 @@
 		
 }
 
-/* admin view 테이블*/
+/*  view 테이블*/
+
+div#attr_rule{
+	width : 100%;
+	height : 250px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 10px;
+	line-height: 1.4;
+	font-size: 20px;
+}
+div#attr_rule_mini{
+	background: #e68282;
+    position: relative;
+    top : -25px;
+    left:30px;
+	width : 20%;
+	height : 50px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 3px;
+	padding : 4px;
+	font-size: 25px;
+	color: white;
+}
 
