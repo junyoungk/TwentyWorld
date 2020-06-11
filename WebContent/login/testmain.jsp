@@ -135,84 +135,23 @@
   <div class="best-attraction">
     <div class="row">
       <div class="col-4">
-          <img src="https://pds.joins.com/news/component/newsis/201808/07/NISI20180807_0014350831_web.jpg" class="card-img-top" alt="...">
+          <img src="https://pds.joins.com/news/component/newsis/201808/07/NISI20180807_0014350831_web.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
           <p class="text-center best-1">후룸라이드</p>
       </div>
       <div class="col-4">
-          <img src="https://pds.joins.com/news/component/newsis/201808/07/NISI20180807_0014350831_web.jpg" class="card-img-top" alt="...">
-          <p class="text-center best-2">회전목마</p>
+          <img src="https://pds.joins.com/news/component/newsis/201712/06/NISI20171206_0000077751_web.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
+          <p class="text-center best-2">롤러코스터</p>
       </div>
       <div class="col-4">
-        <img src="https://pds.joins.com/news/component/newsis/201808/07/NISI20180807_0014350831_web.jpg" class="card-img-top" alt="...">
-        <p class="text-center best-3">바이킹</p>
+        <img src="https://s3-ap-northeast-2.amazonaws.com/blog.lotte.co.kr/wp-content/uploads/2013/10/81.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
+        <p class="text-center best-3">자이로스핀</p>
       </div>
     </div>
   </div>
   <div class="look-more text-center container">
-<button type="button" class=" btn btn-outline-secondary btn-lg">더 많은 어트랙션 즐기기</button>  </div>
+<button type="button" class=" btn btn-outline-secondary btn-lg" onclick="location.href='../attraction/attrClientListMain.jsp'">더 많은 어트랙션 즐기기</button> 
+ </div>
 </div>
-
-
- 
- <!-- <div id="carouselExampleIndicators2" class="carousel slide container" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-              <div class="col-4">
-                <img src="https://via.placeholder.com/150" class="d-block w-100" alt="...">
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
- -->
-
-
 
  <div class="container" style="padding: 40px 0;">
  	<div style="padding-bottom:40px;">
@@ -257,7 +196,7 @@
       Board[] arr1 = dao.boardGonggi();
       %>
         <ul>
-          <li><a href="../board/view.do?uid=<%=arr1[0].getBoard_id()%>"><%= arr1[0].getBoard_subject()%></a> <%= arr1[0].getBoard_regdate() %></li>
+          <li><a href="../board/view.do?uid=<%=arr1[0].getBoard_id()%>"><%= arr1[0].getBoard_subject()%></a> <span><%= arr1[0].getBoard_regdate() %></span></li>
           <li><a href="../board/view.do?uid=<%=arr1[1].getBoard_id()%>"><%= arr1[1].getBoard_subject()%></a> <%= arr1[1].getBoard_regdate() %></li>
           <li><a href="../board/view.do?uid=<%=arr1[2].getBoard_id()%>"><%= arr1[2].getBoard_subject()%></a> <%= arr1[2].getBoard_regdate() %></li>
           <li><a href="../board/view.do?uid=<%=arr1[3].getBoard_id()%>"><%= arr1[3].getBoard_subject()%></a> <%= arr1[3].getBoard_regdate() %></li>
