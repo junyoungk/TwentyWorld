@@ -45,12 +45,9 @@
 <!-- title에 글제목 넣기 -->
 </head>
 <script>
-function chkDelete(id){
+function checkDelete(id){
 	// 삭제 여부, 다시 확인 하고 진행하기
-	var r = confirm("삭제하시겠습니까?");
-	if(r){
-		location.href = 'TicketdeleteOk.doi?id='+id;
-	}
+	location.href = 'TicketdeleteOk.doi?id='+id;
 }
 </script>
 <body>
@@ -64,9 +61,6 @@ function chkDelete(id){
 							<a href="../login/intro.jsp">소개 / 오시는 길</a> <a
 								href="../attraction/attrClientListMain.jsp">어트랙션</a> <a
 								href="../board/list.do">자유게시판</a>
-							<h3>
-								세션값 :
-								<%=userID%></h3>
 							<%
 								if (userID == 0) {
 							%>
@@ -124,9 +118,6 @@ function chkDelete(id){
 					</div>
 					<div
 						class="d-none d-lg-block col-lg-2 text-center align-self-center">
-						<h3>
-							세션값 :
-							<%=userID%></h3>
 						<%
 							if (userID == 0) {
 						%>
@@ -180,10 +171,29 @@ function chkDelete(id){
 			<hr>
 			<br>
 			<button class="btn btn-secondary" onclick="location.href='Ticketupdate.doi?id=${read[0].ticket_id }'">수정</button>
-			<button class="btn btn-secondary" onclick="chkDelete(${read[0].ticket_id })">삭제</button>
+			<button class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">삭제</button>
 
 			<button class="btn btn-secondary" onclick="location.href = 'Ticketlist.doi'">목록보기</button>
 		</div>
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">티켓 삭제</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>정말로 티켓을 삭제하시겠습니까??</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" onclick="checkDelete(${read[0].ticket_id})">삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
 		</div>
 		<%@ include file="../HF/footer.jsp"%>
 		<script>
