@@ -174,9 +174,11 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="wrap">
-		<div class="imgbox"><img src="../upload/Rollercoaster.jpg"></div>
-					<div class="form-wrap">
+			<div class="row">
+		<div class="imgbox col-lg-6">
+			<img src="../upload/Rollercoaster.jpg">
+		</div>
+					<div class="form-wrap col-lg-6">
 						<form id="frm" class="input-group" name="frm" action="TicketupdateOk.doi" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 							<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>" /> 
 							<input type="hidden" name="ticket_id" value="${select[0].ticket_id}" />
