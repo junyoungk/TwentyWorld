@@ -160,7 +160,7 @@
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">비밀번호</span>
 					  </div>
-					  <input type="password" class="form-control"  aria-label="Userpw" aria-describedby="basic-addon1" value="">
+					  <input type="password" class="form-control"  aria-label="Userpw" aria-describedby="basic-addon1" value="1234" name="user_pw">
 					</div>
 					
 					<div class="input-group mb-3">
@@ -188,7 +188,7 @@
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">이메일</span>
 					  </div>
-					  <input type="text" class="form-control" placeholder="Useremail" aria-label="Useremail" aria-describedby="basic-addon1" value="<%= user_email %>">
+					  <input type="text" class="form-control" placeholder="Useremail" aria-label="Useremail" aria-describedby="basic-addon1" value="<%= user_email %>" name="user_email">
 					</div>
 					
 					
@@ -196,7 +196,7 @@
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">카드 번호</span>
 					  </div>
-					  <input type="text" class="form-control" placeholder="Usercardnum" aria-label="Usercardnum" aria-describedby="basic-addon1" value="<%= user_cardnum %>">
+					  <input type="text" class="form-control" placeholder="Usercardnum" aria-label="Usercardnum" aria-describedby="basic-addon1" value="<%= user_cardnum %>" name="user_cardnum"> 
 					</div>
 					
 				
@@ -216,10 +216,20 @@
 					<div class="text-center" style="padding: 25px;"><h5 style="font-weight: bolder;">글 작성 목록</h5><hr style="border: 1px solid darkgray">
 			 <% for(int i=0; i<a.length; i++){
 				 
+				 String in = "";
 				 if(a[i] == null) break;
+				 if(a[i].length()>8){
+					
+					  for(int j = 0; j < 8; j++ ){
+						  in += a[i].charAt(j);
+					  }
+					  in += "..";
+				 } else {
+					 in = a[i];
+				 }
 				 out.println("<div style='float:right;'>");
 				 out.println("<a href='../board/view.do?uid=" + b[i] +"'>");
-				 out.println(a[i]);
+				 out.println(in);
 				 
 				 out.println("</a>");
 				 out.println("&nbsp;&nbsp; &nbsp;&nbsp; ");
@@ -241,10 +251,20 @@
 					 <div class="text-center" style="padding: 25px;"><h5 style="font-weight: bolder;">댓글 작성 목록</h5><hr style="border: 1px solid darkgray">
 			 <% for(int i=0; i<replyList.length; i++){
 				 
+				 String in = "";
 				 if(replyList[i] == null) break;
+				 if(replyList[i].length()>8){
+					
+					  for(int j = 0; j < 8; j++ ){
+						  in += replyList[i].charAt(j);
+					  }
+					  in += "..";
+				 } else {
+					 in = replyList[i];
+				 }
 				 out.println("<div style='float:right;'>");
 				 out.println("<a href='../board/view.do?uid=" + replyBoard[i] +"'>");
-				 out.println(replyList[i]);
+				 out.println(in);
 				 out.println("</a>");
 				 out.println("&nbsp;&nbsp; &nbsp;&nbsp; ");
 				 out.println("<span style='float:right;'>");
@@ -264,8 +284,8 @@
 			 <% for(int i=0; i<TicketList.length; i++){
 				 
 				 if(TicketList[i] == null) break;
-				 out.println("예매 : " + TicketList[i]);
-				 out.println(" / 번호: " + TicketNum[i]+ "<br>");
+				 out.println(TicketList[i]);
+				 out.println(" / N: " + TicketNum[i]+ "<br>");
 				 
 			 
 			 }

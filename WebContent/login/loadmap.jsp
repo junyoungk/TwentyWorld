@@ -7,16 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
  <!-- Bootstrap CSS -->
-<title>롯데월드 앞 버스정류장 상행/하행 실시간 도착정보</title>
-<style>
-table,th,td {
-  border : 1px solid black;
-  border-collapse: collapse;
-}
-th,td {
-  padding: 5px;
-}
-</style>
+<title>20's WORLD 길찾기</title>
+
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f1f49e4152a44b4f802bb60f7582283b"></script> 
@@ -33,11 +25,12 @@ th,td {
 
 
  <body onload="initTmap2();initTmap()">
- 
-<form name="form" id="form" method="post">
-	<input type="hidden" name="currentPage" value="1"/><br> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
-	<input type="hidden" name="countPerPage" value="10"/><br><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) --> 
-	<input type="hidden" name="confmKey" value="devU01TX0FVVEgyMDIwMDUxMjE3MTkyOTEwOTc1MTE="/><br><!-- 요청 변수 설정 (승인키) -->
+ <div>
+ <h5>20's WORLD 길찾기</h5>
+<form name="form" id="form" method="post" style="font-size: 13px;">
+	<input type="hidden" name="currentPage" value="1"/> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
+	<input type="hidden" name="countPerPage" value="10"/><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) --> 
+	<input type="hidden" name="confmKey" value="devU01TX0FVVEgyMDIwMDUxMjE3MTkyOTEwOTc1MTE="/><!-- 요청 변수 설정 (승인키) -->
 	위치 입력 : <input type="text" name="keyword" value="" placeholder="위치를 입력하세요"/><!-- 요청 변수 설정 (키워드) -->
 	<input type="button" onClick="getAddr();" value="검색하기"/>
 </form><br> 
@@ -80,17 +73,13 @@ th,td {
       <p id="result3" style="display: none"></p> <!--그저 값얻기위해서  display:none-->
       
 
-<h3>20대월드 모험지도</h3>
-<button id="see1">어트랙션</button>
-<button id="see2">화장실</button>
-<button id="see3">음식점</button>
-<div id="map" style="width:70%;height:350px;"></div>
 
 
 
 
+</div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 </body>
  <script src="mapapi.js"></script>
  

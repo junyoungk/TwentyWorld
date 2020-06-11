@@ -22,7 +22,7 @@
 function mapcheck(){
 
 	 var url = "loadmap.jsp";
-	 window.open(url, "get", "height = 1500, width = 1500");
+	 window.open(url, "get", "height = 600, width = 550");
 	}
 
 </script>

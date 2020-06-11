@@ -22,12 +22,7 @@
  
  <% if (a.equals("없음")) { %>
 	<script>
-	<div class="alert alert-primary">
-	Click X to Close
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		<span aria-hidden="true">&times;</span>
-	</button>
-</div>
+		alert('다시 입력하세요.')
 		history.back();
 	</script>
 <% } else { %>
