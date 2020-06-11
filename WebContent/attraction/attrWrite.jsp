@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>글작성</title>
+<title>어트랙션 등록</title>
 </head>
 
 <script src="ckeditor/ckeditor.js"></script>
@@ -45,6 +45,7 @@ frm = document.forms["frm"];
 	var attrTime = frm["attr_time"].value.trim();
 	var attrMax = frm["attr_max"].value.trim();
 	var attrPrice = frm["attr_price"].value.trim();
+	var attr_location = frm["attr_location"].value.trim();
 	
 	var minAge = frm["attr_min_age"].value.trim();
 	var maxAge = frm["attr_max_age"].value.trim();
@@ -56,6 +57,7 @@ frm = document.forms["frm"];
 	if(!fileCheck1){ alert("상세정보에 들어갈 파일을 첨부해 주세요"); return false; }
 	if(!fileCheck2){ alert("메인 카드 이미지 파일을 첨부해 주세요"); return false; }
 	
+	if(attr_location == 2222){ alert("장소를 반드시 선택해야 합니다!"); frm["attr_location"].focus(); return false;}
 	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
@@ -147,9 +149,6 @@ frm = document.forms["frm"];
 <h2 style="text-align:center; padding: 25px;">글작성</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" action="attrWriteOk.doat" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
-
-
-
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">기구 이름</span>
@@ -185,10 +184,10 @@ frm = document.forms["frm"];
   <div class="input-group-prepend">
     <label class="input-group-text" for="inputGroupSelect01">장소</label>
   </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">실내</option>
-    <option value="2">실외</option>
+  <select class="custom-select" id="inputGroupSelect01" name="attr_location" >
+    <option value="2222">Choose...</option>
+    <option value="0">실내</option>
+    <option value="1">실외</option>
   </select>
 </div>
 
@@ -196,21 +195,21 @@ frm = document.forms["frm"];
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">최소나이</span>
+    <span class="input-group-text" id="inputGroup-sizing-default">소요시간</span>
   </div>
   <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_time">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">최대나이</span>
+    <span class="input-group-text" id="inputGroup-sizing-default">탑승최대인원</span>
   </div>
   <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_max">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">최소키</span>
+    <span class="input-group-text" id="inputGroup-sizing-default">현장예매가격</span>
   </div>
   <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_price">
 </div>

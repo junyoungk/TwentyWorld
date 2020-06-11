@@ -56,8 +56,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<link href="../attraction/attrCss/attrDetail.css" rel="stylesheet"
-	type="text/css">
+<link href="attrCSS/attrDetail.css" rel="stylesheet" type="text/css">
 
 <title>읽기 <%=attr_name%></title>
 <!-- title에 글제목 넣기 -->
@@ -160,52 +159,73 @@ function chkDelete(attr_id){
 			</div>
 		</div>
 		<div class="container">
-			<h1>
-				#관리자페이지#
-				<%=attr_name%>
-				View
-			</h1>
+			
 
-			<div id="attr_name"><%=attr_name%></div>
-			<div id="attr_img"
-				style="height : 500px; width : 80%;
-background-position: center center; background-size : cover;
-background-image:url(<%=attr_img%>)"></div>
-			<div id="attr_content"><%=attr_content%></div>
-			<hr>
-			<div id="attr_content_info">어트랙션 정보</div>
-			<div id="attr_info">
-				<div id="attr_time">
-					소요시간 :
-					<%=attr_time%></div>
-				<div id="attr_max">
-					최대탑승인원 :
-					<%=attr_max%></div>
-			</div>
-			<div>
-				가격 :
-				<%=attr_price%><br> 이름 :
-				<%=attr_name%><br> 위치 :
-				<%=attr_location%><br> 최소나이 :
-				<%=attr_min_age%><br> 최대나이 :
-				<%=attr_max_age%><br> 최소 키 :
-				<%=attr_min_height%><br> 최대 키 :
-				<%=attr_max_height%><br> 권한 :
-				<%=attr_authorize%><br> 등록날짜 :
-				<%=attr_regDate%><br> 상세페이지 이미지 주소 :
-				<%=attr_img%><br> 카드이미지 주소 :
-				<%=attr_cardimg%><br>
+	<br><h1 class="myCopy">
+    <span><%=attr_name%></span></h1><br><br>
+<%
+String attr_loca;
+if(attr_location == 0){
+	attr_loca = "실내";
+}else{
+	attr_loca = "실외";
+}
+%>
 
-			</div>
+
+		<table class="type11" style="width: 80%; margin-left: 10%">
+		    <thead>
+		    <tr>
+		        <th scope="cols">속성</th>
+		        <th scope="cols">값</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    <tr>
+		        <td style = "width : 20%">어트랙션 이름</td><td><%=attr_name %></td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">탑승 최대인원</td><td style = "width : 50%"><%=attr_max %>명</td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">소요시간</td><td style = "width : 50%"><%=attr_time %>분</td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">현장 구매 가격</td><td style = "width : 50%"><%=attr_price %>원</td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">어트랙션 위치</td><td style = "width : 50%"><%=attr_loca %></td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">어트랙션 내용</td><td style = "width : 50%"><%=attr_content %></td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">탑승 가능 나이</td><td style = "width : 50%"><%=attr_min_age %>살 ~ <%=attr_max_age %>살</td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">탑승 가능 키 </td><td style = "width : 50%"><%=attr_min_height %>cm ~ <%=attr_max_height %>cm </td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">등록 날짜 </td><td style = "width : 50%"><%=attr_regDate %></td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">카드 이미지 </td><td style = "width : 50%"><img src="<%=attr_img%>" style = "width : 80%"/></td>
+		    </tr>
+		    <tr>
+		        <td style = "width : 20%">상세 이미지 </td><td style = "width : 50%"><img src="<%=attr_cardimg%>" style = "width : 80%"/></td>
+		    </tr>
+		    </tbody>
+		</table>
 
 			<hr>
 			<br>
-			<button
-				onclick="location.href='attrUpdate.doat?attr_id=<%=attr_id%>'">수정하기</button>
-			<button onclick="location.href = 'attrAdminListMain.doat'">목록보기</button>
-			<button onclick="chkDelete(<%=attr_id%>)">삭제하기</button>
-			<button onclick="location.href = 'attrWrite.doat'">신규등록</button>
+			<div id="attr_back_menu">
+			<a id="attr_menuback" class = "button4 button-4" onclick="location.href='attrUpdate.doat?attr_id=<%=attr_id%>'">수정하기</a>
+			<a id="attr_menuback" class = "button4 button-4" onclick="location.href = 'attrAdminListMain.doat'">목록보기</a>
+			<a id="attr_menuback" class = "button4 button-4" onclick="chkDelete(<%=attr_id%>)">삭제하기</a>
+			<a id="attr_menuback" class = "button4 button-4" onclick="location.href = 'attrWrite.doat'">신규등록</a>
 		</div>
+	</div>
 		<%@ include file="../HF/footer.jsp"%>
 	</div>
 	<script>
@@ -233,6 +253,47 @@ background-image:url(<%=attr_img%>)"></div>
 
 </body>
 </html>
+<style>
+table.type11 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: center;
+    line-height: 1.5;
+    margin: 20px 10px;
+}
+table.type11 th {
+    width: 155px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #377c91; ;
+}
+table.type11 td {
+    width: 155px;
+    padding: 10px;
+    vertical-align: center;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+}
+.myCopy {
+	width : 60%;
+	margin-left : 20%;
+	margin-right : 5%;
+    display: block;
+    height: 20px;
+    border-bottom: solid 1px #000;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Noto Sans KR", Montserrat, "Malgun Gothic", Dotum, sans-serif;
+}
+
+.myCopy span {
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 10px;
+}
+</style>
 
 
 

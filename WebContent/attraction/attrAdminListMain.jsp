@@ -26,6 +26,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="attrCSS/attr_adminList.css" type="text/css">
+<link href="attrCSS/attrDetail.css" rel="stylesheet" type="text/css">
 
 <title>글 목록</title>
 <style>
@@ -133,6 +134,9 @@ table, th, td {
 			</div>
 		</div>
 
+<br><h1 class="myCopy">
+    <span>놀이기구 목록</span></h1><br><br>
+
 		<div class="container">
 		<table class="type09">
 		    <thead>
@@ -178,9 +182,10 @@ table, th, td {
 			        </tbody>
 			</table>
 			<br>
-			<button onclick="location.href='attrWrite.doat'" class = "myButton">신규등록</button>
-			<button onclick="location.href='attrClientListMain.doat'"  class = "myButton">클라이언트페이지로
-				이동(테스트용)</button>
+				<div id="attr_back_menu">
+				<a id="attr_menuback" class = "button5 button-5" onclick="history.back()">뒤로가기</a>
+				<a id="attr_menuback" class = "button5 button-5" onclick="location.href='attrWrite.doat'">신규등록</a>
+				</div>
 		</div>
 		<%@ include file="../HF/footer.jsp"%>
 	</div>
@@ -209,7 +214,25 @@ table, th, td {
 
 </body>
 </html>
+<style>
+.myCopy {
+	width : 80%;
+	margin-left : 10%;
+	margin-right : 5%;
+    display: block;
+    height: 20px;
+    border-bottom: solid 1px #000;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Noto Sans KR", Montserrat, "Malgun Gothic", Dotum, sans-serif;
+}
 
+.myCopy span {
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 10px;
+}
+</style>
 
 
 

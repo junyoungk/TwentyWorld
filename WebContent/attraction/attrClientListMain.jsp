@@ -381,18 +381,19 @@ $(function () {
     bottom: 5px;
     left: 10%;
     width: 80%;
-    height: 50px;
+    height: 40px;
     background: #393939d9;
     transition: 0.5s;
     overflow: hidden;
     color: white;
-    padding: 5px;
+    padding: 8px;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .attr_box:hover .attr_menu_content {
   width: 80%;
-  height: 70px;
+  height: 60px;
   bottom: 10px;
   left: 10%;
 }
@@ -401,6 +402,7 @@ $(function () {
   margin: 0;
   padding: 0;
   font-size: 15px;
+  text-align: center;
 }
 
 .attr_box .attr_menu_content p {
@@ -411,6 +413,7 @@ $(function () {
   transition: 0.5s;
   text-align: justify;
   font-size: 10px;
+  text-align: right;
 }
 
 .attr_box:hover .attr_menu_content p {

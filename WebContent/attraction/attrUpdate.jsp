@@ -80,7 +80,8 @@ frm = document.forms["frm"];
 	var attrTime = frm["attr_time"].value.trim();
 	var attrMax = frm["attr_max"].value.trim();
 	var attrPrice = frm["attr_price"].value.trim();
-	
+	var attr_location = frm["attr_location"].value.trim();
+
 	var minAge = frm["attr_min_age"].value.trim();
 	var maxAge = frm["attr_max_age"].value.trim();
 	var minHeight = frm["attr_min_height"].value.trim();
@@ -91,6 +92,7 @@ frm = document.forms["frm"];
 	if(!fileCheck1){ alert("상세정보에 들어갈 파일을 첨부해 주세요"); return false; }
 	if(!fileCheck2){ alert("메인 카드 이미지 파일을 첨부해 주세요"); return false; }
 	
+	if(attr_location == 2222){ alert("장소를 반드시 선택해야 합니다!"); frm["attr_location"].focus(); return false;}
 	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
 	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
@@ -177,37 +179,109 @@ frm = document.forms["frm"];
           </div>
         </div>
       </div>
-<div class="container">
+<div class="container" style="width: 485px;">
 <h2>수정</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" action="attrUpdateOk.doat" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 <input type="hidden" name="attr_id" value="<%= attr_id %>"/>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 이름</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_name" value = "<%=attr_name %>">
+</div>
 
-이름: <input type="text" name="attr_name" value="<%= attr_name %>"/><br>
-내용: <input type="text" name="attr_content" value="<%= attr_content %>"/><br>
-상세페이지사진: <input type="file" name="attr_setimg" value="attr_cardimg" accept="image/*" onchange="imgfileCheck(this)"/>기존 :<%= attr_cardimg %><br>
-메인사진(카드): <input type="file" name="attr_setcardimg" value="attr_img" accept="image/*" onchange="imgfileCheck(this)"/>기존 :<%= attr_img %><br>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 내용</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_content" value = "<%=attr_content %>">
+</div>
 
-소요시간: <input type="number" name="attr_time" value="<%= attr_time %>"/><br>
-탑승인원수: <input type="number" name="attr_max" value="<%= attr_max %>"/><br>
-가격: <input type="number" name="attr_price" value="<%= attr_price %>"/><br>
+
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 상세사진</span>
+  </div>
+  <input type="file" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_setimg" id = "attr_setimg" accept="image/*" onchange="imgfileCheck2(this)">
+</div>
+<div class="input-group mb-3"><p>기존 이미지 주소 : <%=attr_img %></p></div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">기구 썸네일</span>
+  </div>
+  <input type="file" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_setcardimg" id = "attr_setcardimg" accept="image/*" onchange="imgfileCheck2(this)">
+</div>
+<div class="input-group mb-3"><p>기존 이미지 주소 : <%=attr_cardimg %></p></div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">장소</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01"  name="attr_location" >
+    <option value="2222">Choose...</option>
+    <option value="1">실내</option>
+    <option value="2">실외</option>
+  </select>
+</div>
 
 <hr>
-최소나이: <input type="number" name="attr_min_age" value="<%= attr_min_age %>"/>
-최대나이: <input type="number" name="attr_max_age" value="<%= attr_max_age %>"/><br>
 
-최소키: <input type="number" name="attr_min_height" value="<%= attr_min_height %>"/>
-최대키: <input type="number" name="attr_max_height" value="<%= attr_max_height %>"/><br>
-장소 : 
-<select name="attr_location" >
-    <option value="0">실내</option>
-    <option value="1">실외</option>
-</select>
-<br><br>
-<input type="submit" value="수정"/>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최소나이</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_time" value = "<%=attr_time %>">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최대탑승인원</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_max" value = "<%=attr_max %>">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">현장구매가격</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_price" value = "<%=attr_price %>">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최소나이</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_min_age" value = "<%=attr_min_age %>">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최대나이</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_max_age" value = "<%=attr_max_age %>"> 
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최소키</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_min_height" value = "<%=attr_min_height %>">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">최대키</span>
+  </div>
+  <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_max_height" value = "<%=attr_max_height %>">
+</div>
+
+<button type="submit"  value="수정" class="btn btn-secondary btn-lg btn-block" style="margin-bottom:20px;">수정</button>
 </form>
-<button onclick="history.back()">이전으로</button>
-<button onclick="location.href='attrAdminListMain.doat'">목록보기</button>
+<button onclick="location.href='attrAdminListMain.doat'" class="btn btn-secondary btn-lg btn-block" style="margin-bottom:20px;">목록보기</button>
 </div>
 <%@ include file="../HF/footer.jsp" %>
     </div>

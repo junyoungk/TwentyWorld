@@ -53,7 +53,6 @@
 	}
 	
 	.button-3 {
-	    width: 800px;
 	    border: 2px solid #bbb;
 	    background-color: #bbb;
 	    border-radius: 20px;
@@ -61,6 +60,55 @@
 	    transition: .3s;
 	}
 	.button-3:hover {
+	  box-shadow: 8px 8px #e1e1e1;
+	  transition: .3s;
+	}
+	
+	.button4 {
+	  width: 100px;
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	  text-align: center;
+	  color: #000;
+	  text-transform: uppercase;
+	  font-weight: 600;
+	  margin-left: 30px;
+	  margin-bottom: 30px;
+	  cursor: pointer;
+	  display: inline-block;
+	}
+	.button-4 {
+	    border: 2px solid #aaa;
+	    background-color: #aaa;
+	    border-radius: 20px;
+	    color: #fff;
+	    transition: .3s;
+	}
+	.button-4:hover {
+	  box-shadow: 8px 8px #e1e1e1;
+	  transition: .3s;
+	}
+	.button5 {
+	  width: 40%;
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	  text-align: center;
+	  color: #000;
+	  text-transform: uppercase;
+	  font-weight: 600;
+	  margin-left: 30px;
+	  margin-bottom: 30px;
+	  cursor: pointer;
+	  display: inline-block;
+	}
+	.button-5 {
+	    border: 2px solid #aaa;
+	    background-color: #aaa;
+	    border-radius: 20px;
+	    color: #fff;
+	    transition: .3s;
+	}
+	.button-5:hover {
 	  box-shadow: 8px 8px #e1e1e1;
 	  transition: .3s;
 	}
@@ -87,10 +135,13 @@
 		   font-size: 30px; top:130px; left: 15%;
 			}
 		#select_label{font-size: 10px;margin-left: 20px;}
-		#attr_location{width : 120px;font-size: 10px;color: white;border-radius: 2px;}
-		#attr_age{width : 120px;font-size: 10px;color: white;border-radius: 2px;}
-		#attr_height{width : 120px;height:30px;font-size: 8px;color: white;border-radius: 2px;}
-		#attr_search{width : 120px;height:30px;font-size: 8px;color: white;margin-left: 40px;}
+		#attr_location{width : 120px;font-size: 10px;color: #1d1d1d;border-radius: 2px;}
+		#attr_age{width : 120px;font-size: 10px;color: #1d1d1d;border-radius: 2px;}
+		#attr_height{width : 120px;height:30px;font-size: 8px;color: #1d1d1d;border-radius: 2px;}
+		#attr_search{width : 120px;height:30px;font-size: 8px;color: #1d1d1d;margin-left: 40px;}
+		.button-3{width : 80%; font-size: 18px;}
+		.button-4{width : 60%; font-size: 18px; font-weight:200;}
+		.button-5{font-size: 15px; font-weight:180;}
 		
 /* Tablet &amp; Desktop Device */
 @media all and (min-width:580px) {
@@ -104,10 +155,13 @@
 		}
 		
 		#select_label{font-size: 12px;margin-left: 20px;}
-		#attr_location{width : 130px;font-size: 10px;color: red;border-radius: 2px;}
-		#attr_age{width : 130px;font-size: 10px;color: red;border-radius: 2px;}
-		#attr_height{width : 130px;height:30px;font-size: 10px;color: red;border-radius: 2px;}
-		#attr_search{width : 130px;height:30px;font-size: 10px;color: red;margin-left: 40px;}
+		#attr_location{width : 130px;font-size: 10px;color: #1d1d1d;border-radius: 2px;}
+		#attr_age{width : 130px;font-size: 10px;color: #1d1d1d;border-radius: 2px;}
+		#attr_height{width : 130px;height:30px;font-size: 10px;color: #1d1d1d;border-radius: 2px;}
+		#attr_search{width : 130px;height:30px;font-size: 10px;color: #1d1d1d;margin-left: 40px;}
+		.button-3{width : 80%; font-size: 22px;}
+		.button-4{width : 60%; font-size: 20px; font-weight:300;}
+		.button-5{font-size: 18px; font-weight:200;}
 		
 }
 
@@ -122,10 +176,13 @@
 		   font-size: 60px; top:140px; left: 18%;
 			}
 		#select_label{font-size: 15px;margin-left: 20px;}
-		#attr_location{width : 130px;font-size: 12px;color: blue;border-radius: 4px;}
-		#attr_age{width : 130px;height:40px;font-size: 12px;color: blue;border-radius: 4px;}
-		#attr_height{width : 130px;height:40px;font-size: 12px;color: blue;border-radius: 2px;}
-		#attr_search{width : 400px;height:40px;font-size: 15px;color: blue;margin-left: 130px;}
+		#attr_location{width : 130px;font-size: 12px;color: #1d1d1d;border-radius: 4px;}
+		#attr_age{width : 130px;height:40px;font-size: 12px;color: #1d1d1d;border-radius: 4px;}
+		#attr_height{width : 130px;height:40px;font-size: 12px;color: #1d1d1d;border-radius: 2px;}
+		#attr_search{width : 400px;height:40px;font-size: 15px;color: #1d1d1d;margin-left: 130px;}
+		.button-3{width : 80%; font-size: 25px;}
+		.button-4{width : 40%; font-size: 20px;font-weight:300;}
+		.button-5{font-size: 18px; font-weight:250;}
 		
 }
 
@@ -141,10 +198,14 @@
 			}
 			
 		#select_label{font-size: 20px;margin-left: 5px;}
-		#attr_location{width : 170px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
-		#attr_age{width : 170px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
-		#attr_height{width : 120px;height : 44px;font-size: 14px;color: black;border-radius: 6px;}
-		#attr_search{width : 100px;height : 44px;font-size: 20px;color: black;}
+		#attr_location{width : 170px;height : 44px;font-size: 14px;color: #1d1d1d;border-radius: 6px;}
+		#attr_age{width : 170px;height : 44px;font-size: 14px;color: #1d1d1d;border-radius: 6px;}
+		#attr_height{width : 120px;height : 44px;font-size: 14px;color: #1d1d1d;border-radius: 6px;}
+		#attr_search{width : 100px;height : 44px;font-size: 20px;color: #1d1d1d;}
+		.button-3{width : 80%; font-size: 30px;}
+		.button-4{width : 20%; font-size: 25px;font-weight:350;}
+		.button-5{font-size: 20px; font-weight:300;}
+		
 }
 
 /* Desktop Device */
@@ -158,9 +219,15 @@
 			}
 		
 		#select_label{font-size: 24px;}
-		#attr_location{width : 190px;height : 45px; font-size: 15px;color: yellow;border-radius: 8px;}
-		#attr_age{width : 190px;height : 45px; font-size: 15px;color: yellow;border-radius: 8px;}
-		#attr_height{width : 160px;height : 45px; font-size: 15px;color: yellow;border-radius: 4px;}
-		#attr_search{width : 100px;height : 45px; font-size: 15px;color: yellow;}
+		#attr_location{width : 190px;height : 45px; font-size: 15px;color: #1d1d1d;border-radius: 8px;}
+		#attr_age{width : 190px;height : 45px; font-size: 15px;color: #1d1d1d;border-radius: 8px;}
+		#attr_height{width : 160px;height : 45px; font-size: 15px;color: #1d1d1d;border-radius: 4px;}
+		#attr_search{width : 100px;height : 45px; font-size: 15px;color: #1d1d1d;}
+		.button-3{width : 80%; font-size: 35px;}
+		.button-4{width : 20%; font-size: 25px; font-weight:400;}
+		.button-5{font-size: 20px; font-weight:350;}
 		
 }
+
+/* admin view 테이블*/
+
