@@ -210,8 +210,8 @@ table, th, td {
 	</div>
 	<!-- ajaxReturn: 버튼을 누르면 동작함! -->
 </form>
+    <br>
     <div id="ajaxReturn"></div>
-    
     <!--  ajaxReturn0 : 처음에 전체 화면 보여주는 용도 (버튼을 눌러야 동작하기 때문에) 버튼 누르면 값 없어짐 -->
 	<div id="ajaxReturn0">
      <div class="container">
@@ -421,6 +421,8 @@ $(function () {
   opacity: 1;
   transition-delay: 0.5s;
 }
+
+
 </style>
 
 

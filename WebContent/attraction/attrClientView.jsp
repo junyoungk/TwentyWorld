@@ -201,18 +201,26 @@
         <p><%=attr_price %> 원</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-2 .col-md-2"><br><br></div> 
-      <div class="col-lg-4 .col-md-4">
+      <div class="col-lg-4 .col-md-4" style="height: 150px;">
       <i class="far fa-address-card"></i>
         <h2>사용 가능 나이</h2>
         <p><%=attr_min_age %>살~<%=attr_max_age %>살 </p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4">
+      <div class="col-lg-4 .col-md-4" style="height: 150px;">
         <i class="fas fa-ruler"></i>
         <h2>사용 가능 신장</h2>
         <p style="height: 200px"><%=attr_min_height %>cm~<%=attr_max_height %>cm </p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
    <hr><br>
+	<div id = "attr_rule" >
+		<div id = "attr_rule_mini">안내 사항</div>
+			<p>- 안전한 어트랙션 이용을 위해서는 탑승 중 신체적 이상이 발생되지 않는
+			건강상태이어야 합니다.<br>
+			- 각 어트랙션에 게시된 탑승자 안전수칙 준수 및 근무자의 안내에 따라 주시기 바랍니다.<br>
+			- 탑승제한규정 및 기타 안전수칙 위반 시에는 어트랙션 이용 거부 또는
+			퇴장이 요구될 수 있습니다.<br></p>
+	</div><br><br>
    
    <button type="button" class="btn btn-outline-secondary" onclick="location.href = 'attrClientListMain.doat'">더 많은 어트랙션 보러가기 →</button>
    </div>
@@ -252,4 +260,27 @@
     </body>
 </html>
 
+<style>
+div#attr_rule{
+	width : 80%;
+	height : 160px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 10px;
+	line-height: 1.4;
+	margin-left: 10%
+}
+div#attr_rule_mini{
+	background: #e6a7a7;
+    position: relative;
+    top : -20px;
+    left:30px;
+	width : 20%;
+	height : 30px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 3px;
+	padding : 5px;
+}
 
+</style>
