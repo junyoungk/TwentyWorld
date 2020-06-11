@@ -104,23 +104,6 @@
               </div>
             </div>
 
-<<<<<<< HEAD
-<main role="main">
-  <h2 id ="attr_name"><%=attr_name %><h2>
-    <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
-    <div class="carousel-inner" >
-      <div class="carousel-item active">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" 
-      preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><img src="<%=attr_cardimg %>" ></svg>
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1></h1>
-=======
             <div class="d-block col-lg-1 logo text-center">
               <div class="mobile_ver d-block d-lg-none">
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
@@ -164,22 +147,9 @@
                <a href="logoutCheck.jsp">로그아웃</a>
                 <% } %>
             </div>           
->>>>>>> branch 'master' of https://github.com/junyoungk/TwentyWorld.git
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-      <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" 
-      preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><img src="<%=attr_img %>" ></svg>
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1></h1>
-          </div>
-        </div>
-      </div>
-      
-=======
 <div class="container">
   <h2 class="text-center" id ="attr_name"><%=attr_name %></h2>
   
@@ -191,11 +161,10 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="<%=attr_cardimg %>" alt="First slide">
->>>>>>> branch 'master' of https://github.com/junyoungk/TwentyWorld.git
+      <img class="d-block " src="<%=attr_cardimg %>" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="<%=attr_img %>" alt="Second slide">
+      <img class="d-block " src="<%=attr_img %>" alt="Second slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -214,7 +183,7 @@
 
   <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
+   
     <div class="row">
       <div class="col-lg-4 .col-md-4">
 		<i class="far fa-clock"></i>
@@ -231,44 +200,25 @@
 		<h2>현장 구매 가격</h2>
         <p><%=attr_price %> 원</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-2 .col-md-2" style = "height: 150px;"><br><br></div> 
-      <div class="col-lg-4 .col-md-4" style = "height: 150px;">
+      <div class="col-lg-2 .col-md-2"><br><br></div> 
+      <div class="col-lg-4 .col-md-4">
       <i class="far fa-address-card"></i>
         <h2>사용 가능 나이</h2>
         <p><%=attr_min_age %>살~<%=attr_max_age %>살 </p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4" style = "height: 150px;">
+      <div class="col-lg-4 .col-md-4">
         <i class="fas fa-ruler"></i>
         <h2>사용 가능 신장</h2>
         <p style="height: 200px"><%=attr_min_height %>cm~<%=attr_max_height %>cm </p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
    <hr><br>
-<<<<<<< HEAD
-		   <div id = "attr_rule" >
-		<div id = "attr_rule_mini">안내 사항</div>
-		<p>- 안전한 어트랙션 이용을 위해서는 탑승 중 신체적 이상이 발생되지 않는
-		건강상태이어야 합니다.<br>
-		- 각 어트랙션에 게시된 탑승자 안전수칙 준수 및 근무자의 안내에 따라 주시기 바랍니다.<br>
-		- 탑승제한규정 및 기타 안전수칙 위반 시에는 어트랙션 이용 거부 또는
-		퇴장이 요구될 수 있습니다.<br></p>
-		</div>
-		<br><br>
-    <div id="attr_back_menu"><a id="attr_menuback" class = "button button-3"
-      onclick="location.href = 'attrClientListMain.doat'">더 많은 어트랙션 보러가기 →</a></div>
-  
-
-  </main>
-
-  <div style="background-image: url();"></div>
-=======
    
    <button type="button" class="btn btn-outline-secondary" onclick="location.href = 'attrClientListMain.doat'">더 많은 어트랙션 보러가기 →</button>
    </div>
 	
 <!--   <div style="background-image: url();"></div>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
->>>>>>> branch 'master' of https://github.com/junyoungk/TwentyWorld.git
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
@@ -301,7 +251,5 @@
 	</div>
     </body>
 </html>
-
-
 
 
