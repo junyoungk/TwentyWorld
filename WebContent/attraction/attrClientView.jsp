@@ -186,36 +186,36 @@
 
    
     <div class="row">
-      <div class="col-lg-4 .col-md-4">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;">
 		<i class="far fa-clock fa-3x"></i>
         <h2>소요 시간</h2>
-        <p> <%=attr_time %> 분<br>&nbsp;</p>
+        <p style="font-size: 30px;"> <%=attr_time %> 분<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;">
       <i class="fas fa-users fa-3x"></i>
 			<h2>탑승 최대 인원</h2>
-        <p><%=attr_max %> 명<br>&nbsp;</p>
+        <p style="font-size: 30px;"><%=attr_max %> 명<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;">
       <i class="far fa-credit-card fa-3x"></i>
 		<h2>현장 구매 가격</h2>
-        <p><%=attr_price %> 원</p>
+        <p style="font-size: 30px;"><%=attr_price %> 원</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-2 .col-md-2"><br><br></div> 
-      <div class="col-lg-4 .col-md-4" style="height: 150px;">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;height: 200px;">
       <i class="far fa-address-card fa-3x" ></i>
         <h2>사용 가능 나이</h2>
-        <p><%=attr_min_age %>살~<%=attr_max_age %>살 </p>
+        <p style="font-size: 30px; "><%=attr_min_age %>살~<%=attr_max_age %>살 </p><br><br>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4" style="height: 150px;">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;height: 150px;">
         <i class="fas fa-ruler fa-3x"></i>
         <h2>사용 가능 신장</h2>
-        <p style="height: 200px"><%=attr_min_height %>cm~<%=attr_max_height %>cm </p>
+        <p style="height: 200px; font-size: 30px;"><%=attr_min_height %>cm~<%=attr_max_height %>cm </p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
    <hr><br>
 	<div id = "attr_rule" >
-		<div id = "attr_rule_mini">안내사항</div>
+		<div id = "attr_rule_mini" class = "attr_rule_mini">안내사항</div>
 			<p>- 안전한 어트랙션 이용을 위해서는 탑승 중 신체적 이상이 발생되지 않는
 			건강상태이어야 합니다.<br>
 			- 각 어트랙션에 게시된 탑승자 안전수칙 준수 및 근무자의 안내에 따라 주시기 바랍니다.<br>
@@ -276,12 +276,13 @@ div#attr_rule_mini{
     position: relative;
     top : -20px;
     left:30px;
-	width : 23%;
+	width : 50%;
 	height : 5%;
 	text-align: center;
 	vertical-align: middle;
 	border-radius: 3px;
 	padding : 5px;
+	font-size: 20px;
 }
 .myCopy {
 	width : 60%;
@@ -301,4 +302,24 @@ div#attr_rule_mini{
     padding: 0 10px;
 }
 
+		
+/* Tablet &amp; Desktop Device */
+@media all and (min-width:580px) {
+		div#attr_rule_mini{width : 50%;}
+}
+
+/* Tablet Device */
+@media all and (min-width:768px) and (max-width:992px) {
+		div#attr_rule_mini{width : 40%;}
+}
+
+/* Desktop Device */
+@media all and (min-width: 992px) {
+		div#attr_rule_mini{width : 30%;}
+}
+
+/* Desktop Device */
+@media all and (min-width:1200px) {
+		div#attr_rule_mini{width : 25%;}
+}
 </style>
