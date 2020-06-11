@@ -108,7 +108,7 @@ if(session.getAttribute("userID") != null){
 				</div>
 			</div>
 		</div>
-		<div class="headerimg"><img src="../upload/imggg.PNG"/></div>
+		<div class="headerimg"><img src="../upload/imggg.png"/></div>
 		
 		<div class="container">
 		

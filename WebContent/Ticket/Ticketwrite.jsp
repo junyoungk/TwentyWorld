@@ -179,7 +179,7 @@
 		<div class="container">
 			<%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 			<div class="wrap">
-		<div class="imgbox"></div>
+		<div class="imgbox"><img src="../upload/ticketwrite.jpg"></div>
 				<div class="form-wrap">
 					<form id="frm" class="input-group" name="frm"
 						action="TicketwriteOk.doi" method="post"

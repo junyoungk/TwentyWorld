@@ -36,9 +36,7 @@
     background: transparent;
 }
 
-div .imgbox{
-	
-   background-image: url(https://korean.visitseoul.net/comm/getImage?srvcId=MEDIA&parentSn=14920&fileTy=MEDIA&fileNo=1&thumbTy=L); 
+div .imgbox img{
    width: 750px;
    height: 500px;
    position: absolute;

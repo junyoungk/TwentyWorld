@@ -155,7 +155,7 @@
 				</c:choose>
 			</div>
 			<div class="yab">
-			<button  id="ya"  onclick="location.href='Ticketwrite.doi'"><h4>추가</h4></button>
+			<button  id="ya" onclick="location.href='Ticketwrite.doi'"><h4>추가</h4></button>
 			</div>
 	
 		</div>

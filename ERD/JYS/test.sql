@@ -22,15 +22,18 @@ INSERT INTO TICKET  VALUES (4, '고양이4이용권', 15000, 'rhdiddl.jpg');
 INSERT INTO TICKET  VALUES (5, '쿼카5이용권', 15000, 'znjzhk.jpg');
 INSERT INTO TICKET  VALUES (6, '팬더반년회원권', 120000, 'vosej.jpg');
 INSERT INTO TICKET  VALUES (7, '기린연간회원권', 200000, 'rlfls.jpg');
+INSERT INTO TICKET  VALUES (8, '기린연간회원권', 200000, 'rlfls.jpg');
+INSERT INTO TICKET  VALUES (9, '기린연간회원권', 200000, 'dog.jpg'); 
+INSERT INTO TICKET  VALUES (10, '기린연간회원권', 200000, 'a.png'); 
 
 
 
 //
 SELECT t.ticket_name, t.ticket_price ,t.ticket_img FROM TICKET t , USERS u WHERE u.user_uid = 1;
-SELECT * FROM TICKET WHERE ticket_id = 4;
+SELECT * FROM TICKET WHERE ticket_id > 0;
 SELECT * FROM TICKET ORDER BY TICKET_ID ASC;
 
-DELETE FROM TICKET WHERE TICKET_ID > 0;
+DELETE FROM TICKET WHERE TICKET_ID > 9;
 DELETE FROM TICKETBUY WHERE TICKET_ID > 0;
  
 회원   티켓   고유번호

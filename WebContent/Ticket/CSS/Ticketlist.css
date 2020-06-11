@@ -54,11 +54,11 @@ div .sun{
 	height: 200px;
 }
 .yab #ya{
-	position:fixed;right:200px;bottom:200px;z-index:1000;
-	height: 120px;
-	width: 120px;
+	position:fixed;right:100px;bottom:300px;z-index:1000;
+	height: 100px;
+	width: 100px;
 	border-radius : 50%; 
-	background-color: red;
+	background-color: #fdbb42;
 	
 }
 
