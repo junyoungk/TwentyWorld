@@ -97,9 +97,6 @@
 							<a href="../login/intro.jsp">소개 / 오시는 길</a> <a
 								href="../attraction/attrClientListMain.jsp">어트랙션</a> <a
 								href="../board/list.do">자유게시판</a>
-							<h3>
-								세션값 :
-								<%=userID%></h3>
 							<%
 								if (userID == 0) {
 							%>
@@ -157,9 +154,6 @@
 					</div>
 					<div
 						class="d-none d-lg-block col-lg-2 text-center align-self-center">
-						<h3>
-							세션값 :
-							<%=userID%></h3>
 						<%
 							if (userID == 0) {
 						%>
@@ -191,12 +185,12 @@
 						이용권이름 <input type="text" class="input-field" name="name" /><br>
 						이용권 가격 <input type="text" class="input-field" name="price" value="${select[0].ticket_price }"><br>
 						티켓이미지 <input type="file" class="input-field" name="img" id="img" accept="image/*" onchange="fileCheck(this)"><br>
-							<input class="btn" type="submit" value="추가" />
-						<button class="btn" type="button"
-							onclick="location.href='Ticketlist.doi'">목록으로</button>
+							<input class="btn" type="submit"  value="추가" />
+						<button class="btn" type="button"onclick="location.href='Ticketlist.doi'">목록으로</button>
 					</form>
 				</div>
 		
+
 			</div>
 		</div>
 		<%@ include file="../HF/footer.jsp"%>

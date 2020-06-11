@@ -45,9 +45,6 @@
 							<a href="../login/intro.jsp">소개 / 오시는 길</a> <a
 								href="../attraction/attrClientListMain.jsp">어트랙션</a> <a
 								href="../board/list.do">자유게시판</a>
-							<h3>
-								세션값 :
-								<%=userID%></h3>
 							<%
 								if (userID == 0) {
 							%>
@@ -105,9 +102,7 @@
 					</div>
 					<div
 						class="d-none d-lg-block col-lg-2 text-center align-self-center">
-						<h3>
-							세션값 :
-							<%=userID%></h3>
+			
 						<%
 							if (userID == 0) {
 						%>
