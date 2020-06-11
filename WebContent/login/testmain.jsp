@@ -164,25 +164,25 @@
 	</div>
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-            <a href="#">
+            <a href="../board/list.do?col=none&word=연간이용안내">
               <img class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img1.jpg" alt="">
               <span>연간이용안내</span>
             </a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-            <a href="#">
+            <a href="../board/list.do?col=none&word=프리미엄투어">
               <img  class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img2.jpg" alt="">
               <span>프리미엄투어</span>
             </a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-            <a href="#">
+            <a href="../board/list.do?col=none&word=공연참여">
               <img  class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img3.jpg" alt="">
               <span>공연참여 프로그램</span>
             </a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-            <a href="#">
+            <a href="../board/list.do?col=none&word=단체 프로그램">
               <img   class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img4.jpg" alt="">
               <span>단체 프로그램</span>
             </a>

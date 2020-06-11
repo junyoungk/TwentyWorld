@@ -173,11 +173,11 @@ ${fn:replace(read[0].board_content,cn,br) }
 			<div class="card mb-2">
 			  <div class="card-header">
 			    작성자 - ${reply.writeName }
+			    <button type="button" class="btn btn-outline-secondary btn-sm float-right" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
 			  </div>
 			  <div class="card-body">
 			    <h5 class="card-title">${fn:replace(reply.reply_comment,cn,br) }</h5>
 			    <p class="card-text">등록일 - ${reply.reply_regdate }</p>
-			    <button type="button" class="btn btn-outline-secondary btn-sm float-right" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
 			  </div>
 			</div>
 			
@@ -257,7 +257,7 @@ ${fn:replace(read[0].board_content,cn,br) }
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">게시물 삭제</h5>
+        <h5 class="modal-title" id="exampleModalLabel">게시물 +삭제</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

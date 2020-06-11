@@ -56,7 +56,7 @@ $(document).ready(function(){
 		<div class="header">
 			<div class="container">
 				<div class="row">
-					<div id="myNav" class="overlay">
+					<div id="myNav" class="overlay">http://localhost:8083/TwentyWorld/board/list.jsp
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<div class="overlay-content">
 							 <a href="../login/intro.jsp">20's World 소개</a>
