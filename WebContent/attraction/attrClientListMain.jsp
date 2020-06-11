@@ -190,7 +190,7 @@ table, th, td {
 		</select>
     </div>
     
-    <div id = "attr_select">
+    <div id = "attr_select">  
 	    <label id = "select_label">나이 : </label>
     	<select name="attr_age" id="attr_age" style="background: white;">
 			<option value="2222">상관없음</option>
