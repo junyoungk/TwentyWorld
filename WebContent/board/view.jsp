@@ -43,10 +43,7 @@
 <script>
 function chkDelete(uid){
 	// 삭제 여부, 다시 확인 하고 진행하기
-	var r = confirm("삭제하시겠습니까?");
-	if(r){
 		location.href = 'deleteOk.do?uid='+uid;
-	}
 }
 
 </script>
@@ -231,9 +228,9 @@ ${fn:replace(read[0].board_content,cn,br) }
 
 <c:if test="${read[0].board_writeuid == (sessionScope.sessionName = userID) || (sessionScope.sessionName = userID) == 1 }">
 	<button  class="btn btn-dark mb-3 float-right m-2" onclick="location.href='update.do?uid=${read[0].board_id }'">수정</button>
-	<button  class="btn btn-dark mb-3 float-right m-2" onclick="chkDelete(${read[0].board_id })">삭제</button>
+	<button  class="btn btn-dark mb-3 float-right m-2" data-toggle="modal" data-target="#exampleModal">삭제</button>
 </c:if>
-<div style="clear:both"></div>
+<div style="clear:both"></div>	
 </div>
 <br><br><br>
 <hr>
@@ -273,6 +270,25 @@ ${fn:replace(read[0].board_content,cn,br) }
 <hr>
 
 <button class="btn btn-dark" onclick="location.href = 'list.do'">목록보기</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">게시물 삭제</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>정말로 글을 삭제하시겠습니까??</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" onclick="chkDelete(${read[0].board_id})">삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <%@ include file="../HF/footer.jsp" %>
      <script>
