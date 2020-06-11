@@ -143,20 +143,40 @@ function chkDelete(id){
 				</div>
 			</div>
 		</div>
+		</div>
 		<div class="container">
 			
 		<div class="con">
 			<input type="hidden" name="uid"
 				value="<%=session.getAttribute("userID")%>" />
 			<img id="ticketlistimg"
-			src="${pageContext.request.contextPath}/upload/${read[0].ticket_img }"
-			class="img-fluid" alt="Responsive image" />
+			src="${pageContext.request.contextPath}/upload/${read[0].ticket_img }" alt="Responsive image" />
 			<br>
-			<h2>이용권분류 : ${read[0].ticket_id }</h2><br>
-			<h2>이용권이름 : ${read[0].ticket_name }</h2><br> 
-			<h2>이용권가격 : ${read[0].ticket_price }</h2><br>
-			<h2>이미지파일명 : ${read[0].ticket_img }</h2><br>
-			
+			<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">이용권분류</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="No. ${read[0].ticket_id }">
+					</div>
+			<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">이용권이름</span>
+					  </div>	
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="No. ${read[0].ticket_name }">
+					</div>
+			<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">이용권가격</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="No. ${read[0].ticket_price }">
+					</div>
+			<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">이용권파일명</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="No. ${read[0].ticket_img }">
+					</div>
+
 			<hr>
 			<br>
 			<button class="btn btn-secondary" onclick="location.href='Ticketupdate.doi?id=${read[0].ticket_id }'">수정</button>
