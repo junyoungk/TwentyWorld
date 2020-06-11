@@ -176,7 +176,7 @@ $('#btnAdd').click(function(){
   <div class="input-group-prepend">
     <span class="input-group-text">내용</span>
   </div>
-  <textarea name="content" class="form-control" style="height: 350px"></textarea>
+  <textarea name="content" class="form-control" style="height: 350px; resize:none;"></textarea>
 </div>
 
 <input class='btn btn-dark btn-sm float-right' type="submit" value="게시"/>

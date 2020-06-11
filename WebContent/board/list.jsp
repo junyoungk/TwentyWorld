@@ -172,10 +172,11 @@ $(document).ready(function(){
 										<td>${dto.board_category }</td>
 										<td>${dto.writeName }</td>
 										<td><a href="view.do?uid=${dto.board_id }"
-											class="card-link">${dto.board_subject }</a> <c:if
-												test="${recnt[status.index] != 0}">
+											class="card-link">${dto.board_subject }</a> 
+											<c:if test="${recnt[status.index] != 0}">
 												<b>[${recnt[status.index]}]</b>
-											</c:if></td>
+											</c:if>
+										</td>
 										<td>${dto.board_viewcnt }</td>
 										<td>${dto.board_regdate }</td>
 									</tr>

@@ -192,13 +192,42 @@ UPDATE users SET user_name = '운영자' WHERE user_uid = 1;
 SELECT * FROM board ORDER BY board_id desc;
 SELECT * FROM boardImg;
 
+
 /*2020-06-11 초기 DB INSERT, CREATE 설정*/
 
+INSERT INTO users VALUES (user_SEQ.nextval, 'junyoung', 1019, '김준영', '남자', '1234561111111', 27, 3000, '123@gmail.com', ''); /*내 계정*/
+
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '자유 게시판 인서트' , '이곳은 자유 게시판입니다 자유롭게 이용하세요!!', 1, 0, 1, '자유');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '와! 자유게시판이다!1' , '자유 게시판이네 1', 1, 0, 1, '자유');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '와! 자유게시판이다!2' , '자유 게시판이네 2', 1, 0, 1, '자유');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '와! 자유게시판이다!3' , '자유 게시판이네 3', 1, 0, 1, '자유');
+
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 인서트' , '이곳은 기타사항에 대한 게시판입니다. 자유롭게 이용하세요!!', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 1' , '기타 게시판에는 뭘 쓰지1', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 2' , '기타 게시판에는 뭘 쓰지2', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 3' , '기타 게시판에는 뭘 쓰지3', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 4' , '기타 게시판에는 뭘 쓰지4', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 5' , '기타 게시판에는 뭘 쓰지5', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 6' , '기타 게시판에는 뭘 쓰지6', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 7' , '기타 게시판에는 뭘 쓰지7', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 8' , '기타 게시판에는 뭘 쓰지8', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 9' , '기타 게시판에는 뭘 쓰지9', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 10' , '기타 게시판에는 뭘 쓰지10', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 11' , '기타 게시판에는 뭘 쓰지11', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 12' , '기타 게시판에는 뭘 쓰지12', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 13' , '기타 게시판에는 뭘 쓰지13', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 14' , '기타 게시판에는 뭘 쓰지14', 1, 0, 1, '기타');
+
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '공지 게시판 인서트' , '이곳은 공지게시판 입니다, 20대월드 관련 공지사항에 대해 알려드립니다', 1, 0, 3000, '공지');
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '공지 게시판 이용사항' , '공지 게시판은 관리자만이 생성 가능합니다.', 1, 0, 3000, '공지');
+
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '행사 게시판 인서트' , '이곳은 행사 게시판입니다, 현 시간 20대 월드에서 진행중이거나 진행할 행사에 대해 알려 드립니다!', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '퍼레이드 행사' , '잠시후 15:00시 부터 퍼레이드가 있을 예정입니다', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '삼성페이 할인 행사' , '삼성페이로 이용권을 구매하시는 고객께는 10% 추가할인이 적용됩니다.', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '20대 할인 행사' , '20대월드에 오신 20대 이용고객님은 자유 이용권이 반값!', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '코로나 할인 행사' , '모두가 불편하고 힘든 코로나 20대 월드 로고가 들어간 마스크가 공짜입니다!', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '전 기구 20% 세일' , '8월4일까지 전 기구 이용요금이 20% 세일 적용', 1, 0, 3000, '행사');
+
 INSERT INTO board VALUES (board_seq.nextval, sysdate, '코로나 관련 공지사항', '코로나 관련 서울시청에서 내려온 공지사항 입니다. 20대월드 이용고객께서는 관련 사항을 필독하시고 숙지해주시기 바랍니다. 
 1. 마스크를 착용해주세요.
 2. 월드내에 비치된 손 세정제를 사용해주세요. 
@@ -207,23 +236,10 @@ INSERT INTO board VALUES (board_seq.nextval, sysdate, '코로나 관련 공지�
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '코로나 확진자 발생!!' , '롯데월드에 코로나 확진자가 발생하였습니다. 모두 20대월드로 오새요!!! 롯데월드 가지마세요', 1, 0, 3000, '공지');
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '5MEN 사이트 제휴 안내' , '5MEN 사이트에서 20대월드 이용 서적을 판매하고 있습니다.
 5MEN 사이트를 적극 이용해 주세요!', 1, 0, 3000, '공지');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '오늘의 집 사이트 제휴 안내' , '오늘의 집 사이트가 개설되었습니다,
+각자의 집을 예쁘게 꾸며 보세요!!', 1, 0, 3000, '공지');
 
 
-CREATE TABLE boardImg
-(
-	bi_uid number NOT NULL,
-	bi_source varchar2(200) NOT NULL,
-	bi_file varchar2(200) NOT NULL,
-	board_id number NOT NULL,
-	PRIMARY KEY (bi_uid)
-);
-
-ALTER TABLE boardImg
-	ADD FOREIGN KEY (board_id)
-	REFERENCES board (board_id)
-;
-
-CREATE SEQUENCE boardImg_SEQ;
 
 
 

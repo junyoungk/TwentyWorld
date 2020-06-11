@@ -218,9 +218,11 @@ ${fn:replace(read[0].board_content,cn,br) }
 	  <div class="input-group-prepend">
 	    <span class="input-group-text">댓글</span>
 	  </div>
-	  <textarea name="reply_comment" class="form-control"></textarea>
+	  <textarea style="resize: none;" name="reply_comment" class="form-control"></textarea>
+	  <div class="input-group-append">
+    	<input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="댓글게시"/>
+  	</div>
 	</div>
-	<input class="btn btn-dark mb-3" type="submit" value="댓글게시"/>
 	</c:otherwise>
 </c:choose>
 
@@ -237,12 +239,12 @@ ${fn:replace(read[0].board_content,cn,br) }
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-4">
-      이전글<i class="fas fa-arrow-up"></i>
+      이전글 &nbsp<i class="fas fa-arrow-up"></i>
     </div>
     <div class="col-4">
       <c:choose>
 <c:when test="${prev != null }">
-<a href="view.do?uid=${prev[0].board_id }">${prev[0].board_subject }</a>
+<a class="badge badge-light" style="font-size: 1.3em" href="view.do?uid=${prev[0].board_id }">${prev[0].board_subject }</a>
 </c:when>
 <c:otherwise>
 <span>이전글이 없습니다!</span>
@@ -253,12 +255,12 @@ ${fn:replace(read[0].board_content,cn,br) }
   <hr>
  <div class="row justify-content-center">
     <div class="col-4">
-      다음글<i class="fas fa-arrow-down"></i>
+      다음글 &nbsp<i class="fas fa-arrow-down"></i>
     </div>
     <div class="col-4">
       <c:choose>
 <c:when test="${next != null }">
-<a href="view.do?uid=${next[0].board_id }">${next[0].board_subject }</a>
+<a class="badge badge-light" style="font-size: 1.3em" href="view.do?uid=${next[0].board_id }">${next[0].board_subject }</a>
 </c:when>
 <c:otherwise>
 <span>다음글이 없습니다!</span>
