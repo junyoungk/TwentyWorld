@@ -128,7 +128,7 @@
     <div class="row">
       <div class="col-lg-4 .col-md-4">
 		<i class="far fa-clock"></i>
-        <h2>소요 시간</h2>
+        <h2>소요 시간</h2> 
         <p> <%=attr_time %> 분<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4 .col-md-4">
