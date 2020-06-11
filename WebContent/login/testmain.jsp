@@ -34,7 +34,8 @@
             <div id="myNav" class="overlay">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <div class="overlay-content">
-                <a href="../login/intro.jsp">소개 / 오시는 길</a>
+                <a href="../login/intro.jsp">20's World 소개</a>
+                <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
                  <h3>세션값 : <%= userID %></h3>
@@ -60,8 +61,10 @@
                 <li class="nav-item list-group-item dropdown">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="../login/intro.jsp">소개 글 및 오시는 길</a>
+                    <a class="dropdown-item" href="../login/intro.jsp">20's World 소개</a>
+                     <a class="dropdown-item" href="../login/howtocome.jsp">오시는 길</a>
                   </div>
+                  
                 </li>
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
@@ -196,17 +199,17 @@
       Board[] arr1 = dao.boardGonggi();
       %>
         <ul>
-          <li><a href="../board/view.do?uid=<%=arr1[0].getBoard_id()%>"><%= arr1[0].getBoard_subject()%></a> <span><%= arr1[0].getBoard_regdate() %></span></li>
-          <li><a href="../board/view.do?uid=<%=arr1[1].getBoard_id()%>"><%= arr1[1].getBoard_subject()%></a> <%= arr1[1].getBoard_regdate() %></li>
-          <li><a href="../board/view.do?uid=<%=arr1[2].getBoard_id()%>"><%= arr1[2].getBoard_subject()%></a> <%= arr1[2].getBoard_regdate() %></li>
-          <li><a href="../board/view.do?uid=<%=arr1[3].getBoard_id()%>"><%= arr1[3].getBoard_subject()%></a> <%= arr1[3].getBoard_regdate() %></li>
-          <li><a href="../board/view.do?uid=<%=arr1[4].getBoard_id()%>"><%= arr1[4].getBoard_subject()%></a> <%= arr1[4].getBoard_regdate() %></li>
+          <li><a href="../board/view.do?uid=<%=arr1[0].getBoard_id()%>"><span class="short-gongji"><%= arr1[0].getBoard_subject()%></span> <span><%= arr1[0].getBoard_regdate() %></span></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[1].getBoard_id()%>"><span class="short-gongji"><%= arr1[1].getBoard_subject()%></span> <span><%= arr1[1].getBoard_regdate() %></span></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[2].getBoard_id()%>"><span class="short-gongji"><%= arr1[2].getBoard_subject()%></span> <span><%= arr1[2].getBoard_regdate() %></span></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[3].getBoard_id()%>"><span class="short-gongji"><%= arr1[3].getBoard_subject()%></span> <span><%= arr1[3].getBoard_regdate() %></span></a></li>
+          <li><a href="../board/view.do?uid=<%=arr1[4].getBoard_id()%>"><span class="short-gongji"><%= arr1[4].getBoard_subject()%></span> <span><%= arr1[4].getBoard_regdate() %></span></a></li>
         </ul>
       </div>
-      <button type="button" class="btn btn-light btn-sm" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
+      <button type="button" class="btn btn-light btn-sm" onclick="location.href='../board/list.do'" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
     </div>
     <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
-    	<img src="https://adventure.lotteworld.com/image/2019/12/201912060405241830.jpg"/>
+    	<img src="https://adventure.lotteworld.com/image/2019/12/201912060405241830.jpg" style="width: 100%; padding-top: 20px;height: 100%;"/>
     </div>
   </div>
 </div>

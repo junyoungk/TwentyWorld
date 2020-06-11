@@ -3,7 +3,7 @@
 /* 관리차 추가 */
 
 INSERT INTO USERS VALUES
-(user_SEQ.nextval, '관리자','1234','관리자','','111111111111',100,3000,'a@n.com','-');
+(user_SEQ.nextval, 'ADMIN','1234','ADMIN','','111111111111',100,3000,'admin@admin.com','-');
 
 /* 테이블 확인 */
 SELECT * FROM USERS ORDER BY USER_UID DESC ;

@@ -22,7 +22,12 @@
  
  <% if (a.equals("없음")) { %>
 	<script>
-		alert('일치하는 정보가 없습니다.');
+	<div class="alert alert-primary">
+	Click X to Close
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
 		history.back();
 	</script>
 <% } else { %>

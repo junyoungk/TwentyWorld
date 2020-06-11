@@ -121,7 +121,7 @@ function chkSubmit(){
   <div class="input-group-prepend">
     <span class="input-group-text">내용</span>
   </div>
-  <textarea name="content" class="form-control" style="height: 350px">${selec[0].board_content }</textarea>
+  <textarea name="content" class="form-control" style="height: 350px; resize: none">${selec[0].board_content }</textarea>
 </div>
 <br>
 
