@@ -180,10 +180,9 @@ ${fn:replace(read[0].board_content,cn,br) }
 			    <button type="button" class="btn btn-outline-secondary btn-sm float-right" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
 			  </div>
 			</div>
-			<div>
-			</div>	
+			
 			</c:forEach>
-			</c:otherwise>
+			</c:otherwise> 
 		</c:choose>
 
 <form name="frm" action="ReplywriteOk.do" method="post">
