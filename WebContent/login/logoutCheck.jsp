@@ -5,6 +5,10 @@
 <%
 	request.setCharacterEncoding("utf-8");  // 한글 인코딩 꼭!
 %>
+
+
+ <!-- Bootstrap CSS -->
+   
 <jsp:useBean id="dto" class="CKJY.UserDTO" scope="page"/>
 <jsp:setProperty property="user_id" name="dto"/>
 <jsp:setProperty property="user_pw" name="dto"/>

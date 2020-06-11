@@ -7,8 +7,14 @@ DROP TABLE reply CASCADE CONSTRAINTS;
 DROP TABLE board CASCADE CONSTRAINTS;
 DROP TABLE ticketbuy CASCADE CONSTRAINTS;
 DROP TABLE ticket CASCADE CONSTRAINTS;
+DROP TABLE BOARDIMG CASCADE CONSTRAINTS;
 
-
+DROP SEQUENCE user_SEQ;
+DROP SEQUENCE reply_SEQ;
+DROP SEQUENCE board_SEQ;
+DROP SEQUENCE ticketbuy_SEQ;
+DROP SEQUENCE ATTRACTION_WRITE_SEQ;
+DROP SEQUENCE boardImg_SEQ;
 
 
 
@@ -23,7 +29,7 @@ CREATE TABLE users
 	user_jumin varchar2(13) NOT NULL,
 	user_age number NOT NULL,
 	user_authorize number NOT NULL,
-	user_email varchar2(30) NOT NULL,
+	user_email varchar2(50) NOT NULL,
 	user_cardnum varchar2(20),
 	PRIMARY KEY (user_uid)
 );
@@ -31,22 +37,22 @@ CREATE TABLE users
 
 CREATE TABLE attraction
 (
-	attr_id number NOT NULL,
-	att_max number NOT NULL,
-	attr_time number NOT NULL,
-	attr_price number NOT NULL,
-	attr_content clob,
-	attr_name varchar2(20) NOT NULL,
-	attr_location varchar2(5) NOT NULL,
-	attr_min_age number,
-	attr_max_age number,
-	attr_min_height number,
-	attr_max_height number,
-	attr_authorize number NOT NULL,
-	attr_regDate date NOT NULL,
-	attr_img varchar2(30),
-	attr_cardimg varchar2(30),
-	PRIMARY KEY (attr_id)
+attr_id number NOT NULL,
+attr_max number NOT NULL, --탑승최대인원
+attr_time number NOT NULL,
+attr_price number NOT NULL,
+attr_content clob NOT NULL, --NN추가
+attr_name varchar2(50) NOT NULL, --50으로 바꿈
+attr_location number NOT NULL, --넘버로 바꿈
+attr_min_age NUMBER  NOT NULL, --NN추가
+attr_max_age NUMBER  NOT NULL, --NN추가
+attr_min_height number NOT NULL, --NN추가
+attr_max_height number NOT NULL, --NN추가
+attr_authorize number NOT NULL,
+attr_regDate date,
+attr_cardimg varchar2(300) NOT NULL, --NN추가
+attr_img varchar2(300) NOT NULL, --NN추가
+PRIMARY KEY (attr_id)
 );
 
 
@@ -54,9 +60,8 @@ CREATE TABLE board
 (
 	board_id number NOT NULL,
 	board_regdate date NOT NULL,
-	board_subject varchar2(30) NOT NULL,
-	board_content clob,
-	board_img varchar2(30),
+	board_subject varchar2(200) NOT NULL,
+	board_content clob,	
 	board_writeuid number NOT NULL,
 	board_viewcnt number NOT NULL,
 	board_authorize number NOT NULL,
@@ -103,6 +108,22 @@ CREATE TABLE ticketbuy
 );
 
 
+CREATE TABLE boardImg
+(
+	bi_uid number NOT NULL,
+	bi_source varchar2(200) NOT NULL,
+	bi_file varchar2(200) NOT NULL,
+	board_id number NOT NULL,
+	PRIMARY KEY (bi_uid)
+);
+
+/* create sequence */
+CREATE SEQUENCE user_SEQ;
+CREATE SEQUENCE reply_SEQ;
+CREATE SEQUENCE board_SEQ;
+CREATE SEQUENCE ticketbuy_SEQ;
+CREATE SEQUENCE ATTRACTION_WRITE_SEQ;
+CREATE SEQUENCE boardImg_SEQ;
 
 
 
@@ -123,38 +144,50 @@ ALTER TABLE reply
 
 ALTER TABLE ticketbuy
 	ADD FOREIGN KEY (ticket_id)
-	REFERENCES ticket (ticket_id)
+	REFERENCES ticket (ticket_id) ON DELETE CASCADE
+;
+
+ALTER TABLE boardImg
+	ADD FOREIGN KEY (board_id)
+	REFERENCES board (board_id) ON DELETE CASCADE
 ;
 
 
-	
 
-ALTER TABLE BOARD 
-	ADD CONSTRAINT board_writeuid FOREIGN KEY(BOARD_WRITEUID) REFERENCES users(user_uid) ON DELETE CASCADE;
+ALTER TABLE BOARD ADD CONSTRAINT board_writeuid FOREIGN KEY(BOARD_WRITEUID) REFERENCES users(user_uid) ON DELETE CASCADE;
 
 
-ALTER TABLE likes
-	ADD FOREIGN KEY (user_uid)
-	REFERENCES users (user_uid)
+ALTER TABLE likes ADD FOREIGN KEY (user_uid) REFERENCES users (user_uid)
 ;
 
 
-ALTER TABLE reply
-	ADD FOREIGN KEY (reply_useruid)
-	REFERENCES users (user_uid) ON DELETE CASCADE
+ALTER TABLE reply ADD FOREIGN KEY (reply_useruid) REFERENCES users (user_uid) ON DELETE CASCADE
 ;
 
 
-ALTER TABLE ticketbuy
-	ADD FOREIGN KEY (user_uid)
-	REFERENCES users (user_uid) ON DELETE CASCADE
+ALTER TABLE ticketbuy ADD FOREIGN KEY (user_uid) REFERENCES users (user_uid) ON DELETE CASCADE
 ;
 
-CREATE SEQUENCE attraction_SEQ;
-CREATE SEQUENCE user_SEQ;
-CREATE SEQUENCE reply_SEQ;
-CREATE SEQUENCE board_SEQ;
-CREATE SEQUENCE ticketbuy_SEQ;
+
+/* 넣어야할 값들 */
+
+
+
+INSERT INTO USERS VALUES
+(user_SEQ.nextval, 'ADMIN','1234','ADMIN','','111111111111',100,3000,'admin@admin.com','-');
+
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '행사 게시판 인서트' , '이곳은 행사 게시판입니다 진행되는 행사에 대해 알려드려요', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 인서트' , '이곳은 기타 게시판입니다 진행되는 기타에 대해 알려드려요', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '공지 게시판 인서트' , '이곳은 공지 게시판입니다 진행되는 공지에 대해 알려드려요', 1, 0, 3000, '공지');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '자유 게시판 인서트' , '이곳은 자유 게시판입니다 진행되는 자유에 대해 알려드려요', 1, 0, 1, '자유');
+
+
+
+
+
+
+
+/* 밑에는 그냥 확인용 */
 
 SELECT * FROM USERS;
 
