@@ -98,14 +98,14 @@ frm = document.forms["frm"];
 	if(!fileCheck2){ alert("메인 카드 이미지 파일을 첨부해 주세요"); return false; }
 	
 	if(attr_location == 2222){ alert("장소를 반드시 선택해야 합니다!"); frm["attr_location"].focus(); return false;}
-	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
-	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
-	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(attrTime == ""){ alert("소요시간은 반드시 입력해야 합니다!"); frm["attr_time"].focus(); return false;}
+	if(attrMax == ""){ alert("최대탑승인원수는 반드시 입력해야 합니다!"); frm["attr_max"].focus(); return false;}
+	if(attrPrice == ""){ alert("가격은 반드시 입력해야 합니다!"); frm["attr_price"].focus(); return false;}
 	
-	if(minAge == ""){ alert("최소나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
-	if(maxAge == ""){ alert("최대나이는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
-	if(minHeight == ""){ alert("최소키는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
-	if(maxHeight == ""){ alert("최대키는 반드시 입력해야 합니다!"); frm["attr_content"].focus(); return false;}
+	if(minAge == ""){ alert("최소나이는 반드시 입력해야 합니다!"); frm["attr_min_age"].focus(); return false;}
+	if(maxAge == ""){ alert("최대나이는 반드시 입력해야 합니다!"); frm["attr_max_age"].focus(); return false;}
+	if(minHeight == ""){ alert("최소키는 반드시 입력해야 합니다!"); frm["attr_min_height"].focus(); return false;}
+	if(maxHeight == ""){ alert("최대키는 반드시 입력해야 합니다!"); frm["attr_max_height"].focus(); return false;}
 
 	if(minAge < 0 || maxAge < 0 || minHeight < 0 || maxHeight < 0){
 		alert("나이와 키는 0이상이여야 합니다."); return false; }
@@ -200,8 +200,8 @@ frm = document.forms["frm"];
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">기구 내용</span>
   </div>
-  <textarea type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_content" value = "<%=attr_content %>"
-  style="overflow-x:hidden; overflow-y:auto;"></textarea>
+  <textarea type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_content" 
+  style="overflow-x:hidden; overflow-y:auto;"><%=attr_content %></textarea>
 </div>
 
 

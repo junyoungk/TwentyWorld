@@ -151,8 +151,9 @@
         </div>
       </div>
 <div class="container">
-  <h2 class="text-center" id ="attr_name"><%=attr_name %></h2>
-  
+<br><h1 class="myCopy">
+    <span><%=attr_name%></span></h1><br><br>
+    
  <!-- shinhoonji -->
  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -178,7 +179,7 @@
 </div>
   <!-- shinhoonji -->
   <br>
-  <div id = "attr_content" style="font-size: 20px; align-items: center;"><%=attr_content %></div>
+  <div id = "attr_content" style="font-size: 20px; align-items: center; word-break:break-all;"><%=attr_content %></div>
 <br><br><hr><br>
 
   <div class="container marketing">
@@ -281,6 +282,23 @@ div#attr_rule_mini{
 	vertical-align: middle;
 	border-radius: 3px;
 	padding : 5px;
+}
+.myCopy {
+	width : 60%;
+	margin-left : 20%;
+	margin-right : 5%;
+    display: block;
+    height: 20px;
+    border-bottom: solid 1px #000;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Noto Sans KR", Montserrat, "Malgun Gothic", Dotum, sans-serif;
+}
+
+.myCopy span {
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 10px;
 }
 
 </style>
