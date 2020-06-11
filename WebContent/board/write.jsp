@@ -185,6 +185,8 @@ $('#btnAdd').click(function(){
 <button class='btn btn-dark btn-sm' type="button" onclick="location.href='list.do'">작성 취소</button>
 </form>
 </div>
+
+</div>
 </div>
 <%@ include file="../HF/footer.jsp" %>
     </div>

@@ -167,38 +167,22 @@ ${fn:replace(read[0].board_content,cn,br) }
 	<c:choose>
 			<c:when test="${empty replyresult || fn:length(replyresult) == 0 }"></c:when>
 			<c:otherwise>
-			<table class="table" style="width:100%">
-			  <thead>
-			    <tr>
-			      <th scope="col" style="width:10%">No</th>
-			      <th scope="col" style="width:15%">작성자</th>
-			      <th scope="col" style="width:50%">내용</th>
-			      <th scope="col" style="width:15%">등록일</th>
-			      <th scope="col" style="width:10%"></th>
-			    </tr>
-			  </thead>
+			
 			<c:forEach var="reply" items="${replyresult }">
 			  <tbody>
-			    <tr>
-			      <td scope="row">${reply.rownum }</td>
-			      <td>${reply.writeName }</td>
-			      <td>${fn:replace(reply.reply_comment,cn,br) }</td>
-			      <td>${reply.reply_regdate }</td>
-			      <td>
-				<c:choose>
-					<c:when test="${user_uid == reply.reply_useruid || user_uid == 1}">
-					<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
-					</c:when>
-					<c:otherwise>
-					</c:otherwise>
-				</c:choose>	
-					</td>
-			    </tr>
+			<div class="card mb-2">
+			  <div class="card-header">
+			    작성자 - ${reply.writeName }
+			  </div>
+			  <div class="card-body">
+			    <h5 class="card-title">${fn:replace(reply.reply_comment,cn,br) }</h5>
+			    <p class="card-text">등록일 - ${reply.reply_regdate }</p>
+			    <button type="button" class="btn btn-outline-secondary btn-sm float-right" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
+			  </div>
+			</div>
 			<div>
 			</div>	
 			</c:forEach>
-			  </tbody>
-			</table>
 			</c:otherwise>
 		</c:choose>
 
