@@ -402,4 +402,77 @@ padding: 20px 0;
   top:90px;
 }
 
+@media (min-width:1177px){
+.short-gongji{
+	display: inline-block;
+    width: 360px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 25px;
+    float: left;
+}
+}
 
+@media(min-width:769px) and (max-width:991px){
+	.short-gongji{
+	display: inline-block;
+    width: 120px !important;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 25px;
+    float: left;
+}
+}
+
+@media screen and (max-width:511px){
+	.short-gongji{
+	display: inline-block;
+    width: 235px !important;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 25px;
+    float: left;
+}
+}
+
+@media(max-width:1199px) and (min-width:992px){
+	.short-gongji{
+	display: inline-block;
+    width: 235px !important;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 25px;
+    float: left;
+}
+}
+
+@media (max-width:767px) and (min-width:512px){
+	.short-gongji{
+	display: inline-block;
+    width: 240px !important;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 25px;
+    float: left;
+}
+}
+.short-gongji{
+	display: inline-block;
+    width: 360px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 25px;
+    float: left;
+}
