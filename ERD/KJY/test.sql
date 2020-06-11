@@ -133,7 +133,7 @@ SELECT * FROM (
 	SELECT rownum AS rnum , b.* 
 	FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid ORDER BY board_id DESC) b
 )
-WHERE rnum >= 21 AND rnum < 21+10;
+WHERE rnum >= 1 AND rnum < 1+10;
 
 SELECT * FROM board ORDER BY board_id desc;
 
@@ -157,7 +157,7 @@ SELECT * FROM (
 	SELECT rownum AS rnum , b.* 
 	FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate FROM board b, users u WHERE b.board_writeuid = u.user_uid AND BOARD_CATEGORY = '자유' ORDER BY board_id DESC) b
 )
-WHERE rnum >= 11 AND rnum < 11+10;
+WHERE rnum >= 1 AND rnum < 1+10;
 
 SELECT * FROM (
 	SELECT rownum AS rnum , b.* 
@@ -168,3 +168,67 @@ WHERE rnum >= 11 AND rnum < 11+10;
 SELECT count(*) FROM board b , users u WHERE b.board_writeuid = u.user_uid AND (board_subject LIKE '%이미지%' OR user_name LIKE '%김%');
 
 SELECT rownum, r.* FROM reply r WHERE REPLY_BOARDERID = 5 ORDER BY REPLY_ID DESC;
+
+SELECT count(*) FROM reply WHERE REPLY_BOARDERID = 61;
+
+
+SELECT * FROM (
+	SELECT rownum AS rnum , b.* 
+	FROM (SELECT b.board_id, b.board_category, u.user_name, b.board_subject, b.board_viewcnt, b.board_regdate, r.replyCnt
+			FROM board b, users u, (SELECT count(*) replyCnt FROM reply WHERE REPLY_BOARDERID = ?) r
+			WHERE b.board_writeuid = u.user_uid 
+			ORDER BY board_id DESC
+			) b
+)
+WHERE rnum >= ? AND rnum < ?;
+
+SELECT * FROM board ORDER BY board_id DESC;
+UPDATE board SET BOARD_SUBJECT = '날짜까지 수정', BOARD_CONTENT = '내용수정 하면 날짜 까지?', BOARD_REGDATE = sysdate WHERE board_id = 61;
+
+DELETE FROM board;
+SELECT * FROM USERS ;
+UPDATE users SET user_id = 'admin' WHERE user_uid = 1;
+UPDATE users SET user_name = '운영자' WHERE user_uid = 1;
+SELECT * FROM board ORDER BY board_id desc;
+SELECT * FROM boardImg;
+
+/*2020-06-11 초기 DB INSERT, CREATE 설정*/
+
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '자유 게시판 인서트' , '이곳은 자유 게시판입니다 자유롭게 이용하세요!!', 1, 0, 1, '자유');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '기타 게시판 인서트' , '이곳은 기타사항에 대한 게시판입니다. 자유롭게 이용하세요!!', 1, 0, 1, '기타');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '공지 게시판 인서트' , '이곳은 공지게시판 입니다, 20대월드 관련 공지사항에 대해 알려드립니다', 1, 0, 3000, '공지');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '공지 게시판 이용사항' , '공지 게시판은 관리자만이 생성 가능합니다.', 1, 0, 3000, '공지');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '행사 게시판 인서트' , '이곳은 행사 게시판입니다, 현 시간 20대 월드에서 진행중이거나 진행할 행사에 대해 알려 드립니다!', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_seq.nextval, sysdate, '코로나 관련 공지사항', '코로나 관련 서울시청에서 내려온 공지사항 입니다. 20대월드 이용고객께서는 관련 사항을 필독하시고 숙지해주시기 바랍니다. 
+1. 마스크를 착용해주세요.
+2. 월드내에 비치된 손 세정제를 사용해주세요. 
+3. 2m 거리를 두고 줄을 서세요
+4. 코로나 관련 증상이 있으신 분은 방문을 삼가해 주시기 바랍니다.', 1, 0, 3000, '공지');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '코로나 확진자 발생!!' , '롯데월드에 코로나 확진자가 발생하였습니다. 모두 20대월드로 오새요!!! 롯데월드 가지마세요', 1, 0, 3000, '공지');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '5MEN 사이트 제휴 안내' , '5MEN 사이트에서 20대월드 이용 서적을 판매하고 있습니다.
+5MEN 사이트를 적극 이용해 주세요!', 1, 0, 3000, '공지');
+
+
+CREATE TABLE boardImg
+(
+	bi_uid number NOT NULL,
+	bi_source varchar2(200) NOT NULL,
+	bi_file varchar2(200) NOT NULL,
+	board_id number NOT NULL,
+	PRIMARY KEY (bi_uid)
+);
+
+ALTER TABLE boardImg
+	ADD FOREIGN KEY (board_id)
+	REFERENCES board (board_id)
+;
+
+CREATE SEQUENCE boardImg_SEQ;
+
+
+
+
+
+
+
+

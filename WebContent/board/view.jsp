@@ -138,10 +138,10 @@ function chkDelete(uid){
   </div>
 <c:if test="${fn:length(file) > 0 }">
 <hr>
-<h5>첨부파일</h5>
-	<ul>
+<h5><b>첨부파일</b></h5>
+	<ul class="ml-5">
 		<c:forEach var="element" items="${file }">
-			<li><a href="fileUpload.do?uid=${element.uid }">${element.source }</a></li>
+			<li style="list-style: circle;"><a href="fileUpload.do?uid=${element.uid }">${element.source }</a></li>
 		</c:forEach>
 	</ul>
 </c:if>
@@ -153,14 +153,15 @@ ${fn:replace(read[0].board_content,cn,br) }
 		<!-- 이미지인 경우 보여주기 -->
 		<c:forEach var="element" items="${file }">
 			<c:if test="${element.image == true}">
-				<div style="width:300px">
-					<img style="width:100%; height:auto" src="../upload/${element.file }"/>
+				<div style="width:300px; display:inline-block">
+					<img style="width:100%; height:auto; float:left; margin: 10px" src="../upload/${element.file }"/>
 				</div>
 			</c:if>
 		</c:forEach>
 	</ul>
 </c:if>
 </div>
+<div style="clear:both"></div>
 <hr>
 <br>
 <h5 id="reply" ><b>댓글</b></h5>

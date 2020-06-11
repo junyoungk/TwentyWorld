@@ -45,6 +45,12 @@ function chkSubmit(){ // 폼 검증
 		return false;
 	}
 	
+	if(subject.length >= 17){
+		alert("입력가능 글자수 초과!!");
+		return false;
+	}
+	
+	
 	return true;
 }
 </script>

@@ -30,6 +30,11 @@ function chkSubmit(){
 		frm['subject'].focus();
 		return false;
 	}
+	
+	if(subject.length >= 17){
+		alert("입력가능 글자수 초과!!");
+		return false;
+	}
 		return true;
 }
 </script>
