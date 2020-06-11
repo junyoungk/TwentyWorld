@@ -26,21 +26,23 @@
 
  <body onload="initTmap2();initTmap()">
  <div>
- <h5>20's WORLD 길찾기</h5>
-<form name="form" id="form" method="post" style="font-size: 13px;">
+ <h5 style="text-align:center;font-size:20px;">20's WORLD 길찾기</h5>
+<form name="form" id="form" method="post" style="font-size: 13px;text-align:center;">
 	<input type="hidden" name="currentPage" value="1"/> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
 	<input type="hidden" name="countPerPage" value="10"/><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) --> 
 	<input type="hidden" name="confmKey" value="devU01TX0FVVEgyMDIwMDUxMjE3MTkyOTEwOTc1MTE="/><!-- 요청 변수 설정 (승인키) -->
 	위치 입력 : <input type="text" name="keyword" value="" placeholder="위치를 입력하세요"/><!-- 요청 변수 설정 (키워드) -->
 	<input type="button" onClick="getAddr();" value="검색하기"/>
-</form><br> 
-<div id="list" style="display: none;" ></div><!-- 검색 결과 리스트 출력 영역이지만 하나만뽑기위해사용 > 필요없으므로 감추어논다. --> 
-      <input type="text" class="text_custom" id="fullAddr"
-         name="fullAddr" value="" readonly="readonly" size="50px" style="background-color: #EAEAEA">
+</form>
+<div id="list" style="display: none;" ></div>
+<!-- 검색 결과 리스트 출력 영역이지만 하나만뽑기위해사용 > 필요없으므로 감추어논다. --> 
+     <div style="text-align:center;margin:10px;">
+           <input type="text" class="text_custom" id="fullAddr" name="fullAddr" value="" readonly="readonly" size="50px" style="background-color: #EAEAEA">
       <button id="btn_select">주소 확인!</button>
+      </div>
       <div class="ft_area">
          <div class="ft_select_wrap">
-            <div class="ft_select">
+            <div class="ft_select" style="text-align: center;margin-bottom: 15px;">
                <select id="selectLevel">
                   <option value="0" selected="selected">교통최적+추천</option>
                   <option value="1">교통최적+무료우선</option>
@@ -65,7 +67,7 @@
          <div id="map_div"></div>
       </div>
       <div class="map_act_btn_wrap clear_box"></div>
-      <p id="result"></p>
+      <p id="result" style="text-align:center;font-weight:bold;"></p>
       <br/>
        
        

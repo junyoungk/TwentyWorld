@@ -203,7 +203,7 @@ if(attr_location == 0){
 		        <td style = "width : 20%">어트랙션 위치</td><td style = "width : 50%"><%=attr_loca %></td>
 		    </tr>
 		    <tr>
-		        <td style = "width : 20%">어트랙션 내용</td><td style = "width : 50%"><%=attr_content %></td>
+		        <td style = "width : 20%">어트랙션 내용</td><td style = "width : 50% ; word-break:break-all;"><%=attr_content %></div></td>
 		    </tr>
 		    <tr>
 		        <td style = "width : 20%">탑승 가능 나이</td><td style = "width : 50%"><%=attr_min_age %>살 ~ <%=attr_max_age %>살</td>
