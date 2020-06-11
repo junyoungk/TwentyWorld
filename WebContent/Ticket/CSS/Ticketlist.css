@@ -54,7 +54,7 @@ div .sun{
 	height: 200px;
 }
 .yab #ya{
-	position:fixed;right:100px;bottom:300px;z-index:1000;
+	position:fixed;right:100px;bottom:100px; z-index:1000;
 	height: 100px;
 	width: 100px;
 	border-radius : 50%; 
