@@ -57,7 +57,7 @@
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="../login/intro.jsp">소개 글 및 오시는 길</a>
                   </div>
-                </li>
+                </li>   
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -93,7 +93,6 @@
         <img class="intro-img" src="https://mticket.lotteworld.com/simgs/display/1210/upload/20191105dfab03136dc24dc884cbf28632589b10" alt="">
         <div class="intro-content  text-center">
           <strong>Welcome to the 20's World</strong>
-          <p>ahahahahahahha</p>
           <div class="row">
             <div class="intro1-text align-self-center d-none d-lg-block d-xl-block col-lg-6">
               <h3>롯데월드 어드벤처</h3>
