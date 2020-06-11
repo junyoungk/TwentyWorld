@@ -228,7 +228,7 @@ table, th, td {
       <div class="attr_box" style="width : 100%; height : 200px">
        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
         <div class="attr_imgBx">
-          <img src="<%=attr_cardimg%>" >
+          <img src="<%=attr_cardimg%>" onError="this.src='attr_img/20_black.jpg'" >
         </div>
         <div class="attr_menu_content">
           <h3 style="color : white;"><%=attr_name%><p style="color : bdbdbd;"> → 바로가기</p></h3>
