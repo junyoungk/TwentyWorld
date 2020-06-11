@@ -94,7 +94,7 @@
         <h2 class="intro-head text-center">20's World 소개</h2>
         <img class="intro-img" src="https://mticket.lotteworld.com/simgs/display/1210/upload/20191105dfab03136dc24dc884cbf28632589b10" alt="">
         <div class="intro-content  text-center">
-          <strong>Welcome to the 20's World</strong>
+          <strong style="margin: 30px;">Welcome to the 20's World</strong>
           <div class="row">
             <div class="intro1-text align-self-center d-none d-lg-block d-xl-block col-lg-6">
               <h3>롯데월드 어드벤처</h3>
