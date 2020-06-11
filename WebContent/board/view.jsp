@@ -167,14 +167,14 @@ ${fn:replace(read[0].board_content,cn,br) }
 	<c:choose>
 			<c:when test="${empty replyresult || fn:length(replyresult) == 0 }"></c:when>
 			<c:otherwise>
-			<table class="table">
+			<table class="table" style="width:100%">
 			  <thead>
 			    <tr>
-			      <th scope="col">No</th>
-			      <th scope="col">작성자</th>
-			      <th scope="col">내용</th>
-			      <th scope="col">등록일</th>
-			      <th></th>
+			      <th scope="col" style="width:10%">No</th>
+			      <th scope="col" style="width:15%">작성자</th>
+			      <th scope="col" style="width:50%">내용</th>
+			      <th scope="col" style="width:15%">등록일</th>
+			      <th scope="col" style="width:10%"></th>
 			    </tr>
 			  </thead>
 			<c:forEach var="reply" items="${replyresult }">
@@ -187,7 +187,7 @@ ${fn:replace(read[0].board_content,cn,br) }
 			      <td>
 				<c:choose>
 					<c:when test="${user_uid == reply.reply_useruid || user_uid == 1}">
-					<button type="button" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">삭제</button>
+					<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
 					</c:when>
 					<c:otherwise>
 					</c:otherwise>
