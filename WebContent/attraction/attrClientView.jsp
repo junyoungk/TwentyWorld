@@ -92,7 +92,8 @@
     </ol>
     <div class="carousel-inner" >
       <div class="carousel-item active">
-      		<img src="<%=attr_cardimg %>" >
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" 
+      preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><img src="<%=attr_cardimg %>" /></svg>
         <div class="container">
           <div class="carousel-caption text-left">
             <h1></h1>
@@ -100,7 +101,8 @@
         </div>
       </div>
       <div class="carousel-item">
-      		<img src="<%=attr_img %>" >
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" 
+      preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><img src="<%=attr_img %>" /></svg>
         <div class="container">
           <div class="carousel-caption text-left">
             <h1></h1>
@@ -128,7 +130,7 @@
     <div class="row">
       <div class="col-lg-4 .col-md-4">
 		<i class="far fa-clock"></i>
-        <h2>소요 시간</h2> 
+        <h2>소요 시간</h2>
         <p> <%=attr_time %> 분<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4 .col-md-4">
