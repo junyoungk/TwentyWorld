@@ -227,7 +227,7 @@
         document.getElementById("myNav").style.width = "0%";
       }
       </script>
-      <script>
+      <script> 
 //Get the button
 var mybutton = document.getElementById("myBtn");
 
