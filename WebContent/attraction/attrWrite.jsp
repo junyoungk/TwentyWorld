@@ -166,7 +166,8 @@ frm = document.forms["frm"];
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">기구 내용</span>
   </div>
-  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_content">
+  <textarea type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_content"
+  style="overflow-x:hidden; overflow-y:auto;"></textarea>
 </div>
 
 

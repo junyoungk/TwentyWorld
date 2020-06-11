@@ -175,7 +175,7 @@ table, th, td {
       </div>
       
 <div class = "container">
-   <img src="https://adventure.lotteworld.com/common/images/icon/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
+   <img src="attr_img/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
     <p class ="jb-text" style = "height: 20px; width : 100%; ">어트랙션</p>
 </div>
 <br>
