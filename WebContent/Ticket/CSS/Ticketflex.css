@@ -11,16 +11,18 @@
 	margin-top: 40px;
 	margin-right: 40px; 
 	margin-bottom: 80px;
-	height: 380px;
+	height: 377px;
 	width: 300px;
-	border: 3px solid black; 
-	
+	border: 1px solid black; 
+	border-radius: 30px; 
 }
 
 .imagediv #can{
 	height: 200px;
 	width: 100%;
 	box-sizing: border-box;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
 }
 
 
@@ -28,6 +30,10 @@
 	width: 100%;
 	padding: 10px 0 ;
 	background-color: #fdbb42;
+	border: none;
+	border-top: 1px solid black;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
 }
 
 
