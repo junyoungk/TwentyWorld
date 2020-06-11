@@ -57,6 +57,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
 <title>글 목록</title>
 <style>
 table {width: 100%;}
@@ -175,14 +176,14 @@ table, th, td {
       
 <div class = "container">
    <img src="https://adventure.lotteworld.com/common/images/icon/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
-    <p class ="jb-text" style = "height: 20px; width : 100%">어트랙션</p>
+    <p class ="jb-text" style = "height: 20px; width : 100%; ">어트랙션</p>
 </div>
 <br>
 <div class="container">
 <form id="frm" style="background-color: #ddd; border-radius: 10px" >
     <div id = "attr_select">
         <label id = "select_label">위치 : </label>
-        <select name="attr_location" id="attr_location">
+        <select name="attr_location" id="attr_location" style="background: white;">
 			<option value="2222">상관없음</option>
 			<option value="0">실내</option>
 		    <option value="1">실외</option>
@@ -191,7 +192,7 @@ table, th, td {
     
     <div id = "attr_select">
 	    <label id = "select_label">나이 : </label>
-    	<select name="attr_age" id="attr_age">
+    	<select name="attr_age" id="attr_age" style="background: white;">
 			<option value="2222">상관없음</option>
 			<option value="0">8세이하</option>
 		    <option value="1">8세이상~65세미만</option>
@@ -201,7 +202,7 @@ table, th, td {
     
    <div id = "attr_select">
 	    <label id = "select_label"> 키 : </label>
-		 <input type="text" name="attr_height" id="attr_height" dir="rtl" /> cm
+		 <input type="text" name="attr_height" id="attr_height" dir="rtl" style="border-color: aliceblue;"/> cm
     </div>
     
     <div id = "attr_select">

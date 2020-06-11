@@ -36,15 +36,16 @@ if(session.getAttribute("userID") != null){
 
 </head>
 <body>
-	<div class="wrapper">
-		<div class="header">
-			<div class="container">
-				<div class="row">
-					<div id="myNav" class="overlay">
-						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-						<div class="overlay-content">
-							 <a href="../login/intro.jsp">소개 / 오시는 길</a>
-                <a href="#">어트랙션</a>
+<div class="wrapper">
+<div class="header">
+	<div class="container">
+		<div class="row">
+			<div id="myNav" class="overlay">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="overlay-content">
+				<a href="../login/intro.jsp">20's World 소개</a>
+                <a href="../login/howtocome.jsp">오시는길</a>
+                <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
@@ -74,14 +75,15 @@ if(session.getAttribute("userID") != null){
 								id="dropdownMenuLink" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false">소개</a>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-									<a class="dropdown-item" href="../login/intro.jsp">소개 글 및 오시는 길</a>
+								 	<a class="dropdown-item" href="../login/intro.jsp">20's World 소개</a>
+                     				<a class="dropdown-item" href="../login/howtocome.jsp">오시는 길</a>
 								</div></li>
 							<li class="nav-item list-group-item"><a
 								class="nav-link active dropdown-toggle" href="#" role="button"
 								id="dropdownMenuLink" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false">즐길 거리</a>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-									<a class="dropdown-item" href="#">어트랙션</a>
+									<a class="dropdown-item" href="../attraction/attrClientListMain.jsp">어트랙션</a>
 								</div></li>
 							<li class="nav-item list-group-item"><a
 								class="nav-link active" href="../Ticket/Ticketflex.doi"

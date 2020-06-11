@@ -1,6 +1,5 @@
 @charset "UTF-8";
-	
-	
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
 	h2#attr_name{
 	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 	    font-size: 50px;
@@ -150,7 +149,7 @@
 	   width: 100%;
 	   height: 20px;
 	   color: #fff;
-	   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	   font-family: 'Sunflower', sans-serif, 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 	   font-size: 40px; top:130px; left: 20%;
 		}
 		
@@ -172,7 +171,7 @@
 		   width: 100%;
 		   height: 20px;
 		   color: #fff;
-		   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		   font-family: 'Sunflower', sans-serif, 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 		   font-size: 60px; top:140px; left: 18%;
 			}
 		#select_label{font-size: 15px;margin-left: 20px;}
@@ -193,7 +192,7 @@
 		   width: 100%;
 		   height: 20px;
 		   color: #fff;
-		   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		   font-family:  'Sunflower', sans-serif, 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 		   font-size: 80px; top:150px; left: 17%;
 			}
 			
@@ -214,7 +213,7 @@
 		   position: absolute;
 		   height: 20px;
 		   color: #fff;
-		   font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		   font-family:  'Sunflower', sans-serif, 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
 		   font-size: 100px; top:180px; left: 15%%;
 			}
 		
@@ -240,6 +239,7 @@ div#attr_rule{
 	line-height: 1.4;
 	font-size: 20px;
 }
+
 div#attr_rule_mini{
 	background: #e68282;
     position: relative;
