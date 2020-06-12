@@ -38,7 +38,6 @@
                 <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
-                 <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
@@ -106,16 +105,16 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://adventure.lotteworld.com/image/2020/4/202004060608385980.jpg" class="d-none d-lg-block d-xl-block w-100 main-banner" alt="...">
-      <img src="https://adventure.lotteworld.com/image/2020/4/202004060608386920.jpg" class="d-block d-lg-none d-xl-none w-100 main-banner" alt="...">
+      <img src="../upload/main_banner1.jpg" class="d-none d-lg-block d-xl-block w-100 main-banner" alt="...">
+      <img src="../upload/mobile_main_banner1.jpg" class="d-block d-lg-none d-xl-none w-100 main-banner" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://adventure.lotteworld.com/image/2020/5/202005290301293460.jpg" class="d-none d-lg-block d-xl-block w-100 main-banner" alt="...">
-      <img src="https://adventure.lotteworld.com/image/2020/5/202005290301294240.jpg" class="d-block d-lg-none d-xl-none w-100 main-banner" alt="...">
+      <img src="../upload/main_banner2.jpg" class="d-none d-lg-block d-xl-block w-100 main-banner" alt="...">
+      <img src="../upload/mobile_main_banner2.jpg" class="d-block d-lg-none d-xl-none w-100 main-banner" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="https://adventure.lotteworld.com/image/2020/5/202005191032189230.jpg" class="d-none d-lg-block d-xl-block w-100 main-banner" alt="...">
-      <img src="https://adventure.lotteworld.com/image/2020/5/202005191032190320.jpg" class="d-block d-lg-none d-xl-none w-100 main-banner" alt="...">
+      <img src="../upload/main_banner3.jpg" class="d-none d-lg-block d-xl-block w-100 main-banner" alt="...">
+      <img src="../upload/mobile_main_banner3.jpg" class="d-block d-lg-none d-xl-none w-100 main-banner" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -129,7 +128,7 @@
 </div>
 <div class="open_time">
 	<div class="today text-center">
-		<small class="today-date" id="todayRt_dateMsg">06월 03일(수)</small>
+		<small class="today-date" id="todayRt_dateMsg">06월 15일(월)</small>
 		<div class="today-time" id="todayRt_elStartEnd">10:00 - 21:00</div>
 	</div>
 </div>
@@ -139,15 +138,15 @@
   <div class="best-attraction">
     <div class="row">
       <div class="col-4">
-          <img src="https://pds.joins.com/news/component/newsis/201808/07/NISI20180807_0014350831_web.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
+          <img src="../upload/main_attraction1.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
           <p class="text-center best-1">후룸라이드</p>
       </div>
       <div class="col-4">
-          <img src="https://pds.joins.com/news/component/newsis/201712/06/NISI20171206_0000077751_web.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
+          <img src="../upload/main_attraction2.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
           <p class="text-center best-2">롤러코스터</p>
       </div>
       <div class="col-4">
-        <img src="https://s3-ap-northeast-2.amazonaws.com/blog.lotte.co.kr/wp-content/uploads/2013/10/81.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
+        <img src="../upload/main_attraction3.jpg" class="card-img-top" alt="..." style="width:100%; height:100%;">
         <p class="text-center best-3">자이로스핀</p>
       </div>
     </div>
@@ -165,25 +164,25 @@
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
             <a href="../board/list.do?col=none&word=연간이용안내">
-              <img class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img1.jpg" alt="">
+              <img class="perform" src="../upload/main_festi1.jpg" alt="">
               <span>연간이용안내</span>
             </a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
             <a href="../board/list.do?col=none&word=프리미엄투어">
-              <img  class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img2.jpg" alt="">
+              <img  class="perform" src="../upload/main_festi2.jpg" alt="">
               <span>프리미엄투어</span>
             </a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
             <a href="../board/list.do?col=none&word=공연참여">
-              <img  class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img3.jpg" alt="">
+              <img  class="perform" src="../upload/main_festi3.jpg" alt="">
               <span>공연참여 프로그램</span>
             </a>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
             <a href="../board/list.do?col=none&word=단체 프로그램">
-              <img   class="perform" src="https://adventure.lotteworld.com/common/images/icon/mainCon4_img4.jpg" alt="">
+              <img   class="perform" src="../upload/main_festi4.jpg" alt="">
               <span>단체 프로그램</span>
             </a>
           </div>
@@ -210,7 +209,7 @@
       <button type="button" class="btn btn-light btn-sm" onclick="location.href='../board/list.do'" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
     </div>
     <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
-    	<img src="https://adventure.lotteworld.com/image/2019/12/201912060405241830.jpg" style="width: 100%; padding-top: 20px;height: 100%;"/>
+    	<img src="../upload/main_bottom_baner.jpg" style="width: 100%; padding-top: 20px;height: 100%;"/>
     </div>
   </div>
 </div>
@@ -218,7 +217,6 @@
       </div>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
-<!-- shinhoonji -->
 	  <%@ include file="../HF/footer.jsp" %>
 	   <script>
       function openNav() {
