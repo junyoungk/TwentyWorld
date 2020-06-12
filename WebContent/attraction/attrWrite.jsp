@@ -161,7 +161,7 @@ frm = document.forms["frm"];
         </div>
       </div>
 <div class="container" style="width: 485px;">
-<h2 style="text-align:center; padding: 25px;">글작성</h2>
+<h2 style="text-align:center; padding: 25px;">어트랙션 신규 등록</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" action="attrWriteOk.doat" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 <div class="input-group mb-3">

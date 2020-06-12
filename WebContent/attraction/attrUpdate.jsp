@@ -192,7 +192,7 @@ frm = document.forms["frm"];
         </div>
       </div>
 <div class="container" style="width: 485px;">
-<h2>수정</h2>
+<h2>어트랙션 수정 <%= attr_name %></h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" action="attrUpdateOk.doat" method="post" onsubmit="return chkSubmit()" enctype="Multipart/form-data">
 <input type="hidden" name="attr_id" value="<%= attr_id %>"/>
