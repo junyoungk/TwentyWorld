@@ -80,9 +80,8 @@ function checkDelete(id){
 							<span class="mobile_btn" style="font-size: 30px; cursor: pointer"
 								onclick="openNav()"><i class="fas fa-bars"></i></span>
 						</div>
-						<a href="../login/testmain.jsp"> <img
-							src="http://adventure.lotteworld.com/common/images/logo.png"
-							alt="logo">
+						<a href="../login/testmain.jsp"> 
+						<img src="../upload/logo3.png" alt="logo">
 						</a>
 					</div>
 					<div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
@@ -93,8 +92,8 @@ function checkDelete(id){
 								id="dropdownMenuLink" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false">소개</a>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-									<a class="dropdown-item" href="../login/intro.jsp">소개 글 및
-										오시는 길</a>
+									<a class="dropdown-item" href="../login/intro.jsp">20's World 소개</a>
+                     <a class="dropdown-item" href="../login/howtocome.jsp">오시는 길</a>
 								</div></li>
 							<li class="nav-item list-group-item"><a
 								class="nav-link active dropdown-toggle" href="#" role="button"
@@ -125,6 +124,7 @@ function checkDelete(id){
 						<%
 							} else {
 						%>
+						 <h4 style="font-size: 15px;"><%= userID %>님 환영합니다</h4>
 						<a href="../login/mypage.jsp">마이페이지</a> <a
 							href="../login/logoutCheck.jsp">로그아웃</a>
 						<%
@@ -140,8 +140,7 @@ function checkDelete(id){
 		<div class="con">
 			<input type="hidden" name="uid"
 				value="<%=session.getAttribute("userID")%>" />
-			<img id="ticketlistimg"
-			src="${pageContext.request.contextPath}/upload/${read[0].ticket_img }" alt="Responsive image" />
+			<img id="ticketlistimg" src="${pageContext.request.contextPath}/upload/${read[0].ticket_img }" alt="Responsive image" />
 			<br>
 			<div class="input-group mb-3">
 					  <div class="input-group-prepend">

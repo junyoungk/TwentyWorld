@@ -14,15 +14,11 @@
 .form-wrap {
 	background-color: white;
     width: 100%;
-   
+   margin-top: 50px;
 }
 
 
-.row {
-    /* margin-left: 0px !important; */
-    /* margin-right: 0px !important; */
-    margin-top: 80px;
-}
+
 
 
 .input-group {
@@ -48,6 +44,7 @@
 
 div .imgbox img{
    width: 100%;
+   margin-top: 50px;
   
 }
 #frm {
