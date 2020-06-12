@@ -65,7 +65,7 @@ if(session.getAttribute("userID") != null){
 						</div>
 					</div>
  
-					<div class="d-block col-lg-2 logo text-center">
+					<div class="d-block col-lg-1 logo text-center">
 						<div class="mobile_ver d-block d-lg-none">
 							<span class="mobile_btn" style="font-size: 30px; cursor: pointer"
 								onclick="openNav()"><i class="fas fa-bars"></i></span>
@@ -74,7 +74,7 @@ if(session.getAttribute("userID") != null){
 						<img src="../upload/logo3.png" alt="logo">
 						</a>
 					</div>
-					<div class="d-none d-lg-block col-lg-8 main_menu align-self-center">
+					<div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
 						<ul
 							class="nav  justify-content-center list-group list-group-horizontal">
 							<li class="nav-item list-group-item dropdown"><a
