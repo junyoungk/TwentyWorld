@@ -158,19 +158,19 @@ function checkDelete(id){
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">이용권이름</span>
 					  </div>	
-					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="No. ${read[0].ticket_name }">
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="${read[0].ticket_name }">
 					</div>
 			<div class="input-group mb-3">
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">이용권가격</span>
 					  </div>
-					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="No. ${read[0].ticket_price }">
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="${read[0].ticket_price }">
 					</div>
 			<div class="input-group mb-3">
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">이용권파일명</span>
 					  </div>
-					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="No. ${read[0].ticket_img }">
+					  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" disabled="disabled" value="${read[0].ticket_img }">
 					</div>
 
 			<hr>
