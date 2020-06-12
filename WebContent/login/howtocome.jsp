@@ -159,7 +159,7 @@ function mapcheck(){
 
  <div class="col-md-12 col-lg-3 text-center">
 <h5 style="font-weight: bold;">길찾기</h5>
-<button onclick="mapcheck();" type="button" class="btn btn-outline-success" style="width: 50%; margin-top: 50px;">YOUR LOAD CLICK</button>
+<button onclick="mapcheck();" type="button" class="btn btn-outline-success" style="width: 50%; margin-top: 20px;">YOUR LOAD CLICK</button>
 
 </div>
 

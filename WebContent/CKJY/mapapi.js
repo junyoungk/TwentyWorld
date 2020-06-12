@@ -756,7 +756,7 @@ return function() {
             map = new Tmapv2.Map("map_div", {
                center : new Tmapv2.LatLng(37.5111158,127.0959783),
                width : "600px",
-               height : "600px",
+               height : "550px",
                zoom : 11,
                zoomControl : true,
                scrollwheel : true

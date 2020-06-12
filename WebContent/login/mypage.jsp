@@ -138,7 +138,7 @@
 		<div class="mypage container"style="min-height:700px; max-width:400px;">
 			<div class="editInfo text-center" style="padding: 20px 0 20px 0;">
 				<div class="text-center"><img src="logo4.jpg" alt="logo" width="200px" height="150px"></div>
-				<h3 class="text-center">USER INFO & CHANGE</h3>
+				<h3 class="text-center" style="padding: 20px 0">USER INFO & CHANGE</h3>
 				<form name="frm" action="updateOk.jsp" method="post" onsubmit="return chkSubmit()">
 					 <input type="hidden" name="user_uid" value="<%= user_uid %>"/>
 					
@@ -305,16 +305,16 @@
     				
 			   
 			    <div class="col-3">
-			    <button  class="btn btn-outline-secondary" onclick="location.href='../Ticket/Ticketlist.doi'">티켓목록</button>
+			    <button  class="btn btn-outline-secondary" onclick="location.href='../Ticket/Ticketlist.doi'">티켓 목록</button>
 			    </div>
 			    <div class="col-3">
-			    <button  class="btn btn-outline-secondary" onclick="location.href='../Ticket/Ticketwrite.doi'">티켓등록</button>
+			    <button  class="btn btn-outline-secondary" onclick="location.href='../Ticket/Ticketwrite.doi'">티켓 등록</button>
 			    </div>
 			    <div class="col-3">
-			    <button  class="btn btn-outline-secondary" onclick="location.href='../attraction/attrAdminListMain.doat'">기구목록 </button>
+			    <button  class="btn btn-outline-secondary" onclick="location.href='../attraction/attrAdminListMain.doat'">기구 목록 </button>
 			    </div>
 			    <div class="col-3">
-			    	<button  class="btn btn-outline-secondary" onclick="location.href='../attraction/attrWrite.doat'">기구등록 </button>
+			    	<button  class="btn btn-outline-secondary" onclick="location.href='../attraction/attrWrite.doat'">기구 등록 </button>
 			    </div>
 			 	
 			 </div>

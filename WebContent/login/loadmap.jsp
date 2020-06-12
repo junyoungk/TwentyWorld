@@ -25,8 +25,9 @@
 
 
  <body onload="initTmap2();initTmap()">
+  <p style="text-align:center;font-size:20px; font-weight: bolder">20's WORLD 길찾기</p>
  <div>
- <h5 style="text-align:center;font-size:20px;">20's WORLD 길찾기</h5>
+
 <form name="form" id="form" method="post" style="font-size: 13px;text-align:center;">
 	<input type="hidden" name="currentPage" value="1"/> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
 	<input type="hidden" name="countPerPage" value="10"/><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) --> 
