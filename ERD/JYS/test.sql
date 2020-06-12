@@ -23,9 +23,10 @@ INSERT INTO TICKET  VALUES (4, '고양이4이용권', 15000, 'rhdiddl.jpg');
 INSERT INTO TICKET  VALUES (5, '쿼카5이용권', 15000, 'znjzhk.jpg');
 INSERT INTO TICKET  VALUES (6, '팬더반년회원권', 120000, 'vosej.jpg');
 INSERT INTO TICKET  VALUES (7, '기린연간회원권', 200000, 'rlfls.jpg');
-INSERT INTO TICKET  VALUES (8, '기린연간회원권', 200000, 'rlfls.jpg');
-INSERT INTO TICKET  VALUES (9, '기린연간회원권', 200000, 'dog.jpg'); 
-INSERT INTO TICKET  VALUES (10, '기린연간회원권', 200000, 'a.png'); 
+
+
+INSERT INTO TICKET  VALUES (8, '강아지7일회원권', 50000, 'rkddkwl.png');
+
 
 
 
