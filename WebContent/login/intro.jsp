@@ -6,6 +6,12 @@
 		userID = Integer.parseInt(session.getAttribute("userID").toString());
 	} 
 %>
+<%
+	String userName = "";
+	if(session.getAttribute("userName") != null) {
+		userName = session.getAttribute("userName").toString();
+	}   
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -32,7 +38,6 @@
                 <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">소통게시판</a>
-                 <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
@@ -48,7 +53,7 @@
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
               </div>
               <a href="../login/testmain.jsp">
-                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
+                <a href="../login/testmain.jsp">
               </a>
             </div>
             <div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
@@ -78,7 +83,7 @@
               </ul>
             </div>
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
-            <h3>세션값 : <%= userID %></h3>
+            <h4 style="font-size: 15px;"><%= userName %>님 환영합니다</h4>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
