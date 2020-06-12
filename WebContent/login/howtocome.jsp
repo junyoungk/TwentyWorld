@@ -109,13 +109,13 @@ function mapcheck(){
 <h3 class="text-center" style="margin: 20px 0px 40px 0px">20's WORLD Adventure MAP</h3>
 <div class="row">
  <div class="col-4 text-center">
- <button id="see1" style="width: 100%" type="button" class="btn btn-outline-danger">ATTRACTION</button>
+ <button id="see1" style="width: 100%" type="button" class="btn btn-outline-danger">놀이기구</button>
  </div>
  <div class="col-4 text-center">
- <button id="see2" style="width: 100%" type="button" class="btn btn-outline-danger">REST&PHOTO</button>
+ <button id="see2" style="width: 100%" type="button" class="btn btn-outline-danger">휴식공간</button>
   </div>
  <div class="col-4 text-center">
- <button id="see3" style="width: 100%" type="button" class="btn btn-outline-danger">FOOD</button>
+ <button id="see3" style="width: 100%" type="button" class="btn btn-outline-danger">식당</button>
  </div>
  </div>
  

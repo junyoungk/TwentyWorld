@@ -39,7 +39,7 @@
 <!-- 검색 결과 리스트 출력 영역이지만 하나만뽑기위해사용 > 필요없으므로 감추어논다. --> 
      <div style="text-align:center;margin:10px;">
            <input type="text" class="text_custom" id="fullAddr" name="fullAddr" value="" readonly="readonly" size="50px" style="background-color: #EAEAEA">
-      <button id="btn_select">주소 확인!</button>
+      <button id="btn_select">주소 확인</button>
       </div>
       <div class="ft_area">
          <div class="ft_select_wrap">
