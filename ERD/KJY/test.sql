@@ -227,6 +227,10 @@ INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '삼성페이 할인 행�
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '20대 할인 행사' , '20대월드에 오신 20대 이용고객님은 자유 이용권이 반값!', 1, 0, 3000, '행사');
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '코로나 할인 행사' , '모두가 불편하고 힘든 코로나 20대 월드 로고가 들어간 마스크가 공짜입니다!', 1, 0, 3000, '행사');
 INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '전 기구 20% 세일' , '8월4일까지 전 기구 이용요금이 20% 세일 적용', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '연간이용안내' , '8월4일까지 전 기구 이용요금이 20% 세일 적용', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '프리미엄투어' , '프리미엄투어를 이용하세요!', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '공연참여 프로그램' , '진행되는 공연에 참여하세요!', 1, 0, 3000, '행사');
+INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '단체 프로그램' , '단체로 함께 해요!', 1, 0, 3000, '행사');
 
 INSERT INTO board VALUES (board_seq.nextval, sysdate, '코로나 관련 공지사항', '코로나 관련 서울시청에서 내려온 공지사항 입니다. 20대월드 이용고객께서는 관련 사항을 필독하시고 숙지해주시기 바랍니다. 
 1. 마스크를 착용해주세요.

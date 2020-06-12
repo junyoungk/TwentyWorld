@@ -115,10 +115,15 @@ public class ListCommand implements Command{
 				dao = new BoardDAO();
 				arr1 = dao.selectBySearch(col, word, fromRow, 10);
 				dao = new BoardDAO();
-				rarr = dao.replyCnt(arr1);
+				if(arr1 != null) {
+					rarr = dao.replyCnt(arr1);
+					request.setAttribute("recnt", rarr);
+				} else {
+					String str = "해당글이 없습니다";
+					request.setAttribute("str", str);
+				}
 				request.setAttribute("list", arr1);
 				request.setAttribute("cnt", totalPage);
-				request.setAttribute("recnt", rarr);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

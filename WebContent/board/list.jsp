@@ -159,7 +159,7 @@ $(document).ready(function(){
 					</thead>
 					<c:set var="bid" value="${list[0].board_id }" />
 					<c:choose>
-						<c:when test="${empty list || fn:length(list) == 0 }"></c:when>
+						<c:when test="${empty list || fn:length(list) == 0 }"><tr><td colspan="6">${str }</td></tr></c:when>
 						<c:otherwise>
 							<tbody>
 								<c:forEach var="dto" items="${list }" varStatus="status">
