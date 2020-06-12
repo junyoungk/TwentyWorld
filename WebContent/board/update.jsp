@@ -116,7 +116,7 @@ function chkSubmit(){
 <input type="hidden" name ="uid" value="${selec[0].board_id }">
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <span class="input-group-text">제목</span>
+    <span class="input-group-text">제목</span> 
   </div>
   <input type="text" aria-label="First name" class="form-control" name="subject" value="${selec[0].board_subject }">
 </div>
