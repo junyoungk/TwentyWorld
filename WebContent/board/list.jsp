@@ -190,6 +190,7 @@ $(document).ready(function(){
 				<div style="clear: both"></div>
 
 				<div style="background-color: #eee; padding: 10px;">
+				<c:if test="${cnt > 1 }">
 					<jsp:include page="pagination.jsp">
 						<jsp:param value="${5 }" name="writePages" />
 						<jsp:param value="${cnt }" name="totalPage" />
@@ -197,6 +198,7 @@ $(document).ready(function(){
 					</jsp:include>
 
 					<hr>
+				</c:if>
 					<div style="width: 50%; margin: 0 auto; text-align: center">
 						<form name='frm' method='get' action='list.do'
 							style="display: block; margin-top: 5px;">

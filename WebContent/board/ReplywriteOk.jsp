@@ -12,8 +12,8 @@
 	</c:when>
 	<c:otherwise>
 		<script>
-			alert("등록 성공, 리스트를 출력합니다");
-			location.href = "view.do?uid="+${boarderid };
+			/* location.href = "view.do?uid="+${boarderid }; */
+			history.back();
 		</script>
 	</c:otherwise>
 </c:choose>
