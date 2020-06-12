@@ -56,7 +56,7 @@ $(document).ready(function(){
 		<div class="header">
 			<div class="container">
 				<div class="row">
-					<div id="myNav" class="overlay">http://localhost:8083/TwentyWorld/board/list.jsp
+					<div id="myNav" class="overlay">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<div class="overlay-content">
 							 <a href="../login/intro.jsp">20's World 소개</a>
@@ -78,7 +78,7 @@ $(document).ready(function(){
 								onclick="openNav()"><i class="fas fa-bars"></i></span>
 						</div>
 						<a href="../login/testmain.jsp"> <img
-							src="http://adventure.lotteworld.com/common/images/logo.png"
+							src="../upload/logo3.png"
 							alt="logo">
 						</a>
 					</div>
@@ -118,6 +118,7 @@ $(document).ready(function(){
 						<% if (userID == 0) { %>
 						<a href="../login/login.jsp">로그인</a> | <a href="../join/join.jsp">회원가입</a>
 						<% } else { %>
+						<h4 style="font-size: 15px;">${sessionScope.sessionName = userID }님 환영합니다</h4>
 						<a href="../login/mypage.jsp">마이페이지</a> <a
 							href="../login/logoutCheck.jsp">로그아웃</a>
 						<% } %>

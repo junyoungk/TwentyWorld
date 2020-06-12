@@ -65,7 +65,7 @@ function chkSubmit(){
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
               </div>
               <a href="../login/testmain.jsp">
-                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
+                <img src="../upload/logo3.png" alt="logo">
               </a>
             </div>
             <div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
@@ -99,6 +99,7 @@ function chkSubmit(){
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
+               <h4 style="font-size: 15px;">${sessionScope.sessionName = userID }님 환영합니다</h4>
                <a href="../login/mypage.jsp">마이페이지</a>
                <a href="../login/logoutCheck.jsp">로그아웃</a>
                 <% } %>
@@ -107,7 +108,9 @@ function chkSubmit(){
         </div>
       </div>
 <div class="container">
-<h2>수정하기</h2>
+<br>
+<h2>수정</h2>
+<br>
 <form name = "frm" action="updateOk.do" method="post" onsubmit="return chkSubmit()"
 	enctype="Multipart/form-data"> <!-- 수정 단계에서 파일 추가 가능 -->
 <input type="hidden" name ="uid" value="${selec[0].board_id }">

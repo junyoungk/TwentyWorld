@@ -67,7 +67,6 @@ function chkSubmit(){ // 폼 검증
                 <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
                 <a href="../board/list.do">자유게시판</a>
-                 <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
@@ -83,7 +82,7 @@ function chkSubmit(){ // 폼 검증
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
               </div>
               <a href="../login/testmain.jsp">
-                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
+                <img src="../upload/logo3.png" alt="logo">
               </a>
             </div>
             <div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
@@ -113,11 +112,11 @@ function chkSubmit(){ // 폼 검증
               </ul>
             </div>
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
-            <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
+               <h4 style="font-size: 15px;">${sessionScope.sessionName = userID }님 환영합니다</h4>
                <a href="mypage.jsp">마이페이지</a>
                <a href="logoutCheck.jsp">로그아웃</a>
                 <% } %>
