@@ -48,7 +48,12 @@
 	String attr_img =  arr[0].getAttr_img();
 	String attr_cardimg =  arr[0].getAttr_cardimg();
 %>
-
+<%
+	String userName = "";
+	if(session.getAttribute("userName") != null) {
+		userName = session.getAttribute("userName").toString();
+	}   
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -118,27 +123,26 @@ frm = document.forms["frm"];
 }
 </script>
 <body>
-<div class="wrapper">
-      <div class="header">
+<div class="wrapper"><div class="header">
         <div class="container">
           <div class="row">
             <div id="myNav" class="overlay">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <div class="overlay-content">
-                <a href="../login/intro.jsp">소개 / 오시는 길</a>
+                <a href="../login/intro.jsp">20's World 소개</a>
+                <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
-                <a href="../board/list.do">자유게시판</a>
+                <a href="../board/list.do">소통게시판</a>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
-               <a href="../login/mypage.jsp">마이페이지</a>
-               <a href="../login/logoutCheck.jsp">로그아웃</a>
+               <a href="../login/mypage.jsp" style="font-size:12px;">마이페이지</a>
+               <a href="../login/logoutCheck.jsp" style="font-size:12px;">로그아웃</a>
                 <% } %>
               </div>
             </div>
-
-            <div class="d-block col-lg-1 logo text-center">
+           <div class="d-block col-lg-1 logo text-center">
               <div class="mobile_ver d-block d-lg-none">
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
               </div>
@@ -151,8 +155,10 @@ frm = document.forms["frm"];
                 <li class="nav-item list-group-item dropdown">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="../login/intro.jsp">소개 글 및 오시는 길</a>
+                    <a class="dropdown-item" href="../login/intro.jsp">20's World 소개</a>
+                     <a class="dropdown-item" href="../login/howtocome.jsp">오시는 길</a>
                   </div>
+                  
                 </li>
                 <li class="nav-item list-group-item">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">즐길 거리</a>
@@ -160,7 +166,7 @@ frm = document.forms["frm"];
                     <a class="dropdown-item" href="../attraction/attrClientListMain.jsp">어트랙션</a>
                   </div>
                 </li>
-                <li class="nav-item list-group-item">
+                 <li class="nav-item list-group-item">
                   <a class="nav-link active" href="../Ticket/Ticketflex.doi" role="button">예매 하기</a>
                 </li>
                 <li class="nav-item list-group-item">
@@ -177,9 +183,9 @@ frm = document.forms["frm"];
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
-               <h4 style="font-size: 15px;"><%= userID %>님 환영합니다</h4>
-               <a href="../login/mypage.jsp">마이페이지</a> |
-               <a href="../login/logoutCheck.jsp">로그아웃</a>
+               <h4 style="font-size: 15px;"><%= userName %>님 환영합니다</h4>
+               <a href="../login/mypage.jsp" style="font-size:12px;">마이페이지</a> |
+               <a href="../login/logoutCheck.jsp" style="font-size:12px;">로그아웃</a>
                 <% } %>
             </div>           
           </div>
