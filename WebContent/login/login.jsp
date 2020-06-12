@@ -184,7 +184,7 @@
   </div>
 			
 		</div>
-		<hr>
+
 		<%@ include file="../HF/footer.jsp" %>
     </div>
     <script>
