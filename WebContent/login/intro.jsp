@@ -18,7 +18,7 @@
 
 
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>Insert title here</title>
+<title>20's 소개 페이지</title>
 </head>
 <body>
 <div class="wrapper">
