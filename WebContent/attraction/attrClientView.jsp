@@ -55,7 +55,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <!--  <meta name="description" content=""> -->
-    <title>읽기 <%=attr_name %></title>
+    <title>20's <%=attr_name %></title>
 <!-- 
 <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 <link href="attrCSS/attr_bootboot.css" rel="stylesheet">

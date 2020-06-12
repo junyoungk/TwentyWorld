@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="attrCSS/attr_adminList.css" type="text/css">
 <link href="attrCSS/attrDetail.css" rel="stylesheet" type="text/css">
 
-<title>글 목록</title>
+<title>20's 어트랙션 목록 </title>
 <style>
 table {
 	width: 100%;

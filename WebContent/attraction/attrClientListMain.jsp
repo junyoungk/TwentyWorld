@@ -62,7 +62,7 @@
     <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="attrCSS/attrDetail.css" type="text/css">
     
-<title>글 목록</title>
+<title>20's 어트랙션</title>
 <style>
 table {width: 100%;}
 table, th, td {

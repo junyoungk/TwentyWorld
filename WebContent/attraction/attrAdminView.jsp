@@ -70,7 +70,7 @@
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
 <link href="attrCSS/attrDetail.css" rel="stylesheet" type="text/css">
 
-<title>읽기 <%=attr_name%></title>
+<title>20's 어트랙션  <%=attr_name%></title>
 <!-- title에 글제목 넣기 -->
 </head>
 <script>
