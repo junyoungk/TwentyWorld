@@ -152,7 +152,7 @@
       </div>
 <div class="container">
 <br><h1 class="myCopy">
-    <span><%=attr_name%></span></h1><br><br>
+    <span><%=attr_name%><br></span></h1><br><br>
     
  <!-- shinhoonji -->
  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -178,42 +178,43 @@
   </a>
 </div>
   <!-- shinhoonji -->
-  <br>
-  <div id = "attr_content" style="font-size: 20px; align-items: center; word-break:break-all;"><%=attr_content %></div>
+  <br><br><hr><br>
+  <h2 style="text-align: center;font-size: 40px;color: #292929; text-shadow: 2px 2px 2px rgba(122, 160, 202, 0.5);">기구 설명</h2><br>
+  <div id = "attr_content" style="font-size: 20px; text-align: center; word-break:break-all; 
+  			background-color: #f9f9f9; padding : 10px"><%=attr_content %></div>
 <br><br><hr><br>
 
+  <h2 style="text-align: center;font-size: 40px;color: #292929; text-shadow: 2px 2px 2px rgba(122, 160, 202, 0.5);">탑승 안내</h2><br>
   <div class="container marketing">
-
-   
     <div class="row">
-      <div class="col-lg-4 .col-md-4" style="text-align: center;">
+      <div class="col-lg-4 .col-md-4" style="text-align: center; background: #f9f9f9;text-align: center; border-radius: 130px; padding-top: 30px; margin-bottom: 30px;">
 		<i class="far fa-clock fa-3x"></i>
         <h2>소요 시간</h2>
         <p style="font-size: 30px;"> <%=attr_time %> 분<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4" style="text-align: center;">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;background: #f9f9f9;text-align: center; border-radius: 130px; padding-top: 30px; margin-bottom: 30px;">
       <i class="fas fa-users fa-3x"></i>
 			<h2>탑승 최대 인원</h2>
         <p style="font-size: 30px;"><%=attr_max %> 명<br>&nbsp;</p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4" style="text-align: center;">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;background: #f9f9f9;text-align: center; border-radius: 130px; padding-top: 30px; margin-bottom: 30px;">
       <i class="far fa-credit-card fa-3x"></i>
 		<h2>현장 구매 가격</h2>
-        <p style="font-size: 30px;"><%=attr_price %> 원</p>
+        <p style="font-size: 30px;"><%=attr_price %> 원</p><br>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-2 .col-md-2"><br><br></div> 
-      <div class="col-lg-4 .col-md-4" style="text-align: center;height: 200px;">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;height: 200px;background: #f9f9f9;text-align: center; border-radius: 130px; padding-top: 30px; margin-bottom: 30px;">
       <i class="far fa-address-card fa-3x" ></i>
         <h2>사용 가능 나이</h2>
-        <p style="font-size: 30px; "><%=attr_min_age %>살~<%=attr_max_age %>살 </p><br><br>
+        <p style="font-size: 30px; "><%=attr_min_age %>살~<%=attr_max_age %>살 <br></p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4 .col-md-4" style="text-align: center;height: 150px;">
+      <div class="col-lg-4 .col-md-4" style="text-align: center;height: 200px;background: #f9f9f9;text-align: center; border-radius: 130px; padding-top: 30px; margin-bottom: 30px;">
         <i class="fas fa-ruler fa-3x"></i>
         <h2>사용 가능 신장</h2>
-        <p style="height: 200px; font-size: 30px;"><%=attr_min_height %>cm~<%=attr_max_height %>cm </p>
+        <p style="font-size: 30px;"><%=attr_min_height %>cm~<%=attr_max_height %>cm <br></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
-   <hr><br>
+   <hr><br><br>
 	<div id = "attr_rule" >
 		<div id = "attr_rule_mini" class = "attr_rule_mini">안내사항</div>
 			<p>- 안전한 어트랙션 이용을 위해서는 탑승 중 신체적 이상이 발생되지 않는
@@ -223,8 +224,10 @@
 			퇴장이 요구될 수 있습니다.<br></p>
 	</div><br><br>
    
-   <button type="button" class="btn btn-outline-secondary" onclick="location.href = 'attrClientListMain.doat'">더 많은 어트랙션 보러가기 →</button>
+   <button type="button" id = "view_more_attr" class="btn btn-outline-secondary" onclick="location.href = 'attrClientListMain.doat'"
+   style="margin-left: 10%;">더 많은 어트랙션 보러가기 →</button>
    </div>
+   <br><br>
 	
 <!--   <div style="background-image: url();"></div>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -289,37 +292,47 @@ div#attr_rule_mini{
 	margin-left : 20%;
 	margin-right : 5%;
     display: block;
-    height: 20px;
+    height: 40px;
     border-bottom: solid 1px #000;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     font-family: "Noto Sans KR", Montserrat, "Malgun Gothic", Dotum, sans-serif;
+    text-shadow: 2px 2px 2px rgba(122, 160, 202, 0.5);
 }
 
 .myCopy span {
     display: inline-block;
     background-color: #fff;
-    padding: 0 10px;
+    padding: 0 15px;
+        font-size: 50px;
+    
 }
 
+		button#view_more_attr{font-size : 20px; width : 80%;}
 		
 /* Tablet &amp; Desktop Device */
 @media all and (min-width:580px) {
 		div#attr_rule_mini{width : 50%;}
+		button#view_more_attr{font-size : 15px; width : 80%;}
 }
 
 /* Tablet Device */
 @media all and (min-width:768px) and (max-width:992px) {
 		div#attr_rule_mini{width : 40%;}
+		button#view_more_attr{font-size : 15px;width : 80%;}
 }
 
 /* Desktop Device */
 @media all and (min-width: 992px) {
 		div#attr_rule_mini{width : 30%;}
+		button#view_more_attr{width : 30%;}
+		button#view_more_attr{font-size : 20px;width : 40%;}
 }
 
 /* Desktop Device */
 @media all and (min-width:1200px) {
 		div#attr_rule_mini{width : 25%;}
+		button#view_more_attr{width : 25%;}
+		button#view_more_attr{font-size : 23px;width : 40%;}
 }
 </style>
