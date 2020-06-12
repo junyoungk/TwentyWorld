@@ -7,6 +7,15 @@
 		userID = Integer.parseInt(session.getAttribute("userID").toString());
 	}   
 %>
+
+
+
+ <%
+	String userName = "";
+	if(session.getAttribute("userName") != null) {
+		userName = session.getAttribute("userName").toString();
+	}   
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -66,7 +75,7 @@
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
               </div>
               <a href="../login/testmain.jsp">
-                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
+                 <img src="../upload/logo3.png" alt="logo">
               </a>
             </div>
             <div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
@@ -95,7 +104,7 @@
               </ul>
             </div>
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
-            <h3>세션값 : <%= userID %></h3>
+            <h3>세션값 : <%= userName %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>

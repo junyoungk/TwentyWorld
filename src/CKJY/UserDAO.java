@@ -82,6 +82,26 @@ public class UserDAO {
 		   }	
 		return uid;
 	}
+	
+	
+	public String checkname(String user_id) {
+		String SQL = "SELECT user_name FROM users WHERE USER_ID = ?";
+		String a = "";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				a = rs.getString("user_name");	
+				}
+			}
+		catch (Exception e) {
+			e.printStackTrace();
+		   }	
+		return a;
+	}
+	
+	
 	 
 	public int join(UserDTO user) { // 회원등록
 		String SQL = "INSERT INTO USERS VALUES (user_SEQ.nextval, ?, ?, ?, ?, ?, ?, 1, ?,'-')";

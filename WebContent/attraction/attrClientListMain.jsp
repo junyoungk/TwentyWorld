@@ -48,15 +48,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+   
+   
     <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="attrCSS/attrDetail.css" type="text/css">
     
 <title>글 목록</title>
 <style>
@@ -100,9 +99,88 @@ table, th, td {
 			  outline: none;
 			  display:inline-block;
 		  }
-</style>
-<link rel="stylesheet" href="attrCSS/attrDetail.css" type="text/css">
 
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+.attr_menu_container {
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.attr_box {
+  position: relative;
+  width: 235px;
+  height: 350px;
+  margin: 15px;
+  background: #ffffff;
+  box-shadow: 0 10px 10px rgba(0,0,0,.5);
+}
+
+.attr_box .attr_imgBx {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.attr_box .attr_imgBx img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.attr_box .attr_menu_content {
+      position: absolute;
+    bottom: 5px;
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    background: #393939d9;
+    transition: 0.5s;
+    overflow: hidden;
+    color: white;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.attr_box:hover .attr_menu_content {
+  width: 80%;
+  height: 60px;
+  bottom: 10px;
+  left: 10%;
+}
+
+.attr_box .attr_menu_content h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+.attr_box .attr_menu_content p {
+  margin: 10px 0 0;
+  padding: 0;
+  opacity: 0;
+  line-height: 1.2em;
+  transition: 0.5s;
+  text-align: justify;
+  font-size: 10px;
+  text-align: right;
+}
+
+.attr_box:hover .attr_menu_content p {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+</style>
 </head>
 <body>
 <div class="wrapper">
@@ -272,17 +350,7 @@ table, th, td {
         document.getElementById("myNav").style.width = "0%";
       }
       </script>
-       <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-</body>
-</html>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
-<!--  버튼을 눌렀을 때 동작함 -->
+      <!--  버튼을 눌렀을 때 동작함 -->
 <script type="text/javascript">
 $('#attr_height').on("click keyup", function (e) { // IE 
 	if (this.createTextRange) { 
@@ -340,102 +408,24 @@ $(function () {
 });
 </script>
 
-<!--  카드 이미지 스타일 불러오질 못해서 아래에 덧붙임 -->
-<style>
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
-.attr_menu_container {
-  max-width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
+      
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+      
+       <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-.attr_box {
-  position: relative;
-  width: 235px;
-  height: 350px;
-  margin: 15px;
-  background: #ffffff;
-  box-shadow: 0 10px 10px rgba(0,0,0,.5);
-}
+<!-- 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-.attr_box .attr_imgBx {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+ -->
 
-.attr_box .attr_imgBx img {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.5s;
-}
-
-.attr_box .attr_menu_content {
-      position: absolute;
-    bottom: 5px;
-    left: 10%;
-    width: 80%;
-    height: 40px;
-    background: #393939d9;
-    transition: 0.5s;
-    overflow: hidden;
-    color: white;
-    padding: 8px;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-.attr_box:hover .attr_menu_content {
-  width: 80%;
-  height: 60px;
-  bottom: 10px;
-  left: 10%;
-}
-
-.attr_box .attr_menu_content h3 {
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-  text-align: center;
-}
-
-.attr_box .attr_menu_content p {
-  margin: 10px 0 0;
-  padding: 0;
-  opacity: 0;
-  line-height: 1.2em;
-  transition: 0.5s;
-  text-align: justify;
-  font-size: 10px;
-  text-align: right;
-}
-
-.attr_box:hover .attr_menu_content p {
-  opacity: 1;
-  transition-delay: 0.5s;
-}
-
-
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
 
 

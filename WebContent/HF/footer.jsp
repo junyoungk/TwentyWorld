@@ -16,9 +16,9 @@
               </p>
             </div>
             <div class="col-lg-3">
-            	<img src="https://adventure.lotteworld.com/common/images/btn/sns_btn1.png" />
-            	<img src="https://adventure.lotteworld.com/common/images/btn/sns_btn2.png"/>
-            	<img src="https://adventure.lotteworld.com/common/images/btn/sns_btn3.png"/>
+            	<img src="https://adventure.lotteworld.com/common/images/btn/sns_btn1.png" onclick="location.href='https://www.facebook.com/happylotteworld'"/>
+            	<img src="https://adventure.lotteworld.com/common/images/btn/sns_btn2.png" onclick="location.href='http://instagram.com/happylotteworld'"/>
+            	<img src="https://adventure.lotteworld.com/common/images/btn/sns_btn3.png" onclick="location.href='http://www.youtube.com/user/happylotteworld?blend=21&amp;ob=5'"/>
             </div>
           </div>
         </div>

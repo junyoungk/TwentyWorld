@@ -179,7 +179,7 @@ function check() {
                 <span class="mobile_btn" style="font-size:30px;cursor:pointer " onclick="openNav()"><i class="fas fa-bars"></i></span>
               </div>
               <a href="../login/testmain.jsp">
-                <img src="http://adventure.lotteworld.com/common/images/logo.png" alt="logo">
+                 <img src="../upload/logo3.png" alt="logo">
               </a>
             </div>
             <div class="d-none d-lg-block col-lg-9 main_menu align-self-center">

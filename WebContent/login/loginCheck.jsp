@@ -44,7 +44,9 @@
 
 		if (result == 1) {
 			int uid = userDAO.checkuid(dto.getUser_id());
+			String a = userDAO.checkname(dto.getUser_id());
 			session.setAttribute("userID", uid);
+			session.setAttribute("userName", a);
 	%>
 
 	<div id="exampleModal" tabindex="-1" role="dialog"
