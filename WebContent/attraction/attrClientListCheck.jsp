@@ -113,7 +113,7 @@
 	<div class="attr_menu_container col-lg-3 col-md-4 col-sm-6 col-xs-12" >
       <div class="attr_box" style="width : 100%; height : 200px">
        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
-        <div class="attr_imgBx">
+        <div class="attr_imgBx"  onError="this.src='../upload/20_black.jpg'">
           <img src="<%=attr_cardimg%>" >
         </div>
         <div class="attr_menu_content">
