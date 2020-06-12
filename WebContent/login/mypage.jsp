@@ -15,7 +15,12 @@
     <link href="CSS/style.css" rel="stylesheet" type="text/css">
     <title>Hello, world!</title>
 </head>
-
+<script>
+function deleteID(){
+	// 삭제 여부, 다시 확인 하고 진행하기
+	location.href = 'userdeleteCheck.jsp';
+}
+</script>
 
 <%
 	int userID = 0;
@@ -203,13 +208,35 @@
 					<button type="submit" value="수정" style="margin-top: 20px; width: 150px;" class="btn btn-secondary">수정</button>
 				 </form>
 				 <br>
-				 <button type="button" onclick="location.href='userdeleteCheck.jsp'" class="btn btn-outline-danger">회원탈퇴</button>
+				 <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-danger">회원탈퇴</button>
 				
 			 </div>
 			 
 			</div> 
 			 
 			 <div class="container">
+			 
+			 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">회원탈퇴</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>정말로 저희를 떠나시겠습니까</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" onclick="deleteID();">삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
+			 
 			 
   <div class="row">
     <div class="col-md-12 col-lg-4" style="border: 1px solid #ababab; margin: 10px;">
