@@ -212,7 +212,7 @@
           <li><a href="../board/view.do?uid=<%=arr1[4].getBoard_id()%>"><span class="short-gongji"><%= arr1[4].getBoard_subject()%></span> <span><%= arr1[4].getBoard_regdate() %></span></a></li>
         </ul>
       </div>
-      <button type="button" class="btn btn-light btn-sm" onclick="location.href='../board/list.do'" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
+      <button type="button" class="btn btn-light btn-sm" onclick="location.href='../board/list.do?category=2'" style="position: absolute; top: 22px; right: 22px; border: 1px solid;">더보기</button>
     </div>
     <div class="info-section text-center col-xs-12 col-sm-12 col-md-6 col-lg-6">
     	<img src="../upload/main_bottom_baner.jpg" style="width: 100%; padding-top: 20px;height: 100%;"/>

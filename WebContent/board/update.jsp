@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>수정 ${selec[0].board_subject }</title>
+<title>소통게시판 글수정</title>
 </head>
 <script>
 function chkSubmit(){

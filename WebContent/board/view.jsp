@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>읽기 ${read[0].board_subject }</title> <!-- title에 글제목 넣기 -->
+<title>소통게시판</title> <!-- title에 글제목 넣기 -->
 <style>
 #view {
 	border: 1px solid black;
@@ -172,12 +172,12 @@ ${fn:replace(read[0].board_content,cn,br) }
 			  <tbody>
 			<div class="card mb-2">
 			  <div class="card-header">
-			    작성자 - ${reply.writeName }
+			    <b>작성자: ${reply.writeName }</b>
 			    <button type="button" class="btn btn-outline-secondary btn-sm float-right" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
 			  </div>
 			  <div class="card-body">
 			    <h5 class="card-title">${fn:replace(reply.reply_comment,cn,br) }</h5>
-			    <p class="card-text">등록일 - ${reply.reply_regdate }</p>
+			    <p class="card-text">등록일  ${reply.reply_regdate }</p>
 			  </div>
 			</div>
 			

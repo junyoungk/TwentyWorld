@@ -22,7 +22,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>글 목록</title>
+<title>소통게시판</title>
 <style>
 table {
 	width: 100%;
