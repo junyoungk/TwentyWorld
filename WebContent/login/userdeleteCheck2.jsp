@@ -11,14 +11,14 @@
    if(dao.UserDelete2(a) == 1){
 	   %>
 	    <script>
-    alert("회원번호:  <%= a %> 삭제 성공");
+    alert("회원아이디:  <%= a %> 삭제 성공");
     history.back();
    </script>
 	   <% 
    } else {
   %>   
     <script>
-    alert("회원번호:  <%= a %> 삭제 실패");
+    alert("회원아이디:  <%= a %> 삭제 실패");
     history.back();
     </script>
    <% } %>
