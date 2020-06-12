@@ -6,6 +6,12 @@
 		userID = Integer.parseInt(session.getAttribute("userID").toString());
 	} 
 %>
+<%
+	String userName = "";
+	if(session.getAttribute("userName") != null) {
+		userName = session.getAttribute("userName").toString();
+	}   
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -35,10 +41,10 @@ function mapcheck(){
             <div id="myNav" class="overlay">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <div class="overlay-content">
-                <a href="../login/intro.jsp">소개 / 오시는 길</a>
+                <a href="../login/intro.jsp">20's World 소개</a>
+                <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
-                <a href="../board/list.do">자유게시판</a>
-                 <h3>세션값 : <%= userID %></h3>
+                <a href="../board/list.do">소통게시판</a>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
@@ -83,11 +89,11 @@ function mapcheck(){
               </ul>
             </div>
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
-            <h3>세션값 : <%= userID %></h3>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
+                <h4 style="font-size: 15px;"><%= userName %>님 환영합니다</h4>
                <a href="../login/mypage.jsp">마이페이지</a>
                <a href="../login/logoutCheck.jsp">로그아웃</a>
                 <% } %>
