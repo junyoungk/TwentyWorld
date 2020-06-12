@@ -190,7 +190,7 @@
 						<input type="hidden" name="uid" value="<%=session.getAttribute("userID")%>" />
 						이용권분류 <input type="number" class="input-field" name="ticket_id" /><br>
 						이용권이름 <input type="text" class="input-field" name="name" /><br>
-						이용권 가격 <input type="text" class="input-field" name="price" value="${select[0].ticket_price }"><br>
+						이용권 가격 <input type="number" class="input-field" name="price" value="${select[0].ticket_price }"><br>
 						티켓이미지 <input type="file" class="input-field" name="img" id="img" accept="image/*" onchange="fileCheck(this)"><br>
 							<input class="btn" type="submit"  value="추가" />
 						<button class="btn" type="button"onclick="location.href='Ticketlist.doi'">목록으로</button>
