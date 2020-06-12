@@ -362,7 +362,7 @@ function deleteID(){
     					
     				 <form method="post" action="userdeleteCheck2.jsp" class="text-center">
 					
-					<input type="number" id="user_uid" name="user_uid" placeholder="삭제할 회원 uid 입력" style="margin-bottom: 12px;s"><br>
+					<input type="text" id="user_name" name="user_name" placeholder="삭제 id 입력" style="margin-bottom: 12px; width: 200px;"><br>
 					
 				
 					 <button type="submit" value="계정삭제" class="btn btn-outline-danger">계정 삭제</button>

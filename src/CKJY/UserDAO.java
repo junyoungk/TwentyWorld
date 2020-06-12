@@ -204,6 +204,25 @@ public class UserDAO {
 		return -1;
 	}
 	
+	
+	public int UserDelete2(String user_id) { // 계정 삭제
+		String SQL = "DELETE FROM USERS WHERE user_id = ?";
+		try {
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			conn.commit();
+			if (rs.next()) {				
+				return 1; // 로그인 성공					
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	
 	public String findID (String user_name, String user_jumin) {
 		String SQL = "SELECT user_id FROM USERS WHERE user_name = ? AND user_jumin = ?";
 		String user_id = "";
