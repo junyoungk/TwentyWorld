@@ -59,7 +59,7 @@
                 <a href="../login/intro.jsp">20's World 소개</a>
                 <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
-                <a href="../board/list.do">자유게시판</a>
+                <a href="../board/list.do">소통게시판</a>
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
@@ -104,7 +104,7 @@
               </ul>
             </div>
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
-            <h3>세션값 : <%= userName %></h3>
+            
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>

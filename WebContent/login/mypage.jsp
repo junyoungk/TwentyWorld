@@ -87,12 +87,13 @@ function deleteID(){
                 <a href="../login/intro.jsp">20's World 소개</a>
                 <a href="../login/howtocome.jsp">오시는길</a>
                 <a href="../attraction/attrClientListMain.jsp">어트랙션</a>
-                <a href="../board/list.do">자유게시판</a>
-                 <h3>세션값은 : <%= userName %></h3>
+                <a href="../board/list.do">소통게시판</a>
+                 
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
+              
                <a href="../login/mypage.jsp">마이페이지</a>
                <a href="../login/logoutCheck.jsp">로그아웃</a>
                 <% } %>
@@ -134,12 +135,12 @@ function deleteID(){
               </ul>
             </div>
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
-            <h3>세션값 : <%= userID %></h3>
+         
             <% if (userID == 0) { %>
               <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
-               	<h3>세션값은 : <%= userName %></h3>
+               	<h4 style="font-size: 15px;"><%= userName %>님 환영합니다</h4>
                <a href="../login/mypage.jsp">마이페이지</a>
                <a href="../login/logoutCheck.jsp">로그아웃</a>
                 <% } %>
