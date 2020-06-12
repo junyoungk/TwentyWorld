@@ -107,10 +107,9 @@ function chkDelete(attr_id){
 							<span class="mobile_btn" style="font-size: 30px; cursor: pointer"
 								onclick="openNav()"><i class="fas fa-bars"></i></span>
 						</div>
-						<a href="../login/testmain.jsp"> <img
-							src="http://adventure.lotteworld.com/common/images/logo.png"
-							alt="logo">
-						</a>
+              <a href="../login/testmain.jsp">
+                <img src="../upload/logo3.png" alt="logo">
+              </a>
 					</div>
 					<div class="d-none d-lg-block col-lg-9 main_menu align-self-center">
 						<ul
@@ -143,24 +142,17 @@ function chkDelete(attr_id){
 								</div></li>
 						</ul>
 					</div>
-					<div
-						class="d-none d-lg-block col-lg-2 text-center align-self-center">
-						<h3>
-							세션값 :
-							<%=userID%></h3>
-						<%
-							if (userID == 0) {
-						%>
-						<a href="../login/login.jsp">로그인</a> | <a href="../join/join.jsp">회원가입</a>
-						<%
-							} else {
-						%>
-						<a href="../login/mypage.jsp">마이페이지</a> <a
-							href="../login/logoutCheck.jsp">로그아웃</a>
-						<%
-							}
-						%>
-					</div>
+            <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
+            
+            <% if (userID == 0) { %>
+              <a href="../login/login.jsp">로그인</a> |
+              <a href="../join/join.jsp">회원가입</a>
+               <% } else { %>
+               <h4 style="font-size: 15px;"><%= userID %>님 환영합니다</h4>
+               <a href="../login/mypage.jsp">마이페이지</a> |
+               <a href="../login/logoutCheck.jsp">로그아웃</a>
+                <% } %>
+            </div> 
 				</div>
 			</div>
 		</div>

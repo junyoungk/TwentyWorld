@@ -169,7 +169,6 @@ SELECT count(*) FROM likes WHERE user_uid = 1 GROUP BY user_uid ;
 
 INSERT INTO likes VALUES (USER_UID , ATTR_ID);	
 
-SELECT * FROM 
 
 
 
