@@ -34,6 +34,12 @@
 	}
 %>
 
+<%
+   String userName = "";
+   if(session.getAttribute("userName") != null) {
+      userName = session.getAttribute("userName").toString();
+   }   
+%>
 <body>
 	<div class="wrapper">
 		<div class="header">
@@ -110,7 +116,7 @@
 						<%
 							} else {
 						%>
-						 <h4 style="font-size: 15px;"><%= userID %>님 환영합니다</h4>
+						 <h4 style="font-size: 15px;"><%= userName %>님 환영합니다</h4>
 						<a href="../login/mypage.jsp">마이페이지</a> <a
 							href="../login/logoutCheck.jsp">로그아웃</a>
 						<%
