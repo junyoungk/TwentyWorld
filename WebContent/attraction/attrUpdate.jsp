@@ -220,7 +220,6 @@ frm = document.forms["frm"];
   </div>
   <input type="file" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_setimg" id = "attr_setimg" accept="image/*" onchange="imgfileCheck2(this)">
 </div>
-<div class="input-group mb-3"><p>기존 이미지 주소 : <%=attr_img %></p></div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -228,7 +227,6 @@ frm = document.forms["frm"];
   </div>
   <input type="file" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="attr_setcardimg" id = "attr_setcardimg" accept="image/*" onchange="imgfileCheck2(this)">
 </div>
-<div class="input-group mb-3"><p>기존 이미지 주소 : <%=attr_cardimg %></p></div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
