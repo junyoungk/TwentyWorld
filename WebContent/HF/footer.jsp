@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <footer>
-        <div class="container" style="border-top: 1px solid black;">
+        <div class="container" style="border-top: 1px solid #a0a0a0;;">
           <div class="row">
             <div class="col-xs-2 col-lg-2">
               <a href="#">
