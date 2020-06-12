@@ -46,7 +46,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
 <link href="CSS/Ticketview.css" rel="stylesheet" type="text/css">
-<title>읽기 ${read[0].ticket_name}</title>
+<title>20's ${read[0].ticket_name}상세</title>
 <!-- title에 글제목 넣기 -->
 </head>
 <script>

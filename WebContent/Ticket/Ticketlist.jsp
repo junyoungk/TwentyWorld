@@ -18,7 +18,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="CSS/Ticketlist.css" rel="stylesheet" type="text/css">
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>티켓 목록</title>
+<title>20's 이용권 목록</title>
 
 </head>
 <%
