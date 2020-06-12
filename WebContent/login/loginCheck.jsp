@@ -23,7 +23,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
-<title>Insert title here</title>
+<title>20's WORLD 로그인체크</title>
 </head>
 <body>
 
