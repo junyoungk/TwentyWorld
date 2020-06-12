@@ -68,7 +68,8 @@ function mapcheck(){
                 <li class="nav-item list-group-item dropdown">
                   <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">소개</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="../login/intro.jsp">소개 글 및 오시는 길</a>
+                     <a class="dropdown-item" href="../login/intro.jsp">20's World 소개</a>
+                     <a class="dropdown-item" href="../login/howtocome.jsp">오시는 길</a>
                   </div>
                 </li>
                 <li class="nav-item list-group-item">
