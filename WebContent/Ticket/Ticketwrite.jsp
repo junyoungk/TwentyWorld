@@ -17,7 +17,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <link href="CSS/Ticketwrite.css" rel="stylesheet" type="text/css">
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>20's 티켓작성</title>
+<title>20's 티켓추가</title>
 
 
 </head>
