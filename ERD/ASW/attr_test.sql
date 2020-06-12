@@ -45,49 +45,49 @@ INSERT
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 13, 10, 3000, 
 	'호랑이를 피해 햇님달님 오누이와 하늘 위로 점프! 스릴 만점의 신나는 개구쟁이 탑승물!',
 	'어린이번지', 0, 0, 7, 50, 110, 1, sysdate, 
-	'attr_img/attr_cardimg_childbunge.jpg', 'attr_img/attr_img_childbunge.jpg');
+	'../upload/attr_cardimg_childbunge.jpg', '../upload/attr_img_childbunge.jpg');
 --2	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 4, 10, 8000, 
 	'숨이 멈출 것 같은 롤러코스터의 매력! 물줄기도 이 짜릿함을 벗어날 수 없다!',
 	'실내롤러코스터', 0, 10, 64, 120, 180, 1, sysdate, 
-	'attr_img/attr_cardimg_insidecoster.jpg', 'attr_img/attr_img_insidecoster.jpg');
+	'../upload/attr_cardimg_insidecoster.jpg', '../upload/attr_img_insidecoster.jpg');
 --3	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 56, 15, 8000, 
 	'위 아래로 왔다갔다~! 바람을 느끼며 신나는 놀이기구!',
 	'바이킹', 0, 10, 80, 110, 180, 1, sysdate, 
-	'attr_img/attr_cardimg_biking.jpg', 'attr_img/attr_img_biking.jpg');
+	'../upload/attr_cardimg_biking.jpg', '../upload/attr_img_biking.jpg');
 ---4	 
 INSERT 
 	INTO ATTRACTION
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 4, 30, 5000, 
 	'그럴싸~한 셀프 포토 스튜디오 20여 개의 다양한 테마 포토존에서 인생사진 찍어가세요!',
 	'사진관', 0, 0, 100, 0, 250, 1,sysdate, 
-	'attr_img/attr_cardimg_pic.jpg', 'attr_img/attr_img_pic.jpg');
+	'../upload/attr_cardimg_pic.jpg', '../upload/attr_img_pic.jpg');
 --5	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 6, 20, 5000, 
 	'하늘 꼭대기에서 내려다본 작은 세계, 풍선을 타고 떠나 보십시오~ 20대 월드 최고의 전망코스~',
 	'풍선비행', 0, 0, 100, 30, 220, 1,sysdate, 
-	'attr_img/attr_cardimg_ballon.jpg', 'attr_img/attr_img_ballon.jpg');
+	'../upload/attr_cardimg_ballon.jpg', '../upload/attr_img_ballon.jpg');
 --6	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 64, 15, 5000, 
 	'백마를 타고 떠나는 로맨틱한 여행! 연인, 가족과 함께하면 즐거움이 배로 들어와요~',
 	'회전목마', 0, 0, 100, 0, 220, 1,sysdate, 
-	'attr_img/attr_cardimg_merrygoround.jpg', 'attr_img/attr_img_merrygoround.jpg');
+	'../upload/attr_cardimg_merrygoround.jpg', '../upload/attr_img_merrygoround.jpg');
 --17 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 4, 60, 5000, 
 	'친구들 기다리면서 빠르게 한판~ 시간이 순식간에 사라지는 게임존!', 
 	'게임존', 0, 8, 100, 0, 220, 1,sysdate,
-	'attr_img/attr_cardimg_game.jpg', 'attr_img/attr_img_game.jpg');
+	'../upload/attr_cardimg_game.jpg', '../upload/attr_img_game.jpg');
 
 --11	 
 INSERT 
@@ -95,42 +95,42 @@ INSERT
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 2, 10, 3000, 
 	'슝슝~ 안전띠만 매면 어린아이라도 운전할 수 있어! <br>이곳은 꼬마 운전사들에게 그야말로 천국!', 
 	'어린이범퍼카', 1, 0, 6, 80,125, 1,sysdate, 
-	'attr_img/attr_cardimg_childbump.jpg', 'attr_img/attr_img_childbump.jpg');
+	'../upload/attr_cardimg_childbump.jpg', '../upload/attr_img_childbump.jpg');
 --12	 
 INSERT 
 	INTO ATTRACTION
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 20, 15, 8000, 
 	'높이 38m의 짜릿함과 시속 90km로 추락 할 때의 스릴! 끝났구나 하고 안심하는 순간 한번 더~ 30초간 반복되는 번지드롭!', 
 	'번지드롭', 1, 5, 100, 110, 180, 1,sysdate, 
-	'attr_img/attr_cardimg_adultbunge.jpg', 'attr_img/attr_img_adultbunge.jpg');
+	'../upload/attr_cardimg_adultbunge.jpg', '../upload/attr_img_adultbunge.jpg');
 --13	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 8, 12, 8000, 
 	'최고 스릴 어트랙션! 20대월드 최고의 속도로 출발하는 보트를 타고 미스터리 신전 속으로 여행을 떠나보세요!', 
 	'롤러코스터', 1, 10, 60, 110, 180, 1,sysdate, 
-	'attr_img/attr_cardimg_rollercoster.jpg', 'attr_img/attr_img_rollercoster.jpg');
+	'../upload/attr_cardimg_rollercoster.jpg', '../upload/attr_img_rollercoster.jpg');
 --14	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 10, 60, 5000, 
 	'좀비가 득실대는 무덤다리, 철창, 어두운 미로 등을 통과하면서 오싹한 공포를 즐겨보세요.', 
 	'유령의집', 1, 0, 100, 0, 220, 1,sysdate, 
-	'attr_img/attr_cardimg_horror.jpg', 'attr_img/attr_img_horror.jpg');
+	'../upload/attr_cardimg_horror.jpg', '../upload/attr_img_horror.jpg');
 --15	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 40, 20, 8000, 
 	'아시아 최초 저소음 무진동 회전 어트랙션! 입이 쩍~ 벌어지는 놀라운 스피드를 경험해 보세요!', 
 	'자이로스핀', 1, 10, 60, 100, 180, 1,sysdate, 
-	'attr_img/attr_cardimg_spin.jpg', 'attr_img/attr_img_spin2.jpg');
+	'../upload/attr_cardimg_spin.jpg', '../upload/attr_img_spin2.jpg');
 --16	 
 INSERT 
 	INTO ATTRACTION 
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 32, 15, 5000, 
 	'나뭇잎 의자에 앉아 빠른 속도로 빙글빙글 도는 느낌이 금방이라도 하늘로 튕겨져 오르는 기분을 느낄 수 있습니다. 호흡을 가다듬고 하늘로 출발!', 
 	'회전그네', 1, 10, 100, 0, 200, 1,sysdate,
-	'attr_img/attr_cardimg_seatroll.jpg', 'attr_img/attr_img_seatroll.jpg');
+	'../upload/attr_cardimg_seatroll.jpg', '../upload/attr_img_seatroll.jpg');
  
 --17 
 INSERT 
@@ -138,7 +138,7 @@ INSERT
 	VALUES (ATTRACTION_WRITE_SEQ.nextval, 10, 20, 5000, 
 	'미로속에서 빙글빙글 돌면서 만나는 또 다른 나! 진짜 나는 누구?', 
 	'거울미로', 1, 10, 100, 50, 230, 1,sysdate,
-	'attr_img/attr_cardimg_maze.jpg', 'attr_img/attr_img_maze.jpg');
+	'../upload/attr_cardimg_maze.jpg', '../upload/attr_img_maze.jpg');
 
 -- 입력을 받지 않았을 때 기본 설정은?
 -- attr_location, attr_min_age, attr_max_age, attr_min_height, attr_max_height

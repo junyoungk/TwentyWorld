@@ -203,11 +203,11 @@ if(attr_location == 0){
 		    </tr>
 		    <tr>
 		        <td style = "width : 20%">카드 이미지 </td><td style = "width : 50%">
-		        <img src="<%=attr_img%>" style = "width : 80%" onError="this.src='attr_img/20_black.jpg'"/></td>
+		        <img src="<%=attr_img%>" style = "width : 80%" onError="this.src='../upload/20_black.jpg'"/></td>
 		    </tr>
 		    <tr>
 		        <td style = "width : 20%">상세 이미지 </td><td style = "width : 50%">
-		        <img src="<%=attr_cardimg%>" style = "width : 80%" onError="this.src='attr_img/20_black.jpg'"/></td>
+		        <img src="<%=attr_cardimg%>" style = "width : 80%" onError="this.src='../upload/20_black.jpg'"/></td>
 		    </tr>
 		    </tbody>
 		</table>

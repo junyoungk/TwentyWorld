@@ -89,8 +89,8 @@ public class AttrUpdateCommand implements AttrCommand {
 		int attr_min_height = Integer.parseInt(multi.getParameter("attr_min_height"));
 		int attr_max_height = Integer.parseInt(multi.getParameter("attr_max_height"));
 		
-		String attr_img = "/upload/" + x1;
-		String attr_cardimg = "/upload/" + x2;
+		String attr_img = "../upload/" + x1;
+		String attr_cardimg = "../upload/" + x2;
 
 		// 유효성 체크  null 이거나, 빈문자열이면 이전화면으로 돌아가기
 		if(attr_name != null && attr_name.trim().length() > 0){			

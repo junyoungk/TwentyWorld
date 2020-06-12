@@ -258,7 +258,7 @@ table, th, td {
       </div>
       
 <div class = "container">
-   <img src="attr_img/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
+   <img src="../upload/attraction_bg1.jpg" style="width: 100%;border-radius: 10px">
     <p class ="jb-text" style = "height: 20px; width : 100%; ">어트랙션</p>
 </div>
 <br>
@@ -311,7 +311,7 @@ table, th, td {
       <div class="attr_box" style="width : 100%; height : 200px">
        <a href="attrClientView.doat?attr_id=<%=attr_id%>" style="text-decoration: none;">
         <div class="attr_imgBx">
-          <img src="<%=attr_cardimg%>" onError="this.src='attr_img/20_black.jpg'" >
+          <img src="<%=attr_cardimg%>" onError="this.src='../upload//20_black.jpg'" >
         </div>
         <div class="attr_menu_content">
           <h3 style="color : white;"><%=attr_name%><p style="color : bdbdbd;"> → 바로가기</p></h3>
