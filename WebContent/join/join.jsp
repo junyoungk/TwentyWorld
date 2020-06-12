@@ -276,7 +276,7 @@ function check() {
 					</div>
 					 <br>
 					 <div class="text-center">
-					<input class="joinsubmittt" type="submit" value="JOIN" style="margin-top: 20px; width: 150px;"><br>
+					<input class="joinsubmittt" type="submit" value="JOIN" style="margin-top: 20px; width: 150px; margin-bottom: 40px;"><br>
 					</div>
 				</form>
 			</div>

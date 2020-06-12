@@ -172,7 +172,7 @@ function mapcheck(){
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col" colspan="2" style="border-top: 3px solid black;" >롯데월드 이용시</th>
+      <th scope="col" colspan="2" style="border-top: 3px solid black;" >20's WORLD 이용시</th>
      
     </tr>
   </thead>
