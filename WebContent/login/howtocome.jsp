@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <link href="../login/CSS/style.css" rel="stylesheet" type="text/css">
-<title>여러개 마커에 이벤트 등록하기1</title>
+<title>20's WORLD 오시는길</title>
 <script   src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <script>
