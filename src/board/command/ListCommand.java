@@ -78,7 +78,13 @@ public class ListCommand implements Command{
 			dao = new BoardDAO();
 			arr = dao.SelectByPages(fromRow, 10);
 			dao = new BoardDAO();
-			rarr = dao.replyCnt(arr);
+			if(arr != null) {
+				rarr = dao.replyCnt(arr);
+				request.setAttribute("recnt", rarr);
+			} else {
+				String str = "해당글이 없습니다";
+				request.setAttribute("str", str);
+			}
 			//"list" 란 name으로 request 에 arr 값 전달
 			// 즉 request 에 담아서 컨트롤러에 전달되는 셈
 			request.setAttribute("list", arr);
@@ -91,7 +97,13 @@ public class ListCommand implements Command{
 			dao = new BoardDAO();	
 			arr = dao.selectByCategory(categoryS, fromRow, 10);
 			dao = new BoardDAO();
-			rarr = dao.replyCnt(arr);
+			if(arr != null) {
+				rarr = dao.replyCnt(arr);
+				request.setAttribute("recnt", rarr);
+			} else {
+				String str = "해당글이 없습니다";
+				request.setAttribute("str", str);
+			}
 			request.setAttribute("list", arr);
 			request.setAttribute("cnt", totalPage);
 			request.setAttribute("recnt", rarr);
