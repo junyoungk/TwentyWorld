@@ -228,7 +228,7 @@ ${fn:replace(read[0].board_content,cn,br) }
 <a class="badge badge-light" style="font-size: 1.3em" href="view.do?uid=${prev[0].board_id }">${prev[0].board_subject }</a>
 </c:when>
 <c:otherwise>
-<span>이전글이 없습니다!</span>
+<span class="badge badge-light" style="font-size: 1.3em">이전글이 없습니다!</span>
 </c:otherwise>
 </c:choose>
     </div>
@@ -244,7 +244,7 @@ ${fn:replace(read[0].board_content,cn,br) }
 <a class="badge badge-light" style="font-size: 1.3em" href="view.do?uid=${next[0].board_id }">${next[0].board_subject }</a>
 </c:when>
 <c:otherwise>
-<span>다음글이 없습니다!</span>
+<span class="badge badge-light" style="font-size: 1.3em">다음글이 없습니다!</span>
 </c:otherwise>
 </c:choose>
     </div>
