@@ -53,7 +53,7 @@
 	
 	.button-3 {
 	    border: 2px solid #bbb;
-	    background-color: #bbb;
+	    background-color: #eee;
 	    border-radius: 20px;
 	    color: #fff;
 	    transition: .3s;
@@ -78,7 +78,7 @@
 	}
 	.button-4 {
 	    border: 2px solid #aaa;
-	    background-color: #aaa;
+	    background-color: #eee;
 	    border-radius: 20px;
 	    color: #fff;
 	    transition: .3s;
@@ -102,7 +102,7 @@
 	}
 	.button-5 {
 	    border: 2px solid #aaa;
-	    background-color: #aaa;
+	    background-color: #eee;
 	    border-radius: 20px;
 	    color: #fff;
 	    transition: .3s;

@@ -202,8 +202,8 @@ table, th, td {
               <a href="../login/login.jsp">로그인</a> 
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
-               <a href="../login/mypage.jsp" style="font-size:12px;">마이페이지</a>
-               <a href="../login/logoutCheck.jsp" style="font-size:12px;">로그아웃</a>
+               <a href="../login/mypage.jsp" >마이페이지</a>
+               <a href="../login/logoutCheck.jsp" >로그아웃</a>
                 <% } %>
               </div>
             </div>
