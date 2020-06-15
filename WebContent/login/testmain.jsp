@@ -98,7 +98,7 @@
                <a href="../login/mypage.jsp" style="font-size:12px;">마이페이지</a> |
                <a href="../login/logoutCheck.jsp" style="font-size:12px;">로그아웃</a>
                 <% } %>
-            </div>           
+            </div>
           </div>
         </div>
       </div>

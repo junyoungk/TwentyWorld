@@ -173,7 +173,9 @@ ${fn:replace(read[0].board_content,cn,br) }
 			<div class="card mb-2">
 			  <div class="card-header">
 			    <b>작성자: ${reply.writeName }</b>
+			    <c:if test="${reply.reply_useruid == (sessionScope.sessionName = userID) || (sessionScope.sessionName = userID) == 1}">
 			    <button type="button" class="btn btn-outline-secondary btn-sm float-right" onclick="location.href='ReplydeleteOk.do?reply_id=${reply.reply_id }&reply_boarderid=${read[0].board_id }'">&times;</button>
+			    </c:if>
 			  </div>
 			  <div class="card-body">
 			    <h5 class="card-title">${fn:replace(reply.reply_comment,cn,br) }</h5>

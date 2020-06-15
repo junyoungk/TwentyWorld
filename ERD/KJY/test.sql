@@ -244,7 +244,7 @@ INSERT INTO board VALUES (board_SEQ.nextval, sysdate, '오늘의 집 사이트 �
 각자의 집을 예쁘게 꾸며 보세요!!', 1, 0, 3000, '공지');
 
 
-
+DELETE FROM board WHERE BOARD_CATEGORY = '기타';
 
 
 
