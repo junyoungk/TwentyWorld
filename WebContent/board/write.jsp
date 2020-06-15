@@ -113,12 +113,12 @@ function chkSubmit(){ // 폼 검증
             </div>
             <div class="d-none d-lg-block col-lg-2 text-center align-self-center">
             <% if (userID == 0) { %>
-              <a href="login.jsp">로그인</a> |
+              <a href="../login/login.jsp">로그인</a> |
               <a href="../join/join.jsp">회원가입</a>
                <% } else { %>
                <h4 style="font-size: 15px;">${sessionScope.sessionName = userName }님 환영합니다</h4>
-               <a href="mypage.jsp">마이페이지</a>
-               <a href="logoutCheck.jsp">로그아웃</a>
+               <a href="../login/mypage.jsp">마이페이지</a>
+               <a href="../login/logoutCheck.jsp">로그아웃</a>
                 <% } %>
             </div>           
           </div>

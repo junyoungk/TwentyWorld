@@ -112,12 +112,12 @@ frm = document.forms["frm"];
 	if(minHeight == ""){ alert("최소키는 반드시 입력해야 합니다!"); frm["attr_min_height"].focus(); return false;}
 	if(maxHeight == ""){ alert("최대키는 반드시 입력해야 합니다!"); frm["attr_max_height"].focus(); return false;}
 
-	if(minAge < 0 || maxAge < 0 || minHeight < 0 || maxHeight < 0){
+	/* if(minAge < 0 || maxAge < 0 || minHeight < 0 || maxHeight < 0){
 		alert("나이와 키는 0이상이여야 합니다."); return false; }
 	if(minAge > maxAge){
 		alert("최소나이(" + minAge + ")는 최대나이(" + maxAge + ")를 넘을 수 없습니다."); return false;}
 	if(minHeight > maxHeight){
-		alert("최소키(" + minHeight + ")는 최대키(" + maxHeight + ")를 넘을 수 없습니다."); return false;}
+		alert("최소키(" + minHeight + ")는 최대키(" + maxHeight + ")를 넘을 수 없습니다."); return false;} */
 	
 	return true;
 }
