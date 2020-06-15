@@ -80,7 +80,7 @@
 			return false;
 		}
 		if (priced == "") {
-			alert("이용권 가격은 반드시 자겅하셔야합니다.");
+			alert("이용권 가격은 반드시 작성하셔야합니다.");
 			frm['price'].focus();
 			return false;
 		}

@@ -45,7 +45,7 @@ if(session.getAttribute("userID") != null){
 </head>
 <body>
 <div class="wrapper">
-<div class="header">
+<div class="header">	
 	<div class="container">
 		<div class="row">
 			<div id="myNav" class="overlay">
